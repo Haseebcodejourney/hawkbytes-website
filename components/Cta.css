@@ -1,0 +1,209 @@
+/* Mid-page CTA block — CyberCrest */
+
+.cta-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--black, #040410);
+  color: var(--white, #fff);
+}
+
+.cta-section .section-padding {
+  z-index: 2;
+  position: relative;
+}
+
+.cta-section .section-padding.top-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.cta-section .cta-wr {
+  justify-content: center;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: relative;
+  padding-left: 0.63rem;
+  padding-right: 0.63rem;
+}
+
+.cta-section .cta-stroke {
+  background-image: linear-gradient(
+    45deg,
+    rgb(101, 32, 9),
+    rgb(4, 4, 16) 23%,
+    rgb(71, 86, 118) 76%,
+    rgb(23, 106, 162)
+  );
+  border-radius: 0.63rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.19rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-section .cta-content {
+  z-index: 2;
+  background-color: var(--black, #040410);
+  text-align: center;
+  border-radius: 0.63rem;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 23.25rem;
+  padding: 2.38rem 5rem;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section .cta-content-bg {
+  z-index: -1;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
+
+.cta-section .cta-content-bg.is-mob {
+  display: none;
+}
+
+.cta-section .max-width-940 {
+  max-width: 58.75rem;
+}
+
+.cta-section .max-width-700 {
+  max-width: 43.75rem;
+}
+
+.cta-section .heading-style-48 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--white, #fff);
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.cta-section .spacer-medium-30 {
+  width: 100%;
+  padding-top: 1.88rem;
+}
+
+.cta-section .spacer-medium-36 {
+  width: 100%;
+  padding-top: 2.25rem;
+}
+
+.cta-section .text-font-rm {
+  font-family: var(--font-roboto-mono), Robotomono, "Roboto Mono", Arial,
+    monospace;
+}
+
+.cta-section .text-color-light-grey {
+  color: var(--light-grey, #bababa);
+}
+
+.cta-section .text-size-regular-16 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.cta-section .cta-back-bg {
+  pointer-events: none;
+  position: absolute;
+  inset: 0%;
+  z-index: 0;
+}
+
+.cta-section .cta-back-bg-img-1 {
+  width: 42.25rem;
+  position: absolute;
+  inset: auto auto -16.5rem -16.5rem;
+  opacity: 0.88;
+}
+
+.cta-section .cta-back-bg-img-2 {
+  width: 41.6563rem;
+  position: absolute;
+  inset: -16.4rem -16.4rem auto auto;
+  opacity: 0.83;
+}
+
+.cta-section .cta-back-bg-mob {
+  pointer-events: none;
+  display: none;
+  position: absolute;
+  inset: 0%;
+}
+
+@media screen and (max-width: 479px) {
+  .cta-section .cta-wr {
+    margin-left: 0.63rem;
+    margin-right: 0.63rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cta-section .cta-content {
+    align-items: stretch;
+    min-height: 0;
+    padding: 2.5rem 1.06rem 1.25rem;
+  }
+
+  .cta-section .cta-content-bg {
+    display: none;
+  }
+
+  .cta-section .cta-content-bg.is-mob {
+    z-index: -1;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    inset: 0%;
+  }
+
+  .cta-section .heading-style-48 {
+    font-size: 2rem;
+  }
+
+  .cta-section .spacer-medium-30.is-mob-30 {
+    padding-top: 1.88rem;
+  }
+
+  .cta-section .spacer-medium-36.is-mob-52 {
+    padding-top: 3.25rem;
+  }
+
+  .cta-section .text-size-regular-16 {
+    font-size: 0.88rem;
+  }
+
+  .cta-section .cta-back-bg {
+    display: none;
+  }
+
+  .cta-section .cta-back-bg-mob {
+    z-index: -1;
+    display: block;
+  }
+
+  .cta-section .cta-back-bg-mob .cta-back-bg-img-1 {
+    width: 21.56rem;
+    inset: auto auto -12rem -0.63rem;
+  }
+
+  .cta-section .cta-back-bg-mob .cta-back-bg-img-2 {
+    width: 22.5rem;
+    inset: -12rem -0.63rem auto auto;
+  }
+}

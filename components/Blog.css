@@ -1,0 +1,105 @@
+/* Blog section — Webflow base styles from styles/cybercrest */
+
+.blog-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--white-bg, #f6f6f6);
+  color: var(--black, #040410);
+}
+
+.blog-section .section-bg {
+  z-index: 1;
+  position: absolute;
+  inset: 0%;
+  pointer-events: none;
+}
+
+.blog-section .container {
+  z-index: 56;
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.63rem;
+  padding-right: 0.63rem;
+}
+
+.blog-section .container.is-relative {
+  position: relative;
+  height: 100%;
+}
+
+.blog-section .section-padding {
+  z-index: 2;
+  position: relative;
+}
+
+.blog-section .heading-style-48 {
+  margin: 0;
+  font-weight: 500;
+  color: var(--black, #040410);
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.blog-section .tagline-text-blue-gradient {
+  margin: 0 0 0.63rem;
+}
+
+.blog-section .home_blog-cl-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-section .home_blog-cl-card-info-wr p,
+.blog-section .home_blog-cl-card-title,
+.blog-section .home_blog-cl-card-title-gradient {
+  margin: 0;
+}
+
+.blog-section .home_blog-cl-card-title-wr {
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  color: var(--black, #040410);
+}
+
+.blog-section .button.w-variant-09568581-b747-f3e0-5ddb-1d10003baaf6 {
+  background-color: var(--black, #040410);
+  color: var(--white, #fff);
+  box-shadow: 0 0.25rem 0.25rem #043d6833;
+}
+
+.blog-section .button.w-variant-09568581-b747-f3e0-5ddb-1d10003baaf6:hover,
+.blog-section .button.w-variant-09568581-b747-f3e0-5ddb-1d10003baaf6:focus {
+  background-color: var(--black-gray, #41434d);
+  box-shadow: none;
+  color: var(--white, #fff);
+}
+
+@media screen and (min-width: 480px) {
+  .blog-section .home_blog-cl-item:nth-child(3n + 1) .home_blog-cl-card-title-wr {
+    font-size: 2rem;
+  }
+}
+
+.blog-section .home_blog-cl-item:hover .home_blog-cl-card-title-gradient {
+  opacity: 1;
+}
+
+.blog-section .home_blog-cl-item:hover .home_blog-cl-card-title {
+  opacity: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .blog-section .home_blog-cl {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .blog-section .home_blog-cl {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-section .home_blog-cl-item:nth-child(3n + 1) .home_blog-cl-card-title-wr {
+    font-size: 1.13rem;
+  }
+}

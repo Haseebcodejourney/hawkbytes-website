@@ -1,0 +1,22 @@
+﻿{
+    "files":  [
+                  {
+                      "name":  "webflow.shared.min.css",
+                      "url":  "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/css/cybercrest.webflow.shared.8419c1023.min.css"
+                  },
+                  {
+                      "name":  "swiper-bundle.min.css",
+                      "url":  "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+                  },
+                  {
+                      "name":  "inline-all.css",
+                      "note":  "7 embedded \u003cstyle\u003e blocks from homepage HTML"
+                  },
+                  {
+                      "name":  "root-vars.css",
+                      "note":  "Design tokens from :root in webflow CSS"
+                  }
+              ],
+    "fetchedAt":  "2026-07-28T09:20:28.1625589+03:00",
+    "source":  "https://www.cybercrestcompliance.com/"
+}

@@ -1,0 +1,18 @@
+﻿/* CyberCrest design tokens — extracted from live site CSS */
+
+:root {
+  --black: #040410;
+  --white: white;
+  --grey: #636363;
+  --transparent: transparent;
+  --link-color: #cc7b1d;
+  --primary: #229bf1;
+  --black-gray: #41434d;
+  --blue-active: #229bf1;
+  --tertiary: #ff4040;
+  --light-grey: #bababa;
+  --grey-blue: #a3a3bb;
+  --white-bg: #f6f6f6;
+  --success: #25ac1c;
+  accent-color: var(--primary);
+}

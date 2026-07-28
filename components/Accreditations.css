@@ -1,0 +1,224 @@
+/* Accreditations / Expertise section — CyberCrest */
+
+.accreditations-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--black, #040410);
+  color: var(--white, #fff);
+}
+
+.accreditations-section .section-padding {
+  z-index: 2;
+  position: relative;
+}
+
+.accreditations-section .section-padding.top-0 {
+  padding-top: 0;
+}
+
+.accreditations-section .container {
+  z-index: 56;
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.63rem;
+  padding-right: 0.63rem;
+}
+
+.accreditations-section .left-padding {
+  padding-left: 15rem;
+}
+
+.accreditations-section .align-left {
+  text-align: left;
+}
+
+.accreditations-section .tagline-text-blue-gradient {
+  margin: 0 0 0.63rem;
+}
+
+.accreditations-section .heading-style-48 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--white, #fff);
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.accreditations-section .spacer-medium-30 {
+  width: 100%;
+  padding-top: 1.88rem;
+}
+
+.accreditations-section .home_expertise {
+  position: relative;
+}
+
+.accreditations-section .home_expertise-bg-wr {
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+  pointer-events: none;
+}
+
+.accreditations-section .home_expertise-bg-img {
+  width: 70.31rem;
+  max-width: none;
+}
+
+.accreditations-section .home_expertise-bg-img.is-mob {
+  display: none;
+}
+
+.accreditations-section .home_expertise-line-wr {
+  z-index: 3;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+}
+
+.accreditations-section .home_expertise-line-img {
+  width: 73.75rem;
+  max-width: none;
+}
+
+.accreditations-section .home_expertise-line-img.is-mob {
+  display: none;
+}
+
+.accreditations-section .home_expertise-grid {
+  z-index: 2;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+  position: relative;
+}
+
+.accreditations-section .home_expertise-grid-item {
+  background-color: transparent;
+  text-align: center;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 11.25rem;
+  padding: 0.63rem;
+  display: flex;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.accreditations-section .home_expertise-item-logo-img {
+  opacity: 0.7;
+  width: 12.5rem;
+  transform: scale3d(1, 1, 1);
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.accreditations-section .home_expertise-item-txt {
+  color: var(--light-grey, #bababa);
+  font-family: var(--font-roboto-mono), Robotomono, "Roboto Mono", Arial, monospace;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  transform: translate3d(0, 0, 0);
+  transition:
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.accreditations-section .home_expertise-grid-item:hover {
+  background-color: var(--black, #040410);
+}
+
+.accreditations-section .home_expertise-grid-item:hover .home_expertise-item-logo-img {
+  opacity: 1;
+  transform: scale3d(0.7, 0.7, 1);
+}
+
+.accreditations-section .home_expertise-grid-item:hover .home_expertise-item-txt {
+  color: var(--white, #fff);
+  transform: translate3d(0, -0.625rem, 0);
+}
+
+.accreditations-section .home_expertise-border-img {
+  z-index: 2;
+  height: 22.5rem;
+  position: absolute;
+  inset: 0% 0% 0% auto;
+  pointer-events: none;
+}
+
+.accreditations-section .home_expertise-border-mob-img {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .accreditations-section .left-padding {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .accreditations-section .left-padding {
+    padding-left: 0;
+  }
+
+  .accreditations-section .heading-style-48 {
+    font-size: 2rem;
+  }
+
+  .accreditations-section .home_expertise-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .accreditations-section .home_expertise-bg-img {
+    display: none;
+  }
+
+  .accreditations-section .home_expertise-bg-img.is-mob {
+    width: 20.69rem;
+    display: block;
+  }
+
+  .accreditations-section .home_expertise-grid-item {
+    gap: 1.25rem;
+    height: auto;
+  }
+
+  .accreditations-section .home_expertise-item-logo-img {
+    width: 9.38rem;
+  }
+
+  .accreditations-section .home_expertise-item-txt {
+    font-size: 0.69rem;
+  }
+
+  .accreditations-section .home_expertise-border-img,
+  .accreditations-section .home_expertise-line-img {
+    display: none;
+  }
+
+  .accreditations-section .home_expertise-line-img.is-mob {
+    width: auto;
+    height: 50rem;
+    display: block;
+  }
+
+  .accreditations-section .home_expertise-border-mob-img {
+    width: 21.25rem;
+    max-width: none;
+    display: block;
+    position: absolute;
+    inset: auto auto 0% 0%;
+  }
+}

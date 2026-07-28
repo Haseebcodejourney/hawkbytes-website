@@ -1,0 +1,37 @@
+/* Mission section — Webflow base styles from styles/cybercrest */
+
+.home_mission {
+  position: relative;
+  z-index: 2;
+  background-color: var(--black, #040410);
+  color: var(--white, #fff);
+}
+
+.home_mission .heading-style-32 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--white, #fff);
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.home_mission .text-size-small-14 {
+  margin: 0;
+  line-height: 1.5;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.home_mission .tagline-text-blue-gradient {
+  margin: 0 0 0.63rem;
+}
+
+.home_mission .left-padding {
+  padding-right: 0.63rem;
+}
+
+@media screen and (max-width: 479px) {
+  .home_mission .left-padding {
+    padding-left: 0.63rem;
+    padding-right: 0.63rem;
+  }
+}

@@ -1,0 +1,89 @@
+﻿.button-glow {
+    --button-background: #fff;
+    --button-shadow: rgba(34, 155, 241, 0.3);
+    --button-shine-left: rgba(248, 138, 10, 0.5);
+    --button-shine-right: rgba(34, 155, 241, 0.65);
+    --button-glow-start: #e89f00;
+    --button-glow-end: #009FFD;
+
+    position: relative;
+    background: none;
+    z-index: 1;
+    box-shadow: 0 0.5rem 1.25rem var(--button-shadow);
+  }
+
+  .gradient {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    transform: scaleY(1.02) scaleX(1.005) rotate(-.35deg);
+  }
+
+  .gradient::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 0;
+    right: 0;
+    transform: scale(1.05) translateY(-2.75rem) rotate(0deg) translateZ(0);
+    padding-bottom: 100%;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--button-shine-left), var(--button-shine-right));
+    animation: rotate linear 2s infinite;
+  }
+
+  .button-glow-text-wr {
+    margin: 0.1rem;
+    z-index: 1;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: inherit;
+    background-color: var(--button-background);
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+
+  .button-glow-text-wr::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: -1rem;
+    transform: translate(var(--pointer-x, 0px), var(--pointer-y, 0px)) translateZ(0);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--button-glow, transparent);
+    opacity: var(--button-glow-opacity, 0);
+    transition: opacity var(--button-glow-duration, .3s);
+    filter: blur(20px);
+  }
+
+  .button-glow:hover {
+    --button-glow-opacity: 1;
+    --button-glow-duration: .25s;
+  }
+
+
+  @keyframes rotate {
+    to {
+      transform: scale(1.05) translateY(-2.75rem) rotate(360deg) translateZ(0);
+    }
+  }
+
+
+  @media (max-width: 479px) { 
+    .gradient {
+      opacity: 0;
+    }
+    .button-glow-text-wr {
+      margin: 0;
+    }
+    .button-glow:hover {
+      --button-glow-opacity: 0;
+    }
+  }
+
+  .button-text-wr:hover .is-arrow-right { 
+    transform: translate(0.25rem, 0px); }

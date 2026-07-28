@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --black: #040410;
+  --white: #ffffff;
+  --background: var(--black);
+  --foreground: var(--white);
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-roboto-mono);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-roboto-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/* Section vertical spacing — 72px default; special-cases below */
+main > section .section-padding {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+main > section.home_mission {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+/* Testimonials: no vertical padding (margin handled in component CSS) */
+main > section.testimonials-section .section-padding,
+main > section.testimonials-section .section-padding.top-0,
+main > section.testimonials-section .section-padding.bottom-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Services: flush into testimonials — no bottom padding */
+main > section.services-section .section-padding,
+main > section.services-section .section-padding.top-0,
+main > section.services-section .section-padding.bottom-120 {
+  padding-top: 72px;
+  padding-bottom: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll reveal — only hides after HomeMotion arms `.motion-ready` */
+.anim-appear-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+
+html.motion-ready .anim-appear-on-scroll:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 1.25rem, 0);
+}
+
+html.motion-ready .anim-appear-on-scroll {
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.motion-ready .anim-appear-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Avoid blank first paint if JS is delayed */
+@media (scripting: none) {
+  .anim-appear-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.motion-ready .anim-appear-on-scroll,
+  html.motion-ready .anim-appear-on-scroll:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+

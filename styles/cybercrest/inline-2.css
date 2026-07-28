@@ -1,0 +1,121 @@
+﻿.main-wrapper {
+    overflow-x: clip;
+  }
+
+  :root {
+    accent-color: var(--primary);
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  a {
+    text-underline-offset: 0.25rem; 
+  }
+
+  .text-size-medium {
+    text-underline-offset: 2.25rem; 
+  }
+
+  /* Remove blue box from links and dropdown on tap on mobile */
+  html {
+    \-webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
+  /* Make text look crisper and more legible in all browsers */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Fluid responsive */
+  html{font-size:calc(16*(100vw / 1600))}
+
+  @media (max-width: 479px) {
+    html{font-size:calc(16*(100vw / 360))}
+  }
+
+  @media (min-width: 1728px) {
+    html{font-size:16px}
+  }
+
+
+  /* Focus state style for keyboard navigation for the focusable elements */
+  *[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+    outline: 0.125rem solid var(--primary);
+    outline-offset: 0.125rem;
+  }
+
+  /* Get rid of top margin on first element in any rich text element */
+  .w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+    margin-top: 0 !important;
+  }
+
+  /* Get rid of bottom margin on last element in any rich text element */
+  .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* 
+  Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+  Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+  */
+
+  a,
+  .w-input,
+  .w-nav-link,
+  .w-dropdown-btn,
+  .w-dropdown-toggle,
+  .w-dropdown-link {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+
+  /* Apply "..." after 3 lines of text */
+  [text-3lines] {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Apply "..." after 4 lines of text */
+  [text-4lines] {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Hide Scrollbar */
+  [no-scrollbar]::-webkit-scrollbar {
+    display: none;
+  }
+  [no-scrollbar] {
+    -ms-overflow-style: none; 
+    overflow: -moz-scrollbars-none; 
+  }
+
+  /* navbar */ 
+  .navbar {
+    transition: background 0.3s ease, backdrop-filter 0.3s ease; 
+  }
+
+  .w-nav-overlay {
+    top: 0;
+  }
+
+
+  .footer-foursets-icon-wr:hover .footer-foursets-blur-wr { 
+    opacity: 1; }
+
+  .text-rich-text-14 li {
+    background-position: 0 0.4rem; }
+
+  .home_sticky-content-bottom-wr:hover .is-home-popup-video { 
+    color: var(--primary); }

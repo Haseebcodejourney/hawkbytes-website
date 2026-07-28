@@ -1,0 +1,14 @@
+﻿.home_testimonials-card {
+    transition: background 0.3s ease;
+  }
+  .swiper-slide-active .home_testimonials-card  {
+    background: radial-gradient(114.41% 114.9% at 12.95% 0%, #232B3F 0%, rgba(4, 4, 16, 0.00) 100%);
+  }
+
+  .swiper-slide-active .home_testimonials-icon {
+    opacity: 1;
+  }
+
+  .swiper-slide-active .home_quote-author-name {
+    color: var(--white);
+  }

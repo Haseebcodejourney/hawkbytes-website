@@ -1,0 +1,29 @@
+﻿@keyframes logo-scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 2rem));
+    }
+  }
+
+  .logo-scroll-left {
+    animation: logo-scroll-left 60s linear infinite;
+  }
+
+
+
+  @media (max-width: 479px) { 
+    @keyframes logo-scroll-left {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-100% - 1.25rem));
+      }
+    }
+
+    .logo-scroll-left {
+      animation: logo-scroll-left 30s linear infinite;
+    }
+  }

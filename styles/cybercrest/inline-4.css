@@ -1,0 +1,12 @@
+﻿.home_hero-tagline-line {
+    background: linear-gradient(41deg, rgba(42.66, 42.66, 42.66, 0) 0%, white 50%, rgba(32.49, 8.73, 8.73, 0) 100%);
+  }
+
+  .home_solutions-card:hover .button-text { 
+    color: var(--white); }
+
+  .home_solutions-card:hover .btn-text-icon { 
+    transform: translate(0.25rem, 0px); } 
+
+  .home_solutions-card:hover .home_solutions-vertical-gradient { 
+    opacity: 1; }

@@ -1,0 +1,14 @@
+﻿@media (min-width: 480px) {
+
+    /* Customize every 1st, 2nd, & 3rd item inside your collection item */
+    .home_blog-cl-item:nth-child(3n+1) .home_blog-cl-card-title-wr {font-size: 2rem;}
+
+  }
+
+  .home_blog-cl-item:hover .home_blog-cl-card-title-gradient { 
+    opacity: 1; 
+  }
+
+  .home_blog-cl-item:hover .home_blog-cl-card-title { 
+    opacity: 0; 
+  }
