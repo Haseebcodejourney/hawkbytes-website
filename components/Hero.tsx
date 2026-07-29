@@ -25,37 +25,37 @@ const TRUST_LOGOS = [
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced9338d6b38012a349c4d_Logo%D0%A11.avif",
     width: 80,
-    alt: "PCI DSS",
+    alt: "AI Research",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933fdbc46ec87b75318_Logo%D0%A12.avif",
     width: 80,
-    alt: "ISO 27001",
+    alt: "Quantum Computing",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd7e11ba5f91e7e8f7a1b0_Logo%20CMMC.avif",
     width: 80,
-    alt: "CMMC",
+    alt: "Software Products",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933f62e30bc7a280290_Logo%D0%A14.avif",
     width: 80,
-    alt: "CCPA",
+    alt: "Web Development",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933257e59d2dad41c9f_Logo%D0%A15.avif",
     width: 80,
-    alt: "GDPR",
+    alt: "Mobile Apps",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced93378e4bbab072b6640_Logo%D0%A16.avif",
     width: 80,
-    alt: "ISO 9001:2015",
+    alt: "QA Testing",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933432cd53fdbf6ec9d_Logo%D0%A17.avif",
     width: 90,
-    alt: "AICPA SOC",
+    alt: "Cloud Solutions",
   },
 ];
 
@@ -125,14 +125,14 @@ export default function Hero() {
             <div className="home_hero-content">
               <div className="home_hero-tagline-wr">
                 <div className="home_hero-tagline-line" />
-                <div>Expert-led cybersecurity compliance services</div>
+                <div>AI · Software · Quantum · Digital Services</div>
                 <div className="home_hero-tagline-line is-2" />
               </div>
 
               <div className="spacer-small-16 is-mob-20" />
 
               <h1 className="heading-style-60">
-                Elevate Your Cybersecurity Compliance
+                Building the Future with Intelligent Technology
               </h1>
 
               <div className="spacer-small-16 is-mob-20" />
@@ -140,9 +140,10 @@ export default function Hero() {
               <div className="max-width-580">
                 <div className="text-color-light-grey">
                   <p className="text-size-regular-16">
-                    CyberCrest is your trusted assessment and advisory partner with
-                    proven methodologies and dependable consultants to ensure your
-                    compliance and information security success.
+                    HawkBytes is a technology company pioneering AI products,
+                    software solutions, and quantum computing research — while
+                    delivering world-class web, mobile, and QA services to
+                    businesses worldwide.
                   </p>
                 </div>
               </div>
@@ -150,7 +151,7 @@ export default function Hero() {
               <div className="spacer-large-40" />
 
               <GlowButton href="/contact-us">
-                Talk to an expert
+                Start a Project
               </GlowButton>
 
               <div className="spacer-xxlarge-80" />

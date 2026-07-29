@@ -6,9 +6,8 @@ import "@/components/Hero.css";
 import "./PrivacyPolicy.css";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - CyberCrest",
-  description:
-    "Read CyberCrest's Privacy Policy to learn how we collect, use, and protect your personal information.",
+  title: "Privacy Policy — HawkBytes",
+  description: "Read HawkBytes Privacy Policy to learn how we collect, use, and protect your personal information.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -26,13 +25,13 @@ export default function PrivacyPolicyPage() {
 
                 <div className="text-rich-text-16">
                   <p>
-                    This Privacy Policy (&ldquo;Policy&rdquo;) describes how CyberCrest,
-                    Inc (&ldquo;CyberCrest,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo;
+                    This Privacy Policy (&ldquo;Policy&rdquo;) describes how HawkBytes,
+                    Inc (&ldquo;HawkBytes,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo;
                     &ldquo;us&rdquo;) collects, uses, and discloses certain personal
                     information obtained through our website (&ldquo;Site&rdquo;), which is
                     located at{" "}
-                    <a href="https://www.cybercrestcompliance.com/">
-                      www.CyberCrestCompliance.com
+                    <a href="https://www.hawkbytes.io/">
+                      www.hawkbytes.io
                     </a>{" "}
                     and the features made available to you through the Site. By using our
                     Site, you agree to the terms of this Policy.
@@ -184,7 +183,7 @@ export default function PrivacyPolicyPage() {
                     <strong>
                       <em>Third-party service providers.</em>
                     </strong>{" "}
-                    CyberCrest uses third-party service providers that perform services on
+                    HawkBytes uses third-party service providers that perform services on
                     our behalf, including web-hosting companies, mailing vendors, and
                     analytics providers. These service providers may collect and/or use your
                     information, including information that identifies you personally, to
@@ -322,16 +321,16 @@ export default function PrivacyPolicyPage() {
                     If you want to learn more about the personal information that we have
                     about you, or you would like to update, change, or delete that
                     information, please contact us by email at{" "}
-                    <a href="mailto:info@cybercrestcompliance.com">
-                      info@cybercrestcompliance.com
+                    <a href="mailto:info@hawkbytes.io">
+                      info@hawkbytes.io
                     </a>
                     .
                   </p>
                   <p>
                     You may opt out of receiving marketing emails from us by following the
                     instructions in those emails or by emailing us at{" "}
-                    <a href="mailto:info@cybercrestcompliance.com">
-                      info@cybercrestcompliance.com
+                    <a href="mailto:info@hawkbytes.io">
+                      info@hawkbytes.io
                     </a>
                     .
                   </p>
@@ -359,8 +358,8 @@ export default function PrivacyPolicyPage() {
                   <p>
                     To exercise any of the rights listed above, please contact us via email
                     at{" "}
-                    <a href="mailto:info@cybercrestcompliance.com">
-                      info@cybercrestcompliance.com
+                    <a href="mailto:info@hawkbytes.io">
+                      info@hawkbytes.io
                     </a>
                     . We will respond to your request as soon as reasonably possible and
                     within the timeframe required under applicable law. Prior to complying
@@ -411,7 +410,7 @@ export default function PrivacyPolicyPage() {
                   <p>
                     The information that we collect through or in connection with the Site
                     is transferred to and processed in the United States for the purposes
-                    described above. CyberCrest may subcontract the processing of your data
+                    described above. HawkBytes may subcontract the processing of your data
                     to, or otherwise share your data with, affiliates or third parties in
                     the United States or countries other than your country of residence. The
                     data protection laws in these countries may be different from, and less
@@ -441,8 +440,8 @@ export default function PrivacyPolicyPage() {
                   <p>
                     Should you have any questions or concerns about this Policy, you can
                     contact us at{" "}
-                    <a href="mailto:info@cybercrestcompliance.com">
-                      info@cybercrestcompliance.com
+                    <a href="mailto:info@hawkbytes.io">
+                      info@hawkbytes.io
                     </a>
                     .
                   </p>

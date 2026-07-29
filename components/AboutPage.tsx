@@ -145,14 +145,14 @@ export default function AboutPage() {
               <div className="spacer-small-16 is-mob-20" />
               <div className="about_hero-title-wr">
                 <h1 className="heading-style-60 is-mob-32">
-                  CyberCrest — Your Information Security Compliance Partner
+                  HawkBytes — Your Information Security Compliance Partner
                 </h1>
               </div>
               <div className="spacer-small-16 is-mob-20" />
               <div className="max-width-820">
                 <div className="text-color-light-grey">
                   <p className="text-size-small-14">
-                    The team of CyberCrest have come together to streamline your
+                    The team of HawkBytes have come together to streamline your
                     cybersecurity compliance and make it easier to achieve certifications
                     across frameworks, regulations and standards. We’re your trusted
                     consultants and compliance experts with decades of experience at your
@@ -162,7 +162,7 @@ export default function AboutPage() {
               </div>
               <div className="spacer-large-40" />
               <div className="about_hero-btn-row">
-                <GlowButton href="/contact-us">TALK TO AN EXPERT</GlowButton>
+                <GlowButton href="/contact-us">START A PROJECT</GlowButton>
                 <a href="#mission" className="button is-text">
                   <div className="button-text-wr">
                     <div>READ MORE</div>
@@ -219,7 +219,7 @@ export default function AboutPage() {
                       <div className="txt-2col-grid">
                         <div className="text-color-light-grey">
                           <p className="text-size-small-14">
-                            CyberCrest is a leading information security and compliance firm
+                            HawkBytes is a leading information security and compliance firm
                             that helps businesses achieve and maintain compliance with
                             information security and data privacy frameworks in addition to
                             providing technical assessment and remediation services to help
@@ -281,7 +281,7 @@ export default function AboutPage() {
                       <div className="spacer-medium-30" />
                       <div className="text-color-light-grey">
                         <p className="text-size-small-14-rm">
-                          CyberCrest has operations on both the east and west coast of the
+                          HawkBytes has operations on both the east and west coast of the
                           United States, and we provide our services globally, servicing APAC,
                           Europe, US, Canada and beyond.
                         </p>
@@ -301,7 +301,7 @@ export default function AboutPage() {
                     <div className="align-left">
                       <div className="about_features-title-wr">
                         <h2 className="heading-style-48">
-                          The CyberCrest Way for Partnership Success
+                          The HawkBytes Way for Partnership Success
                         </h2>
                         <div className="text-color-grey">
                           <p className="text-size-small-14">
@@ -351,7 +351,7 @@ export default function AboutPage() {
                         <div className="spacer-medium-20" />
                         <div className="text-color-light-grey">
                           <p className="text-size-small-14">
-                            Meet CyberCrest’s leadership team committed to delivering service
+                            Meet HawkBytes’s leadership team committed to delivering service
                             excellence to our global clients.
                           </p>
                         </div>

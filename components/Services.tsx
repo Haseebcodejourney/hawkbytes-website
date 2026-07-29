@@ -2,67 +2,56 @@ import "./Services.css";
 
 const SERVICES = [
   {
-    title: "Compliance Attestations and Certifications",
-    text: "Receive timely and streamlined information security attestations and certifications across all major regulations and standards to demonstrate your security posture to regulatory bodies, customers and stakeholders.",
+    title: "AI Products & Intelligent Systems",
+    text: "We design and build production-ready AI products — from machine learning models and NLP systems to computer vision and generative AI platforms. Our research-backed approach ensures your AI solution is reliable, scalable, and delivers measurable business value.",
     bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b93d6cc8917c806c220_Service%20Image1.avif",
     bgMob:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8543cc9dfe57cef9a_Service%20Image%20mob-1.avif",
-    bgAlt:
-      "Spotlight shining on a circular AICPA SOC 2 certification badge on a dark background.",
-    bgMobAlt:
-      "A metallic medallion with the text 'AICPA SOC 2' illuminated by a soft spotlight on a dark blue background.",
+    bgAlt: "Abstract AI neural network visualization on a dark background.",
+    bgMobAlt: "Glowing neural network nodes on a dark blue background.",
     decor:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf30f2bf050a9959f823fe_Service%20Icon%20Container.avif",
     decorClass: "home_services-card-bg-img-1",
-    decorAlt:
-      "Light blue background with a pattern of small white squares arranged in a grid.",
+    decorAlt: "Grid pattern overlay on a light blue background.",
     big: false,
     contentMax: false,
   },
   {
-    title: "Hands-On Remediation Assistance",
-    text: "Leave no security gap unpatched with our hands-on compliance issue remediation support that follows a thorough security risk assessment. This helps you prepare for a compliance audit and meet the requirements with confidence.",
+    title: "Software Engineering & Product Development",
+    text: "From concept to launch, our engineers craft high-performance software products using modern stacks. Whether it's a SaaS platform, enterprise system, or developer tool — we architect for scale, maintainability, and exceptional user experience.",
     bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b938ec65013603446c3_Service%20Image2.avif",
     bgMob:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8af8b749c0c95acc0_Service%20Image%20mob-2.avif",
-    bgAlt:
-      "Dark background with partial black gears on left and right edges and subtle dot pattern in the center top.",
-    bgMobAlt:
-      "Three dark metallic gears on the lower left corner with a black to dark gray gradient background and dotted pattern in the top right corner.",
+    bgAlt: "Dark background with abstract software code and gears.",
+    bgMobAlt: "Abstract dark metallic software engineering visualization.",
     big: true,
     contentMax: false,
     textWrap: true,
   },
   {
-    title:
-      "Compliance by Design — Prepare Environments for Compliance Success",
-    text: "Benefit from our application of industry-leading technology and expert supervision to set up audit-ready environments designed to pass rigorous compliance assessments. This gives your organization peace of mind and frees management to focus on your core business activities.",
+    title: "Quantum Computing Research & Applications",
+    text: "HawkBytes is at the frontier of quantum computing — conducting applied research, developing quantum algorithms, and building hybrid classical-quantum systems. We help forward-thinking organizations understand, prototype, and deploy quantum-ready solutions.",
     bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b93213f103ef3c806e8_Service%20Image3.avif",
     bgMob:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8c24388599247f086_Service%20Image%20mob-3.avif",
-    bgAlt:
-      "Silver shield emblem with stylized 'H' on a dark blue digital interface background.",
-    bgMobAlt:
-      "Dark blue gradient background with a pattern of small squares in the top right corner.",
+    bgAlt: "Quantum computing visualization on a dark blue digital background.",
+    bgMobAlt: "Dark blue gradient background with quantum circuit pattern.",
     big: true,
     contentMax: true,
     textWrap: true,
   },
   {
-    title: "Ongoing and Effective Compliance Maintenance",
-    text: "Get professional support in continuing to meet regulatory requirements. CyberCrest can assist your organization on an ongoing basis.",
+    title: "Web, Mobile & QA Services",
+    text: "We deliver pixel-perfect web applications, cross-platform mobile apps, and comprehensive QA testing. Our full-service delivery model covers everything from UI/UX design and React/Next.js development to automated testing, CI/CD pipelines, and ongoing maintenance.",
     bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b938ec65013603446bf_Service%20Image4.avif",
     bgMob:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda83e08862df5209870_Service%20Image%20mob-4.avif",
-    bgAlt:
-      "Calendar icon with a checkmark in the center against a brown and black gradient background with concentric circles and dotted pattern.",
-    bgMobAlt:
-      "Calendar icon with a checkmark in the center on a dark circular background with orange gradient and dotted pattern.",
+    bgAlt: "Mobile and web development visualization on dark background.",
+    bgMobAlt: "Mobile app screens on dark background with gradient.",
     decor:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf31cea1cc5910875af931_effects.avif",
     decorClass: "home_services-card-bg-img-2",
-    decorAlt:
-      "Close-up detail of an abstract orange and red textured pattern with small white square grid overlay.",
+    decorAlt: "Abstract orange and red textured pattern with grid overlay.",
     big: false,
     contentMax: false,
   },
@@ -81,15 +70,11 @@ export default function Services() {
 
               <div className="txt-2col-grid">
                 <h2 className="heading-style-48">
-                  How CyberCrest Helps Organizations
+                  How HawkBytes Drives Innovation for You
                 </h2>
                 <div className="text-color-grey">
                   <p className="text-size-small-14">
-                    Whether you’re prompted to pass your compliance audit by
-                    stakeholders, clients or regulatory bodies, or looking to
-                    strengthen your security posture proactively, CyberCrest is
-                    here to provide cybersecurity compliance consulting services
-                    throughout the process.
+                    Whether you need a cutting-edge AI product, a robust software platform, quantum computing expertise, or reliable digital services — HawkBytes brings research-driven thinking and engineering excellence to every engagement.
                   </p>
                 </div>
               </div>

@@ -9,20 +9,20 @@ const ASSETS = {
 
 const FACTS = [
   {
-    value: "Decades",
-    text: "of experience in the cybersecurity industry",
+    value: "50+",
+    text: "AI and software products shipped across diverse industries worldwide",
   },
   {
-    value: "100+",
-    text: "client engagements across industries",
+    value: "3+",
+    text: "years of active quantum computing research and applied experimentation",
   },
   {
-    value: "20+",
-    text: "industry-leading organization accreditations & consulting certifications",
+    value: "120+",
+    text: "successful web, mobile, and QA projects delivered for global clients",
   },
   {
     value: "100%",
-    text: "client retention rate. Our client retention rate speaks for itself",
+    text: "client satisfaction — we don't close a project until you are delighted",
   },
 ];
 
@@ -50,17 +50,13 @@ export default function KeyFacts({
                   ) : null}
                   <div className="grey-text-gradient">
                     <h2 className="heading-style-48">
-                      Key Facts about CyberCrest
+                      Key Facts about HawkBytes
                     </h2>
                   </div>
                   <div className="spacer-medium-20" />
                   <div className="text-color-light-grey">
                     <p className="text-size-small-14">
-                      With a focused, dedicated in-house team of certified
-                      cybersecurity consultants, CyberCrest is a reliable
-                      partner in meeting compliance standards and requirements.
-                      Headquartered in California (US), we operate globally and
-                      service clients in the US, Canada, Europe and APAC.
+                      HawkBytes is a product-focused technology company with a global footprint. From our engineering hubs, we build AI systems, enterprise software, and quantum prototypes while serving clients across North America, Europe, the Middle East, and Asia.
                     </p>
                   </div>
                   <div className="spacer-medium-20" />

@@ -4,9 +4,8 @@ import ContactPage from "@/components/ContactPage";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Contact Us - CyberCrest",
-  description:
-    "Get in touch with CyberCrest. Fill out our contact form and we’ll get back to you within 24 hours.",
+  title: "Contact Us — HawkBytes",
+  description: "Get in touch with HawkBytes. Tell us about your project and we will get back to you within 24 hours.",
 };
 
 export default function ContactUsRoute() {

@@ -5,9 +5,8 @@ import Footer from "@/components/Footer";
 import HomeMotion from "@/components/HomeMotion";
 
 export const metadata: Metadata = {
-  title: "About Us - CyberCrest",
-  description:
-    "CyberCrest — your information security compliance partner. Learn who we are, our key facts, global reach, team, and accreditations.",
+  title: "About Us — HawkBytes",
+  description: "Learn about HawkBytes — our mission, our team, our AI and quantum research, and how we deliver transformative technology solutions globally.",
 };
 
 export default function AboutUsRoute() {

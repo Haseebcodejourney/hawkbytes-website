@@ -25,11 +25,7 @@ export default function Quote() {
 
             <div className="max-width-940">
               <p className="home_quote-txt">
-                CyberCrest was founded because I noticed a severe value
-                proposition deficit in the information security compliance
-                space. Our value proposition and breadth of cybersecurity
-                services make CyberCrest one of the most valued information
-                security partners in the industry.
+                HawkBytes was founded on a simple belief: the most transformative technology should be accessible to every ambitious business. By combining AI research, software craftsmanship, and quantum thinking, we build products that don't just solve today's problems — they unlock tomorrow's opportunities.
               </p>
             </div>
 
@@ -42,20 +38,20 @@ export default function Quote() {
                   src={ASSETS.author}
                   loading="lazy"
                   width={40}
-                  alt="Smiling middle-aged man in a dark blazer and light blue shirt against a gray background."
+                  alt="HawkBytes founder and CEO."
                   className="home_quote-author-img"
                 />
               </div>
               <div className="home_quote-author-info">
                 <div className="text-weight-medium">
-                  <p className="text-size-small-14">John Huckeby</p>
+                  <p className="text-size-small-14">Haseeb Ahmed</p>
                 </div>
                 <div className="hide-on-mobile">
                   <p className="text-color-light-grey">—</p>
                 </div>
                 <div className="text-font-rm text-color-light-grey">
                   <p className="text-size-small-14">
-                    Founder and Managing Director
+                    Founder & CEO, HawkBytes
                   </p>
                 </div>
               </div>

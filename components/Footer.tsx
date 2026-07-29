@@ -28,39 +28,37 @@ const ASSETS = {
 };
 
 const COMPLIANCE_COL1 = [
-  { label: "ISO 9001", href: "https://www.cybercrestcompliance.com/services/iso-9001-compliance" },
-  { label: "CMMC", href: "https://www.cybercrestcompliance.com/services/cmmc-compliance" },
-  { label: "ISO 27001", href: "https://www.cybercrestcompliance.com/services/iso-27001-compliance" },
-  { label: "PCI DSS", href: "https://www.cybercrestcompliance.com/services/pci-dss-compliance" },
-  { label: "NIST 800-171", href: "https://www.cybercrestcompliance.com/services/nist-800-171-compliance" },
-  { label: "SOC 2", href: "https://www.cybercrestcompliance.com/services/soc2-compliance" },
-  { label: "NIS 2", href: "https://www.cybercrestcompliance.com/services/nis-2-compliance" },
+  { label: "AI Products", href: "/services/ai-products" },
+  { label: "Machine Learning", href: "/services/machine-learning" },
+  { label: "Natural Language Processing", href: "/services/nlp" },
+  { label: "Computer Vision", href: "/services/computer-vision" },
+  { label: "Generative AI", href: "/services/generative-ai" },
+  { label: "AI Research", href: "/services/ai-research" },
+  { label: "Data Engineering", href: "/services/data-engineering" },
 ];
 
 const COMPLIANCE_COL2 = [
-  { label: "HIPAA", href: "https://www.cybercrestcompliance.com/services/hipaa-compliance" },
-  { label: "HITRUST", href: "https://www.cybercrestcompliance.com/services/hitrust-compliance" },
-  { label: "NIST CSF", href: "https://www.cybercrestcompliance.com/services/nist-csf-assessment" },
-  { label: "FedRAMP", href: "https://www.cybercrestcompliance.com/services/fedramp-compliance" },
-  { label: "GDPR", href: "https://www.cybercrestcompliance.com/services/gdpr-compliance" },
-  { label: "CCPA", href: "https://www.cybercrestcompliance.com/services/ccpa-compliance" },
+  { label: "Software Products", href: "/services/software" },
+  { label: "SaaS Platforms", href: "/services/saas" },
+  { label: "Enterprise Systems", href: "/services/enterprise" },
+  { label: "Cloud Architecture", href: "/services/cloud" },
+  { label: "Quantum Computing", href: "/services/quantum" },
+  { label: "Quantum Algorithms", href: "/services/quantum-algorithms" },
 ];
 
 const TECHNICAL = [
-  { label: "PENETRATION TESTING", href: "https://www.cybercrestcompliance.com/services/penetration-testing" },
-  { label: "CLOUD SECURITY ASSESSMENT", href: "https://www.cybercrestcompliance.com/services/cloud-security" },
-  { label: "SECURITY ASSESSMENT", href: "https://www.cybercrestcompliance.com/services/risk-assessments" },
-  {
-    label: "BUSINESS CONTINUITY & DISASTER RECOVERY",
-    href: "https://www.cybercrestcompliance.com/services/business-continuity-and-disaster-recovery",
-  },
-  { label: "VULNERABILITY SCANNING", href: "https://www.cybercrestcompliance.com/services/vulnerability-scanning" },
+  { label: "WEB DEVELOPMENT", href: "/services/web-development" },
+  { label: "MOBILE APPS (iOS & Android)", href: "/services/mobile-apps" },
+  { label: "QA & AUTOMATED TESTING", href: "/services/qa-testing" },
+  { label: "UI/UX DESIGN", href: "/services/design" },
+  { label: "DEVOPS & CI/CD", href: "/services/devops" },
 ];
 
 const COMPANY = [
   { label: "ABOUT US", href: "/about-us" },
   { label: "CONTACT", href: "/contact-us" },
-  { label: "BLOG", href: "https://www.cybercrestcompliance.com/blog" },
+  { label: "BLOG", href: "/blog" },
+  { label: "CAREERS", href: "/careers" },
 ];
 
 type FooterKey = "compliance" | "technical" | "company" | "contact";
@@ -142,18 +140,17 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                         alt=""
                         className="cta-content-bg is-mob"
                       />
-                      <h2 className="heading-style-48">Move forward with confidence</h2>
+                      <h2 className="heading-style-48">Build Something Extraordinary</h2>
                       <div className="spacer-medium-30 is-mob-30" />
                       <div className="max-width-700">
                         <div className="text-font-rm text-color-light-grey">
                           <p className="text-size-regular-16">
-                            Don&apos;t let compliance delays hold you back from growing your
-                            business. Get in touch to talk it over with a CyberCrest expert.
+                            From AI to quantum — let&apos;s build the technology that gives your business an unfair advantage. Get in touch with the HawkBytes team.
                           </p>
                         </div>
                       </div>
                       <div className="spacer-medium-36 is-mob-52" />
-                      <GlowButton href="/contact-us">Talk to an expert</GlowButton>
+                      <GlowButton href="/contact-us">Start a Project</GlowButton>
                     </div>
 
                     <div className="cta-back-bg" aria-hidden="true">
@@ -212,7 +209,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
             <div className="footer-content-wr">
               <FooterItem
                 id="compliance"
-                title="Compliance and Data Privacy"
+                title="AI Products & Research"
                 open={openItem === "compliance"}
                 onToggle={onToggle}
               >
@@ -236,7 +233,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
 
               <FooterItem
                 id="technical"
-                title="Technical Services"
+                title="Digital Services"
                 open={openItem === "technical"}
                 onToggle={onToggle}
                 className="is-2"
@@ -284,9 +281,9 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                       rel="noopener noreferrer nofollow"
                       className="footer-link"
                     >
-                      Encinitas, CA 92024
+                      Lahore, Pakistan
                     </a>
-                    <a href="mailto:sales@cybercrestcompliance.com" className="footer-link">
+                    <a href="mailto:hello@hawkbytes.io" className="footer-link">
                       sales@cybercrestcompliance.com
                     </a>
                     <a
@@ -294,15 +291,15 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                       className="footer-link"
                       rel="noopener noreferrer nofollow"
                     >
-                      +1 (800) 587-1250
+                      +92 300 000 0000
                     </a>
                     <div className="spacer-medium-10" />
                     <a
-                      href="https://www.linkedin.com/company/cybercrest-compliance/?trk=ppro_cprof"
+                      href="https://www.linkedin.com/company/hawkbytes/"
                       target="_blank"
                       rel="noopener noreferrer nofollow"
                       className="div-link"
-                      aria-label="CyberCrest on LinkedIn"
+                      aria-label="HawkBytes on LinkedIn"
                     >
                       <div className="social-button">
                         <div className="social-button-icon">
@@ -322,14 +319,13 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                   <img
                     src={ASSETS.footerLogo}
                     loading="lazy"
-                    alt="CyberCrest"
+                    alt="HawkBytes"
                     className="footer-logo-img"
                   />
                 </div>
                 <div className="text-color-light-grey">
                   <p className="text-size-small-14-rm">
-                    © <span className="year">{year}</span> Cybercrest Compliance Services.
-                    All rights reserved
+                    © <span className="year">{year}</span> HawkBytes Technologies. All rights reserved
                   </p>
                 </div>
               </div>
@@ -345,7 +341,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
 
               <div className="footer-bottom-foursets-wr">
                 <div className="text-color-light-grey">
-                  <p className="text-size-small-14-rm">Website made by:</p>
+                  <p className="text-size-small-14-rm">HawkBytes Technologies</p>
                 </div>
                 <a
                   href="https://www.foursets.com/"

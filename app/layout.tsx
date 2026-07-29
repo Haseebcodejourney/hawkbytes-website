@@ -20,9 +20,9 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cybersecurity & Information Security Compliance Services - CyberCrest",
+  title: "Cybersecurity & Information Security Compliance Services - HawkBytes",
   description:
-    "Streamline your cybersecurity compliance with holistic compliance support, audit and attestation services from CyberCrest.",
+    "Streamline your cybersecurity compliance with holistic compliance support, audit and attestation services from HawkBytes.",
 };
 
 export default function RootLayout({

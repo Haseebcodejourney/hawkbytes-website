@@ -4,36 +4,33 @@ import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 
 const COMPLIANCE_LINKS = [
-  { label: "ISO 9001", href: "https://www.cybercrestcompliance.com/services/iso-9001-compliance" },
-  { label: "CMMC", href: "https://www.cybercrestcompliance.com/services/cmmc-compliance" },
-  { label: "ISO 27001", href: "https://www.cybercrestcompliance.com/services/iso-27001-compliance" },
-  { label: "PCI DSS", href: "https://www.cybercrestcompliance.com/services/pci-dss-compliance" },
-  { label: "NIST 800-171", href: "https://www.cybercrestcompliance.com/services/nist-800-171-compliance" },
-  { label: "SOC 2", href: "https://www.cybercrestcompliance.com/services/soc2-compliance" },
+  { label: "AI Products", href: "/services/ai-products" },
+  { label: "Machine Learning", href: "/services/machine-learning" },
+  { label: "NLP & LLMs", href: "/services/nlp" },
+  { label: "Computer Vision", href: "/services/computer-vision" },
+  { label: "Generative AI", href: "/services/generative-ai" },
+  { label: "AI Research", href: "/services/ai-research" },
 ];
 
 const COMPLIANCE_LINKS_COL2 = [
-  { label: "HIPAA", href: "https://www.cybercrestcompliance.com/services/hipaa-compliance" },
-  { label: "HITRUST", href: "https://www.cybercrestcompliance.com/services/hitrust-compliance" },
-  { label: "NIST CSF", href: "https://www.cybercrestcompliance.com/services/nist-csf-assessment" },
-  { label: "FedRAMP", href: "https://www.cybercrestcompliance.com/services/fedramp-compliance" },
-  { label: "NIS 2", href: "https://www.cybercrestcompliance.com/services/nis-2-compliance" },
+  { label: "Software Products", href: "/services/software" },
+  { label: "SaaS Platforms", href: "/services/saas" },
+  { label: "Cloud Architecture", href: "/services/cloud" },
+  { label: "Quantum Computing", href: "/services/quantum" },
+  { label: "Data Engineering", href: "/services/data-engineering" },
 ];
 
 const DATA_PRIVACY_LINKS = [
-  { label: "GDPR", href: "https://www.cybercrestcompliance.com/services/gdpr-compliance" },
-  { label: "CCPA", href: "https://www.cybercrestcompliance.com/services/ccpa-compliance" },
+  { label: "Quantum Algorithms", href: "/services/quantum-algorithms" },
+  { label: "Enterprise Systems", href: "/services/enterprise" },
 ];
 
 const TECHNICAL_LINKS = [
-  { label: "Penetration Testing", href: "https://www.cybercrestcompliance.com/services/penetration-testing" },
-  { label: "Risk Assessments", href: "https://www.cybercrestcompliance.com/services/risk-assessments" },
-  { label: "Vulnerability Scanning", href: "https://www.cybercrestcompliance.com/services/vulnerability-scanning" },
-  {
-    label: "Business Continuity and Disaster Recovery",
-    href: "https://www.cybercrestcompliance.com/services/business-continuity-and-disaster-recovery",
-  },
-  { label: "Cloud Security", href: "https://www.cybercrestcompliance.com/services/cloud-security" },
+  { label: "Web Development", href: "/services/web-development" },
+  { label: "Mobile Apps", href: "/services/mobile-apps" },
+  { label: "QA & Automated Testing", href: "/services/qa-testing" },
+  { label: "UI/UX Design", href: "/services/design" },
+  { label: "DevOps & CI/CD", href: "/services/devops" },
 ];
 
 function ContactIcon() {
@@ -139,7 +136,7 @@ export default function Header() {
     >
       <div className="container">
         <div className="navbar-wr">
-          <a href="/" className="brand" aria-label="CyberCrest home">
+          <a href="/" className="brand" aria-label="HawkBytes home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               loading="eager"
@@ -259,7 +256,7 @@ export default function Header() {
                     aria-expanded={openDropdown === "technical"}
                     onClick={() => isMobile && toggleDropdown("technical")}
                   >
-                    <span>Technical Services</span>
+                    <span>Digital Services</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
                       <ChevronIcon />
                     </div>

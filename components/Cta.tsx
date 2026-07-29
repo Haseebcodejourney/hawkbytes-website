@@ -40,7 +40,7 @@ export default function Cta() {
 
               <div className="max-width-940">
                 <h2 className="heading-style-48">
-                  Get expert compliance support
+                  Ready to Build Something Extraordinary?
                 </h2>
               </div>
 
@@ -49,8 +49,7 @@ export default function Cta() {
               <div className="max-width-700">
                 <div className="text-font-rm text-color-light-grey">
                   <p className="text-size-regular-16">
-                    Achieve compliance with confidence. Get expert advice on how
-                    to get started from the CyberCrest team.
+                    Whether it's an AI product, a software platform, a quantum prototype, or a digital service — let's talk about turning your vision into reality with the HawkBytes team.
                   </p>
                 </div>
               </div>
@@ -58,7 +57,7 @@ export default function Cta() {
               <div className="spacer-medium-36 is-mob-52" />
 
               <GlowButton href="/contact-us">
-                Talk to an expert
+                Start a Project
               </GlowButton>
             </div>
 

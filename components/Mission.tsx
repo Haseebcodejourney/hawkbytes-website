@@ -9,8 +9,8 @@ export default function Mission() {
 
           <div className="max-width-870">
             <h2 className="heading-style-32">
-              Achieve Certifications and Reduce Risks with Efficient, Expert-Led
-              Cybersecurity Compliance Solutions
+              Accelerating Innovation Through AI Research, Intelligent Software,
+              and Next-Generation Quantum Computing
             </h2>
           </div>
 
@@ -19,17 +19,18 @@ export default function Mission() {
           <div className="txt-2col-grid">
             <div className="text-color-light-grey">
               <p className="text-size-small-14">
-                Businesses face mounting pressure to comply with evolving
-                cybersecurity regulations. CyberCrest is here to simplify complex
-                cybersecurity compliance requirements that delay your growth.
+                The technology landscape is evolving faster than ever. HawkBytes
+                exists to help businesses stay ahead — by building AI-powered
+                products, conducting deep research, and engineering software that
+                solves real-world problems at scale.
               </p>
             </div>
             <div className="text-color-light-grey">
               <p className="text-size-small-14">
-                Our certified team provides assessment and compliance advisory
-                services to streamline information security certifications and
-                attestations, fix security gaps and improve audit success so you
-                can stay compliant, win new clients and confidently move forward.
+                From quantum computing research to full-stack web and mobile
+                development, our expert team delivers end-to-end technology
+                solutions — backed by rigorous QA, modern architecture, and a
+                commitment to quality that drives measurable outcomes for every client.
               </p>
             </div>
           </div>

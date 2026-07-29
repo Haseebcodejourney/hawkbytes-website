@@ -3,33 +3,33 @@ import "./WhyUs.css";
 const FEATURES = [
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04d9dc22d47a4a569f9d0_Feature%20Icon-1.svg",
-    title: "Client First",
-    text: "CyberCrest will always put your organization’s needs and business goals first when assisting you on the way to maturing your security program. We make your priorities central to our strategy without sacrificing quality. Unlike many of our competitors, CyberCrest customizes its approach to every client’s needs.",
+    title: "Research-Driven",
+    text: "Every product we build starts with deep research. HawkBytes invests in understanding the cutting edge of AI, quantum computing, and software engineering before a single line of code is written — ensuring your solution is future-proof from day one.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04e9cc9cabf34590aba5a_Feature%20Icon-2.svg",
-    title: "Remediation Support",
-    text: "We’re proud of being able to support any information security implementation and remediation efforts. From technical to administrative tasks, we roll up our sleeves to ensure our client’s compliance success without compromising best practices and requirements.",
+    title: "End-to-End Delivery",
+    text: "We handle everything — from discovery and architecture to development, testing, deployment, and maintenance. One team owns your product from idea to production, ensuring accountability and seamless execution.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04eac6b739fc452077b3b_Feature%20Icon-3.svg",
-    title: "Technology Enabled",
-    text: "We leverage state-of-the-art audit and compliance software to streamline and enhance your compliance journey. Our consultants are also trained and have hands-on experience with the top compliance platform vendors.",
+    title: "AI & Quantum Expertise",
+    text: "HawkBytes has dedicated engineers and researchers specializing in machine learning, large language models, computer vision, and quantum algorithms — letting us tackle the most advanced technology challenges businesses face today.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04eac714c789fba13eaf7_Feature%20Icon-4.svg",
-    title: "Ready to Start",
-    text: "While some cybersecurity compliance firms may require several months to get started, CyberCrest staffs up ahead of time and is always ready to kickstart the engagement.",
+    title: "Fast, Agile Execution",
+    text: "We move quickly without sacrificing quality. Our agile delivery model means you see working software in weeks, not months. We iterate based on your feedback, keeping every sprint focused on delivering real value.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04eacfc9e84f29571a53c_Feature%20Icon-5.svg",
-    title: "Resume Matters",
-    text: "We guarantee highly qualified consultants to lead your engagement by boasting some of the highest education and experience requirements in the industry.",
+    title: "Senior Engineering Talent",
+    text: "Every project at HawkBytes is led by senior engineers and researchers. We maintain rigorous hiring standards to ensure the people building your product have the expertise and passion to deliver exceptional results.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04eac300bf43216b50d33_Feature%20Icon-6.svg",
-    title: "Client Testimonials",
-    text: "CyberCrest demonstrates 100% client retention with references available across multiple industries. Experience our high standard of cyber compliance services and work ethics for yourself with CyberCrest’s team on board.",
+    title: "Client-Centric Culture",
+    text: "Your goals are our goals. HawkBytes builds long-term partnerships based on transparency, honest communication, and genuine investment in your success. Our clients stay because the results speak for themselves.",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function WhyUs() {
               <div className="align-left">
                 <p className="tagline-text-blue-gradient">WHY US</p>
                 <h2 className="heading-style-48">
-                  Why CyberCrest for Your Compliance Success
+                  Why HawkBytes is Your Innovation Partner
                 </h2>
               </div>
               <div className="text-color-light-grey">

@@ -118,7 +118,7 @@ export default function ContactPage() {
                 </div>
 
                 <h1 className="heading-style-48 is-contact-page">
-                  Let’s talk compliance — CyberCrest is here to help.
+                  Let’s talk compliance — HawkBytes is here to help.
                 </h1>
 
                 <div className="max-width-580">
@@ -136,7 +136,7 @@ export default function ContactPage() {
                     <p className="text-size-small-14-rm">Call</p>
                   </div>
                   <a href="tel:+18005871250" className="contact_hero-link">
-                    +1 (800) 587-1250
+                    +92 300 000 0000
                   </a>
                 </div>
 
@@ -145,10 +145,10 @@ export default function ContactPage() {
                     <p className="text-size-small-14-rm">Send Email</p>
                   </div>
                   <a
-                    href="mailto:sales@cybercrestcompliance.com"
+                    href="mailto:sales@hawkbytescompliance.com"
                     className="contact_hero-link"
                   >
-                    sales@cybercrestcompliance.com
+                    sales@hawkbytescompliance.com
                   </a>
                 </div>
 
@@ -164,7 +164,7 @@ export default function ContactPage() {
                   <div className="spacer-medium-10" />
                   <div className="text-color-light-grey">
                     <p className="text-size-small-14">
-                      The CyberCrest team has consistently produced high quality
+                      The HawkBytes team has consistently produced high quality
                       deliverables at fair prices. We give their client prospects
                       our strongest recommendation.
                     </p>
@@ -251,7 +251,7 @@ export default function ContactPage() {
                               <input
                                 className="form_input"
                                 name="Phone-number"
-                                placeholder="+1 (800) 587-1250"
+                                placeholder="+92 300 000 0000"
                                 type="tel"
                                 required
                               />
@@ -369,7 +369,7 @@ export default function ContactPage() {
                               <span className="form_checkbox-label">
                                 By submitting this form, you agree to our{" "}
                                 <a
-                                  href="https://www.cybercrestcompliance.com/privacy-policy"
+                                  href="https://www.hawkbytescompliance.com/privacy-policy"
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="span-link-orange"
@@ -475,7 +475,7 @@ export default function ContactPage() {
                 <p className="text-size-large-21">Your message was sent.</p>
                 <div className="text-color-light-grey">
                   <p className="text-size-small-14-rm">
-                    Thank you for reaching out. A CyberCrest expert will soon get back to
+                    Thank you for reaching out. A HawkBytes expert will soon get back to
                     you.
                   </p>
                 </div>

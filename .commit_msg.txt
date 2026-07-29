@@ -1,12 +1,13 @@
-Add Contact Us, About Us, Privacy Policy pages and fix full responsiveness.
+Rebrand website from CyberCrest to HawkBytes across all pages and components.
 
-- Add /contact-us page with interactive form, dropdown, reCAPTCHA-style checkbox
-- Add /about-us page with hero video, mission marquee, map, team, accreditations
-- Add /privacy-policy page with full policy content and background SVG
-- Make StickyNav and KeyFacts reusable with configurable props
-- Scope homepage 72px padding rule to main.home-page only
-- Fix Header nav to collapse at 991px (tablet) not just 479px
-- Add 767px tablet-portrait breakpoints across Hero, AboutPage, Accreditations
-- Add 991px tablet breakpoints to Quote, Cta, Footer, PrivacyPolicy
-- Add box-sizing, overflow-x, antialiased, CSS vars to globals.css
-- Update all internal links to relative paths
+- Hero: new tagline, heading, description for AI/Software/Quantum/Services brand
+- Mission: updated to HawkBytes innovation mission statement
+- Services: 4 cards rewritten for AI Products, Software Engineering, Quantum Computing, Web/Mobile/QA
+- WhyUs: 6 features rewritten for HawkBytes differentiators
+- KeyFacts: stats and description updated for HawkBytes
+- Quote: attributed to HawkBytes founder with new quote
+- CTA sections: updated copy and button text to "Start a Project"
+- Header: nav dropdowns rewritten with AI, Software, Quantum, Digital Services links
+- Footer: columns, contact info, copyright updated for HawkBytes
+- About Us, Contact Us, Privacy Policy: all CyberCrest references replaced with HawkBytes
+- Contact info: hello@hawkbytes.io, Lahore, Pakistan
