@@ -1,0 +1,12 @@
+Add Contact Us, About Us, Privacy Policy pages and fix full responsiveness.
+
+- Add /contact-us page with interactive form, dropdown, reCAPTCHA-style checkbox
+- Add /about-us page with hero video, mission marquee, map, team, accreditations
+- Add /privacy-policy page with full policy content and background SVG
+- Make StickyNav and KeyFacts reusable with configurable props
+- Scope homepage 72px padding rule to main.home-page only
+- Fix Header nav to collapse at 991px (tablet) not just 479px
+- Add 767px tablet-portrait breakpoints across Hero, AboutPage, Accreditations
+- Add 991px tablet breakpoints to Quote, Cta, Footer, PrivacyPolicy
+- Add box-sizing, overflow-x, antialiased, CSS vars to globals.css
+- Update all internal links to relative paths

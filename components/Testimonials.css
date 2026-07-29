@@ -5,21 +5,11 @@
   overflow: hidden;
   background-color: var(--black, #040410);
   color: var(--white, #fff);
-  margin-top: 0;
-  margin-bottom: 72px;
 }
 
 .testimonials-section .section-padding {
   z-index: 2;
   position: relative;
-}
-
-.testimonials-section .section-padding.top-0 {
-  padding-top: 0;
-}
-
-.testimonials-section .section-padding.bottom-0 {
-  padding-bottom: 0;
 }
 
 .testimonials-section .container {

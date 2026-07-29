@@ -78,11 +78,19 @@ const ITEMS = [
   },
 ];
 
-export default function Accreditations() {
+export default function Accreditations({
+  paddingClass = "top-0",
+  visibleOnLoad = false,
+}: {
+  paddingClass?: string;
+  visibleOnLoad?: boolean;
+}) {
   return (
     <section id="accreditations" className="section accreditations-section">
-      <div className="section-padding top-0">
-        <div className="container anim-appear-on-scroll">
+      <div className={`section-padding ${paddingClass}`}>
+        <div
+          className={`container anim-appear-on-scroll${visibleOnLoad ? " is-visible" : ""}`}
+        >
           <div className="left-padding">
             <div className="align-left">
               <p className="tagline-text-blue-gradient">EXPERTISE</p>

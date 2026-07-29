@@ -12,13 +12,6 @@
   position: relative;
 }
 
-.services-section .section-padding.top-0 {
-  padding-top: 0;
-}
-
-html body main > section.services-section > .section-padding.bottom-120 {
-  padding-bottom: 0;
-}
 
 .services-section .container {
   z-index: 56;
@@ -207,10 +200,6 @@ html body main > section.services-section > .section-padding.bottom-120 {
 }
 
 @media screen and (max-width: 479px) {
-  .services-section .section-padding.bottom-120 {
-    padding-bottom: 5rem;
-  }
-
   .services-section .txt-2col-grid {
     grid-template-columns: 1fr;
   }

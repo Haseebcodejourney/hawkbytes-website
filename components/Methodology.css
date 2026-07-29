@@ -12,10 +12,6 @@
   position: relative;
 }
 
-.methodology-section .section-padding.top-0 {
-  padding-top: 0;
-}
-
 .methodology-section .container {
   z-index: 56;
   width: 100%;

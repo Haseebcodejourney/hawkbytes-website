@@ -57,7 +57,7 @@ export default function Cta() {
 
               <div className="spacer-medium-36 is-mob-52" />
 
-              <GlowButton href="https://www.cybercrestcompliance.com/contact-us">
+              <GlowButton href="/contact-us">
                 Talk to an expert
               </GlowButton>
             </div>

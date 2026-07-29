@@ -1,0 +1,126 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import "./StickyNav.css";
+
+export type StickyNavLink = { href: string; num: string; label: string };
+
+const HOME_LINKS: StickyNavLink[] = [
+  { href: "#mission", num: "01", label: "MISSION" },
+  { href: "#services", num: "02", label: "OUR SERVICES" },
+  { href: "#testimonials", num: "03", label: "TESTIMONIALS" },
+  { href: "#attestations", num: "04", label: "ATTESTATIONS" },
+  { href: "#methodology", num: "05", label: "METHODOLOGY" },
+  { href: "#solutions", num: "06", label: "TECH SOLUTIONS" },
+  { href: "#why-us", num: "07", label: "WHY US" },
+  { href: "#facts", num: "08", label: "KEY FACTS" },
+  { href: "#accreditations", num: "09", label: "ACCREDITATIONS" },
+];
+
+const VIDEO = {
+  poster:
+    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10%2F67d19301b1f1e997d883b9c7_popup-poster-00001.jpg",
+  mp4: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10%2F67d19301b1f1e997d883b9c7_popup-transcode.mp4",
+  webm: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10%2F67d19301b1f1e997d883b9c7_popup-transcode.webm",
+};
+
+function ContactIcon() {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 19 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M18.5 12V18H12.5C11.4478 17.9989 10.4144 17.7212 9.50349 17.1946C8.59255 16.6681 7.83609 15.9112 7.31 15C7.8754 14.996 8.43888 14.9336 8.9915 14.814C9.41236 15.3402 9.94625 15.765 10.5536 16.0569C11.1609 16.3487 11.8262 16.5002 12.5 16.5H17V12C16.9998 11.3259 16.8479 10.6605 16.5555 10.0532C16.2631 9.44582 15.8378 8.91206 15.311 8.4915C15.4316 7.93899 15.495 7.37551 15.5 6.81C16.4112 7.33609 17.1681 8.09255 17.6946 9.00349C18.2212 9.91443 18.4989 10.9478 18.5 12ZM14 6.75C14 4.95979 13.2888 3.2429 12.023 1.97703C10.7571 0.711159 9.04021 0 7.25 0C5.45979 0 3.7429 0.711159 2.47703 1.97703C1.21116 3.2429 0.5 4.95979 0.5 6.75L0.5 13.5H7.25C9.0396 13.498 10.7553 12.7862 12.0208 11.5208C13.2862 10.2553 13.998 8.5396 14 6.75ZM2 6.75C2 5.71165 2.30791 4.69661 2.88478 3.83326C3.46166 2.9699 4.2816 2.29699 5.24091 1.89963C6.20022 1.50227 7.25582 1.3983 8.27422 1.60088C9.29262 1.80345 10.2281 2.30346 10.9623 3.03769C11.6965 3.77191 12.1966 4.70738 12.3991 5.72578C12.6017 6.74418 12.4977 7.79978 12.1004 8.75909C11.703 9.7184 11.0301 10.5383 10.1667 11.1152C9.30339 11.6921 8.28835 12 7.25 12H2V6.75Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+export default function StickyNav({
+  links = HOME_LINKS,
+  noBottomPadding = false,
+}: {
+  links?: StickyNavLink[];
+  noBottomPadding?: boolean;
+}) {
+  const [active, setActive] = useState(links[0]?.href ?? "#mission");
+
+  useEffect(() => {
+    const ids = links.map((l) => l.href.slice(1));
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (!elements.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target?.id) {
+          setActive(`#${visible[0].target.id}`);
+        }
+      },
+      { rootMargin: "-20% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] },
+    );
+
+    elements.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [links]);
+
+  return (
+    <div
+      className={`home_sticky-absolute${noBottomPadding ? " no-bottom-padding" : ""}`}
+      aria-label="Section navigation"
+    >
+      <div className="home_sticky-inner">
+        <div className="home_sticky-content-links-wr">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`home_sticky-content-link${
+                active === link.href ? " is-active" : ""
+              }`}
+            >
+              <div>{link.num}</div>
+              <div>/</div>
+              <div>{link.label}</div>
+            </a>
+          ))}
+        </div>
+
+        <a href="/contact-us" className="home_sticky-content-bottom-wr">
+          <div className="home_sticky-content-video">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster={VIDEO.poster}
+              style={{ backgroundImage: `url("${VIDEO.poster}")` }}
+            >
+              <source src={VIDEO.mp4} type="video/mp4" />
+              <source src={VIDEO.webm} type="video/webm" />
+            </video>
+          </div>
+          <div className="button">
+            <div className="button-text-wr is-home-popup-video">
+              <div className="btn-icon-embed">
+                <ContactIcon />
+              </div>
+              <div>TALK TO AN EXPERT</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  );
+}

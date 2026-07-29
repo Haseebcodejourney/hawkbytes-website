@@ -12,10 +12,6 @@
   position: relative;
 }
 
-.faq-section .section-padding.top-0 {
-  padding-top: 0;
-}
-
 .faq-section .container {
   z-index: 56;
   width: 100%;

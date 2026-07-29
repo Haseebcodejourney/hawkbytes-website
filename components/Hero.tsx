@@ -149,7 +149,7 @@ export default function Hero() {
 
               <div className="spacer-large-40" />
 
-              <GlowButton href="https://www.cybercrestcompliance.com/contact-us">
+              <GlowButton href="/contact-us">
                 Talk to an expert
               </GlowButton>
 

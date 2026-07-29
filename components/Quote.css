@@ -12,10 +12,6 @@
   position: relative;
 }
 
-.quote-section .section-padding.top-0 {
-  padding-top: 0;
-}
-
 .quote-section .container {
   z-index: 56;
   width: 100%;
@@ -131,6 +127,12 @@
 
 .quote-section .hide-on-mobile p {
   margin: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .quote-section .home_quote-txt {
+    font-size: 1.13rem;
+  }
 }
 
 @media screen and (max-width: 479px) {

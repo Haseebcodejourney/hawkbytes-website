@@ -7,6 +7,11 @@
   --foreground: var(--white);
   --font-sans: var(--font-poppins);
   --font-mono: var(--font-roboto-mono);
+  --light-grey: #bababa;
+  --grey: #636363;
+  --primary: #229bf1;
+  --link-color: #cc7b1d;
+  --grey-blue: #a3a3bb;
 }
 
 @theme inline {
@@ -16,6 +21,12 @@
   --font-mono: var(--font-roboto-mono);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--black);
   color: var(--white);
@@ -23,6 +34,15 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -31,31 +51,16 @@ a {
   background-color: transparent;
 }
 
-/* Section vertical spacing — 72px default; special-cases below */
-main > section .section-padding {
-  padding-top: 72px;
-  padding-bottom: 72px;
-}
-
-main > section.home_mission {
-  padding-top: 72px;
-  padding-bottom: 72px;
-}
-
-/* Testimonials: no vertical padding (margin handled in component CSS) */
-main > section.testimonials-section .section-padding,
-main > section.testimonials-section .section-padding.top-0,
-main > section.testimonials-section .section-padding.bottom-0 {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-/* Services: flush into testimonials — no bottom padding */
-main > section.services-section .section-padding,
-main > section.services-section .section-padding.top-0,
-main > section.services-section .section-padding.bottom-120 {
-  padding-top: 72px;
-  padding-bottom: 0;
+/* Uniform 72px top + bottom gap on homepage sections only */
+main.home-page section .section-padding,
+main.home-page section .section-padding.top-0,
+main.home-page section .section-padding.top-160,
+main.home-page section .section-padding.bottom-0,
+main.home-page section .section-padding.bottom-120,
+main.home-page section .section-padding.bottom-160,
+main.home-page section.home_mission {
+  padding-top: 72px !important;
+  padding-bottom: 72px !important;
 }
 
 html {

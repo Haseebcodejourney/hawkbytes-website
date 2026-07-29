@@ -58,8 +58,8 @@ const TECHNICAL = [
 ];
 
 const COMPANY = [
-  { label: "ABOUT US", href: "https://www.cybercrestcompliance.com/about-us" },
-  { label: "CONTACT", href: "https://www.cybercrestcompliance.com/contact-us" },
+  { label: "ABOUT US", href: "/about-us" },
+  { label: "CONTACT", href: "/contact-us" },
   { label: "BLOG", href: "https://www.cybercrestcompliance.com/blog" },
 ];
 
@@ -110,7 +110,7 @@ function FooterItem({
   );
 }
 
-export default function Footer() {
+export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
   const [openItem, setOpenItem] = useState<FooterKey | null>(null);
   const year = new Date().getFullYear();
 
@@ -119,95 +119,95 @@ export default function Footer() {
   };
 
   return (
-    <section className="section is-footer">
+    <section className={`section is-footer${hideCta ? " is-no-cta" : ""}`}>
       <div className="section-padding">
         <div className="container">
           <div className="footer-wr">
-            <div className="footer-cta-wr anim-appear-on-scroll">
-              <div className="cta-wr">
-                <div className="cta-stroke">
-                  <div className="cta-content is-footer">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={ASSETS.ctaBg}
-                      loading="lazy"
-                      alt=""
-                      className="cta-content-bg"
-                    />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={ASSETS.ctaBgMob}
-                      loading="lazy"
-                      alt=""
-                      className="cta-content-bg is-mob"
-                    />
-                    <h2 className="heading-style-48">Move forward with confidence</h2>
-                    <div className="spacer-medium-30 is-mob-30" />
-                    <div className="max-width-700">
-                      <div className="text-font-rm text-color-light-grey">
-                        <p className="text-size-regular-16">
-                          Don&apos;t let compliance delays hold you back from growing your
-                          business. Get in touch to talk it over with a CyberCrest expert.
-                        </p>
+            {!hideCta && (
+              <div className="footer-cta-wr anim-appear-on-scroll">
+                <div className="cta-wr">
+                  <div className="cta-stroke">
+                    <div className="cta-content is-footer">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={ASSETS.ctaBg}
+                        loading="lazy"
+                        alt=""
+                        className="cta-content-bg"
+                      />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={ASSETS.ctaBgMob}
+                        loading="lazy"
+                        alt=""
+                        className="cta-content-bg is-mob"
+                      />
+                      <h2 className="heading-style-48">Move forward with confidence</h2>
+                      <div className="spacer-medium-30 is-mob-30" />
+                      <div className="max-width-700">
+                        <div className="text-font-rm text-color-light-grey">
+                          <p className="text-size-regular-16">
+                            Don&apos;t let compliance delays hold you back from growing your
+                            business. Get in touch to talk it over with a CyberCrest expert.
+                          </p>
+                        </div>
                       </div>
+                      <div className="spacer-medium-36 is-mob-52" />
+                      <GlowButton href="/contact-us">Talk to an expert</GlowButton>
                     </div>
-                    <div className="spacer-medium-36 is-mob-52" />
-                    <GlowButton href="https://www.cybercrestcompliance.com/contact-us">
-                      Talk to an expert
-                    </GlowButton>
+
+                    <div className="cta-back-bg" aria-hidden="true">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={ASSETS.effects1}
+                        loading="lazy"
+                        width={676}
+                        alt=""
+                        className="cta-back-bg-img-1"
+                      />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={ASSETS.effects2}
+                        loading="lazy"
+                        width={666}
+                        alt=""
+                        className="cta-back-bg-img-2"
+                      />
+                    </div>
+
+                    <div className="cta-back-bg-mob" aria-hidden="true">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={ASSETS.effectsMob1}
+                        loading="lazy"
+                        width={345}
+                        alt=""
+                        className="cta-back-bg-img-1"
+                      />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={ASSETS.effectsMob2}
+                        loading="lazy"
+                        width={360}
+                        alt=""
+                        className="cta-back-bg-img-2"
+                      />
+                    </div>
                   </div>
 
-                  <div className="cta-back-bg" aria-hidden="true">
+                  <div className="cta-logo-wr" aria-hidden="true">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={ASSETS.effects1}
+                      src={ASSETS.ctaLogo}
                       loading="lazy"
-                      width={676}
+                      width={89}
                       alt=""
-                      className="cta-back-bg-img-1"
-                    />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={ASSETS.effects2}
-                      loading="lazy"
-                      width={666}
-                      alt=""
-                      className="cta-back-bg-img-2"
+                      className="cta-logo-img"
                     />
                   </div>
-
-                  <div className="cta-back-bg-mob" aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={ASSETS.effectsMob1}
-                      loading="lazy"
-                      width={345}
-                      alt=""
-                      className="cta-back-bg-img-1"
-                    />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={ASSETS.effectsMob2}
-                      loading="lazy"
-                      width={360}
-                      alt=""
-                      className="cta-back-bg-img-2"
-                    />
-                  </div>
-                </div>
-
-                <div className="cta-logo-wr" aria-hidden="true">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={ASSETS.ctaLogo}
-                    loading="lazy"
-                    width={89}
-                    alt=""
-                    className="cta-logo-img"
-                  />
                 </div>
               </div>
-            </div>
+            )}
 
             <div className="footer-content-wr">
               <FooterItem
@@ -336,7 +336,7 @@ export default function Footer() {
 
               <div className="footer-bottom-legacy-wr">
                 <a
-                  href="https://www.cybercrestcompliance.com/privacy-policy"
+                  href="/privacy-policy"
                   className="footer-link"
                 >
                   Privacy Policy

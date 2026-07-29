@@ -1,0 +1,249 @@
+/* Privacy Policy page */
+
+.privacy-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--black, #040410);
+  color: var(--white, #fff);
+  min-height: 100vh;
+}
+
+.privacy-section .nav-placeholder {
+  height: 5rem;
+}
+
+.privacy-section .section-padding {
+  z-index: 2;
+  position: relative;
+}
+
+.privacy-padding {
+  padding-top: 6.25rem;
+  padding-bottom: 3rem;
+}
+
+.privacy-section .container {
+  z-index: 56;
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.63rem;
+  padding-right: 0.63rem;
+}
+
+.privacy-section .container.is-relative {
+  position: relative;
+  height: 100%;
+}
+
+.privacy-section .container.is-for-bg {
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+
+.privacy-wr {
+  flex-flow: column;
+  max-width: 58.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: relative;
+}
+
+.privacy-section .heading-style-60 {
+  margin: 0;
+  font-size: 3.75rem;
+  font-weight: 500;
+  line-height: 1.1;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  color: var(--white, #fff);
+}
+
+.privacy-section .spacer-large-48 {
+  width: 100%;
+  padding-top: 3rem;
+}
+
+.text-rich-text-16 h1 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  font-weight: 500;
+  color: var(--white, #fff);
+}
+
+.text-rich-text-16 h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 2rem;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  font-weight: 500;
+  color: var(--white, #fff);
+}
+
+.text-rich-text-16 h3 {
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  font-weight: 500;
+  color: var(--white, #fff);
+}
+
+.text-rich-text-16 h4 {
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.25rem;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  font-weight: 500;
+  color: var(--white, #fff);
+}
+
+.text-rich-text-16 p {
+  color: var(--light-grey, #bababa);
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.text-rich-text-16 ul,
+.text-rich-text-16 ol {
+  color: var(--light-grey, #bababa);
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.text-rich-text-16 li {
+  margin-bottom: 0.5rem;
+}
+
+.text-rich-text-16 a {
+  color: var(--link-color, #cc7b1d);
+  text-decoration: none;
+  transition: color 0.3s ease-out;
+}
+
+.text-rich-text-16 a:hover {
+  text-decoration: underline;
+  color: var(--white, #fff);
+}
+
+.text-rich-text-16 strong {
+  color: var(--white, #fff);
+  font-weight: 600;
+}
+
+.privacy-section .section-bg {
+  z-index: 1;
+  position: absolute;
+  inset: 0%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.privacy-section .home_hero-media-wr {
+  z-index: 1;
+  position: absolute;
+  inset: 0%;
+}
+
+.privacy-section .home_hero-bg-img {
+  z-index: 2;
+  mix-blend-mode: lighten;
+  width: 100vw;
+  max-width: none;
+  position: relative;
+  inset: 0% 0% auto;
+  display: block;
+  height: auto;
+}
+
+.privacy-section .home_hero-bg-img-mob {
+  display: none;
+}
+
+.privacy-section .hide-on-mobile {
+  display: block;
+}
+
+@media screen and (max-width: 991px) {
+  .privacy-section .heading-style-60 {
+    font-size: 3rem;
+  }
+
+  .privacy-padding {
+    padding-top: 5rem;
+  }
+
+  .text-rich-text-16 h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .privacy-section .heading-style-60 {
+    font-size: 2.5rem;
+  }
+
+  .privacy-padding {
+    padding-top: 4rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .text-rich-text-16 p,
+  .text-rich-text-16 ul,
+  .text-rich-text-16 ol {
+    font-size: 0.9375rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .privacy-section .nav-placeholder {
+    height: 4rem;
+  }
+
+  .privacy-padding {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .privacy-section .heading-style-60 {
+    font-size: 1.875rem;
+  }
+
+  .text-rich-text-16 h3 {
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+  }
+
+  .text-rich-text-16 p,
+  .text-rich-text-16 ul,
+  .text-rich-text-16 ol {
+    font-size: 0.875rem;
+  }
+
+  .privacy-section .home_hero-bg-img {
+    display: none;
+  }
+
+  .privacy-section .home_hero-bg-img-mob {
+    display: block;
+    width: 100%;
+    max-width: none;
+    mix-blend-mode: lighten;
+  }
+
+  .privacy-section .hide-on-mobile {
+    display: none;
+  }
+}

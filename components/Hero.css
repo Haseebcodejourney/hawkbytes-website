@@ -476,6 +476,20 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .home_hero {
+    gap: 1rem;
+  }
+
+  .home_hero-lottie-wr {
+    min-height: 18rem;
+  }
+
+  .home_hero-orbit {
+    width: min(22rem, 90vw);
+  }
+}
+
 @media screen and (max-width: 479px) {
   .nav-placeholder {
     height: 4rem;

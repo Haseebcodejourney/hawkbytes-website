@@ -14,6 +14,15 @@
   padding-bottom: 0;
 }
 
+/* Contact page (no CTA): keep clear space above footer columns */
+.section.is-footer.is-no-cta .footer-content-wr {
+  padding-top: 3.75rem !important;
+}
+
+.section.is-footer.is-no-cta .section-padding {
+  padding-top: 40px !important;
+}
+
 .section.is-footer .container {
   z-index: 56;
   width: 100%;
@@ -67,6 +76,13 @@
   font-weight: 500;
   color: var(--white, #fff);
   font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+/* Tablet (991px) — stack footer columns */
+@media screen and (max-width: 991px) {
+  .heading-style-48 {
+    font-size: 2.5rem;
+  }
 }
 
 /* Desktop: always show columns */

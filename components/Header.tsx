@@ -57,7 +57,7 @@ function ChevronIcon() {
 
 function ContactButton({ className = "" }: { className?: string }) {
   return (
-    <a href="https://www.cybercrestcompliance.com/contact-us" className={["button", className].filter(Boolean).join(" ")}>
+    <a href="/contact-us" className={["button", className].filter(Boolean).join(" ")}>
       <div className="button-text-wr">
         <div className="btn-icon-embed">
           <ContactIcon />
@@ -139,7 +139,7 @@ export default function Header() {
     >
       <div className="container">
         <div className="navbar-wr">
-          <a href="https://www.cybercrestcompliance.com/" className="brand" aria-label="CyberCrest home">
+          <a href="/" className="brand" aria-label="CyberCrest home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               loading="eager"
@@ -283,7 +283,7 @@ export default function Header() {
 
                 <div className="nav-divider" />
 
-                <a href="https://www.cybercrestcompliance.com/about-us" className="nav-link">
+                <a href="/about-us" className="nav-link">
                   About Us
                 </a>
 

@@ -12,10 +12,6 @@
   position: relative;
 }
 
-.solutions-section .section-padding.top-0 {
-  padding-top: 0;
-}
-
 .solutions-section .container {
   z-index: 56;
   width: 100%;

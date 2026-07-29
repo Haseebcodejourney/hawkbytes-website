@@ -12,10 +12,6 @@
   position: relative;
 }
 
-.cta-section .section-padding.top-0 {
-  padding-top: 0;
-  padding-bottom: 0;
-}
 
 .cta-section .cta-wr {
   justify-content: center;
@@ -142,6 +138,21 @@
   display: none;
   position: absolute;
   inset: 0%;
+}
+
+@media screen and (max-width: 991px) {
+  .cta-section .heading-style-48 {
+    font-size: 2.5rem;
+  }
+
+  .cta-section .cta-content {
+    padding: 2.38rem 2rem;
+  }
+
+  .cta-section .cta-back-bg-img-1,
+  .cta-section .cta-back-bg-img-2 {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 479px) {

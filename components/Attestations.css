@@ -12,10 +12,6 @@
   position: relative;
 }
 
-.attestations-section .section-padding.top-0 {
-  padding-top: 0;
-}
-
 .attestations-section .container {
   z-index: 56;
   width: 100%;

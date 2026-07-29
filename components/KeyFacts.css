@@ -1,0 +1,208 @@
+/* Key Facts / About Us — CyberCrest */
+
+.key-facts-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--black, #040410);
+  color: var(--white, #fff);
+}
+
+.key-facts-section .section-padding {
+  z-index: 2;
+  position: relative;
+}
+
+.key-facts-section .container {
+  z-index: 56;
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.63rem;
+  padding-right: 0.63rem;
+}
+
+.key-facts-section .left-padding {
+  padding-left: 15rem;
+}
+
+.key-facts-section .align-left {
+  text-align: left;
+}
+
+.key-facts-section .tagline-text-blue-gradient {
+  margin: 0 0 0.63rem;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #52b7ff, #c1e5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.key-facts-section .heading-style-48 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.1;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.key-facts-section .grey-text-gradient {
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(10deg, #8c8d94, #fff 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.key-facts-section .text-color-light-grey {
+  color: var(--light-grey, #bababa);
+}
+
+.key-facts-section .text-size-small-14 {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.key-facts-section .spacer-medium-20 {
+  width: 100%;
+  padding-top: 1.25rem;
+}
+
+.key-facts-section .txt-2col-grid.is-with-sticky-title {
+  gap: 1.25rem;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  place-items: start stretch;
+  width: 100%;
+  display: grid;
+  position: relative;
+}
+
+.key-facts-section .home_about-sticky {
+  position: sticky;
+  top: 5.63rem;
+}
+
+.key-facts-section .home_about-info-wr {
+  gap: 2.5rem;
+  flex-flow: column;
+  align-items: flex-start;
+  display: flex;
+}
+
+.key-facts-section .home_about-info-item {
+  text-wrap: pretty;
+  flex-flow: column;
+  align-items: flex-start;
+  max-width: 21.25rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.key-facts-section .home_about-item-gradient {
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(-15deg, #000 8%, #89c6ea 57%, #fff 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.key-facts-section .heading-style-60 {
+  margin: 0;
+  font-size: 3.75rem;
+  font-weight: 500;
+  line-height: 1.1;
+  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+}
+
+.key-facts-section .text-font-rm {
+  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, monospace;
+}
+
+.key-facts-section .text-weight-medium {
+  font-weight: 500;
+}
+
+.key-facts-section .section-bg {
+  z-index: 1;
+  position: absolute;
+  inset: 0%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.key-facts-section .home_about-bg-img {
+  width: 58.75rem;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  inset: 1.25rem 0% auto;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.key-facts-section .home_about-bg-img.is-mob,
+.key-facts-section .home_about-bg-mob-wr {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .key-facts-section .left-padding {
+    padding-left: 0;
+  }
+
+  .key-facts-section .txt-2col-grid.is-with-sticky-title {
+    grid-template-columns: 1fr;
+  }
+
+  .key-facts-section .home_about-sticky {
+    position: static;
+  }
+
+  .key-facts-section .home_about-info-wr {
+    gap: 1.88rem;
+  }
+
+  .key-facts-section .heading-style-48 {
+    font-size: 2.25rem;
+  }
+
+  .key-facts-section .heading-style-60 {
+    font-size: 2.25rem;
+  }
+
+  .key-facts-section .home_about-bg-img {
+    display: none;
+  }
+
+  .key-facts-section .home_about-bg-mob-wr {
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    position: absolute;
+    inset: 1.25rem 0% auto;
+  }
+
+  .key-facts-section .home_about-bg-img.is-mob {
+    width: 29.38rem;
+    display: block;
+    position: static;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .key-facts-section .heading-style-48 {
+    font-size: 2rem;
+  }
+
+  .key-facts-section .heading-style-60 {
+    font-size: 2rem;
+  }
+}
