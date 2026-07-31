@@ -1,8 +1,14 @@
 "use client";
 
 import { useLayoutEffect } from "react";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 
-/** Smooth scroll-reveal for homepage blocks marked `.anim-appear-on-scroll`. */
+/**
+ * CyberCrest-matching motion:
+ * - Lenis smooth scroll (same config as live site)
+ * - IntersectionObserver scroll-reveal for `.anim-appear-on-scroll`
+ */
 export default function HomeMotion() {
   useLayoutEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -21,10 +27,29 @@ export default function HomeMotion() {
       });
     };
 
+    let lenis: Lenis | null = null;
+    let rafId = 0;
+
+    if (!reduce) {
+      // Match CyberCrest: duration 1 + exponential easing
+      lenis = new Lenis({
+        duration: 1,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+
+      const raf = (time: number) => {
+        lenis?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+      rafId = requestAnimationFrame(raf);
+    }
+
     if (reduce) {
       getNodes().forEach(reveal);
       document.documentElement.classList.add("motion-ready");
-      return;
+      return () => {
+        document.documentElement.classList.remove("motion-ready");
+      };
     }
 
     sync();
@@ -50,10 +75,9 @@ export default function HomeMotion() {
     window.addEventListener("resize", onScroll, { passive: true });
     window.addEventListener("pageshow", onScroll);
 
-    // Catch scroll restoration / late layout (fonts, images)
     const t1 = window.setTimeout(sync, 50);
     const t2 = window.setTimeout(sync, 300);
-    const raf = requestAnimationFrame(() => requestAnimationFrame(sync));
+    const raf2 = requestAnimationFrame(() => requestAnimationFrame(sync));
 
     return () => {
       io.disconnect();
@@ -62,7 +86,9 @@ export default function HomeMotion() {
       window.removeEventListener("pageshow", onScroll);
       clearTimeout(t1);
       clearTimeout(t2);
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(raf2);
+      cancelAnimationFrame(rafId);
+      lenis?.destroy();
       document.documentElement.classList.remove("motion-ready");
     };
   }, []);

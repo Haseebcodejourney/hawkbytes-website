@@ -9,7 +9,7 @@ const ASSETS = {
 export default function Quote() {
   return (
     <section className="section quote-section">
-      <div className="section-padding top-0">
+      <div className="section-padding top-5 bottom-5">
         <div className="container anim-appear-on-scroll">
           <div className="home_quote">
             {/* eslint-disable-next-line @next/next/no-img-element */}

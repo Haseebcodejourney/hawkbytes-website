@@ -119,7 +119,7 @@ export default function Hero() {
     <section className="section home-hero-section">
       <div className="nav-placeholder" />
 
-      <div className="section-padding top-0 bottom-160">
+      <div className="section-padding top-5 bottom-5">
         <div className="hero-container">
           <div className="home_hero">
             <div className="home_hero-content">
@@ -155,7 +155,7 @@ export default function Hero() {
                 Talk to an expert
               </GlowButton>
 
-              <div className="spacer-xxlarge-80" />
+              <div className="spacer-large-40" />
 
               <div
                 className="home_logos-running-wr"

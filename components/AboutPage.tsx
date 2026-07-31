@@ -208,7 +208,7 @@ export default function AboutPage() {
         <StickyNav links={ABOUT_LINKS} noBottomPadding />
         <div className="home_sections-wr">
           <section id="mission" className="section overflow-hidden about-mission-section">
-            <div className="section-padding top-160">
+                <div className="section-padding top-5 bottom-5">
               <div className="container anim-appear-on-scroll is-visible">
                 <div className="left-padding">
                   <div className="max-width-1060">
@@ -291,7 +291,7 @@ export default function AboutPage() {
           </section>
 
           <section id="offer" className="section bg-color-secondary about-offer-section">
-            <div className="section-padding top-160 bottom-160">
+            <div className="section-padding top-5 bottom-5">
               <div className="container anim-appear-on-scroll is-visible">
                 <div className="left-padding">
                   <div className="max-width-1060">
@@ -339,7 +339,7 @@ export default function AboutPage() {
           </section>
 
           <section id="team" className="section about-team-section">
-            <div className="section-padding top-160">
+                <div className="section-padding top-5 bottom-5">
               <div className="container anim-appear-on-scroll is-visible">
                 <div className="left-padding">
                   <div className="align-left">
@@ -411,7 +411,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          <Accreditations paddingClass="top-160" visibleOnLoad />
+          <Accreditations paddingClass="top-5 bottom-5" visibleOnLoad />
         </div>
       </div>
     </>

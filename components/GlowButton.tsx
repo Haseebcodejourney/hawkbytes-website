@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import chroma from "chroma-js";
 
 export default function GlowButton({
   href,
@@ -16,62 +18,40 @@ export default function GlowButton({
     if (!button) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let raf = 0;
-    let active = false;
-    const target = { x: 0, y: 0 };
-    const current = { x: 0, y: 0 };
-
-    const tick = () => {
-      current.x += (target.x - current.x) * 0.2;
-      current.y += (target.y - current.y) * 0.2;
-      button.style.setProperty("--pointer-x", `${current.x}px`);
-      button.style.setProperty("--pointer-y", `${current.y}px`);
-
-      const dx = Math.abs(target.x - current.x);
-      const dy = Math.abs(target.y - current.y);
-      if (active || dx > 0.15 || dy > 0.15) {
-        raf = requestAnimationFrame(tick);
-      } else {
-        raf = 0;
-      }
-    };
-
-    const ensureTick = () => {
-      if (!raf) raf = requestAnimationFrame(tick);
-    };
 
     const onMove = (e: PointerEvent) => {
       const rect = button.getBoundingClientRect();
-      target.x = e.clientX - rect.left;
-      target.y = e.clientY - rect.top;
-      button.style.setProperty("--button-glow", "#009FFD");
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
       if (reduce) {
-        button.style.setProperty("--pointer-x", `${target.x}px`);
-        button.style.setProperty("--pointer-y", `${target.y}px`);
+        button.style.setProperty("--pointer-x", `${x}px`);
+        button.style.setProperty("--pointer-y", `${y}px`);
         return;
       }
-      ensureTick();
+
+      // Same GSAP + chroma-js glow as CyberCrest
+      gsap.to(button, {
+        "--pointer-x": `${x}px`,
+        "--pointer-y": `${y}px`,
+        duration: 0.6,
+      });
+
+      const start =
+        getComputedStyle(button).getPropertyValue("--button-glow-start").trim() ||
+        "#a960ee";
+      const end =
+        getComputedStyle(button).getPropertyValue("--button-glow-end").trim() ||
+        "#009ffd";
+
+      gsap.to(button, {
+        "--button-glow": chroma.mix(start, end, x / Math.max(rect.width, 1)).hex(),
+        duration: 0.2,
+      });
     };
 
-    const onEnter = () => {
-      active = true;
-    };
-
-    const onLeave = () => {
-      active = false;
-    };
-
-    button.addEventListener("pointerenter", onEnter);
-    button.addEventListener("pointerleave", onLeave);
     button.addEventListener("pointermove", onMove);
-
-    return () => {
-      button.removeEventListener("pointerenter", onEnter);
-      button.removeEventListener("pointerleave", onLeave);
-      button.removeEventListener("pointermove", onMove);
-      cancelAnimationFrame(raf);
-    };
+    return () => button.removeEventListener("pointermove", onMove);
   }, []);
 
   return (

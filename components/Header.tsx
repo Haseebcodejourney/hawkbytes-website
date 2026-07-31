@@ -97,6 +97,28 @@ export default function Header() {
   }, [menuOpen]);
 
   useEffect(() => {
+    const navbar = navRef.current;
+    if (!navbar) return;
+
+    const onScroll = () => {
+      const threshold = 0.1 * window.innerHeight;
+      if (window.scrollY > threshold) {
+        navbar.style.background = "rgba(4, 4, 16, 0.6)";
+        navbar.style.backdropFilter = "blur(10px)";
+        navbar.style.setProperty("-webkit-backdrop-filter", "blur(10px)");
+      } else {
+        navbar.style.background = "rgba(4, 4, 16, 0)";
+        navbar.style.backdropFilter = "blur(0px)";
+        navbar.style.setProperty("-webkit-backdrop-filter", "blur(0px)");
+      }
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpenDropdown(null);

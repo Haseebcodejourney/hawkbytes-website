@@ -36,7 +36,7 @@ const FEATURES = [
 export default function WhyUs() {
   return (
     <section id="why-us" className="section why-us-section">
-      <div className="section-padding top-0">
+      <div className="section-padding top-5 bottom-5">
         <div className="container anim-appear-on-scroll">
           <div className="left-padding">
             <div className="txt-2col-grid is-align-bottom">

@@ -37,7 +37,7 @@ export default function KeyFacts({
 }) {
   return (
     <section id="facts" className="section key-facts-section">
-      <div className="section-padding top-160">
+      <div className="section-padding top-5 bottom-5">
         <div
           className={`container anim-appear-on-scroll${visibleOnLoad ? " is-visible" : ""}`}
         >

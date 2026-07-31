@@ -52,7 +52,7 @@ export default function Faq() {
 
   return (
     <section className="section bg-color-secondary faq-section">
-      <div className="section-padding top-0">
+      <div className="section-padding top-5 bottom-5">
         <div className="container anim-appear-on-scroll">
           <div className="left-padding">
             <div className="home_faq-block">

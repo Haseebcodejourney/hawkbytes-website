@@ -19,7 +19,7 @@ const ASSETS = {
 export default function Cta() {
   return (
     <section className="section cta-section">
-      <div className="section-padding top-0">
+      <div className="section-padding top-5 bottom-5">
         <div className="cta-wr anim-appear-on-scroll">
           <div className="cta-stroke">
             <div className="cta-content">

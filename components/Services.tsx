@@ -60,7 +60,7 @@ const SERVICES = [
 export default function Services() {
   return (
     <section id="services" className="section bg-color-secondary services-section">
-      <div className="section-padding top-0 bottom-120">
+      <div className="section-padding top-5 bottom-5">
         <div className="container anim-appear-on-scroll">
           <div className="left-padding">
             <div className="align-left">

@@ -82,7 +82,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="section testimonials-section">
-      <div className="section-padding top-0 bottom-0">
+      <div className="section-padding top-5 bottom-5">
         <div className="container anim-appear-on-scroll">
           <div className="left-padding">
             <div className="home_testimonials">

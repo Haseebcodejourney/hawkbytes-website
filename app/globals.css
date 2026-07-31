@@ -51,7 +51,43 @@ a {
   background-color: transparent;
 }
 
-/* Keep CyberCrest section spacing (do not flatten with uniform padding) */
+/* Homepage section padding: top-5 / bottom-5 = 1.25rem each */
+.section-padding.top-5 {
+  padding-top: 1.25rem;
+}
+
+.section-padding.bottom-5 {
+  padding-bottom: 1.25rem;
+}
+
+main.home-page section .section-padding.top-5 {
+  padding-top: 1.25rem !important;
+}
+
+main.home-page section .section-padding.bottom-5 {
+  padding-bottom: 1.25rem !important;
+}
+
+main.home-page .home-hero-section .section-padding.top-5 {
+  padding-top: 1.25rem !important;
+}
+
+main.home-page .home-hero-section .section-padding.bottom-5 {
+  padding-bottom: 1.25rem !important;
+}
+
+main.home-page section.home_mission {
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
+}
+
+main.home-page .home_sticky-box,
+main.home-page .home_sections-wr {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
 html {
   scroll-behavior: smooth;

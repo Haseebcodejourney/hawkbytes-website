@@ -79,7 +79,7 @@ const ITEMS = [
 ];
 
 export default function Accreditations({
-  paddingClass = "top-0",
+  paddingClass = "top-5 bottom-5",
   visibleOnLoad = false,
 }: {
   paddingClass?: string;
