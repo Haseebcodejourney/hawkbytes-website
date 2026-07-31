@@ -4,25 +4,28 @@ import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 
 const COMPLIANCE_LINKS = [
-  { label: "Quantum Computing Research", href: "/#services" },
-  { label: "Quantum Algorithms", href: "/#services" },
+  { label: "Quantum Computing Research", href: "/services/research" },
+  { label: "Quantum Algorithms", href: "/services/research#services" },
   { label: "AI Products", href: "/#services" },
   { label: "Machine Learning", href: "/#services" },
   { label: "Generative AI", href: "/#services" },
-  { label: "AI Research", href: "/#services" },
+  { label: "AI Research", href: "/services/research#about" },
 ];
 
 const COMPLIANCE_LINKS_COL2 = [
   { label: "Software Products", href: "/#services" },
   { label: "SaaS Platforms", href: "/#services" },
-  { label: "Applied Research", href: "/#methodology" },
-  { label: "Prototyping", href: "/#methodology" },
+  { label: "Applied Research", href: "/services/research#methodology" },
+  { label: "Prototyping", href: "/services/research#services" },
   { label: "Product Engineering", href: "/#services" },
 ];
 
 const DATA_PRIVACY_LINKS = [
-  { label: "Hybrid Quantum Systems", href: "/#services" },
-  { label: "Enterprise Software", href: "/#services" },
+  { label: "Quantum Computing Research", href: "/services/research" },
+  { label: "Quantum Algorithms", href: "/services/research#services" },
+  { label: "Hybrid Quantum Systems", href: "/services/research#how-we-help" },
+  { label: "Applied Research", href: "/services/research#methodology" },
+  { label: "AI Research", href: "/services/research#about" },
 ];
 
 const TECHNICAL_LINKS = [

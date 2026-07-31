@@ -23,7 +23,7 @@ const CERTS = [
   {
     name: "Quantum Research",
     text: "HawkBytes researches quantum algorithms, simulations, and hybrid classical-quantum systems that move ideas toward real capability.",
-    href: "/#services",
+    href: "/services/research",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cff193fe81907282c17e19_Logo-1.avif",
     logoAlt: "Quantum research mark.",
   },

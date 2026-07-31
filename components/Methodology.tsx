@@ -53,7 +53,15 @@ function shortestDelta(from: number, to: number) {
   return delta;
 }
 
-export default function Methodology() {
+export default function Methodology({
+  title = "HawkBytes' Methodology",
+  tagline = "OUR APPROACH",
+  description = "We've developed a clear 4-step methodology to take you from research discovery all the way to successful delivery.",
+}: {
+  title?: string;
+  tagline?: string;
+  description?: string;
+}) {
   const circleRef = useRef<HTMLImageElement>(null);
   const targetAngle = useRef(0);
   const currentAngle = useRef(0);
@@ -99,14 +107,11 @@ export default function Methodology() {
           <div className="left-padding">
             <div className="home_approach">
               <div className="heading-align-center">
-                <p className="tagline-text-blue-gradient">OUR APPROACH</p>
-                <h2 className="heading-style-48">HawkBytes&apos; Methodology</h2>
+                <p className="tagline-text-blue-gradient">{tagline}</p>
+                <h2 className="heading-style-48">{title}</h2>
                 <div className="spacer-medium-30" />
                 <div className="max-width-520">
-                  <p className="text-size-small-14-rm">
-                    We&apos;ve developed a clear 4-step methodology to take you
-                    from research discovery all the way to successful delivery.
-                  </p>
+                  <p className="text-size-small-14-rm">{description}</p>
                 </div>
               </div>
 

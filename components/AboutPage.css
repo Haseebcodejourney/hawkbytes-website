@@ -12,12 +12,24 @@
   z-index: 2;
 }
 
-.about-page .key-facts-section .section-padding.top-160 {
-  padding-top: 10rem;
+.about-page .key-facts-section .section-padding.top-5,
+.about-page .accreditations-section .section-padding.top-5,
+.about-page .about-mission-section .section-padding.top-5,
+.about-page .about-offer-section .section-padding.top-5,
+.about-page .about-team-section .section-padding.top-5,
+.about-page .about-location-section .section-padding.top-5,
+.about-page .about-hero-section .section-padding.top-5 {
+  padding-top: 1.25rem !important;
 }
 
-.about-page .accreditations-section .section-padding.top-160 {
-  padding-top: 10rem;
+.about-page .key-facts-section .section-padding.bottom-5,
+.about-page .accreditations-section .section-padding.bottom-5,
+.about-page .about-mission-section .section-padding.bottom-5,
+.about-page .about-offer-section .section-padding.bottom-5,
+.about-page .about-team-section .section-padding.bottom-5,
+.about-page .about-location-section .section-padding.bottom-5,
+.about-page .about-hero-section .section-padding.bottom-5 {
+  padding-bottom: 1.25rem !important;
 }
 
 .about-page .key-facts-section .left-padding,
@@ -59,25 +71,22 @@
   position: relative;
 }
 
-.about-hero-padding {
-  padding-top: 0;
-  padding-bottom: 2rem;
+.about-hero-padding,
+.about-hero-section .section-padding.top-5 {
+  padding-top: 1.25rem;
 }
 
-.about-page main .section-padding.top-160,
-.about-mission-section .section-padding.top-160,
-.about-offer-section .section-padding.top-160,
-.about-team-section .section-padding.top-160 {
-  padding-top: 10rem;
+.about-hero-section .section-padding.bottom-5 {
+  padding-bottom: 1.25rem;
 }
 
-.about-offer-section .section-padding.bottom-160 {
-  padding-bottom: 10rem;
+.about-location-padding,
+.about-location-section .section-padding.top-5 {
+  padding-top: 1.25rem;
 }
 
-.about-location-padding {
-  padding-top: 0;
-  padding-bottom: 0;
+.about-location-section .section-padding.bottom-5 {
+  padding-bottom: 1.25rem;
 }
 
 .about-hero-section .container,
@@ -167,7 +176,9 @@
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 14.3rem;
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
+  min-height: 22rem;
   display: flex;
   position: relative;
   z-index: 2;
@@ -329,10 +340,10 @@
 .about_hero-video {
   z-index: 2;
   mix-blend-mode: lighten;
-  width: 36rem;
-  height: 28rem;
+  width: 28rem;
+  height: 22rem;
   position: absolute;
-  top: 4rem;
+  top: 2rem;
   overflow: hidden;
 }
 
@@ -642,12 +653,13 @@
   }
 
   .about_hero {
-    padding-top: 11rem;
+    padding-top: 1.25rem;
   }
 
   .about_hero-video {
     width: 26rem;
     height: 20rem;
+    top: 2rem;
   }
 }
 
@@ -680,7 +692,7 @@
   .about_hero-video {
     width: 18rem;
     height: 14rem;
-    top: 7rem;
+    top: 2rem;
   }
 
   .about-mission-section .heading-style-48,
@@ -697,7 +709,7 @@
   }
 
   .about_hero {
-    padding-top: 10.5rem;
+    padding-top: 1.25rem;
   }
 
   .about-hero-section .heading-style-60.is-mob-32 {
@@ -720,7 +732,7 @@
   .about_hero-video {
     width: 15rem;
     height: 13rem;
-    top: 6rem;
+    top: 1.5rem;
   }
 
   .about-mission-section .txt-2col-grid {
@@ -734,15 +746,15 @@
     font-size: 2rem;
   }
 
-  .about-page main .section-padding.top-160,
-  .about-mission-section .section-padding.top-160,
-  .about-offer-section .section-padding.top-160,
-  .about-team-section .section-padding.top-160 {
-    padding-top: 5rem;
+  .about-page main .section-padding.top-5,
+  .about-mission-section .section-padding.top-5,
+  .about-offer-section .section-padding.top-5,
+  .about-team-section .section-padding.top-5 {
+    padding-top: 1.25rem;
   }
 
-  .about-offer-section .section-padding.bottom-160 {
-    padding-bottom: 5rem;
+  .about-offer-section .section-padding.bottom-5 {
+    padding-bottom: 1.25rem;
   }
 
   .about_features-title-wr {

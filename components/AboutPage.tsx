@@ -134,7 +134,7 @@ export default function AboutPage() {
     <>
       <section className="section about-hero-section">
         <div className="nav-placeholder" />
-        <div className="section-padding about-hero-padding">
+        <div className="section-padding top-5 bottom-5">
           <div className="container">
             <div className="about_hero">
               <div className="home_hero-tagline-wr is-smaller">
@@ -208,12 +208,12 @@ export default function AboutPage() {
         <StickyNav links={ABOUT_LINKS} noBottomPadding />
         <div className="home_sections-wr">
           <section id="mission" className="section overflow-hidden about-mission-section">
-                <div className="section-padding top-5 bottom-5">
+            <div className="section-padding top-5 bottom-5">
               <div className="container anim-appear-on-scroll is-visible">
                 <div className="left-padding">
                   <div className="max-width-1060">
                     <div className="align-left">
-                      <h2 className="heading-style-48">Who We Are and What We Build</h2>
+                      <h2 className="heading-style-48">Who We Are and What We Offer</h2>
                       <div className="spacer-medium-30" />
                       <div className="txt-2col-grid">
                         <div className="text-color-light-grey">
@@ -250,7 +250,7 @@ export default function AboutPage() {
           <KeyFacts showTagline={false} showButton={false} visibleOnLoad />
 
           <section id="location" className="section about-location-section">
-            <div className="section-padding about-location-padding">
+            <div className="section-padding top-5 bottom-5">
               <div className="container anim-appear-on-scroll is-visible">
                 <div className="about_map-block">
                   <div className="about_map-img-wr" aria-hidden="true">
@@ -339,7 +339,7 @@ export default function AboutPage() {
           </section>
 
           <section id="team" className="section about-team-section">
-                <div className="section-padding top-5 bottom-5">
+            <div className="section-padding top-5 bottom-5">
               <div className="container anim-appear-on-scroll is-visible">
                 <div className="left-padding">
                   <div className="align-left">
@@ -349,8 +349,8 @@ export default function AboutPage() {
                         <div className="spacer-medium-20" />
                         <div className="text-color-light-grey">
                           <p className="text-size-small-14">
-                            Meet HawkBytes’s leadership team committed to delivering service
-                            excellence to our global clients.
+                            Meet HawkBytes&apos;s leadership team committed to
+                            delivering excellence to our global clients.
                           </p>
                         </div>
                       </div>
