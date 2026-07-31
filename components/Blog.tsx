@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import "./Blog.css";
 
@@ -41,11 +42,11 @@ export default function Blog() {
               <p className="tagline-text-blue-gradient is-on-white">BLOG</p>
               <h2 className="heading-style-48">Latest stories</h2>
             </div>
-            <a href="/blog" className="button w-variant-09568581-b747-f3e0-5ddb-1d10003baaf6">
+            <Link href="/blog" className="button w-variant-09568581-b747-f3e0-5ddb-1d10003baaf6">
               <div className="button-text-wr">
                 <div>READ THE BLOG</div>
               </div>
-            </a>
+            </Link>
           </div>
 
           <div className="spacer-medium-30" />

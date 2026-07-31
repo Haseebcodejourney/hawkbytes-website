@@ -12,16 +12,25 @@
   position: relative;
 }
 
-
-.cta-section .cta-wr {
-  justify-content: center;
+.cta-section .container {
+  z-index: 56;
+  width: 100%;
   max-width: 90rem;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  position: relative;
   padding-left: 0.63rem;
   padding-right: 0.63rem;
+}
+
+.cta-section .left-padding {
+  padding-left: 15rem;
+}
+
+.cta-section .cta-wr {
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  position: relative;
 }
 
 .cta-section .cta-stroke {
@@ -141,6 +150,10 @@
 }
 
 @media screen and (max-width: 991px) {
+  .cta-section .left-padding {
+    padding-left: 0;
+  }
+
   .cta-section .heading-style-48 {
     font-size: 2.5rem;
   }
@@ -157,10 +170,8 @@
 
 @media screen and (max-width: 479px) {
   .cta-section .cta-wr {
-    margin-left: 0.63rem;
-    margin-right: 0.63rem;
-    padding-left: 0;
-    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .cta-section .cta-content {

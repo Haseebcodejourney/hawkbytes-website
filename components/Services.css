@@ -200,12 +200,16 @@
 }
 
 @media screen and (max-width: 479px) {
+  .services-section {
+    overflow-x: clip;
+  }
+
   .services-section .txt-2col-grid {
     grid-template-columns: 1fr;
   }
 
   .services-section .heading-style-48 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .services-section .spacer-medium-32 {
@@ -215,28 +219,14 @@
   .services-section .home_services-card {
     max-width: none;
     min-height: 17.5rem;
+    overflow: hidden;
   }
 
-  .services-section .home_services-card-bg-img {
-    display: none;
-  }
-
-  .services-section .home_services-card-bg-img.is-mob {
-    display: block;
-  }
-
-  .services-section .home_services-card-bg-img-1 {
-    display: block;
-    width: 14rem;
-    inset: -100% 0% auto 16%;
-    transform: rotate(90deg);
-  }
-
+  .services-section .home_services-card-bg-img,
+  .services-section .home_services-card-bg-img.is-mob,
+  .services-section .home_services-card-bg-img-1,
   .services-section .home_services-card-bg-img-2 {
-    display: block;
-    z-index: -1;
-    inset: -5.1rem 0% auto;
-    transform: rotate(180deg);
+    display: none;
   }
 
   .services-section .heading-style-21.is-rm {

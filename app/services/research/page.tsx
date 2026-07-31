@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ResearchServiceRoute() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden research-page">
+    <div className="relative min-h-screen overflow-x-clip research-page">
       <Header />
       <main>
         <ResearchPage />

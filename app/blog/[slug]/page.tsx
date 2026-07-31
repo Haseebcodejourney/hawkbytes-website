@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -38,15 +39,15 @@ export default async function BlogPostRoute({ params }: Props) {
           <div className="section-padding blog-post-padding">
             <div className="container">
               <div className="breadcrumbs-wr">
-                <a href="/" className="breadcrumbs-link">
+                <Link href="/" className="breadcrumbs-link">
                   MAIN PAGE
-                </a>
+                </Link>
                 <div className="text-color-light-grey">
                   <p className="text-size-small-14-rm">/</p>
                 </div>
-                <a href="/blog" className="breadcrumbs-link">
+                <Link href="/blog" className="breadcrumbs-link">
                   BLOG
-                </a>
+                </Link>
                 <div className="text-color-light-grey">
                   <p className="text-size-small-14-rm">/</p>
                 </div>

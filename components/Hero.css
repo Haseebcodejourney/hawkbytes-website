@@ -70,8 +70,8 @@
 .home_hero-bg-img {
   z-index: 2;
   mix-blend-mode: lighten;
-  width: 100vw;
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
   position: relative;
   inset: 0% 0% auto;
   display: block;
@@ -523,7 +523,7 @@
   }
 
   .home_hero-orbit {
-    width: 25rem;
+    width: min(22rem, 92vw);
   }
 
   .home_hero-video-wr {
@@ -537,7 +537,8 @@
   }
 
   .heading-style-60 {
-    font-size: 2.25rem;
+    font-size: 2rem;
+    line-height: 1.15;
   }
 
   .spacer-small-16.is-mob-20 {
@@ -576,7 +577,8 @@
   }
 
   .section-bg-bottom-img {
-    width: 62rem;
+    width: min(62rem, 100%);
+    max-width: 100%;
   }
 
   .button-glow {

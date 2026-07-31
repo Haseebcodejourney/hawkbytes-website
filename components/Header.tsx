@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import "./Header.css";
 
 const COMPLIANCE_LINKS = [
@@ -55,16 +56,26 @@ function ChevronIcon() {
   );
 }
 
-function ContactButton({ className = "" }: { className?: string }) {
+function ContactButton({
+  className = "",
+  onNavigate,
+}: {
+  className?: string;
+  onNavigate?: () => void;
+}) {
   return (
-    <a href="/contact-us" className={["button", className].filter(Boolean).join(" ")}>
+    <Link
+      href="/contact-us"
+      className={["button", className].filter(Boolean).join(" ")}
+      onClick={onNavigate}
+    >
       <div className="button-text-wr">
         <div className="btn-icon-embed">
           <ContactIcon />
         </div>
         <div>CONTACT US</div>
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -77,10 +88,12 @@ export default function Header() {
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 479px)");
+    // Must match Header.css collapse breakpoint (991px), not phone-only 479px
+    const mq = window.matchMedia("(max-width: 991px)");
     const update = () => {
-      setIsMobile(mq.matches);
-      if (!mq.matches) {
+      const mobile = mq.matches;
+      setIsMobile(mobile);
+      if (!mobile) {
         setMenuOpen(false);
         setOpenDropdown(null);
       }
@@ -105,15 +118,7 @@ export default function Header() {
 
     const onScroll = () => {
       const threshold = 0.1 * window.innerHeight;
-      if (window.scrollY > threshold) {
-        navbar.style.background = "rgba(4, 4, 16, 0.6)";
-        navbar.style.backdropFilter = "blur(10px)";
-        navbar.style.setProperty("-webkit-backdrop-filter", "blur(10px)");
-      } else {
-        navbar.style.background = "rgba(4, 4, 16, 0)";
-        navbar.style.backdropFilter = "blur(0px)";
-        navbar.style.setProperty("-webkit-backdrop-filter", "blur(0px)");
-      }
+      navbar.classList.toggle("is-scrolled", window.scrollY > threshold);
     };
 
     onScroll();
@@ -128,17 +133,8 @@ export default function Header() {
         setMenuOpen(false);
       }
     };
-    const onPointer = (e: MouseEvent) => {
-      if (!navRef.current?.contains(e.target as Node)) {
-        setOpenDropdown(null);
-      }
-    };
     document.addEventListener("keydown", onKey);
-    document.addEventListener("mousedown", onPointer);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.removeEventListener("mousedown", onPointer);
-    };
+    return () => document.removeEventListener("keydown", onKey);
   }, []);
 
   const toggleDropdown = (key: DropdownKey) => {
@@ -153,6 +149,16 @@ export default function Header() {
     if (!isMobile) setOpenDropdown(null);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setOpenDropdown(null);
+  };
+
+  const onDropdownClick = (key: DropdownKey) => {
+    // Always allow tap-to-toggle on collapsed (mobile/tablet) nav
+    if (isMobile || menuOpen) toggleDropdown(key);
+  };
+
   return (
     <header
       ref={navRef}
@@ -161,7 +167,7 @@ export default function Header() {
     >
       <div className="container">
         <div className="navbar-wr">
-          <a href="/" className="brand" aria-label="HawkBytes home">
+          <Link href="/" className="brand" aria-label="HawkBytes home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               loading="eager"
@@ -176,9 +182,10 @@ export default function Header() {
               alt="HawkBytes"
               className="logo-img is-mob"
             />
-          </a>
+          </Link>
 
           <nav
+            id="main-nav-menu"
             role="navigation"
             className="nav-menu"
             aria-label="Main"
@@ -196,7 +203,7 @@ export default function Header() {
                     className="nav-dropdown-toggle"
                     aria-haspopup="menu"
                     aria-expanded={openDropdown === "compliance"}
-                    onClick={() => isMobile && toggleDropdown("compliance")}
+                    onClick={() => onDropdownClick("compliance")}
                   >
                     <span>Products</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
@@ -212,14 +219,26 @@ export default function Header() {
                       <div className="nav-dropdown-2col">
                         <div className="nav-dropdown-links-wr">
                           {COMPLIANCE_LINKS.map((link) => (
-                            <a key={link.href} href={link.href} className="nav-dropdown-link" role="menuitem">
+                            <a
+                              key={link.label}
+                              href={link.href}
+                              className="nav-dropdown-link"
+                              role="menuitem"
+                              onClick={closeMenu}
+                            >
                               {link.label}
                             </a>
                           ))}
                         </div>
                         <div className="nav-dropdown-links-wr">
                           {COMPLIANCE_LINKS_COL2.map((link) => (
-                            <a key={link.href} href={link.href} className="nav-dropdown-link" role="menuitem">
+                            <a
+                              key={link.label}
+                              href={link.href}
+                              className="nav-dropdown-link"
+                              role="menuitem"
+                              onClick={closeMenu}
+                            >
                               {link.label}
                             </a>
                           ))}
@@ -242,7 +261,7 @@ export default function Header() {
                     className="nav-dropdown-toggle"
                     aria-haspopup="menu"
                     aria-expanded={openDropdown === "privacy"}
-                    onClick={() => isMobile && toggleDropdown("privacy")}
+                    onClick={() => onDropdownClick("privacy")}
                   >
                     <span>Research</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
@@ -257,7 +276,13 @@ export default function Header() {
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-links-wr">
                         {DATA_PRIVACY_LINKS.map((link) => (
-                          <a key={link.href} href={link.href} className="nav-dropdown-link" role="menuitem">
+                          <a
+                            key={link.label}
+                            href={link.href}
+                            className="nav-dropdown-link"
+                            role="menuitem"
+                            onClick={closeMenu}
+                          >
                             {link.label}
                           </a>
                         ))}
@@ -279,7 +304,7 @@ export default function Header() {
                     className="nav-dropdown-toggle"
                     aria-haspopup="menu"
                     aria-expanded={openDropdown === "technical"}
-                    onClick={() => isMobile && toggleDropdown("technical")}
+                    onClick={() => onDropdownClick("technical")}
                   >
                     <span>Services</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
@@ -294,7 +319,13 @@ export default function Header() {
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-links-wr">
                         {TECHNICAL_LINKS.map((link) => (
-                          <a key={link.href} href={link.href} className="nav-dropdown-link" role="menuitem">
+                          <a
+                            key={link.label}
+                            href={link.href}
+                            className="nav-dropdown-link"
+                            role="menuitem"
+                            onClick={closeMenu}
+                          >
                             {link.label}
                           </a>
                         ))}
@@ -305,19 +336,19 @@ export default function Header() {
 
                 <div className="nav-divider" />
 
-                <a href="/about-us" className="nav-link">
+                <Link href="/about-us" className="nav-link" onClick={closeMenu}>
                   About Us
-                </a>
+                </Link>
 
                 <div className="nav-divider" />
 
-                <a href="/blog" className="nav-link">
+                <Link href="/blog" className="nav-link" onClick={closeMenu}>
                   Blog
-                </a>
+                </Link>
               </div>
 
               <div className="nav-mob-btn-wr">
-                <ContactButton />
+                <ContactButton onNavigate={closeMenu} />
               </div>
             </div>
           </nav>
@@ -331,7 +362,7 @@ export default function Header() {
             className="nav-burger-link"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            aria-controls="mobile-nav"
+            aria-controls="main-nav-menu"
             onClick={() => {
               setMenuOpen((v) => !v);
               setOpenDropdown(null);
@@ -348,7 +379,6 @@ export default function Header() {
           </button>
         </div>
       </div>
-      <div className="nav-overlay" id="mobile-nav" hidden={!menuOpen} />
     </header>
   );
 }

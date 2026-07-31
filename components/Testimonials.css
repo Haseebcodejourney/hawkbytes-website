@@ -138,8 +138,9 @@
 }
 
 .testimonials-section .home_testimonials-slider-wr {
-  margin-right: -5.75rem;
+  margin-right: 0;
   position: relative;
+  overflow: hidden;
 }
 
 .testimonials-section .swiper-t {

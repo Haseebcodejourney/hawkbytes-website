@@ -66,7 +66,8 @@
 .contact-page-section .home_hero-bg-img {
   z-index: 2;
   mix-blend-mode: lighten;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   max-width: none;
   position: relative;
   inset: 0% 0% auto;

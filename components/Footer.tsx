@@ -214,16 +214,16 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                 onToggle={onToggle}
               >
                 <div className="footer-item-content-wr is-2-col">
-                  <div className="footer-links-wr">
+                  <div className="footer-links-wr with-gap">
                     {COMPLIANCE_COL1.map((link) => (
-                      <a key={link.href} href={link.href} className="footer-link">
+                      <a key={link.label} href={link.href} className="footer-link">
                         {link.label}
                       </a>
                     ))}
                   </div>
-                  <div className="footer-links-wr">
+                  <div className="footer-links-wr with-gap">
                     {COMPLIANCE_COL2.map((link) => (
-                      <a key={link.href} href={link.href} className="footer-link">
+                      <a key={link.label} href={link.href} className="footer-link">
                         {link.label}
                       </a>
                     ))}
@@ -241,7 +241,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                 <div className="footer-item-content-wr">
                   <div className="footer-links-wr with-gap">
                     {TECHNICAL.map((link) => (
-                      <a key={link.href} href={link.href} className="footer-link">
+                      <a key={link.label} href={link.href} className="footer-link">
                         {link.label}
                       </a>
                     ))}
@@ -259,7 +259,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                 <div className="footer-item-content-wr">
                   <div className="footer-links-wr with-gap">
                     {COMPANY.map((link) => (
-                      <a key={link.href} href={link.href} className="footer-link">
+                      <a key={link.label} href={link.href} className="footer-link">
                         {link.label}
                       </a>
                     ))}

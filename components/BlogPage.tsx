@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import {
   BLOG_CATEGORIES,
   BLOG_POSTS,
@@ -115,9 +116,9 @@ export default function BlogPage() {
       <div className="section-padding blog-page-padding">
         <div className="container">
           <div className="breadcrumbs-wr">
-            <a href="/" className="breadcrumbs-link">
+            <Link href="/" className="breadcrumbs-link">
               MAIN PAGE
-            </a>
+            </Link>
             <div className="text-color-light-grey">
               <p className="text-size-small-14-rm mob-text-size-12">/</p>
             </div>

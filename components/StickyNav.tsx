@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import "./StickyNav.css";
 
 export type StickyNavLink = { href: string; num: string; label: string };
@@ -23,6 +23,21 @@ const VIDEO = {
   mp4: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10%2F67d19301b1f1e997d883b9c7_popup-transcode.mp4",
   webm: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10%2F67d19301b1f1e997d883b9c7_popup-transcode.webm",
 };
+
+function getHeaderOffset() {
+  const raw = getComputedStyle(document.documentElement)
+    .getPropertyValue("--site-header-offset")
+    .trim();
+  const px = Number.parseFloat(raw);
+  if (!Number.isFinite(px)) return 104;
+  if (raw.endsWith("rem")) {
+    const root = Number.parseFloat(
+      getComputedStyle(document.documentElement).fontSize,
+    );
+    return px * (Number.isFinite(root) ? root : 16);
+  }
+  return px;
+}
 
 function ContactIcon() {
   return (
@@ -68,12 +83,25 @@ export default function StickyNav({
           setActive(`#${visible[0].target.id}`);
         }
       },
-      { rootMargin: "-20% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] },
+      { rootMargin: "-18% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] },
     );
 
     elements.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, [links]);
+
+  const onNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+    const el = document.getElementById(href.slice(1));
+    if (!el) return;
+
+    e.preventDefault();
+    const top =
+      window.scrollY + el.getBoundingClientRect().top - getHeaderOffset();
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    history.pushState(null, "", href);
+    setActive(href);
+  };
 
   return (
     <div
@@ -89,6 +117,7 @@ export default function StickyNav({
               className={`home_sticky-content-link${
                 active === link.href ? " is-active" : ""
               }`}
+              onClick={(e) => onNavClick(e, link.href)}
             >
               <div>{link.num}</div>
               <div>/</div>

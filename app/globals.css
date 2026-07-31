@@ -12,6 +12,10 @@
   --primary: #229bf1;
   --link-color: #cc7b1d;
   --grey-blue: #a3a3bb;
+  /* Fixed header clearance for anchor jumps */
+  --site-header-offset: 6.5rem;
+  /* Equal top/bottom section rhythm (Webflow top-80 / bottom-80) */
+  --section-y-space: 5rem;
 }
 
 @theme inline {
@@ -27,6 +31,13 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--site-header-offset);
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 body {
   background-color: var(--black);
   color: var(--white);
@@ -36,7 +47,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* clip (not hidden) — overflow-x:hidden breaks position:sticky */
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 img,
@@ -51,36 +64,27 @@ a {
   background-color: transparent;
 }
 
-/* Homepage section padding: top-5 / bottom-5 = 1.25rem each */
+/* Homepage content sections: equal top + bottom (exclude hero) */
 .section-padding.top-5 {
-  padding-top: 1.25rem;
+  padding-top: var(--section-y-space);
 }
 
 .section-padding.bottom-5 {
-  padding-bottom: 1.25rem;
+  padding-bottom: var(--section-y-space);
 }
 
-main.home-page section .section-padding.top-5 {
-  padding-top: 1.25rem !important;
+main.home-page section:not(.home-hero-section) .section-padding.top-5 {
+  padding-top: var(--section-y-space) !important;
 }
 
-main.home-page section .section-padding.bottom-5 {
-  padding-bottom: 1.25rem !important;
-}
-
-main.home-page .home-hero-section .section-padding.top-5 {
-  padding-top: 1.25rem !important;
-}
-
-main.home-page .home-hero-section .section-padding.bottom-5 {
-  padding-bottom: 1.25rem !important;
+main.home-page section:not(.home-hero-section) .section-padding.bottom-5 {
+  padding-bottom: var(--section-y-space) !important;
 }
 
 main.home-page section.home_mission {
-  padding-top: 1.25rem !important;
-  padding-bottom: 1.25rem !important;
+  padding-top: var(--section-y-space) !important;
+  padding-bottom: var(--section-y-space) !important;
 }
-
 main.home-page .home_sticky-box,
 main.home-page .home_sections-wr {
   margin-top: 0;
@@ -89,8 +93,81 @@ main.home-page .home_sections-wr {
   padding-bottom: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Prevent accidental page-wide horizontal scroll from decorative bleeds */
+.section {
+  max-width: 100%;
+}
+main.home-page section[id],
+main.home-page .home_mission,
+.about-page section[id],
+.research-page section[id] {
+  scroll-margin-top: var(--site-header-offset);
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --site-header-offset: 5.5rem;
+    --section-y-space: 3rem;
+  }
+
+  .heading-style-48 {
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+
+  .heading-style-60 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+  }
+
+  .heading-style-32 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --site-header-offset: 4.75rem;
+    --section-y-space: 2.5rem;
+  }
+
+  /* Mobile type scale — desktop styles untouched (≥992) */
+  .heading-style-60 {
+    font-size: 2rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .heading-style-60.is-mob-32 {
+    font-size: 1.75rem !important;
+  }
+
+  .heading-style-48 {
+    font-size: 1.75rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .heading-style-32 {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .heading-style-21 {
+    font-size: 1.13rem !important;
+  }
+
+  .text-size-regular-16 {
+    font-size: 0.88rem !important;
+  }
+
+  .text-size-small-14,
+  .text-size-small-14-rm {
+    font-size: 0.75rem !important;
+  }
+
+  .text-size-large-21 {
+    font-size: 1.13rem !important;
+  }
 }
 
 /* Scroll reveal — only hides after HomeMotion arms `.motion-ready` */

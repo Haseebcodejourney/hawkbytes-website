@@ -242,7 +242,8 @@
 .research_hero-bg-img {
   z-index: 1;
   mix-blend-mode: lighten;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   max-width: none;
   position: relative;
   opacity: 0.7;
@@ -252,7 +253,8 @@
   display: none;
   z-index: 2;
   mix-blend-mode: lighten;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   max-width: none;
 }
 

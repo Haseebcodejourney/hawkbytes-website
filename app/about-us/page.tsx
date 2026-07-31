@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AboutUsRoute() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden about-page">
+    <div className="relative min-h-screen overflow-x-clip about-page">
       <Header />
       <main>
         <AboutPage />

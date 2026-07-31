@@ -19,7 +19,7 @@ import HomeMotion from "@/components/HomeMotion";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-clip">
       <Header />
       <main className="home-page">
         <Hero />

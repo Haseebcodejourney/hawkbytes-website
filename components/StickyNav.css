@@ -2,11 +2,26 @@
 
 .home_sticky-box {
   position: relative;
+  /* visible — clip here can break position:sticky */
+  overflow: visible;
 }
 
 .home_sections-wr {
   position: relative;
   z-index: 2;
+}
+
+.home_sticky-absolute {
+  z-index: 5;
+  pointer-events: none;
+  max-width: 90rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10rem;
+  position: absolute;
+  inset: 0;
+  overflow: visible;
 }
 
 .home_sticky-absolute.no-bottom-padding {
@@ -19,16 +34,26 @@
   align-items: center;
   width: 10.56rem;
   height: 100vh;
+  height: 100dvh;
   margin-bottom: -1.25rem;
   display: flex;
   position: sticky;
   top: 0;
   padding-left: 0.63rem;
+  align-self: flex-start;
 }
 
 .home_sticky-content-links-wr {
   flex-flow: column;
   display: flex;
+  width: 100%;
+  /* Clear absolute video card + “Talk to an expert” so last link doesn’t collide */
+  padding-bottom: 11.5rem;
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .home_sticky-content-link {
@@ -65,7 +90,10 @@
   padding-right: 0.31rem;
   display: flex;
   position: absolute;
-  inset: auto 0% 0%;
+  left: 0.63rem;
+  right: auto;
+  bottom: 0;
+  width: calc(10.56rem - 0.63rem);
   text-decoration: none;
   color: inherit;
   overflow: hidden;
