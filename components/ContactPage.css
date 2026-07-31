@@ -10,7 +10,7 @@
 }
 
 .contact-page-section .nav-placeholder {
-  height: 5rem;
+  height: var(--site-header-offset);
 }
 
 .contact-page-section .section-padding {
@@ -19,13 +19,13 @@
 }
 
 .contact-page-section .contact-section-padding {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
+  padding-top: 80px !important;
+  padding-bottom: 1.25rem !important;
   margin-bottom: 40px !important;
 }
 
 .contact-page-section .container {
-  z-index: 56;
+  z-index: 2;
   width: 100%;
   max-width: 90rem;
   margin-left: auto;
@@ -47,6 +47,12 @@
   display: flex;
   position: relative;
   z-index: 1;
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .contact-page-section .section-bg {
@@ -67,7 +73,6 @@
   z-index: 2;
   mix-blend-mode: lighten;
   width: 100%;
-  max-width: 100%;
   max-width: none;
   position: relative;
   inset: 0% 0% auto;
@@ -796,12 +801,12 @@
 
 @media screen and (max-width: 479px) {
   .contact-page-section .nav-placeholder {
-    height: 4rem;
+    height: var(--site-header-offset);
   }
 
   .contact-page-section .contact-section-padding {
-    padding-top: 15px !important;
-    padding-bottom: 15px !important;
+    padding-top: 80px !important;
+    padding-bottom: 1rem !important;
     margin-bottom: 40px !important;
   }
 

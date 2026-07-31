@@ -18,7 +18,7 @@
 }
 
 .research-hero-section .nav-placeholder {
-  height: 5rem;
+  height: var(--site-header-offset);
 }
 
 .research-hero-section .section-padding,
@@ -32,26 +32,13 @@
   position: relative;
 }
 
-.research-hero-section .section-padding.top-5,
-.research-services-section .section-padding.top-5,
-.research-help-section .section-padding.top-5,
-.research-why-section .section-padding.top-5,
-.research-about-section .section-padding.top-5,
-.research-related-section .section-padding.top-5,
-.research-mid-cta-section .section-padding.top-5,
-.research-faq-section .section-padding.top-5 {
+/* Hero stays tight; body sections use --section-y-space via globals */
+.research-hero-section .section-padding.top-5 {
   padding-top: 1.25rem !important;
 }
 
-.research-hero-section .section-padding.bottom-5,
-.research-services-section .section-padding.bottom-5,
-.research-help-section .section-padding.bottom-5,
-.research-why-section .section-padding.bottom-5,
-.research-about-section .section-padding.bottom-5,
-.research-related-section .section-padding.bottom-5,
-.research-mid-cta-section .section-padding.bottom-5,
-.research-faq-section .section-padding.bottom-5 {
-  padding-bottom: 1.25rem !important;
+.research-hero-section .section-padding.bottom-5 {
+  padding-bottom: 5rem !important;
 }
 
 .research-hero-section .container,
@@ -60,7 +47,7 @@
 .research-why-section .container,
 .research-about-section .container,
 .research-related-section .container {
-  z-index: 56;
+  z-index: 2;
   width: 100%;
   max-width: 90rem;
   margin-left: auto;
@@ -85,6 +72,12 @@
   display: flex;
   position: relative;
   z-index: 1;
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .research_hero {
@@ -93,7 +86,7 @@
   justify-content: flex-start;
   align-items: center;
   padding-top: 1.25rem;
-  padding-bottom: 2rem;
+  padding-bottom: 3.75rem;
   min-height: 18rem;
   display: flex;
   position: relative;
@@ -243,7 +236,6 @@
   z-index: 1;
   mix-blend-mode: lighten;
   width: 100%;
-  max-width: 100%;
   max-width: none;
   position: relative;
   opacity: 0.7;
@@ -254,7 +246,6 @@
   z-index: 2;
   mix-blend-mode: lighten;
   width: 100%;
-  max-width: 100%;
   max-width: none;
 }
 
@@ -638,7 +629,7 @@
   }
 
   .research-hero-section .nav-placeholder {
-    height: 4rem;
+    height: var(--site-header-offset);
   }
 
   .research-hero-section .heading-style-60 {

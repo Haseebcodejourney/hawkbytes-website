@@ -58,6 +58,29 @@ video {
   height: auto;
 }
 
+/* Hero / section atmosphere: edge-to-edge inside section-bg (not the 90rem content grid) */
+.section-bg .container.is-for-bg {
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section-bg img,
+.home_hero-media-wr img,
+.home_hero-bg-img,
+.home_hero-bg-img-mob,
+.about_hero-bg-img,
+.about_hero-bg-img-mob,
+.research_hero-bg-img,
+.research_hero-bg-img-mob,
+.service_hero-bg-img,
+.section-bg-bottom-img {
+  max-width: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -78,6 +101,17 @@ main.home-page section:not(.home-hero-section) .section-padding.top-5 {
 }
 
 main.home-page section:not(.home-hero-section) .section-padding.bottom-5 {
+  padding-bottom: var(--section-y-space) !important;
+}
+
+/* About / Research: same section rhythm as home (heroes stay tight in page CSS) */
+.about-page section:not(.about-hero-section) .section-padding.top-5,
+.research-page section:not(.research-hero-section) .section-padding.top-5 {
+  padding-top: var(--section-y-space) !important;
+}
+
+.about-page section:not(.about-hero-section) .section-padding.bottom-5,
+.research-page section:not(.research-hero-section) .section-padding.bottom-5 {
   padding-bottom: var(--section-y-space) !important;
 }
 

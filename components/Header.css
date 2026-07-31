@@ -25,11 +25,16 @@
   overflow: visible;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  /* CyberCrest Nav-scroll-up: 350ms easeOut → y: 0% */
+  transform: translate3d(0, 0%, 0);
+  transform-style: preserve-3d;
   transition:
+    transform 0.35s ease-out,
     padding 0.3s ease-out,
     background-color 0.3s ease-out,
     backdrop-filter 0.3s ease-out,
     -webkit-backdrop-filter 0.3s ease-out;
+  will-change: transform;
 }
 
 .navbar.is-scrolled {
@@ -38,6 +43,18 @@
   background: rgba(4, 4, 16, 0.6);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+}
+
+/* CyberCrest Nav-scroll-down: 500ms easeIn → y: -100% */
+.navbar.is-nav-hidden {
+  transform: translate3d(0, -100%, 0);
+  transition:
+    transform 0.5s ease-in,
+    padding 0.3s ease-out,
+    background-color 0.3s ease-out,
+    backdrop-filter 0.3s ease-out,
+    -webkit-backdrop-filter 0.3s ease-out;
+  pointer-events: none;
 }
 
 .navbar .container {

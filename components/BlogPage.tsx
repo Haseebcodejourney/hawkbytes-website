@@ -15,8 +15,9 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e55077f030ad874c0384cc_blog-post-bg-Group.avif",
   heroBgMob:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e672e7a7611321fad71b29_blogpost-bg-mob.avif",
-  filtersFx:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ebfdefd079daf6ba5c78c2_bottom-effects-2.avif",
+  filtersNavBg: "/images/nav-bg-effect.avif",
+  searchIcon:
+    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e5090161d1b2ebf4e23104_search-icon.svg",
 };
 
 const PAGE_SIZE = 8;
@@ -85,6 +86,7 @@ function MainCard({ post }: { post: BlogPost }) {
 
 export default function BlogPage() {
   const [category, setCategory] = useState<string>("All");
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -92,9 +94,18 @@ export default function BlogPage() {
   const latest = BLOG_POSTS.slice(0, 2);
 
   const filtered = useMemo(() => {
-    if (category === "All") return BLOG_POSTS;
-    return BLOG_POSTS.filter((p) => p.category === category);
-  }, [category]);
+    const q = search.trim().toLowerCase();
+    return BLOG_POSTS.filter((p) => {
+      if (category !== "All" && p.category !== category) return false;
+      if (!q) return true;
+      return (
+        p.title.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q) ||
+        p.author.toLowerCase().includes(q)
+      );
+    });
+  }, [category, search]);
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
@@ -190,63 +201,98 @@ export default function BlogPage() {
 
       <div className="section-padding blog-articles-padding">
         <div className="container">
-          <div className="blog_filters-block">
-            <p className="heading-style-32">Articles</p>
+          <div className="blog_filters-wrap">
+            <div className="blog_filters-block">
+              <p className="blog_filters-total-txt">
+                {`${filtered.length} Articles`}
+              </p>
 
-            <div className="blog-filters-wr">
-              <div className="cl-blog-categories hide-on-mobile" role="list">
-                {BLOG_CATEGORIES.map((cat) => (
-                  <div key={cat} className="blog-filters-item" role="listitem">
-                    <button
-                      type="button"
-                      className={`tag-filter${
-                        category === cat ? " fs-cmsfilter_active" : ""
-                      }`}
-                      onClick={() => selectCategory(cat)}
-                    >
-                      {cat}
-                      {cat !== "All" ? (
-                        <span className="tag-filter-line" aria-hidden="true" />
-                      ) : null}
-                    </button>
-                  </div>
-                ))}
+              <div className="blog-filters-wr">
+                <div className="cl-blog-categories hide-on-mobile" role="list">
+                  {BLOG_CATEGORIES.map((cat) => (
+                    <div key={cat} className="blog-filters-item" role="listitem">
+                      <button
+                        type="button"
+                        className={`tag-filter${
+                          category === cat ? " fs-cmsfilter_active" : ""
+                        }`}
+                        onClick={() => selectCategory(cat)}
+                      >
+                        {cat}
+                        {cat !== "All" ? (
+                          <span className="tag-filter-line" aria-hidden="true" />
+                        ) : null}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="blog-filters-dropdown">
+                  <button
+                    type="button"
+                    className="blog_filters-dropdown-toggle"
+                    aria-expanded={dropdownOpen}
+                    onClick={() => setDropdownOpen((v) => !v)}
+                  >
+                    <span>{category === "All" ? "MORE" : category}</span>
+                    <ChevronIcon />
+                  </button>
+                  {dropdownOpen ? (
+                    <div className="blog_filters-dropdown-list is-open">
+                      <div className="blog_filters-inner-wr">
+                        {BLOG_CATEGORIES.map((cat) => (
+                          <button
+                            key={cat}
+                            type="button"
+                            className={`tag-filter is-filters-dropdown${
+                              category === cat ? " fs-cmsfilter_active" : ""
+                            }`}
+                            onClick={() => selectCategory(cat)}
+                          >
+                            {cat}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
               </div>
 
-              <div className="blog-filters-dropdown">
-                <button
-                  type="button"
-                  className="blog_filters-dropdown-toggle"
-                  aria-expanded={dropdownOpen}
-                  onClick={() => setDropdownOpen((v) => !v)}
-                >
-                  <span>{category === "All" ? "MORE" : category}</span>
-                  <ChevronIcon />
-                </button>
-                {dropdownOpen ? (
-                  <div className="blog_filters-dropdown-list is-open">
-                    <div className="blog_filters-inner-wr">
-                      {BLOG_CATEGORIES.map((cat) => (
-                        <button
-                          key={cat}
-                          type="button"
-                          className={`tag-filter is-filters-dropdown${
-                            category === cat ? " fs-cmsfilter_active" : ""
-                          }`}
-                          onClick={() => selectCategory(cat)}
-                        >
-                          {cat}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
+              <div className="input-search-wr">
+                <input
+                  className="form_input is-search"
+                  type="search"
+                  name="blog-search"
+                  placeholder="Search"
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setPage(1);
+                  }}
+                  aria-label="Search articles"
+                />
+                <div className="input-searcg-icon-wr" aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={ASSETS.searchIcon}
+                    alt=""
+                    className="input-searcg-icon"
+                  />
+                </div>
               </div>
             </div>
 
-            <p className="blog_filters-total-txt">
-              {filtered.length} article{filtered.length === 1 ? "" : "s"}
-            </p>
+            <div className="section-bg is-under-filters" aria-hidden="true">
+              <div className="section-bg-bottom-img-wr is-blog-filters">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={ASSETS.filtersNavBg}
+                  loading="lazy"
+                  alt=""
+                  className="section-bg-bottom-img is-blog-filters-mob"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="spacer-xlarge-60" />
@@ -283,18 +329,6 @@ export default function BlogPage() {
               </div>
             </div>
           ) : null}
-        </div>
-
-        <div className="section-bg" aria-hidden="true">
-          <div className="section-bg-bottom-img-wr is-blog-filters">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={ASSETS.filtersFx}
-              loading="lazy"
-              alt=""
-              className="section-bg-bottom-img is-blog-filters-mob"
-            />
-          </div>
         </div>
       </div>
 

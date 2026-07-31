@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function BlogRoute() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-clip blog-page">
       <Header />
       <main>
         <BlogPage />

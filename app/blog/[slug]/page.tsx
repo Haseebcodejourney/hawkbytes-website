@@ -31,7 +31,7 @@ export default async function BlogPostRoute({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-clip">
       <Header />
       <main>
         <section className="section blog-post-section">

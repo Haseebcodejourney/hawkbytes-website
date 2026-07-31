@@ -112,19 +112,52 @@ export default function Header() {
     };
   }, [menuOpen]);
 
+  const menuOpenRef = useRef(menuOpen);
+  menuOpenRef.current = menuOpen;
+
   useEffect(() => {
     const navbar = navRef.current;
     if (!navbar) return;
 
+    // Match CyberCrest IX2: PAGE_SCROLL_DOWN (offset 100px) → translateY(-100%),
+    // PAGE_SCROLL_UP → translateY(0%). Keep visible while mobile menu is open.
+    let lastY = window.scrollY;
+    const hideOffset = 100;
+
     const onScroll = () => {
+      const y = window.scrollY;
       const threshold = 0.1 * window.innerHeight;
-      navbar.classList.toggle("is-scrolled", window.scrollY > threshold);
+      navbar.classList.toggle("is-scrolled", y > threshold);
+
+      if (menuOpenRef.current) {
+        navbar.classList.remove("is-nav-hidden");
+        lastY = y;
+        return;
+      }
+
+      const delta = y - lastY;
+      if (y <= hideOffset) {
+        navbar.classList.remove("is-nav-hidden");
+      } else if (delta > 0) {
+        navbar.classList.add("is-nav-hidden");
+        setOpenDropdown(null);
+      } else if (delta < 0) {
+        navbar.classList.remove("is-nav-hidden");
+      }
+
+      lastY = y;
     };
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const navbar = navRef.current;
+    if (!navbar) return;
+    if (menuOpen) navbar.classList.remove("is-nav-hidden");
+  }, [menuOpen]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

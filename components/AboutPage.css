@@ -12,24 +12,13 @@
   z-index: 2;
 }
 
-.about-page .key-facts-section .section-padding.top-5,
-.about-page .accreditations-section .section-padding.top-5,
-.about-page .about-mission-section .section-padding.top-5,
-.about-page .about-offer-section .section-padding.top-5,
-.about-page .about-team-section .section-padding.top-5,
-.about-page .about-location-section .section-padding.top-5,
+/* Hero: breathing room top + bottom */
 .about-page .about-hero-section .section-padding.top-5 {
-  padding-top: 1.25rem !important;
+  padding-top: 3rem !important;
 }
 
-.about-page .key-facts-section .section-padding.bottom-5,
-.about-page .accreditations-section .section-padding.bottom-5,
-.about-page .about-mission-section .section-padding.bottom-5,
-.about-page .about-offer-section .section-padding.bottom-5,
-.about-page .about-team-section .section-padding.bottom-5,
-.about-page .about-location-section .section-padding.bottom-5,
 .about-page .about-hero-section .section-padding.bottom-5 {
-  padding-bottom: 1.25rem !important;
+  padding-bottom: 5rem !important;
 }
 
 .about-page .key-facts-section .left-padding,
@@ -59,7 +48,7 @@
 }
 
 .about-hero-section .nav-placeholder {
-  height: 5rem;
+  height: var(--site-header-offset);
 }
 
 .about-hero-section .section-padding,
@@ -73,11 +62,11 @@
 
 .about-hero-padding,
 .about-hero-section .section-padding.top-5 {
-  padding-top: 1.25rem;
+  padding-top: 3rem;
 }
 
 .about-hero-section .section-padding.bottom-5 {
-  padding-bottom: 1.25rem;
+  padding-bottom: 5rem;
 }
 
 .about-location-padding,
@@ -94,7 +83,7 @@
 .about-location-section .container,
 .about-offer-section .container,
 .about-team-section .container {
-  z-index: 56;
+  z-index: 2;
   width: 100%;
   max-width: 90rem;
   margin-left: auto;
@@ -111,6 +100,12 @@
   display: flex;
   position: relative;
   z-index: 1;
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .about-page .key-facts-section .grey-text-gradient,
@@ -176,8 +171,8 @@
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 1.25rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3.75rem;
   min-height: 22rem;
   display: flex;
   position: relative;
@@ -325,7 +320,6 @@
   z-index: 1;
   mix-blend-mode: lighten;
   width: 100%;
-  max-width: 100%;
   max-width: none;
   position: relative;
 }
@@ -334,7 +328,6 @@
   z-index: 2;
   mix-blend-mode: lighten;
   width: 100%;
-  max-width: 100%;
   max-width: none;
   display: none;
 }
@@ -707,7 +700,7 @@
 
 @media screen and (max-width: 479px) {
   .about-hero-section .nav-placeholder {
-    height: 4rem;
+    height: var(--site-header-offset);
   }
 
   .about_hero {

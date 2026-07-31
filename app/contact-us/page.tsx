@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactUsRoute() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-clip">
       <Header />
       <main>
         <ContactPage />

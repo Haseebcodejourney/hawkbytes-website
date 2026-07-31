@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-clip">
       <Header />
       <main>
         <section className="section overflow-hidden privacy-section">

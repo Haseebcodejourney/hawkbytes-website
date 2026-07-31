@@ -9,7 +9,7 @@
 }
 
 .privacy-section .nav-placeholder {
-  height: 5rem;
+  height: var(--site-header-offset);
 }
 
 .privacy-section .section-padding {
@@ -45,6 +45,12 @@
   display: flex;
   position: relative;
   z-index: 1;
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .privacy-wr {
@@ -161,7 +167,6 @@
   z-index: 2;
   mix-blend-mode: lighten;
   width: 100%;
-  max-width: 100%;
   max-width: none;
   position: relative;
   inset: 0% 0% auto;
@@ -210,7 +215,7 @@
 
 @media screen and (max-width: 479px) {
   .privacy-section .nav-placeholder {
-    height: 4rem;
+    height: var(--site-header-offset);
   }
 
   .privacy-padding {

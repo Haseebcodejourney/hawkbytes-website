@@ -27,29 +27,28 @@ const ASSETS = {
 };
 
 const COMPLIANCE_COL1 = [
-  { label: "Quantum Computing Research", href: "/#services" },
-  { label: "Quantum Algorithms", href: "/#services" },
+  { label: "Quantum Computing Research", href: "/services/research" },
+  { label: "Quantum Algorithms", href: "/services/research#services" },
   { label: "AI Products", href: "/#services" },
   { label: "Machine Learning", href: "/#services" },
   { label: "Generative AI", href: "/#services" },
-  { label: "Applied Research", href: "/#methodology" },
-  { label: "Prototyping", href: "/#methodology" },
+  { label: "AI Research", href: "/services/research#about" },
 ];
 
 const COMPLIANCE_COL2 = [
   { label: "Software Products", href: "/#services" },
   { label: "SaaS Platforms", href: "/#services" },
+  { label: "Applied Research", href: "/services/research#methodology" },
+  { label: "Prototyping", href: "/services/research#services" },
   { label: "Product Engineering", href: "/#services" },
-  { label: "Hybrid Quantum Systems", href: "/#services" },
-  { label: "Enterprise Software", href: "/#services" },
 ];
 
 const TECHNICAL = [
-  { label: "WEBSITE DEVELOPMENT", href: "/#solutions" },
-  { label: "MOBILE APPS (iOS & Android)", href: "/#solutions" },
-  { label: "QA & AUTOMATED TESTING", href: "/#solutions" },
-  { label: "UI/UX DESIGN", href: "/#solutions" },
-  { label: "DEVOPS & CLOUD", href: "/#solutions" },
+  { label: "Website Development", href: "/#solutions" },
+  { label: "Mobile Apps", href: "/#solutions" },
+  { label: "QA & Testing", href: "/#solutions" },
+  { label: "UI/UX Design", href: "/#solutions" },
+  { label: "DevOps & Cloud", href: "/#solutions" },
 ];
 
 const COMPANY = [

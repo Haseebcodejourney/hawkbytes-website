@@ -6,16 +6,16 @@
 }
 
 .blog-post-section .nav-placeholder {
-  height: 5rem;
+  height: var(--site-header-offset);
 }
 
 .blog-post-padding {
   padding-top: 0;
-  padding-bottom: 7.5rem;
+  padding-bottom: calc(var(--section-y-space) * 1.5);
 }
 
 .blog-post-section .container {
-  z-index: 56;
+  z-index: 2;
   width: 100%;
   max-width: 90rem;
   margin-left: auto;
