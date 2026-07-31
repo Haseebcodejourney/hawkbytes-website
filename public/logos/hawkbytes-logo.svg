@@ -1,0 +1,7 @@
+<svg width="220" height="40" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mark: dual crescents (brand mark style matching CyberCrest layout weight) -->
+  <path d="M18.8 0.45V13.82H14.48L14.52 5.93C14.52 5.93 8.91 6.3 5.09 8.25C5.09 8.25 5.31 20.04 14.48 28.71V18.92H18.8V38.55C18.8 38.55 0 29.09 0 4.77C0 4.77 8.31 0.45 18.8 0.45Z" fill="white"/>
+  <path d="M21.47 0.45V13.82H25.79L25.75 5.93C25.75 5.93 31.36 6.3 35.18 8.25C35.18 8.25 34.97 20.04 25.79 28.71V18.92H21.47V38.55C21.47 38.55 40.27 29.09 40.27 4.77C40.27 4.77 31.96 0.45 21.47 0.45Z" fill="white"/>
+  <!-- Wordmark: HAWKBYTES -->
+  <text x="52" y="26" fill="white" font-family="Poppins, Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="0.04em">HAWKBYTES</text>
+</svg>

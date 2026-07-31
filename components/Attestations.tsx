@@ -21,94 +21,88 @@ const CHEVRON = (
 
 const CERTS = [
   {
-    name: "PCI DSS",
-    text: "CyberCrest’s PCI 4.0.1 experts help you meet the latest DSS requirements for handling payment card data.",
-    href: "https://www.cybercrestcompliance.com/services/pci-dss-compliance",
+    name: "Quantum Research",
+    text: "HawkBytes researches quantum algorithms, simulations, and hybrid classical-quantum systems that move ideas toward real capability.",
+    href: "/#services",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cff193fe81907282c17e19_Logo-1.avif",
-    logoAlt: "PCI DSS compliance logo with text.",
+    logoAlt: "Quantum research mark.",
   },
   {
-    name: "CMMC",
-    text: "Our certified experts support defense contractors in meeting Cybersecurity Maturity Model Certification requirements.",
-    href: "https://www.cybercrestcompliance.com/services/cmmc-compliance",
+    name: "AI Products",
+    text: "Our teams build intelligent software — ML models, generative AI, and AI-assisted platforms designed for real users.",
+    href: "/#services",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd7ed98ebf2dd2121c7524_Logo%20Container-3-new.avif",
-    logoAlt:
-      "Emblem-shaped badge with the letters 'CMMC' inside the upper part of the shield.",
+    logoAlt: "AI products mark.",
   },
   {
-    name: "NIST 800-171",
-    text: "CyberCrest helps US government contractors and suppliers enable controls to protect CUI data.",
-    href: "https://www.cybercrestcompliance.com/services/nist-800-171-compliance",
+    name: "Machine Learning",
+    text: "HawkBytes helps organizations design, train, and deploy machine learning systems that deliver measurable outcomes.",
+    href: "/#services",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e2f45056d1d00ea92df_Logo-3.avif",
-    logoAlt: "NIST 800-171 text logo in white on black background.",
+    logoAlt: "Machine learning mark.",
   },
   {
-    name: "NIST CSF",
-    text: "CyberCrest helps organizations in adopting the various NIST Cybersecurity Frameworks and Standards.",
-    href: "https://www.cybercrestcompliance.com/services/nist-csf-assessment",
+    name: "Generative AI",
+    text: "HawkBytes builds generative AI products and integrations that turn research into practical product features.",
+    href: "/#services",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e229614013a057c85d3_Logo-4.avif",
-    logoAlt:
-      "NIST Cybersecurity Framework logo with text in white on a black background.",
+    logoAlt: "Generative AI mark.",
   },
   {
-    name: "HIPAA",
-    text: "CyberCrest works with healthcare organizations to improve and attest to PHI data environment security.",
-    href: "https://www.cybercrestcompliance.com/services/hipaa-compliance",
+    name: "Software Platforms",
+    text: "HawkBytes engineers SaaS and enterprise platforms with modern architecture, strong UX, and room to scale.",
+    href: "/#services",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e22c48af42dc2383423_Logo-5.avif",
-    logoAlt:
-      "Caduceus medical symbol followed by the text HIPAA Compliant in white on a transparent background.",
+    logoAlt: "Software platforms mark.",
   },
   {
-    name: "HITRUST",
-    text: "We evaluate your compliance maturity and help organizations achieve HITRUST CSF certification.",
-    href: "https://www.cybercrestcompliance.com/services/hitrust-compliance",
+    name: "Product Engineering",
+    text: "We evaluate product maturity and help teams ship reliable software from prototype to production.",
+    href: "/#services",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02eb9cdabdf85580aadd9_Logo-6.avif",
-    logoAlt:
-      "Logo text reading 'HITRUST' in bold, stylized white font on a black background.",
+    logoAlt: "Product engineering mark.",
   },
   {
-    name: "GDPR",
-    text: "CyberCrest supports EU businesses comply with GDPR requirements.",
-    href: "https://www.cybercrestcompliance.com/services/gdpr-compliance",
+    name: "Web Development",
+    text: "HawkBytes builds fast, modern websites and web applications for product and growth teams.",
+    href: "/#solutions",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e229a276642ebe302c2_Logo-7.avif",
-    logoAlt: "Circular badge with the text 'GDPR Ready' and a checkmark below.",
+    logoAlt: "Web development mark.",
   },
   {
-    name: "CCPA",
-    text: "As a qualified assessor, CyberCrest helps secure and certify customer information management controls.",
-    href: "https://www.cybercrestcompliance.com/services/ccpa-compliance",
+    name: "Mobile Apps",
+    text: "As a build partner, HawkBytes designs and ships iOS and Android apps with clear product thinking.",
+    href: "/#solutions",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e21066d5ae009806a20_Logo-8.avif",
-    logoAlt: "California Consumer Privacy Act logo.",
+    logoAlt: "Mobile apps mark.",
   },
   {
-    name: "FedRAMP",
-    text: "We help cloud service providers enter the federal marketplace with a FedRAMP ATO.",
-    href: "https://www.cybercrestcompliance.com/services/fedramp-compliance",
+    name: "QA & Testing",
+    text: "We help teams protect releases with automated testing, quality engineering, and reliable delivery practices.",
+    href: "/#solutions",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e21b391b4bb70199b12_Logo-9.avif",
-    logoAlt:
-      "FedRAMP logo with stylized globe and text 'FedRAMP' and tagline 'Federal Risk and Authorization Management Program'.",
+    logoAlt: "QA and testing mark.",
   },
   {
-    name: "ISO 9001",
-    text: "CyberCrest enables businesses to implement ISO-adhering quality management systems.",
-    href: "https://www.cybercrestcompliance.com/services/iso-9001-compliance",
+    name: "UI/UX Design",
+    text: "HawkBytes creates product-focused design systems that make advanced technology feel simple.",
+    href: "/#solutions",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e22308cedf735da29be_Logo-10.avif",
-    logoAlt: "ISO 9001:2015 certification logo with a globe design.",
+    logoAlt: "UI UX design mark.",
   },
   {
-    name: "SOC 2",
-    text: "CyberCrest validates and attests to security controls in line with industry standards for sensitive data environments.",
-    href: "https://www.cybercrestcompliance.com/services/soc2-compliance",
+    name: "DevOps & Cloud",
+    text: "HawkBytes sets up CI/CD and cloud delivery so research prototypes and products reach production cleanly.",
+    href: "/#solutions",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e228d1c45c4ba1d6fd8_Logo-11.avif",
-    logoAlt:
-      "AICPA SOC 2 certification badge with three stars in a circular design.",
+    logoAlt: "DevOps and cloud mark.",
   },
   {
-    name: "ISO 27001",
-    text: "CyberCrest helps drive robust Information Security Management System (ISMS) implementations.",
-    href: "https://www.cybercrestcompliance.com/services/iso-27001-compliance",
+    name: "Applied Research",
+    text: "HawkBytes connects theory to product — prototypes, experiments, and discovery that feed what we ship next.",
+    href: "/#methodology",
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d02e222b2681be091dec9c_Logo-12.avif",
-    logoAlt: "ISO 27001 certification logo with a globe design.",
+    logoAlt: "Applied research mark.",
   },
 ];
 
@@ -125,8 +119,8 @@ export default function Attestations() {
                     ATTESTATIONS &amp; CERTIFICATIONS
                   </p>
                   <h2 className="heading-style-32">
-                    Facilitating Information Security Compliance Across Multiple
-                    Frameworks, Regulations &amp; Standards
+                    Facilitating Innovation Across Quantum Research, AI Products
+                    &amp; Software Delivery
                   </h2>
                 </div>
 

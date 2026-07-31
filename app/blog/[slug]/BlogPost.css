@@ -1,0 +1,113 @@
+.blog-post-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--black, #040410);
+  color: var(--white, #fff);
+}
+
+.blog-post-section .nav-placeholder {
+  height: 5rem;
+}
+
+.blog-post-padding {
+  padding-top: 0;
+  padding-bottom: 7.5rem;
+}
+
+.blog-post-section .container {
+  z-index: 56;
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.63rem;
+  padding-right: 0.63rem;
+}
+
+.blog-post-section .breadcrumbs-wr {
+  gap: 0.63rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blog-post-section .breadcrumbs-link {
+  color: var(--light-grey, #bababa);
+  text-transform: uppercase;
+  margin: -0.5rem;
+  padding: 0.5rem;
+  font-family: var(--font-roboto-mono), Roboto Mono, monospace;
+  font-size: 0.88rem;
+  line-height: 1.3;
+  transition: all 0.3s ease-out;
+}
+
+.blog-post-section .breadcrumbs-link:hover {
+  color: var(--white, #fff);
+  text-decoration: underline;
+}
+
+.blog-post-section .breadcrumbs-link.is-last:hover {
+  color: var(--light-grey, #bababa);
+  text-decoration: none;
+}
+
+.blog-post-meta {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  font-family: var(--font-roboto-mono), Roboto Mono, monospace;
+  font-size: 0.75rem;
+  color: var(--light-grey, #bababa);
+}
+
+.blog-post-meta p {
+  margin: 0;
+}
+
+.blog-post-meta .text-color-primary {
+  color: var(--primary, #229bf1) !important;
+}
+
+.blog-post-title {
+  max-width: 52rem;
+}
+
+.blog-post-cover {
+  border: 1px solid #1d283f;
+  border-radius: 0.63rem;
+  overflow: hidden;
+  max-width: 56rem;
+  height: 22rem;
+}
+
+.blog-post-cover .image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-post-body {
+  max-width: 48rem;
+  color: var(--light-grey, #bababa);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.blog-post-body p {
+  margin: 0 0 1.25rem;
+}
+
+.blog-post-body strong {
+  color: var(--white, #fff);
+  font-weight: 500;
+}
+
+@media screen and (max-width: 479px) {
+  .blog-post-cover {
+    height: 14rem;
+  }
+}

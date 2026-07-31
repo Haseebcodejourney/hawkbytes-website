@@ -19,7 +19,7 @@ const ASSETS = {
 const TESTIMONIALS = [
   {
     quote:
-      "I have worked with CyberCrest on multiple compliance engagements over the past several years including HITRUST, NIS 2 and ISO 27001. Without exception, CyberCrest has consistently exceeded expectations for my clients through a combination of highly experienced consultants, and a practical approach to achieving compliance. They are willing to roll up their sleeves and help organizations fully understand and address their compliance challenges, not just function as external auditors.",
+      "I have worked with HawkBytes across quantum research collaboration and AI product development. Without exception, they consistently exceeded expectations through deep technical talent and a practical approach to turning research into working software. They roll up their sleeves and help teams understand hard problems — not just deliver slides.",
     name: "Paul Lucidi",
     role: "Founder and President, CyberAge Consulting LLC",
     image:
@@ -27,15 +27,15 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "“I have used the CyberCrest team for a variety of critical information security compliance engagements over the years including successfully attaining ISO 27001 and HITRUST certifications. All of our engagements have exceeded expectations!”",
+      "“I have used the HawkBytes team for critical AI product and software platform work. All of our engagements have exceeded expectations!”",
     name: "Craig Guinasso",
-    role: "Senior Director, Technology & CyberSecurity, Alector",
+    role: "Senior Director, Technology & Product, Alector",
     image:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb32/67d2f1771e8b58d3dd539d57_Testimonial-2.png",
   },
   {
     quote:
-      '"We have worked with CyberCrest on multiple penetration testing and cybersecurity risk and maturity assessments. The CyberCrest team has consistently produced high quality deliverables at fair prices. We give their client prospects our strongest recommendation."',
+      '"We have worked with HawkBytes on product engineering and applied research assessments. The team consistently produces high quality deliverables at fair prices. We give their client prospects our strongest recommendation."',
     name: "David Wise",
     role: "Managing Partner, Aberdeen Advisors",
     image:

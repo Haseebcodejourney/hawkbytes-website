@@ -3,50 +3,50 @@ import "./Services.css";
 const SERVICES = [
   {
     title: "AI Products & Intelligent Systems",
-    text: "We design and build production-ready AI products — from machine learning models and NLP systems to computer vision and generative AI platforms. Our research-backed approach ensures your AI solution is reliable, scalable, and delivers measurable business value.",
+    text: "We design and build production-ready AI products — from machine learning models and NLP systems to generative AI platforms. Research-backed, scalable, and built for real business value.",
     bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b93d6cc8917c806c220_Service%20Image1.avif",
     bgMob:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8543cc9dfe57cef9a_Service%20Image%20mob-1.avif",
-    bgAlt: "Abstract AI neural network visualization on a dark background.",
+    bgAlt: "AI product visualization on a dark background.",
     bgMobAlt: "Glowing neural network nodes on a dark blue background.",
     decor:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf30f2bf050a9959f823fe_Service%20Icon%20Container.avif",
     decorClass: "home_services-card-bg-img-1",
-    decorAlt: "Grid pattern overlay on a light blue background.",
+    decorAlt: "Light blue grid pattern overlay.",
     big: false,
     contentMax: false,
   },
   {
-    title: "Software Engineering & Product Development",
-    text: "From concept to launch, our engineers craft high-performance software products using modern stacks. Whether it's a SaaS platform, enterprise system, or developer tool — we architect for scale, maintainability, and exceptional user experience.",
+    title: "Quantum Computing Research",
+    text: "Our primary focus. HawkBytes researches quantum algorithms, hybrid classical-quantum systems, and applied quantum prototypes — moving frontier research toward usable technology.",
     bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b938ec65013603446c3_Service%20Image2.avif",
     bgMob:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8af8b749c0c95acc0_Service%20Image%20mob-2.avif",
-    bgAlt: "Dark background with abstract software code and gears.",
-    bgMobAlt: "Abstract dark metallic software engineering visualization.",
+    bgAlt: "Quantum research visualization on a dark background.",
+    bgMobAlt: "Abstract dark metallic research visualization.",
     big: true,
     contentMax: false,
     textWrap: true,
   },
   {
-    title: "Quantum Computing Research & Applications",
-    text: "HawkBytes is at the frontier of quantum computing — conducting applied research, developing quantum algorithms, and building hybrid classical-quantum systems. We help forward-thinking organizations understand, prototype, and deploy quantum-ready solutions.",
+    title: "Software Products & Platforms",
+    text: "From SaaS platforms to enterprise tools, we craft high-performance software products using modern stacks — architected for scale, maintainability, and exceptional user experience.",
     bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b93213f103ef3c806e8_Service%20Image3.avif",
     bgMob:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8c24388599247f086_Service%20Image%20mob-3.avif",
-    bgAlt: "Quantum computing visualization on a dark blue digital background.",
-    bgMobAlt: "Dark blue gradient background with quantum circuit pattern.",
+    bgAlt: "Software product visualization on a dark blue background.",
+    bgMobAlt: "Dark blue gradient background with grid pattern.",
     big: true,
     contentMax: true,
     textWrap: true,
   },
   {
     title: "Web, Mobile & QA Services",
-    text: "We deliver pixel-perfect web applications, cross-platform mobile apps, and comprehensive QA testing. Our full-service delivery model covers everything from UI/UX design and React/Next.js development to automated testing, CI/CD pipelines, and ongoing maintenance.",
+    text: "We deliver websites, cross-platform mobile apps, and comprehensive QA. From UI/UX and Next.js builds to automated testing and CI/CD — services that support our product mission.",
     bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b938ec65013603446bf_Service%20Image4.avif",
     bgMob:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda83e08862df5209870_Service%20Image%20mob-4.avif",
-    bgAlt: "Mobile and web development visualization on dark background.",
+    bgAlt: "Web and mobile development visualization.",
     bgMobAlt: "Mobile app screens on dark background with gradient.",
     decor:
       "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf31cea1cc5910875af931_effects.avif",
@@ -70,11 +70,14 @@ export default function Services() {
 
               <div className="txt-2col-grid">
                 <h2 className="heading-style-48">
-                  How HawkBytes Drives Innovation for You
+                  How HawkBytes Helps Organizations
                 </h2>
                 <div className="text-color-grey">
                   <p className="text-size-small-14">
-                    Whether you need a cutting-edge AI product, a robust software platform, quantum computing expertise, or reliable digital services — HawkBytes brings research-driven thinking and engineering excellence to every engagement.
+                    Whether you need quantum research collaboration, an AI
+                    product, a software platform, or reliable digital delivery —
+                    HawkBytes brings research-driven thinking and engineering
+                    excellence to every engagement.
                   </p>
                 </div>
               </div>

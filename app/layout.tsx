@@ -20,9 +20,9 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cybersecurity & Information Security Compliance Services - HawkBytes",
+  title: "HawkBytes — Quantum Research, AI Products & Software",
   description:
-    "Streamline your cybersecurity compliance with holistic compliance support, audit and attestation services from HawkBytes.",
+    "HawkBytes is a product and research company focused on quantum computing research, AI products, and software — with web, mobile, and QA services to help you ship.",
 };
 
 export default function RootLayout({

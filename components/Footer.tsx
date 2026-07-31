@@ -21,37 +21,35 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d3f10ee963dc26bf5c0f3e_Logo%20cta.avif",
   toggle:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d3f3b16f6c5be986785d95_Footer%20Toggle%20Container.svg",
-  footerLogo:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cef0682e775e7eaff45eb9_cybercrest%20logo.svg",
+  footerLogo: "/logos/hawkbytes-logo.svg",
   foursets:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd36832de83a38938ebaad_Foursets%20Logo.svg",
 };
 
 const COMPLIANCE_COL1 = [
-  { label: "AI Products", href: "/services/ai-products" },
-  { label: "Machine Learning", href: "/services/machine-learning" },
-  { label: "Natural Language Processing", href: "/services/nlp" },
-  { label: "Computer Vision", href: "/services/computer-vision" },
-  { label: "Generative AI", href: "/services/generative-ai" },
-  { label: "AI Research", href: "/services/ai-research" },
-  { label: "Data Engineering", href: "/services/data-engineering" },
+  { label: "Quantum Computing Research", href: "/#services" },
+  { label: "Quantum Algorithms", href: "/#services" },
+  { label: "AI Products", href: "/#services" },
+  { label: "Machine Learning", href: "/#services" },
+  { label: "Generative AI", href: "/#services" },
+  { label: "Applied Research", href: "/#methodology" },
+  { label: "Prototyping", href: "/#methodology" },
 ];
 
 const COMPLIANCE_COL2 = [
-  { label: "Software Products", href: "/services/software" },
-  { label: "SaaS Platforms", href: "/services/saas" },
-  { label: "Enterprise Systems", href: "/services/enterprise" },
-  { label: "Cloud Architecture", href: "/services/cloud" },
-  { label: "Quantum Computing", href: "/services/quantum" },
-  { label: "Quantum Algorithms", href: "/services/quantum-algorithms" },
+  { label: "Software Products", href: "/#services" },
+  { label: "SaaS Platforms", href: "/#services" },
+  { label: "Product Engineering", href: "/#services" },
+  { label: "Hybrid Quantum Systems", href: "/#services" },
+  { label: "Enterprise Software", href: "/#services" },
 ];
 
 const TECHNICAL = [
-  { label: "WEB DEVELOPMENT", href: "/services/web-development" },
-  { label: "MOBILE APPS (iOS & Android)", href: "/services/mobile-apps" },
-  { label: "QA & AUTOMATED TESTING", href: "/services/qa-testing" },
-  { label: "UI/UX DESIGN", href: "/services/design" },
-  { label: "DEVOPS & CI/CD", href: "/services/devops" },
+  { label: "WEBSITE DEVELOPMENT", href: "/#solutions" },
+  { label: "MOBILE APPS (iOS & Android)", href: "/#solutions" },
+  { label: "QA & AUTOMATED TESTING", href: "/#solutions" },
+  { label: "UI/UX DESIGN", href: "/#solutions" },
+  { label: "DEVOPS & CLOUD", href: "/#solutions" },
 ];
 
 const COMPANY = [
@@ -140,17 +138,19 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                         alt=""
                         className="cta-content-bg is-mob"
                       />
-                      <h2 className="heading-style-48">Build Something Extraordinary</h2>
+                      <h2 className="heading-style-48">Move forward with confidence</h2>
                       <div className="spacer-medium-30 is-mob-30" />
                       <div className="max-width-700">
                         <div className="text-font-rm text-color-light-grey">
                           <p className="text-size-regular-16">
-                            From AI to quantum — let&apos;s build the technology that gives your business an unfair advantage. Get in touch with the HawkBytes team.
+                            Don&apos;t let slow delivery or shallow research hold
+                            you back. Get in touch to talk it over with a
+                            HawkBytes expert.
                           </p>
                         </div>
                       </div>
                       <div className="spacer-medium-36 is-mob-52" />
-                      <GlowButton href="/contact-us">Start a Project</GlowButton>
+                      <GlowButton href="/contact-us">Talk to an expert</GlowButton>
                     </div>
 
                     <div className="cta-back-bg" aria-hidden="true">
@@ -209,7 +209,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
             <div className="footer-content-wr">
               <FooterItem
                 id="compliance"
-                title="AI Products & Research"
+                title="Products & Research"
                 open={openItem === "compliance"}
                 onToggle={onToggle}
               >
@@ -233,7 +233,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
 
               <FooterItem
                 id="technical"
-                title="Digital Services"
+                title="Services"
                 open={openItem === "technical"}
                 onToggle={onToggle}
                 className="is-2"
@@ -284,7 +284,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                       Lahore, Pakistan
                     </a>
                     <a href="mailto:hello@hawkbytes.io" className="footer-link">
-                      sales@cybercrestcompliance.com
+                      hello@hawkbytes.io
                     </a>
                     <a
                       href="tel:+18005871250"

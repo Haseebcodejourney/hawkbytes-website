@@ -3,33 +3,33 @@ import "./WhyUs.css";
 const FEATURES = [
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04d9dc22d47a4a569f9d0_Feature%20Icon-1.svg",
-    title: "Research-Driven",
-    text: "Every product we build starts with deep research. HawkBytes invests in understanding the cutting edge of AI, quantum computing, and software engineering before a single line of code is written — ensuring your solution is future-proof from day one.",
+    title: "Quantum-First Research",
+    text: "Quantum computing research sits at the center of HawkBytes. We invest in algorithms, hybrid systems, and applied experiments — not buzzwords — so our product roadmap stays ahead of the curve.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04e9cc9cabf34590aba5a_Feature%20Icon-2.svg",
-    title: "End-to-End Delivery",
-    text: "We handle everything — from discovery and architecture to development, testing, deployment, and maintenance. One team owns your product from idea to production, ensuring accountability and seamless execution.",
+    title: "Products Over Projects",
+    text: "We prioritize lasting products and research outcomes — not one-off tickets. Every engagement is designed to create capability, IP, and long-term advantage.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04eac6b739fc452077b3b_Feature%20Icon-3.svg",
-    title: "AI & Quantum Expertise",
-    text: "HawkBytes has dedicated engineers and researchers specializing in machine learning, large language models, computer vision, and quantum algorithms — letting us tackle the most advanced technology challenges businesses face today.",
+    title: "AI Product Craft",
+    text: "Dedicated engineers and researchers ship machine learning, generative AI, and intelligent software — turning research into products people actually use.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04eac714c789fba13eaf7_Feature%20Icon-4.svg",
-    title: "Fast, Agile Execution",
-    text: "We move quickly without sacrificing quality. Our agile delivery model means you see working software in weeks, not months. We iterate based on your feedback, keeping every sprint focused on delivering real value.",
+    title: "Full Delivery Capability",
+    text: "When you need websites, apps, QA, or DevOps, the same team that researches and builds products can also ship — cleanly and with ownership.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04eacfc9e84f29571a53c_Feature%20Icon-5.svg",
     title: "Senior Engineering Talent",
-    text: "Every project at HawkBytes is led by senior engineers and researchers. We maintain rigorous hiring standards to ensure the people building your product have the expertise and passion to deliver exceptional results.",
+    text: "Every project is led by senior engineers and researchers. Rigorous standards mean the people building your product have the depth to deliver.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d04eac300bf43216b50d33_Feature%20Icon-6.svg",
-    title: "Client-Centric Culture",
-    text: "Your goals are our goals. HawkBytes builds long-term partnerships based on transparency, honest communication, and genuine investment in your success. Our clients stay because the results speak for themselves.",
+    title: "Partner Mentality",
+    text: "Transparent communication, clear ownership, and genuine investment in outcomes. Clients stay because research depth and delivery quality show up together.",
   },
 ];
 
@@ -43,18 +43,15 @@ export default function WhyUs() {
               <div className="align-left">
                 <p className="tagline-text-blue-gradient">WHY US</p>
                 <h2 className="heading-style-48">
-                  Why HawkBytes is Your Innovation Partner
+                  Why HawkBytes for Your Product Success
                 </h2>
               </div>
               <div className="text-color-light-grey">
                 <p className="text-size-small-14">
-                  Our cybersecurity compliance company was founded on the
-                  premise that compliance should be accessible to any business
-                  looking to operate in line with industry-standard policies and
-                  procedures. Beyond secured business assets, we see it as a
-                  competitive advantage that helps you gain trust and win
-                  confidence. Here’s why CyberCrest can be your partner of
-                  choice:
+                  HawkBytes is a research-led product company. Quantum computing
+                  is our deepest focus; AI products and software are how we turn
+                  research into value. Services help partners ship. Here&apos;s
+                  why teams work with us:
                 </p>
               </div>
             </div>

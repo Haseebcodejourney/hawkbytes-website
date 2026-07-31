@@ -125,14 +125,14 @@ export default function Hero() {
             <div className="home_hero-content">
               <div className="home_hero-tagline-wr">
                 <div className="home_hero-tagline-line" />
-                <div>AI · Software · Quantum · Digital Services</div>
+                <div>PRODUCTS · RESEARCH · QUANTUM COMPUTING</div>
                 <div className="home_hero-tagline-line is-2" />
               </div>
 
               <div className="spacer-small-16 is-mob-20" />
 
               <h1 className="heading-style-60">
-                Building the Future with Intelligent Technology
+                Researching Quantum. Building AI Products.
               </h1>
 
               <div className="spacer-small-16 is-mob-20" />
@@ -140,10 +140,11 @@ export default function Hero() {
               <div className="max-width-580">
                 <div className="text-color-light-grey">
                   <p className="text-size-regular-16">
-                    HawkBytes is a technology company pioneering AI products,
-                    software solutions, and quantum computing research — while
-                    delivering world-class web, mobile, and QA services to
-                    businesses worldwide.
+                    HawkBytes is a product and research company. Our core focus
+                    is quantum computing research and building AI-powered
+                    software products — while also delivering websites, apps,
+                    and engineering services when you need a trusted build
+                    partner.
                   </p>
                 </div>
               </div>
@@ -151,14 +152,14 @@ export default function Hero() {
               <div className="spacer-large-40" />
 
               <GlowButton href="/contact-us">
-                Start a Project
+                Talk to an expert
               </GlowButton>
 
               <div className="spacer-xxlarge-80" />
 
               <div
                 className="home_logos-running-wr"
-                aria-label="Compliance certifications"
+                aria-label="HawkBytes focus areas"
               >
                 <div className="marquee is-logos">
                   <LogoTrack trackKey="a" />

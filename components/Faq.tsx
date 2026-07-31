@@ -11,40 +11,39 @@ const BG_IMG =
 
 const FAQS = [
   {
-    question: "Can you advise on which compliance frameworks apply to my business?",
+    question: "What is HawkBytes primarily focused on?",
     answer:
-      "Absolutely. We assess your industry, applicable regulatory requirements and data handling mechanisms to advise on the required compliance attestations and certifications.",
+      "Products and research. Our main focus is quantum computing research, followed by AI products and software platforms. We also provide web, mobile, and QA services.",
   },
   {
-    question:
-      "Do you provide one-time assessments or ongoing compliance monitoring?",
+    question: "Do you only do quantum research?",
     answer:
-      "We offer both one-time assessments and ongoing services, although the majority of our clients benefit from recurring engagements.",
+      "Quantum computing research is our deepest priority, but we also build AI products and software, and deliver websites, apps, and testing when clients need a full build partner.",
   },
   {
-    question: "How soon can I obtain my compliance attestation report?",
+    question: "Can HawkBytes build my website or mobile app?",
     answer:
-      "Timelines may vary based on your current security measures and compliance frameworks in question. We’ll work with you to expedite the process and help you obtain the certification(s) as soon as possible.",
+      "Yes. Engineering services — websites, mobile apps, QA, design, and DevOps — are part of what we offer alongside our product and research work.",
   },
   {
-    question: "Do you assist with drafting compliance documentation?",
+    question: "Do you collaborate on research projects?",
     answer:
-      "Yes, our consultants can help you draft, refine and implement security policies, procedures and internal documentation required.",
+      "Yes. We work with teams who want applied quantum and AI research, prototypes, and productization paths from experiment to production.",
   },
   {
-    question: "What happens if I fail an audit?",
+    question: "Are you a services agency or a product company?",
     answer:
-      "CyberCrest is committed to take you all the way to success, with every audit and certification process precluded by thorough security gap assessment and remediation support. This makes audit failure unlikely given our proven methodology.",
+      "A product and research company first. Services support delivery — they are not the center of our identity.",
   },
   {
-    question: "Can you work as an extension to our team?",
+    question: "Who do you work with?",
     answer:
-      "Yes, we offer team augmentation and virtual CISO among our cooperation models.",
+      "Startups, research partners, and established businesses that want serious technology work — from quantum/AI R&D to shipping software products.",
   },
   {
-    question: "Do you work with startups and small businesses?",
+    question: "How do we get started?",
     answer:
-      "Yes, we are happy to work with organizations of all sizes, adjusting our approach and strategies to their particular goals in each case. Whether you’re a startup or a global Fortune 500 organization, CyberCrest has the experience and capabilities to deliver.",
+      "Reach out through Contact Us. Share whether you need research collaboration, a product build, or digital delivery — we will respond with a clear next step.",
   },
 ];
 
@@ -73,9 +72,7 @@ export default function Faq() {
                         type="button"
                         className="faq_question"
                         aria-expanded={isOpen}
-                        onClick={() =>
-                          setOpenIndex(isOpen ? null : index)
-                        }
+                        onClick={() => setOpenIndex(isOpen ? null : index)}
                       >
                         <span
                           className="text-size-large-21 gradient-text-on-hover"
@@ -91,7 +88,6 @@ export default function Faq() {
                           className="faq_icon-img"
                         />
                       </button>
-
                       <div className="faq_answer">
                         <div className="faq_answer-inner">
                           <div className="faq_answer-wrapper">
@@ -101,29 +97,21 @@ export default function Faq() {
                           </div>
                         </div>
                       </div>
-
-                      {index < FAQS.length - 1 ? (
-                        <div className="faq_line-wr" aria-hidden="true">
-                          <div className="faq_line-white" />
-                          <div className="faq_line-blue" />
-                        </div>
-                      ) : null}
+                      <div className="faq_line-wr" aria-hidden="true">
+                        <div className="faq_line-white" />
+                        <div className="faq_line-blue" />
+                      </div>
                     </div>
                   );
                 })}
               </div>
-
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={BG_IMG}
-                loading="lazy"
-                alt=""
-                className="faq-bg-img"
-              />
             </div>
           </div>
         </div>
       </div>
+
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={BG_IMG} loading="lazy" alt="" className="faq-bg-img" />
     </section>
   );
 }

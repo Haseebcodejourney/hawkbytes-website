@@ -20,29 +20,29 @@ const STEPS = [
     className: "home_approach-item",
     numberClass: "home_approach-number",
     number: "01",
-    title: "Gap Assessment",
-    text: "We conduct a gap assessment of your environment and develop a path towards compliance",
+    title: "Discovery",
+    text: "We conduct research discovery across quantum, AI, and product opportunities to define a clear path forward.",
   },
   {
     className: "home_approach-item is-2",
     numberClass: "home_approach-number is-2",
     number: "02",
-    title: "Remediation Support",
-    text: "We support gap remediation, assist in developing documentation and implementing controls to help achieve a state of compliance.",
+    title: "Prototype Support",
+    text: "We support early experiments, assist in validating ideas, and implement prototypes toward a build-ready state.",
   },
   {
     className: "home_approach-item is-4",
     numberClass: "home_approach-number is-4",
     number: "04",
-    title: "Certification",
-    text: "We conduct audit and provide the attestation report.",
+    title: "Delivery",
+    text: "We ship production software and provide the release report — product, platform, or research outcome.",
   },
   {
     className: "home_approach-item is-3",
     numberClass: "home_approach-number is-3",
     number: "03",
-    title: "Audit Period",
-    text: "You demonstrate that the designed controls are operating effectively over time.",
+    title: "Build Period",
+    text: "You see designed systems operating effectively as we engineer products, apps, and platforms over time.",
   },
 ];
 
@@ -100,12 +100,12 @@ export default function Methodology() {
             <div className="home_approach">
               <div className="heading-align-center">
                 <p className="tagline-text-blue-gradient">OUR APPROACH</p>
-                <h2 className="heading-style-48">CyberCrest’s Methodology</h2>
+                <h2 className="heading-style-48">HawkBytes&apos; Methodology</h2>
                 <div className="spacer-medium-30" />
                 <div className="max-width-520">
                   <p className="text-size-small-14-rm">
-                    We’ve developed a clear 4-step compliance methodology to take
-                    you all the way to a successful compliance attestation.
+                    We&apos;ve developed a clear 4-step methodology to take you
+                    from research discovery all the way to successful delivery.
                   </p>
                 </div>
               </div>

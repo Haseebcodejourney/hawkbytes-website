@@ -47,12 +47,12 @@ const FEATURES = [
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530a69f3282b5428d8c1_about-icon-1.svg",
     title: "High-quality and experienced team",
-    text: "Our consultants have broad and deep knowledge of IT, Cloud, Security, and Compliance. We only hire experienced and qualified professionals who have worked with businesses of nearly every size across almost every industry.",
+    text: "Our researchers and engineers have deep knowledge across quantum computing, AI, and product software. We hire experienced professionals who have shipped across industries.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530adc8771031a5185f8_about-icon-3.svg",
-    title: "Hands-on comprehensive remediation support",
-    text: "We don't just provide advisory services, but also offer in-depth technical remediation support at whatever level requested, ensuring compliance every step of the way.",
+    title: "Hands-on comprehensive delivery support",
+    text: "We don't just advise — we build. From research prototypes to production platforms, websites, and QA, we support delivery at whatever depth you need.",
   },
   {
     icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530a19f4bf8d2f046242_about-icon-2.svg",
@@ -68,22 +68,22 @@ const FEATURES = [
 
 const TEAM = [
   {
-    name: "John Huckeby",
-    role: "Founder and Managing Director",
+    name: "Haseeb Ahmed",
+    role: "Founder & CEO",
     img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e27180d730b69a96c6d391_Author%20Image%201.avif",
-    linkedin: "https://www.linkedin.com/in/john-levi-huckeby-5b3b357/",
+    linkedin: "https://www.linkedin.com/company/hawkbytes/",
   },
   {
-    name: "Jill Brown",
-    role: "Board Member",
+    name: "Research Lead",
+    role: "Quantum & AI Research",
     img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e274f38fddd0df18ea64c4_Author%20Image%202.avif",
-    linkedin: "https://www.linkedin.com/in/brown-jill/",
+    linkedin: "https://www.linkedin.com/company/hawkbytes/",
   },
   {
-    name: "Jason Kruger",
-    role: "Board Member",
+    name: "Engineering Lead",
+    role: "Products & Platforms",
     img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e274fccd6db1c24e6df93f_Author%20Image%203.avif",
-    linkedin: "https://www.linkedin.com/in/jason-kruger-a0b159b/",
+    linkedin: "https://www.linkedin.com/company/hawkbytes/",
   },
 ];
 
@@ -145,24 +145,23 @@ export default function AboutPage() {
               <div className="spacer-small-16 is-mob-20" />
               <div className="about_hero-title-wr">
                 <h1 className="heading-style-60 is-mob-32">
-                  HawkBytes — Your Information Security Compliance Partner
+                  HawkBytes — Products, Research &amp; Quantum Computing
                 </h1>
               </div>
               <div className="spacer-small-16 is-mob-20" />
               <div className="max-width-820">
                 <div className="text-color-light-grey">
                   <p className="text-size-small-14">
-                    The team of HawkBytes have come together to streamline your
-                    cybersecurity compliance and make it easier to achieve certifications
-                    across frameworks, regulations and standards. We’re your trusted
-                    consultants and compliance experts with decades of experience at your
-                    service.
+                    HawkBytes is a product and research company. Our main focus
+                    is quantum computing research. Around that core we build AI
+                    products and software — and deliver websites, apps, and QA
+                    when partners need a trusted engineering team.
                   </p>
                 </div>
               </div>
               <div className="spacer-large-40" />
               <div className="about_hero-btn-row">
-                <GlowButton href="/contact-us">START A PROJECT</GlowButton>
+                <GlowButton href="/contact-us">Talk to an expert</GlowButton>
                 <a href="#mission" className="button is-text">
                   <div className="button-text-wr">
                     <div>READ MORE</div>
@@ -214,29 +213,27 @@ export default function AboutPage() {
                 <div className="left-padding">
                   <div className="max-width-1060">
                     <div className="align-left">
-                      <h2 className="heading-style-48">Who We Are and What We Offer</h2>
+                      <h2 className="heading-style-48">Who We Are and What We Build</h2>
                       <div className="spacer-medium-30" />
                       <div className="txt-2col-grid">
                         <div className="text-color-light-grey">
                           <p className="text-size-small-14">
-                            HawkBytes is a leading information security and compliance firm
-                            that helps businesses achieve and maintain compliance with
-                            information security and data privacy frameworks in addition to
-                            providing technical assessment and remediation services to help
-                            businesses improve cybersecurity posture.
+                            HawkBytes is a product and research company. Quantum
+                            computing research is our primary focus. We also build
+                            AI products and software platforms that turn research
+                            into real-world value.
                           </p>
                         </div>
                         <div className="text-color-light-grey">
                           <p className="text-size-small-14">
-                            Our team of experts provides tailored services to help
-                            organizations navigate the complex landscape of cybersecurity and
-                            compliance, so they can focus on running their business with
-                            peace of mind.
+                            Alongside that core, we deliver websites, mobile apps,
+                            and QA — so ambitious teams can invent, prototype, and
+                            ship with one partner.
                           </p>
                         </div>
                       </div>
                       <div className="spacer-xlarge-60" />
-                      <div className="home_logos-running-wr" aria-label="Compliance certifications">
+                      <div className="home_logos-running-wr" aria-label="HawkBytes focus areas">
                         <div className="marquee is-logos">
                           <LogoTrack trackKey="a" />
                           <LogoTrack trackKey="b" />
@@ -281,9 +278,9 @@ export default function AboutPage() {
                       <div className="spacer-medium-30" />
                       <div className="text-color-light-grey">
                         <p className="text-size-small-14-rm">
-                          HawkBytes has operations on both the east and west coast of the
-                          United States, and we provide our services globally, servicing APAC,
-                          Europe, US, Canada and beyond.
+                          HawkBytes collaborates with partners globally —
+                          across research, product builds, and digital delivery
+                          — from our engineering hubs and remote teams worldwide.
                         </p>
                       </div>
                     </div>
@@ -305,9 +302,10 @@ export default function AboutPage() {
                         </h2>
                         <div className="text-color-grey">
                           <p className="text-size-small-14">
-                            We’re committed to making our partnership a success with our
-                            client-centric approach, hands-on assistance and a highly
-                            qualified team. Here’s what makes us stand out:
+                            We&apos;re committed to making our partnership a
+                            success with our research-led approach, hands-on
+                            delivery and a highly qualified team. Here&apos;s
+                            what makes us stand out:
                           </p>
                         </div>
                       </div>

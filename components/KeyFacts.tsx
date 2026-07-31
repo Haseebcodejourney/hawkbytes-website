@@ -9,20 +9,20 @@ const ASSETS = {
 
 const FACTS = [
   {
-    value: "50+",
-    text: "AI and software products shipped across diverse industries worldwide",
+    value: "Deep",
+    text: "focus on quantum computing research and applied experimentation",
   },
   {
-    value: "3+",
-    text: "years of active quantum computing research and applied experimentation",
+    value: "AI+",
+    text: "products and intelligent software built from research into production",
   },
   {
-    value: "120+",
-    text: "successful web, mobile, and QA projects delivered for global clients",
+    value: "Full",
+    text: "product capability — software platforms, websites, apps, and QA",
   },
   {
     value: "100%",
-    text: "client satisfaction — we don't close a project until you are delighted",
+    text: "ownership from research to ship — no fragmented handoffs",
   },
 ];
 
@@ -56,7 +56,10 @@ export default function KeyFacts({
                   <div className="spacer-medium-20" />
                   <div className="text-color-light-grey">
                     <p className="text-size-small-14">
-                      HawkBytes is a product-focused technology company with a global footprint. From our engineering hubs, we build AI systems, enterprise software, and quantum prototypes while serving clients across North America, Europe, the Middle East, and Asia.
+                      HawkBytes is a product and research company. Quantum
+                      computing research is our main focus. Around that core we
+                      build AI products and software — and provide web, mobile,
+                      and QA services when partners need execution support.
                     </p>
                   </div>
                   <div className="spacer-medium-20" />

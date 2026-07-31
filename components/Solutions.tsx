@@ -18,29 +18,29 @@ const ARROW = (
 
 const SOLUTIONS = [
   {
-    href: "https://www.cybercrestcompliance.com/services/business-continuity-and-disaster-recovery",
-    title: "Business Continuity and Disaster Recovery",
-    text: "Prepare for and mitigate potential disruptions to operations with our customized BCP/DR plans to minimize downtime and data loss based on business impact and data criticality analysis.",
+    href: "/contact-us",
+    title: "Website Development",
+    text: "Modern, fast websites and web apps — from marketing sites to complex product frontends — built with clean design and solid engineering.",
   },
   {
-    href: "https://www.cybercrestcompliance.com/services/risk-assessments",
-    title: "Information Security Risk Assessment",
-    text: "Respond to the requirements of compliance frameworks and data privacy legislation with our risk assessment services designed to provide actionable recommendations on warding off cyber threats.",
+    href: "/contact-us",
+    title: "Mobile App Development",
+    text: "iOS and Android applications designed for performance and usability, with clear product thinking from day one.",
   },
   {
-    href: "https://www.cybercrestcompliance.com/services/vulnerability-scanning",
-    title: "Vulnerability Scanning",
-    text: "Elevate your vulnerability management, detection and mitigation capabilities with our vulnerability scanning to reveal, prioritize and fix uncovered vulnerabilities before they cause any disruption.",
+    href: "/contact-us",
+    title: "QA & Automated Testing",
+    text: "Manual and automated quality engineering that protects releases and keeps your product reliable as it grows.",
   },
   {
-    href: "https://www.cybercrestcompliance.com/services/cloud-security",
-    title: "Cloud Security",
-    text: "Detect vulnerabilities in your cloud infrastructure, applications and data to protect critical assets, stay compliant and improve your security posture with our cloud-specific expert guidance.",
+    href: "/contact-us",
+    title: "UI/UX Design",
+    text: "Product-focused design systems and interfaces that make advanced technology feel simple for users.",
   },
   {
-    href: "https://www.cybercrestcompliance.com/services/penetration-testing",
-    title: "Penetration Testing Services",
-    text: "Validate your security controls and protect against cyber security breaches with our comprehensive penetration testing services.",
+    href: "/contact-us",
+    title: "DevOps & Cloud Delivery",
+    text: "CI/CD, cloud architecture, and deployment pipelines so research prototypes and products reach production cleanly.",
   },
 ];
 
@@ -56,16 +56,14 @@ export default function Solutions() {
                   TECH-DRIVEN SECURITY SOLUTIONS
                 </p>
                 <h2 className="heading-style-48">
-                  Additional Technology-Enabled Compliance Services
+                  Additional Technology-Enabled Engineering Services
                 </h2>
               </div>
               <div className="text-color-light-grey">
                 <p className="text-size-small-14">
-                  CyberCrest makes the most of today’s technological landscape to
-                  support your compliance journey with state-of-the-art tools and
-                  technology-driven services. Our tools are instrumental in
-                  identifying your security and compliance gaps and preparing you
-                  for advanced cyber risk management and response.
+                  HawkBytes uses modern tools and delivery practices to support
+                  your product journey. These services help you ship websites,
+                  apps, and platforms alongside our core research and AI work.
                 </p>
               </div>
             </div>
@@ -75,7 +73,7 @@ export default function Solutions() {
             <div className="home_solutions-wr">
               {SOLUTIONS.map((item) => (
                 <a
-                  key={item.href}
+                  key={item.title}
                   href={item.href}
                   className="home_solutions-card"
                 >

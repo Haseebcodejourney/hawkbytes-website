@@ -25,7 +25,10 @@ export default function Quote() {
 
             <div className="max-width-940">
               <p className="home_quote-txt">
-                HawkBytes was founded on a simple belief: the most transformative technology should be accessible to every ambitious business. By combining AI research, software craftsmanship, and quantum thinking, we build products that don't just solve today's problems — they unlock tomorrow's opportunities.
+                HawkBytes exists to push quantum computing research forward and
+                turn that research into real products. AI software, platforms,
+                and digital services matter — but our deepest work is building
+                what comes next.
               </p>
             </div>
 

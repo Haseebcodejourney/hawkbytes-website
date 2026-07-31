@@ -4,33 +4,33 @@ import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 
 const COMPLIANCE_LINKS = [
-  { label: "AI Products", href: "/services/ai-products" },
-  { label: "Machine Learning", href: "/services/machine-learning" },
-  { label: "NLP & LLMs", href: "/services/nlp" },
-  { label: "Computer Vision", href: "/services/computer-vision" },
-  { label: "Generative AI", href: "/services/generative-ai" },
-  { label: "AI Research", href: "/services/ai-research" },
+  { label: "Quantum Computing Research", href: "/#services" },
+  { label: "Quantum Algorithms", href: "/#services" },
+  { label: "AI Products", href: "/#services" },
+  { label: "Machine Learning", href: "/#services" },
+  { label: "Generative AI", href: "/#services" },
+  { label: "AI Research", href: "/#services" },
 ];
 
 const COMPLIANCE_LINKS_COL2 = [
-  { label: "Software Products", href: "/services/software" },
-  { label: "SaaS Platforms", href: "/services/saas" },
-  { label: "Cloud Architecture", href: "/services/cloud" },
-  { label: "Quantum Computing", href: "/services/quantum" },
-  { label: "Data Engineering", href: "/services/data-engineering" },
+  { label: "Software Products", href: "/#services" },
+  { label: "SaaS Platforms", href: "/#services" },
+  { label: "Applied Research", href: "/#methodology" },
+  { label: "Prototyping", href: "/#methodology" },
+  { label: "Product Engineering", href: "/#services" },
 ];
 
 const DATA_PRIVACY_LINKS = [
-  { label: "Quantum Algorithms", href: "/services/quantum-algorithms" },
-  { label: "Enterprise Systems", href: "/services/enterprise" },
+  { label: "Hybrid Quantum Systems", href: "/#services" },
+  { label: "Enterprise Software", href: "/#services" },
 ];
 
 const TECHNICAL_LINKS = [
-  { label: "Web Development", href: "/services/web-development" },
-  { label: "Mobile Apps", href: "/services/mobile-apps" },
-  { label: "QA & Automated Testing", href: "/services/qa-testing" },
-  { label: "UI/UX Design", href: "/services/design" },
-  { label: "DevOps & CI/CD", href: "/services/devops" },
+  { label: "Website Development", href: "/#solutions" },
+  { label: "Mobile Apps", href: "/#solutions" },
+  { label: "QA & Testing", href: "/#solutions" },
+  { label: "UI/UX Design", href: "/#solutions" },
+  { label: "DevOps & Cloud", href: "/#solutions" },
 ];
 
 function ContactIcon() {
@@ -140,15 +140,15 @@ export default function Header() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               loading="eager"
-              src="/logos/cybercrest-logo.svg"
-              alt="CyberCrest — Information Security and Compliance Services"
+              src="/logos/hawkbytes-logo.svg"
+              alt="HawkBytes"
               className="logo-img"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               loading="eager"
-              src="/logos/cybercrest-logo-mob.svg"
-              alt="CyberCrest"
+              src="/logos/hawkbytes-logo-mob.svg"
+              alt="HawkBytes"
               className="logo-img is-mob"
             />
           </a>
@@ -160,7 +160,7 @@ export default function Header() {
           >
             <div className="nav-menu-inner">
               <div className="nav-menu-links-wr">
-                {/* Compliance */}
+                {/* Products & Research */}
                 <div
                   className={`nav-dropdown${openDropdown === "compliance" ? " is-open" : ""}`}
                   onMouseEnter={() => onEnter("compliance")}
@@ -173,7 +173,7 @@ export default function Header() {
                     aria-expanded={openDropdown === "compliance"}
                     onClick={() => isMobile && toggleDropdown("compliance")}
                   >
-                    <span>Compliance</span>
+                    <span>Products</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
                       <ChevronIcon />
                     </div>
@@ -181,7 +181,7 @@ export default function Header() {
                   <div className="nav-dropdown-list" role="menu">
                     <div className="nav-dropdown-inner-wr">
                       <div className="text-weight-medium hide-on-mobile">
-                        <div className="text-size-medium-18">Compliance</div>
+                        <div className="text-size-medium-18">Products &amp; Research</div>
                       </div>
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-2col">
@@ -219,7 +219,7 @@ export default function Header() {
                     aria-expanded={openDropdown === "privacy"}
                     onClick={() => isMobile && toggleDropdown("privacy")}
                   >
-                    <span>Data Privacy</span>
+                    <span>Research</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
                       <ChevronIcon />
                     </div>
@@ -227,7 +227,7 @@ export default function Header() {
                   <div className="nav-dropdown-list is-2" role="menu">
                     <div className="nav-dropdown-inner-wr">
                       <div className="text-weight-medium hide-on-mobile">
-                        <div className="text-size-medium-18">Data Privacy</div>
+                        <div className="text-size-medium-18">Research Tracks</div>
                       </div>
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-links-wr">
@@ -256,7 +256,7 @@ export default function Header() {
                     aria-expanded={openDropdown === "technical"}
                     onClick={() => isMobile && toggleDropdown("technical")}
                   >
-                    <span>Digital Services</span>
+                    <span>Services</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
                       <ChevronIcon />
                     </div>
@@ -264,7 +264,7 @@ export default function Header() {
                   <div className="nav-dropdown-list is-3" role="menu">
                     <div className="nav-dropdown-inner-wr">
                       <div className="text-weight-medium hide-on-mobile">
-                        <div className="text-size-medium-18">Technical Services</div>
+                        <div className="text-size-medium-18">Services</div>
                       </div>
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-links-wr">
@@ -286,7 +286,7 @@ export default function Header() {
 
                 <div className="nav-divider" />
 
-                <a href="https://www.cybercrestcompliance.com/blog" className="nav-link">
+                <a href="/blog" className="nav-link">
                   Blog
                 </a>
               </div>

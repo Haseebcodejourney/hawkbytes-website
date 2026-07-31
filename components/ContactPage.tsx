@@ -113,12 +113,12 @@ export default function ContactPage() {
               <div className="contact_hero-content">
                 <div className="home_hero-tagline-wr">
                   <div className="home_hero-tagline-line" />
-                  <div>YOUR COMPLIANCE JOURNEY STARTS HERE</div>
+                  <div>YOUR PRODUCT JOURNEY STARTS HERE</div>
                   <div className="home_hero-tagline-line is-2" />
                 </div>
 
                 <h1 className="heading-style-48 is-contact-page">
-                  Let’s talk compliance — HawkBytes is here to help.
+                  Let’s talk — HawkBytes is here to help.
                 </h1>
 
                 <div className="max-width-580">
@@ -135,7 +135,7 @@ export default function ContactPage() {
                   <div className="text-color-light-grey">
                     <p className="text-size-small-14-rm">Call</p>
                   </div>
-                  <a href="tel:+18005871250" className="contact_hero-link">
+                  <a href="tel:+923000000000" className="contact_hero-link">
                     +92 300 000 0000
                   </a>
                 </div>
@@ -145,10 +145,10 @@ export default function ContactPage() {
                     <p className="text-size-small-14-rm">Send Email</p>
                   </div>
                   <a
-                    href="mailto:sales@hawkbytescompliance.com"
+                    href="mailto:hello@hawkbytes.io"
                     className="contact_hero-link"
                   >
-                    sales@hawkbytescompliance.com
+                    hello@hawkbytes.io
                   </a>
                 </div>
 
@@ -369,9 +369,7 @@ export default function ContactPage() {
                               <span className="form_checkbox-label">
                                 By submitting this form, you agree to our{" "}
                                 <a
-                                  href="https://www.hawkbytescompliance.com/privacy-policy"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
+                                  href="/privacy-policy"
                                   className="span-link-orange"
                                   onClick={(e) => e.stopPropagation()}
                                 >
@@ -387,7 +385,7 @@ export default function ContactPage() {
                               className="button is-form-submit"
                               disabled={submitting}
                             >
-                              {submitting ? "Please wait..." : "Submit"}
+                              {submitting ? "Please wait..." : "SUBMIT"}
                             </button>
                           </div>
                         </div>

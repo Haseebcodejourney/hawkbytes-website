@@ -51,17 +51,7 @@ a {
   background-color: transparent;
 }
 
-/* Uniform 72px top + bottom gap on homepage sections only */
-main.home-page section .section-padding,
-main.home-page section .section-padding.top-0,
-main.home-page section .section-padding.top-160,
-main.home-page section .section-padding.bottom-0,
-main.home-page section .section-padding.bottom-120,
-main.home-page section .section-padding.bottom-160,
-main.home-page section.home_mission {
-  padding-top: 72px !important;
-  padding-bottom: 72px !important;
-}
+/* Keep CyberCrest section spacing (do not flatten with uniform padding) */
 
 html {
   scroll-behavior: smooth;
