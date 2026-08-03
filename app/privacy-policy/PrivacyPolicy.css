@@ -189,7 +189,7 @@
   }
 
   .privacy-padding {
-    padding-top: 5rem;
+    padding-top: var(--hero-after-header);
   }
 
   .text-rich-text-16 h3 {
@@ -203,7 +203,7 @@
   }
 
   .privacy-padding {
-    padding-top: 4rem;
+    padding-top: var(--hero-after-header);
     padding-bottom: 2.5rem;
   }
 
@@ -220,7 +220,7 @@
   }
 
   .privacy-padding {
-    padding-top: 3rem;
+    padding-top: var(--hero-after-header);
     padding-bottom: 2rem;
   }
 

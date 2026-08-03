@@ -757,6 +757,10 @@
     gap: 2.5rem;
   }
 
+  .contact-page-section .contact-section-padding {
+    padding-top: var(--hero-after-header) !important;
+  }
+
   .contact_hero-content,
   .contact_hero-form {
     max-width: none;
@@ -805,7 +809,7 @@
   }
 
   .contact-page-section .contact-section-padding {
-    padding-top: 80px !important;
+    padding-top: var(--hero-after-header) !important;
     padding-bottom: 1rem !important;
     margin-bottom: 40px !important;
   }

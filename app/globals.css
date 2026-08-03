@@ -14,6 +14,8 @@
   --grey-blue: #a3a3bb;
   /* Fixed header clearance for anchor jumps */
   --site-header-offset: 6.5rem;
+  /* Breathing room below nav-placeholder in heroes */
+  --hero-after-header: 1.25rem;
   /* Equal top/bottom section rhythm (Webflow top-80 / bottom-80) */
   --section-y-space: 5rem;
 }
@@ -158,8 +160,10 @@ main.home-page .home_mission,
 
 @media screen and (max-width: 991px) {
   :root {
-    --site-header-offset: 5.5rem;
+    /* Match navbar min-height (~5rem); avoid double-gap under fixed header */
+    --site-header-offset: 5rem;
     --section-y-space: 3rem;
+    --hero-after-header: 0.75rem;
   }
 
   .heading-style-48 {
@@ -180,8 +184,10 @@ main.home-page .home_mission,
 
 @media screen and (max-width: 479px) {
   :root {
-    --site-header-offset: 4.75rem;
+    /* Match mobile navbar min-height (4rem) */
+    --site-header-offset: 4rem;
     --section-y-space: 2.5rem;
+    --hero-after-header: 0.5rem;
   }
 
   /* Mobile type scale — desktop styles untouched (≥992) */

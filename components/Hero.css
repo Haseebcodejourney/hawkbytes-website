@@ -21,7 +21,7 @@
 }
 
 .home-hero-section .section-padding.top-5 {
-  padding-top: 1.25rem;
+  padding-top: var(--hero-after-header);
 }
 
 .home-hero-section .section-padding.bottom-5 {
@@ -488,7 +488,7 @@
   }
 
   .home-hero-section .section-padding.top-5 {
-    padding-top: 1.25rem;
+    padding-top: var(--hero-after-header);
   }
 
   .home_logos-running-wr {
@@ -499,6 +499,7 @@
 @media screen and (max-width: 767px) {
   .home_hero {
     gap: 1rem;
+    padding-top: 0.35rem;
   }
 
   .home_hero-lottie-wr {
@@ -520,7 +521,7 @@
   }
 
   .home-hero-section .section-padding.top-5 {
-    padding-top: 1.25rem;
+    padding-top: var(--hero-after-header);
   }
 
   .home_hero {

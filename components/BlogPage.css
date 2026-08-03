@@ -706,7 +706,7 @@
 /* —— Tablet —— */
 @media screen and (max-width: 991px) {
   .blog-page-padding {
-    padding-top: 4rem;
+    padding-top: var(--hero-after-header);
     padding-bottom: 3.75rem;
   }
 
@@ -830,7 +830,7 @@
 /* —— Phone —— */
 @media screen and (max-width: 479px) {
   .blog-page-padding {
-    padding-top: 3rem;
+    padding-top: var(--hero-after-header);
     padding-bottom: 2.5rem;
   }
 

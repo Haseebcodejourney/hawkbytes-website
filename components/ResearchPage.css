@@ -34,7 +34,7 @@
 
 /* Hero stays tight; body sections use --section-y-space via globals */
 .research-hero-section .section-padding.top-5 {
-  padding-top: 1.25rem !important;
+  padding-top: var(--hero-after-header) !important;
 }
 
 .research-hero-section .section-padding.bottom-5 {
@@ -85,7 +85,7 @@
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 1.25rem;
+  padding-top: 0.75rem;
   padding-bottom: 3.75rem;
   min-height: 18rem;
   display: flex;
@@ -599,6 +599,14 @@
 }
 
 @media screen and (max-width: 767px) {
+  .research_hero-badge {
+    display: none;
+  }
+
+  .research_hero {
+    padding-top: 0.35rem;
+  }
+
   .research_help-grid,
   .research_why-grid {
     grid-template-columns: 1fr;

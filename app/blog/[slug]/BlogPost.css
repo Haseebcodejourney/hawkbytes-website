@@ -10,7 +10,7 @@
 }
 
 .blog-post-padding {
-  padding-top: 0;
+  padding-top: var(--hero-after-header);
   padding-bottom: calc(var(--section-y-space) * 1.5);
 }
 
