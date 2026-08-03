@@ -7,6 +7,8 @@ import {
   BLOG_POSTS,
   type BlogPost,
 } from "@/lib/blog-posts";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
+import type { Dictionary } from "@/lib/i18n/types";
 import "./BlogPage.css";
 import "./Blog.css";
 
@@ -22,6 +24,26 @@ const ASSETS = {
 
 const PAGE_SIZE = 8;
 
+type CategoryKey = (typeof BLOG_CATEGORIES)[number];
+
+type LocalizedPost = BlogPost & {
+  categoryKey: CategoryKey;
+};
+
+function localizePost(post: BlogPost, page: Dictionary["blog"]["page"]): LocalizedPost {
+  const copy = page.posts[post.slug];
+  const categoryKey = post.category as CategoryKey;
+  return {
+    ...post,
+    categoryKey,
+    category: page.categories[categoryKey] ?? post.category,
+    title: copy?.title ?? post.title,
+    description: copy?.description ?? post.description,
+    date: copy?.date ?? post.date,
+    author: page.authorTeam,
+  };
+}
+
 function ChevronIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 10 6" fill="none" aria-hidden="true">
@@ -36,7 +58,7 @@ function ChevronIcon() {
   );
 }
 
-function LatestCard({ post }: { post: BlogPost }) {
+function LatestCard({ post }: { post: LocalizedPost }) {
   return (
     <a href={post.href} className="home_blog-cl-card">
       <div className="home_blog-cl-card-info-wr">
@@ -52,7 +74,7 @@ function LatestCard({ post }: { post: BlogPost }) {
   );
 }
 
-function MainCard({ post }: { post: BlogPost }) {
+function MainCard({ post }: { post: LocalizedPost }) {
   return (
     <a href={post.href} className="blog_main-list-card">
       <div className="blog_main-list-img-wr">
@@ -85,18 +107,25 @@ function MainCard({ post }: { post: BlogPost }) {
 }
 
 export default function BlogPage() {
-  const [category, setCategory] = useState<string>("All");
+  const t = useTranslations();
+  const page = t.blog.page;
+  const [category, setCategory] = useState<CategoryKey>("All");
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
+  const [pageNum, setPageNum] = useState(1);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const featured = BLOG_POSTS[2];
-  const latest = BLOG_POSTS.slice(0, 2);
+  const localizedPosts = useMemo(
+    () => BLOG_POSTS.map((post) => localizePost(post, page)),
+    [page],
+  );
+
+  const featured = localizedPosts[2];
+  const latest = localizedPosts.slice(0, 2);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return BLOG_POSTS.filter((p) => {
-      if (category !== "All" && p.category !== category) return false;
+    return localizedPosts.filter((p) => {
+      if (category !== "All" && p.categoryKey !== category) return false;
       if (!q) return true;
       return (
         p.title.toLowerCase().includes(q) ||
@@ -105,18 +134,18 @@ export default function BlogPage() {
         p.author.toLowerCase().includes(q)
       );
     });
-  }, [category, search]);
+  }, [category, search, localizedPosts]);
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const currentPage = Math.min(page, pageCount);
+  const currentPage = Math.min(pageNum, pageCount);
   const pageItems = filtered.slice(
     (currentPage - 1) * PAGE_SIZE,
-    currentPage * PAGE_SIZE
+    currentPage * PAGE_SIZE,
   );
 
-  const selectCategory = (next: string) => {
+  const selectCategory = (next: CategoryKey) => {
     setCategory(next);
-    setPage(1);
+    setPageNum(1);
     setDropdownOpen(false);
   };
 
@@ -128,34 +157,28 @@ export default function BlogPage() {
         <div className="container">
           <div className="breadcrumbs-wr">
             <Link href="/" className="breadcrumbs-link">
-              MAIN PAGE
+              {page.breadcrumbHome}
             </Link>
             <div className="text-color-light-grey">
               <p className="text-size-small-14-rm mob-text-size-12">/</p>
             </div>
-            <p className="breadcrumbs-link is-last">BLOG</p>
+            <p className="breadcrumbs-link is-last">{page.breadcrumbBlog}</p>
           </div>
 
           <div className="blog_hero">
             <div className="blog_hero-left">
               <div className="blog_hero-left-top">
-                <h1 className="heading-style-60">HawkBytes Insights</h1>
+                <h1 className="heading-style-60">{page.heroTitle}</h1>
                 <div className="spacer-medium-30 is-mob-30" />
-                <h2 className="heading-style-21">
-                  Explore our guidance on quantum research, AI products, and
-                  software from HawkBytes&apos;s industry-leading team.
-                </h2>
+                <h2 className="heading-style-21">{page.heroSubtitle}</h2>
                 <div className="spacer-xxsmall-4" />
                 <div className="text-color-grey">
-                  <p className="heading-style-21">
-                    Follow the HawkBytes LinkedIn page for more HawkBytes
-                    Insights.
-                  </p>
+                  <p className="heading-style-21">{page.heroLinkedIn}</p>
                 </div>
               </div>
 
               <div className="blog_hero-left-bottom">
-                <p className="heading-style-32">Latest news</p>
+                <p className="heading-style-32">{page.latestNews}</p>
                 <div className="spacer-large-40" />
                 <div className="blog_hero-latest-list" role="list">
                   {latest.map((post) => (
@@ -204,7 +227,7 @@ export default function BlogPage() {
           <div className="blog_filters-wrap">
             <div className="blog_filters-block">
               <p className="blog_filters-total-txt">
-                {`${filtered.length} Articles`}
+                {page.articlesCount.replace("{count}", String(filtered.length))}
               </p>
 
               <div className="blog-filters-wr">
@@ -218,7 +241,7 @@ export default function BlogPage() {
                         }`}
                         onClick={() => selectCategory(cat)}
                       >
-                        {cat}
+                        {page.categories[cat]}
                         {cat !== "All" ? (
                           <span className="tag-filter-line" aria-hidden="true" />
                         ) : null}
@@ -234,7 +257,9 @@ export default function BlogPage() {
                     aria-expanded={dropdownOpen}
                     onClick={() => setDropdownOpen((v) => !v)}
                   >
-                    <span>{category === "All" ? "MORE" : category}</span>
+                    <span>
+                      {category === "All" ? page.more : page.categories[category]}
+                    </span>
                     <ChevronIcon />
                   </button>
                   {dropdownOpen ? (
@@ -249,7 +274,7 @@ export default function BlogPage() {
                             }`}
                             onClick={() => selectCategory(cat)}
                           >
-                            {cat}
+                            {page.categories[cat]}
                           </button>
                         ))}
                       </div>
@@ -263,13 +288,13 @@ export default function BlogPage() {
                   className="form_input is-search"
                   type="search"
                   name="blog-search"
-                  placeholder="Search"
+                  placeholder={page.searchPlaceholder}
                   value={search}
                   onChange={(e) => {
                     setSearch(e.target.value);
-                    setPage(1);
+                    setPageNum(1);
                   }}
-                  aria-label="Search articles"
+                  aria-label={page.searchAria}
                 />
                 <div className="input-searcg-icon-wr" aria-hidden="true">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -299,7 +324,7 @@ export default function BlogPage() {
 
           <div className="blog_main-list-wr">
             {pageItems.length === 0 ? (
-              <p className="text-color-light-grey">No items found.</p>
+              <p className="text-color-light-grey">{page.noItems}</p>
             ) : (
               <div className="blog_main-list" role="list">
                 {pageItems.map((post) => (
@@ -321,7 +346,7 @@ export default function BlogPage() {
                     className={`blog-pagination-number-btn${
                       n === currentPage ? " is-current" : ""
                     }`}
-                    onClick={() => setPage(n)}
+                    onClick={() => setPageNum(n)}
                   >
                     {n}
                   </button>

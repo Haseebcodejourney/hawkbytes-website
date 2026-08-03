@@ -2,40 +2,39 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Header.css";
 
-const COMPLIANCE_LINKS = [
-  { label: "Quantum Computing Research", href: "/services/research" },
-  { label: "Quantum Algorithms", href: "/services/research#services" },
-  { label: "AI Products", href: "/#services" },
-  { label: "Machine Learning", href: "/#services" },
-  { label: "Generative AI", href: "/#services" },
-  { label: "AI Research", href: "/services/research#about" },
+const COMPLIANCE_HREFS = [
+  "/services/research",
+  "/services/research#services",
+  "/#services",
+  "/#services",
+  "/#services",
+  "/services/research#about",
 ];
 
-const COMPLIANCE_LINKS_COL2 = [
-  { label: "Software Products", href: "/#services" },
-  { label: "SaaS Platforms", href: "/#services" },
-  { label: "Applied Research", href: "/services/research#methodology" },
-  { label: "Prototyping", href: "/services/research#services" },
-  { label: "Product Engineering", href: "/#services" },
+const COMPLIANCE_HREFS_COL2 = [
+  "/#services",
+  "/#services",
+  "/services/research#methodology",
+  "/services/research#services",
+  "/#services",
 ];
 
-const DATA_PRIVACY_LINKS = [
-  { label: "Quantum Computing Research", href: "/services/research" },
-  { label: "Quantum Algorithms", href: "/services/research#services" },
-  { label: "Hybrid Quantum Systems", href: "/services/research#how-we-help" },
-  { label: "Applied Research", href: "/services/research#methodology" },
-  { label: "AI Research", href: "/services/research#about" },
+const DATA_PRIVACY_HREFS = [
+  "/services/research",
+  "/services/research#services",
+  "/services/research#how-we-help",
+  "/services/research#methodology",
+  "/services/research#about",
 ];
 
-const TECHNICAL_LINKS = [
-  { label: "Website Development", href: "/#solutions" },
-  { label: "Mobile Apps", href: "/#solutions" },
-  { label: "QA & Testing", href: "/#solutions" },
-  { label: "UI/UX Design", href: "/#solutions" },
-  { label: "DevOps & Cloud", href: "/#solutions" },
-];
+const TECHNICAL_HREFS = ["/#solutions", "/#solutions", "/#solutions", "/#solutions", "/#solutions"];
+
+function zip(labels: string[], hrefs: string[]) {
+  return labels.map((label, i) => ({ label, href: hrefs[i] ?? hrefs[hrefs.length - 1] }));
+}
 
 function ContactIcon() {
   return (
@@ -59,9 +58,11 @@ function ChevronIcon() {
 function ContactButton({
   className = "",
   onNavigate,
+  label,
 }: {
   className?: string;
   onNavigate?: () => void;
+  label: string;
 }) {
   return (
     <Link
@@ -73,7 +74,7 @@ function ContactButton({
         <div className="btn-icon-embed">
           <ContactIcon />
         </div>
-        <div>CONTACT US</div>
+        <div>{label}</div>
       </div>
     </Link>
   );
@@ -82,10 +83,16 @@ function ContactButton({
 type DropdownKey = "compliance" | "privacy" | "technical" | null;
 
 export default function Header() {
+  const t = useTranslations();
   const [openDropdown, setOpenDropdown] = useState<DropdownKey>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+
+  const complianceLinks = zip(t.header.productsCol1, COMPLIANCE_HREFS);
+  const complianceLinksCol2 = zip(t.header.productsCol2, COMPLIANCE_HREFS_COL2);
+  const dataPrivacyLinks = zip(t.header.researchItems, DATA_PRIVACY_HREFS);
+  const technicalLinks = zip(t.header.servicesItems, TECHNICAL_HREFS);
 
   useEffect(() => {
     // Must match Header.css collapse breakpoint (991px), not phone-only 479px
@@ -105,10 +112,17 @@ export default function Header() {
 
   useEffect(() => {
     if (!menuOpen) return;
-    const prev = document.body.style.overflow;
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    document.documentElement.classList.add("nav-menu-open");
+    window.__hawkLenis?.stop();
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevHtml;
+      document.documentElement.classList.remove("nav-menu-open");
+      window.__hawkLenis?.start();
     };
   }, [menuOpen]);
 
@@ -200,7 +214,7 @@ export default function Header() {
     >
       <div className="container">
         <div className="navbar-wr">
-          <Link href="/" className="brand" aria-label="HawkBytes home">
+          <Link href="/" className="brand" aria-label={t.header.ariaHome}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               loading="eager"
@@ -221,7 +235,7 @@ export default function Header() {
             id="main-nav-menu"
             role="navigation"
             className="nav-menu"
-            aria-label="Main"
+            aria-label={t.header.ariaMain}
           >
             <div className="nav-menu-inner">
               <div className="nav-menu-links-wr">
@@ -238,7 +252,7 @@ export default function Header() {
                     aria-expanded={openDropdown === "compliance"}
                     onClick={() => onDropdownClick("compliance")}
                   >
-                    <span>Products</span>
+                    <span>{t.header.products}</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
                       <ChevronIcon />
                     </div>
@@ -246,12 +260,12 @@ export default function Header() {
                   <div className="nav-dropdown-list" role="menu">
                     <div className="nav-dropdown-inner-wr">
                       <div className="text-weight-medium hide-on-mobile">
-                        <div className="text-size-medium-18">Products &amp; Research</div>
+                        <div className="text-size-medium-18">{t.header.productsHeading}</div>
                       </div>
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-2col">
                         <div className="nav-dropdown-links-wr">
-                          {COMPLIANCE_LINKS.map((link) => (
+                          {complianceLinks.map((link) => (
                             <a
                               key={link.label}
                               href={link.href}
@@ -264,7 +278,7 @@ export default function Header() {
                           ))}
                         </div>
                         <div className="nav-dropdown-links-wr">
-                          {COMPLIANCE_LINKS_COL2.map((link) => (
+                          {complianceLinksCol2.map((link) => (
                             <a
                               key={link.label}
                               href={link.href}
@@ -296,7 +310,7 @@ export default function Header() {
                     aria-expanded={openDropdown === "privacy"}
                     onClick={() => onDropdownClick("privacy")}
                   >
-                    <span>Research</span>
+                    <span>{t.header.research}</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
                       <ChevronIcon />
                     </div>
@@ -304,11 +318,11 @@ export default function Header() {
                   <div className="nav-dropdown-list is-2" role="menu">
                     <div className="nav-dropdown-inner-wr">
                       <div className="text-weight-medium hide-on-mobile">
-                        <div className="text-size-medium-18">Research Tracks</div>
+                        <div className="text-size-medium-18">{t.header.researchHeading}</div>
                       </div>
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-links-wr">
-                        {DATA_PRIVACY_LINKS.map((link) => (
+                        {dataPrivacyLinks.map((link) => (
                           <a
                             key={link.label}
                             href={link.href}
@@ -339,7 +353,7 @@ export default function Header() {
                     aria-expanded={openDropdown === "technical"}
                     onClick={() => onDropdownClick("technical")}
                   >
-                    <span>Services</span>
+                    <span>{t.header.services}</span>
                     <div className="nav-dropdown-icon" aria-hidden="true">
                       <ChevronIcon />
                     </div>
@@ -347,11 +361,11 @@ export default function Header() {
                   <div className="nav-dropdown-list is-3" role="menu">
                     <div className="nav-dropdown-inner-wr">
                       <div className="text-weight-medium hide-on-mobile">
-                        <div className="text-size-medium-18">Services</div>
+                        <div className="text-size-medium-18">{t.header.servicesHeading}</div>
                       </div>
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-links-wr">
-                        {TECHNICAL_LINKS.map((link) => (
+                        {technicalLinks.map((link) => (
                           <a
                             key={link.label}
                             href={link.href}
@@ -370,30 +384,30 @@ export default function Header() {
                 <div className="nav-divider" />
 
                 <Link href="/about-us" className="nav-link" onClick={closeMenu}>
-                  About Us
+                  {t.header.aboutUs}
                 </Link>
 
                 <div className="nav-divider" />
 
                 <Link href="/blog" className="nav-link" onClick={closeMenu}>
-                  Blog
+                  {t.header.blog}
                 </Link>
               </div>
 
               <div className="nav-mob-btn-wr">
-                <ContactButton onNavigate={closeMenu} />
+                <ContactButton onNavigate={closeMenu} label={t.common.contactUs} />
               </div>
             </div>
           </nav>
 
           <div className="nav-menu-btn-wr">
-            <ContactButton />
+            <ContactButton label={t.common.contactUs} />
           </div>
 
           <button
             type="button"
             className="nav-burger-link"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
             aria-expanded={menuOpen}
             aria-controls="main-nav-menu"
             onClick={() => {

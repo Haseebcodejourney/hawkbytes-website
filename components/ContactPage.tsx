@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./ContactPage.css";
 
 const ASSETS = {
@@ -24,14 +25,6 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e1699a7740550bb5d8e75d_fa-solid_check.svg",
 };
 
-const HEAR_OPTIONS = [
-  "Google / Bing / Other Search Engines",
-  "AI Tools (ChatGPT, Perplexity, etc.)",
-  "Referral",
-  "LinkedIn",
-  "Other",
-];
-
 function ChevronIcon() {
   return (
     <svg
@@ -53,6 +46,9 @@ function ChevronIcon() {
 }
 
 export default function ContactPage() {
+  const t = useTranslations();
+  const contact = t.contact;
+  const form = contact.form;
   const [hearAbout, setHearAbout] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [agreed, setAgreed] = useState(true);
@@ -113,27 +109,21 @@ export default function ContactPage() {
               <div className="contact_hero-content">
                 <div className="home_hero-tagline-wr">
                   <div className="home_hero-tagline-line" />
-                  <div>YOUR PRODUCT JOURNEY STARTS HERE</div>
+                  <div>{contact.tagline}</div>
                   <div className="home_hero-tagline-line is-2" />
                 </div>
 
-                <h1 className="heading-style-48 is-contact-page">
-                  Let’s talk — HawkBytes is here to help.
-                </h1>
+                <h1 className="heading-style-48 is-contact-page">{contact.title}</h1>
 
                 <div className="max-width-580">
                   <div className="text-color-light-grey">
-                    <p className="text-size-regular-16">
-                      Just fill out our contact form and we’ll get back to you
-                      within 24 hours. Prefer to speak directly? Schedule a call
-                      by phone or via email. We’re here when you need us.
-                    </p>
+                    <p className="text-size-regular-16">{contact.body}</p>
                   </div>
                 </div>
 
                 <div className="contact_hero-contacts-item">
                   <div className="text-color-light-grey">
-                    <p className="text-size-small-14-rm">Call</p>
+                    <p className="text-size-small-14-rm">{contact.callLabel}</p>
                   </div>
                   <a href="tel:+923000000000" className="contact_hero-link">
                     +92 300 000 0000
@@ -142,7 +132,7 @@ export default function ContactPage() {
 
                 <div className="contact_hero-contacts-item">
                   <div className="text-color-light-grey">
-                    <p className="text-size-small-14-rm">Send Email</p>
+                    <p className="text-size-small-14-rm">{contact.emailLabel}</p>
                   </div>
                   <a
                     href="mailto:hello@hawkbytes.io"
@@ -163,11 +153,7 @@ export default function ContactPage() {
                   />
                   <div className="spacer-medium-10" />
                   <div className="text-color-light-grey">
-                    <p className="text-size-small-14">
-                      The HawkBytes team has consistently produced high quality
-                      deliverables at fair prices. We give their client prospects
-                      our strongest recommendation.
-                    </p>
+                    <p className="text-size-small-14">{contact.quote.text}</p>
                   </div>
                   <div className="spacer-medium-20" />
                   <div className="contact_quote-author-wr">
@@ -183,15 +169,13 @@ export default function ContactPage() {
                     </div>
                     <div className="home_quote-author-info">
                       <div className="text-weight-medium">
-                        <p className="text-size-small-14">Paul Lucidi</p>
+                        <p className="text-size-small-14">{contact.quote.name}</p>
                       </div>
                       <div className="hide-on-mobile">
                         <p className="text-color-light-grey">—</p>
                       </div>
                       <div className="text-font-rm text-color-light-grey">
-                        <p className="text-size-small-14">
-                          Founder and President, CyberAge Consulting LLC
-                        </p>
+                        <p className="text-size-small-14">{contact.quote.role}</p>
                       </div>
                     </div>
                   </div>
@@ -214,21 +198,21 @@ export default function ContactPage() {
                         <div className="form-inputs-wr">
                           <div className="form-input-2col">
                             <div className="form-field-wr">
-                              <p className="form-label">First name*</p>
+                              <p className="form-label">{form.firstName}</p>
                               <input
                                 className="form_input"
                                 name="First-Name"
-                                placeholder="John"
+                                placeholder={form.placeholders.firstName}
                                 type="text"
                                 required
                               />
                             </div>
                             <div className="form-field-wr">
-                              <p className="form-label">Last name*</p>
+                              <p className="form-label">{form.lastName}</p>
                               <input
                                 className="form_input"
                                 name="Last-Name"
-                                placeholder="Smith"
+                                placeholder={form.placeholders.lastName}
                                 type="text"
                                 required
                               />
@@ -237,21 +221,21 @@ export default function ContactPage() {
 
                           <div className="form-input-2col">
                             <div className="form-field-wr">
-                              <p className="form-label">Email*</p>
+                              <p className="form-label">{form.email}</p>
                               <input
                                 className="form_input"
                                 name="Email"
-                                placeholder="name@company.com"
+                                placeholder={form.placeholders.email}
                                 type="email"
                                 required
                               />
                             </div>
                             <div className="form-field-wr">
-                              <p className="form-label">Phone number*</p>
+                              <p className="form-label">{form.phone}</p>
                               <input
                                 className="form_input"
                                 name="Phone-number"
-                                placeholder="+92 300 000 0000"
+                                placeholder={form.placeholders.phone}
                                 type="tel"
                                 required
                               />
@@ -259,29 +243,29 @@ export default function ContactPage() {
                           </div>
 
                           <div className="form-field-wr">
-                            <p className="form-label">Company name*</p>
+                            <p className="form-label">{form.company}</p>
                             <input
                               className="form_input"
                               name="Company"
-                              placeholder="Company"
+                              placeholder={form.placeholders.company}
                               type="text"
                               required
                             />
                           </div>
 
                           <div className="form-field-wr">
-                            <p className="form-label">Your message</p>
+                            <p className="form-label">{form.message}</p>
                             <textarea
                               className="form_input is-text-area"
                               name="Message"
-                              placeholder="Your message"
+                              placeholder={form.placeholders.message}
                               rows={4}
                             />
                           </div>
 
                           <div className="form-field-wr" ref={dropdownRef}>
                             <label className="form-label" htmlFor="HowYouHearAboutUs">
-                              How did you hear about us?
+                              {form.hearAbout}
                             </label>
                             <div
                               className={`dropdown_component${dropdownOpen ? " is-open" : ""}`}
@@ -293,7 +277,7 @@ export default function ContactPage() {
                                 aria-expanded={dropdownOpen}
                                 onClick={() => setDropdownOpen((v) => !v)}
                               >
-                                <div>{hearAbout || "Select one..."}</div>
+                                <div>{hearAbout || form.placeholders.hearSelect}</div>
                                 <div className="dropdown-chevron">
                                   <ChevronIcon />
                                 </div>
@@ -304,7 +288,7 @@ export default function ContactPage() {
                                 }`}
                                 role="listbox"
                               >
-                                {HEAR_OPTIONS.map((opt) => (
+                                {form.hearOptions.map((opt) => (
                                   <button
                                     key={opt}
                                     type="button"
@@ -340,7 +324,7 @@ export default function ContactPage() {
                                 ) : null}
                               </span>
                               <span className="contact-recaptcha-label">
-                                I&apos;m not a robot
+                                {form.recaptcha}
                               </span>
                               <span className="contact-recaptcha-brand" aria-hidden="true">
                                 <span className="contact-recaptcha-logo">reCAPTCHA</span>
@@ -367,16 +351,15 @@ export default function ContactPage() {
                                 required
                               />
                               <span className="form_checkbox-label">
-                                By submitting this form, you agree to our{" "}
+                                {form.consentBefore}
                                 <a
                                   href="/privacy-policy"
                                   className="span-link-orange"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  Privacy Policy
-                                </a>{" "}
-                                and consent to the processing of your personal data in
-                                accordance with it.
+                                  {form.privacyLink}
+                                </a>
+                                {form.consentAfter}
                               </span>
                             </label>
 
@@ -385,7 +368,7 @@ export default function ContactPage() {
                               className="button is-form-submit"
                               disabled={submitting}
                             >
-                              {submitting ? "Please wait..." : "SUBMIT"}
+                              {submitting ? form.submitting : form.submit}
                             </button>
                           </div>
                         </div>
@@ -393,10 +376,7 @@ export default function ContactPage() {
 
                       {error ? (
                         <div className="form_message-error" role="alert">
-                          <div>
-                            Oops! Something went wrong while submitting the form. Try
-                            again
-                          </div>
+                          <div>{form.error}</div>
                         </div>
                       ) : null}
                     </div>
@@ -470,12 +450,9 @@ export default function ContactPage() {
           <div className="contact_popup-wr">
             <div className="contact_popup-stroke">
               <div className="contact_popup-inner-wr">
-                <p className="text-size-large-21">Your message was sent.</p>
+                <p className="text-size-large-21">{contact.success.title}</p>
                 <div className="text-color-light-grey">
-                  <p className="text-size-small-14-rm">
-                    Thank you for reaching out. A HawkBytes expert will soon get back to
-                    you.
-                  </p>
+                  <p className="text-size-small-14-rm">{contact.success.body}</p>
                 </div>
                 <button
                   type="button"
@@ -483,7 +460,7 @@ export default function ContactPage() {
                   onClick={() => setSuccessOpen(false)}
                 >
                   <div className="button-text-wr">
-                    <div>CLOSE</div>
+                    <div>{contact.success.close}</div>
                   </div>
                 </button>
               </div>

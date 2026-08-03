@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Methodology.css";
 
 const ASSETS = {
@@ -15,35 +16,11 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d19a816f9c577b5c49870c_Central%20Container.svg",
 };
 
-const STEPS = [
-  {
-    className: "home_approach-item",
-    numberClass: "home_approach-number",
-    number: "01",
-    title: "Discovery",
-    text: "We conduct research discovery across quantum, AI, and product opportunities to define a clear path forward.",
-  },
-  {
-    className: "home_approach-item is-2",
-    numberClass: "home_approach-number is-2",
-    number: "02",
-    title: "Prototype Support",
-    text: "We support early experiments, assist in validating ideas, and implement prototypes toward a build-ready state.",
-  },
-  {
-    className: "home_approach-item is-4",
-    numberClass: "home_approach-number is-4",
-    number: "04",
-    title: "Delivery",
-    text: "We ship production software and provide the release report — product, platform, or research outcome.",
-  },
-  {
-    className: "home_approach-item is-3",
-    numberClass: "home_approach-number is-3",
-    number: "03",
-    title: "Build Period",
-    text: "You see designed systems operating effectively as we engineer products, apps, and platforms over time.",
-  },
+const STEP_LAYOUT = [
+  { className: "home_approach-item", numberClass: "home_approach-number", number: "01" },
+  { className: "home_approach-item is-2", numberClass: "home_approach-number is-2", number: "02" },
+  { className: "home_approach-item is-4", numberClass: "home_approach-number is-4", number: "04" },
+  { className: "home_approach-item is-3", numberClass: "home_approach-number is-3", number: "03" },
 ];
 
 function shortestDelta(from: number, to: number) {
@@ -54,14 +31,28 @@ function shortestDelta(from: number, to: number) {
 }
 
 export default function Methodology({
-  title = "HawkBytes' Methodology",
-  tagline = "OUR APPROACH",
-  description = "We've developed a clear 4-step methodology to take you from research discovery all the way to successful delivery.",
+  title: titleProp,
+  tagline: taglineProp,
+  description: descriptionProp,
 }: {
   title?: string;
   tagline?: string;
   description?: string;
 }) {
+  const t = useTranslations();
+  const title = titleProp ?? t.methodology.title;
+  const tagline = taglineProp ?? t.methodology.tagline;
+  const description = descriptionProp ?? t.methodology.description;
+
+  const steps = STEP_LAYOUT.map((layout) => {
+    const stepText = t.methodology.steps.find((s) => s.number === layout.number);
+    return {
+      ...layout,
+      title: stepText?.title ?? "",
+      text: stepText?.text ?? "",
+    };
+  });
+
   const circleRef = useRef<HTMLImageElement>(null);
   const targetAngle = useRef(0);
   const currentAngle = useRef(0);
@@ -159,7 +150,7 @@ export default function Methodology({
                 </div>
 
                 <div className="home_approach-content-wr">
-                  {STEPS.map((step) => (
+                  {steps.map((step) => (
                     <div key={step.number} className={step.className}>
                       <div className="home_approach-item-txt-wr">
                         <p className="home_approach-item-title">{step.title}</p>

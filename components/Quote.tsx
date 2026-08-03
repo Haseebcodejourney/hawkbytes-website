@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Quote.css";
 
 const ASSETS = {
@@ -7,6 +10,8 @@ const ASSETS = {
 };
 
 export default function Quote() {
+  const t = useTranslations();
+
   return (
     <section className="section quote-section">
       <div className="section-padding top-5 bottom-5">
@@ -17,19 +22,14 @@ export default function Quote() {
               src={ASSETS.icon}
               loading="lazy"
               width={62}
-              alt="Blue stylized quotation mark symbol with a shiny gradient effect."
+              alt={t.quote.iconAlt}
               className="home_quote-icon"
             />
 
             <div className="spacer-medium-30" />
 
             <div className="max-width-940">
-              <p className="home_quote-txt">
-                HawkBytes exists to push quantum computing research forward and
-                turn that research into real products. AI software, platforms,
-                and digital services matter — but our deepest work is building
-                what comes next.
-              </p>
+              <p className="home_quote-txt">{t.quote.text}</p>
             </div>
 
             <div className="spacer-medium-20" />
@@ -41,21 +41,19 @@ export default function Quote() {
                   src={ASSETS.author}
                   loading="lazy"
                   width={40}
-                  alt="HawkBytes founder and CEO."
+                  alt={t.quote.authorImgAlt}
                   className="home_quote-author-img"
                 />
               </div>
               <div className="home_quote-author-info">
                 <div className="text-weight-medium">
-                  <p className="text-size-small-14">Haseeb Ahmed</p>
+                  <p className="text-size-small-14">{t.quote.authorName}</p>
                 </div>
                 <div className="hide-on-mobile">
                   <p className="text-color-light-grey">—</p>
                 </div>
                 <div className="text-font-rm text-color-light-grey">
-                  <p className="text-size-small-14">
-                    Founder & CEO, HawkBytes
-                  </p>
+                  <p className="text-size-small-14">{t.quote.authorRole}</p>
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@
   background-color: var(--black, #040410);
   color: var(--white, #fff);
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .privacy-section .nav-placeholder {

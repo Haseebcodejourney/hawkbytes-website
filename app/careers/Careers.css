@@ -4,6 +4,7 @@
   background-color: var(--black, #040410);
   color: var(--white, #fff);
   min-height: 80vh;
+  min-height: 80dvh;
 }
 
 .careers-section .nav-placeholder {

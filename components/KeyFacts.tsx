@@ -1,4 +1,7 @@
+"use client";
+
 import GlowButton from "@/components/GlowButton";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./KeyFacts.css";
 
 const ASSETS = {
@@ -6,25 +9,6 @@ const ASSETS = {
   bgMob:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dbd68978d1e4d3694f915e_Inner%20Container2.avif",
 };
-
-const FACTS = [
-  {
-    value: "Deep",
-    text: "focus on quantum computing research and applied experimentation",
-  },
-  {
-    value: "AI+",
-    text: "products and intelligent software built from research into production",
-  },
-  {
-    value: "Full",
-    text: "product capability — software platforms, websites, apps, and QA",
-  },
-  {
-    value: "100%",
-    text: "ownership from research to ship — no fragmented handoffs",
-  },
-];
 
 export default function KeyFacts({
   showTagline = true,
@@ -35,6 +19,8 @@ export default function KeyFacts({
   showButton?: boolean;
   visibleOnLoad?: boolean;
 }) {
+  const t = useTranslations();
+
   return (
     <section id="facts" className="section key-facts-section">
       <div className="section-padding top-5 bottom-5">
@@ -46,31 +32,24 @@ export default function KeyFacts({
               <div className="home_about-sticky">
                 <div className="align-left">
                   {showTagline ? (
-                    <p className="tagline-text-blue-gradient">ABOUT US</p>
+                    <p className="tagline-text-blue-gradient">{t.keyFacts.tagline}</p>
                   ) : null}
                   <div className="grey-text-gradient">
-                    <h2 className="heading-style-48">
-                      Key Facts about HawkBytes
-                    </h2>
+                    <h2 className="heading-style-48">{t.keyFacts.title}</h2>
                   </div>
                   <div className="spacer-medium-20" />
                   <div className="text-color-light-grey">
-                    <p className="text-size-small-14">
-                      HawkBytes is a product and research company. Quantum
-                      computing research is our main focus. Around that core we
-                      build AI products and software — and provide web, mobile,
-                      and QA services when partners need execution support.
-                    </p>
+                    <p className="text-size-small-14">{t.keyFacts.body}</p>
                   </div>
                   <div className="spacer-medium-20" />
                   {showButton ? (
-                    <GlowButton href="/about-us">READ MORE</GlowButton>
+                    <GlowButton href="/about-us">{t.keyFacts.cta}</GlowButton>
                   ) : null}
                 </div>
               </div>
 
               <div className="home_about-info-wr">
-                {FACTS.map((fact) => (
+                {t.keyFacts.facts.map((fact) => (
                   <div key={fact.value} className="home_about-info-item">
                     <div className="home_about-item-gradient">
                       <div className="heading-style-60">{fact.value}</div>

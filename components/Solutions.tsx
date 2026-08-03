@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Solutions.css";
 
 const ARROW = (
@@ -16,35 +19,22 @@ const ARROW = (
   </svg>
 );
 
-const SOLUTIONS = [
-  {
-    href: "/contact-us",
-    title: "Website Development",
-    text: "Modern, fast websites and web apps — from marketing sites to complex product frontends — built with clean design and solid engineering.",
-  },
-  {
-    href: "/contact-us",
-    title: "Mobile App Development",
-    text: "iOS and Android applications designed for performance and usability, with clear product thinking from day one.",
-  },
-  {
-    href: "/contact-us",
-    title: "QA & Automated Testing",
-    text: "Manual and automated quality engineering that protects releases and keeps your product reliable as it grows.",
-  },
-  {
-    href: "/contact-us",
-    title: "UI/UX Design",
-    text: "Product-focused design systems and interfaces that make advanced technology feel simple for users.",
-  },
-  {
-    href: "/contact-us",
-    title: "DevOps & Cloud Delivery",
-    text: "CI/CD, cloud architecture, and deployment pipelines so research prototypes and products reach production cleanly.",
-  },
+const SOLUTION_HREFS = [
+  "/contact-us",
+  "/contact-us",
+  "/contact-us",
+  "/contact-us",
+  "/contact-us",
 ];
 
 export default function Solutions() {
+  const t = useTranslations();
+
+  const solutions = t.solutions.items.map((item, index) => ({
+    ...item,
+    href: SOLUTION_HREFS[index] ?? "/contact-us",
+  }));
+
   return (
     <section id="solutions" className="section solutions-section">
       <div className="section-padding top-5 bottom-5">
@@ -52,26 +42,18 @@ export default function Solutions() {
           <div className="left-padding">
             <div className="txt-2col-grid is-align-bottom">
               <div className="align-left">
-                <p className="tagline-text-blue-gradient">
-                  TECH-DRIVEN SECURITY SOLUTIONS
-                </p>
-                <h2 className="heading-style-48">
-                  Additional Technology-Enabled Engineering Services
-                </h2>
+                <p className="tagline-text-blue-gradient">{t.solutions.tagline}</p>
+                <h2 className="heading-style-48">{t.solutions.title}</h2>
               </div>
               <div className="text-color-light-grey">
-                <p className="text-size-small-14">
-                  HawkBytes uses modern tools and delivery practices to support
-                  your product journey. These services help you ship websites,
-                  apps, and platforms alongside our core research and AI work.
-                </p>
+                <p className="text-size-small-14">{t.solutions.intro}</p>
               </div>
             </div>
 
             <div className="spacer-xlarge-60" />
 
             <div className="home_solutions-wr">
-              {SOLUTIONS.map((item) => (
+              {solutions.map((item) => (
                 <a
                   key={item.title}
                   href={item.href}
@@ -85,7 +67,7 @@ export default function Solutions() {
                     </div>
                     <div className="home_solutions-card-btn-wr">
                       <div className="button-text">
-                        <div>learn more</div>
+                        <div>{t.solutions.learnMore}</div>
                         <div className="btn-text-icon">{ARROW}</div>
                       </div>
                     </div>

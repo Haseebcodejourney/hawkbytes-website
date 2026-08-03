@@ -20,7 +20,7 @@
 
   /* Remove blue box from links and dropdown on tap on mobile */
   html {
-    \-webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   /* Make text look crisper and more legible in all browsers */
@@ -32,10 +32,14 @@
   }
 
   /* Fluid responsive */
-  html{font-size:calc(16*(100vw / 1600))}
+  html {
+    font-size: clamp(12px, calc(16 * (100svw / 1600)), 16px);
+  }
 
   @media (max-width: 479px) {
-    html{font-size:calc(16*(100vw / 360))}
+    html {
+      font-size: clamp(12px, calc(16 * (100svw / 360)), 16px);
+    }
   }
 
   @media (min-width: 1728px) {

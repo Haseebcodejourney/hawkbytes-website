@@ -318,6 +318,7 @@
   background-color: var(--button-background);
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
@@ -349,6 +350,7 @@
   border-radius: inherit;
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
   transform: scaleY(1.02) scaleX(1.005) rotate(-0.35deg);
   z-index: 0;
   pointer-events: none;

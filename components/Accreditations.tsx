@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Accreditations.css";
 
 const ASSETS = {
@@ -15,64 +18,54 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dbd98a00991f4503397fce_Line%2029.svg",
 };
 
-const ITEMS = [
+const ITEM_ASSETS = [
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e2c889f5e94dc5ac269f_expertise-1.avif",
-    text: "Licensed CPA firm registered with the AICPA",
     border: true,
     borderMob: true,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e861028ff7b27858c38d_expertise-2.avif",
-    text: "PCI-DSS Qualified Security Assessor Company",
     border: true,
     borderMob: false,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e86187d98eb4e6fd944a_expertise-3.avif",
-    text: "CMMC Registered Practitioner Organization",
     border: true,
     borderMob: true,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e861fca5221aa1d4f8ff_expertise-4.avif",
-    text: "Authorized External Assessor Organization for HITRUST",
     border: true,
     borderMob: false,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e86163a17b3a275b9fd6_expertise-5.avif",
-    text: "Vanta Certified Service Partner & Verified Auditor",
     border: false,
     borderMob: true,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e861e9fb85a213479a81_expertise-6.avif",
-    text: "Certified HITRUST Common Security Framework Practitioner",
     border: false,
     borderMob: false,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e8613c17fd4db5f9d04a_expertise-7.avif",
-    text: "Certified HITRUST Quality Professional",
     border: false,
     borderMob: true,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e861dabb09e731a28926_expertise-8.avif",
-    text: "ISO 27001 Certified Lead Auditor",
     border: false,
     borderMob: false,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e861779f42b93a4946c1_expertise-9.avif",
-    text: "ISO 27017 Certified Lead Auditor",
     border: false,
     borderMob: false,
   },
   {
     logo: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d2e86126ba06942ed1661e_expertise-10.avif",
-    text: "ISO 27018 Certified Lead Auditor",
     border: false,
     borderMob: false,
   },
@@ -85,6 +78,13 @@ export default function Accreditations({
   paddingClass?: string;
   visibleOnLoad?: boolean;
 }) {
+  const t = useTranslations();
+
+  const items = t.accreditations.items.map((item, index) => ({
+    ...item,
+    ...(ITEM_ASSETS[index] ?? ITEM_ASSETS[0]),
+  }));
+
   return (
     <section id="accreditations" className="section accreditations-section">
       <div className={`section-padding ${paddingClass}`}>
@@ -93,10 +93,8 @@ export default function Accreditations({
         >
           <div className="left-padding">
             <div className="align-left">
-              <p className="tagline-text-blue-gradient">EXPERTISE</p>
-              <h2 className="heading-style-48">
-                Our Accreditations &amp; Certifications
-              </h2>
+              <p className="tagline-text-blue-gradient">{t.accreditations.tagline}</p>
+              <h2 className="heading-style-48">{t.accreditations.title}</h2>
             </div>
 
             <div className="spacer-medium-30" />
@@ -137,8 +135,8 @@ export default function Accreditations({
               </div>
 
               <div className="home_expertise-grid">
-                {ITEMS.map((item) => (
-                  <div key={item.text} className="home_expertise-grid-item">
+                {items.map((item, index) => (
+                  <div key={index} className="home_expertise-grid-item">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={item.logo}

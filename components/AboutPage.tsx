@@ -1,17 +1,20 @@
+"use client";
+
 import GlowButton from "@/components/GlowButton";
 import StickyNav, { type StickyNavLink } from "@/components/StickyNav";
 import KeyFacts from "@/components/KeyFacts";
 import Accreditations from "@/components/Accreditations";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "@/components/Hero.css";
 import "./AboutPage.css";
 
-const ABOUT_LINKS: StickyNavLink[] = [
-  { href: "#mission", num: "01", label: "WHO WE ARE" },
-  { href: "#facts", num: "02", label: "KEY FACTS" },
-  { href: "#location", num: "03", label: "LOCATION" },
-  { href: "#offer", num: "04", label: "WHAT WE OFFER" },
-  { href: "#team", num: "05", label: "TEAM" },
-  { href: "#accreditations", num: "06", label: "ACCREDITATIONS" },
+const ABOUT_LINK_HREFS = [
+  "#mission",
+  "#facts",
+  "#location",
+  "#offer",
+  "#team",
+  "#accreditations",
 ];
 
 const ASSETS = {
@@ -43,45 +46,23 @@ const TRUST_LOGOS = [
   "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933432cd53fdbf6ec9d_Logo%D0%A17.avif",
 ];
 
-const FEATURES = [
-  {
-    icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530a69f3282b5428d8c1_about-icon-1.svg",
-    title: "High-quality and experienced team",
-    text: "Our researchers and engineers have deep knowledge across quantum computing, AI, and product software. We hire experienced professionals who have shipped across industries.",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530adc8771031a5185f8_about-icon-3.svg",
-    title: "Hands-on comprehensive delivery support",
-    text: "We don't just advise — we build. From research prototypes to production platforms, websites, and QA, we support delivery at whatever depth you need.",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530a19f4bf8d2f046242_about-icon-2.svg",
-    title: "Streamlined, flexible, organization-friendly approach",
-    text: "We adapt to your needs as a true partner, and work with your internal processes for a streamlined and effective engagement.",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530a67a7c58456e85002_about-icon-4.svg",
-    title: "Immediate availability",
-    text: "We're ready to start engagements right away, and are available to reach at any time during the process.",
-  },
+const FEATURE_ICONS = [
+  "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530a69f3282b5428d8c1_about-icon-1.svg",
+  "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530adc8771031a5185f8_about-icon-3.svg",
+  "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530a19f4bf8d2f046242_about-icon-2.svg",
+  "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e6530a67a7c58456e85002_about-icon-4.svg",
 ];
 
-const TEAM = [
+const TEAM_ASSETS = [
   {
-    name: "Haseeb Ahmed",
-    role: "Founder & CEO",
     img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e27180d730b69a96c6d391_Author%20Image%201.avif",
     linkedin: "https://www.linkedin.com/company/hawkbytes/",
   },
   {
-    name: "Research Lead",
-    role: "Quantum & AI Research",
     img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e274f38fddd0df18ea64c4_Author%20Image%202.avif",
     linkedin: "https://www.linkedin.com/company/hawkbytes/",
   },
   {
-    name: "Engineering Lead",
-    role: "Products & Platforms",
     img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e274fccd6db1c24e6df93f_Author%20Image%203.avif",
     linkedin: "https://www.linkedin.com/company/hawkbytes/",
   },
@@ -130,6 +111,25 @@ function LogoTrack({ trackKey }: { trackKey: string }) {
 }
 
 export default function AboutPage() {
+  const t = useTranslations();
+  const about = t.about;
+
+  const aboutLinks: StickyNavLink[] = about.nav.map((link, index) => ({
+    href: ABOUT_LINK_HREFS[index] ?? "#mission",
+    num: link.num,
+    label: link.label,
+  }));
+
+  const features = about.offer.features.map((feature, index) => ({
+    ...feature,
+    icon: FEATURE_ICONS[index] ?? FEATURE_ICONS[0],
+  }));
+
+  const team = about.team.members.map((member, index) => ({
+    ...member,
+    ...(TEAM_ASSETS[index] ?? TEAM_ASSETS[0]),
+  }));
+
   return (
     <>
       <section className="section about-hero-section">
@@ -139,32 +139,25 @@ export default function AboutPage() {
             <div className="about_hero">
               <div className="home_hero-tagline-wr is-smaller">
                 <div className="home_hero-tagline-line" />
-                <div>ABOUT US</div>
+                <div>{about.tagline}</div>
                 <div className="home_hero-tagline-line is-2" />
               </div>
               <div className="spacer-small-16 is-mob-20" />
               <div className="about_hero-title-wr">
-                <h1 className="heading-style-60 is-mob-32">
-                  HawkBytes — Products, Research &amp; Quantum Computing
-                </h1>
+                <h1 className="heading-style-60 is-mob-32">{about.title}</h1>
               </div>
               <div className="spacer-small-16 is-mob-20" />
               <div className="max-width-820">
                 <div className="text-color-light-grey">
-                  <p className="text-size-small-14">
-                    HawkBytes is a product and research company. Our main focus
-                    is quantum computing research. Around that core we build AI
-                    products and software — and deliver websites, apps, and QA
-                    when partners need a trusted engineering team.
-                  </p>
+                  <p className="text-size-small-14">{about.body}</p>
                 </div>
               </div>
               <div className="spacer-large-40" />
               <div className="about_hero-btn-row">
-                <GlowButton href="/contact-us">Talk to an expert</GlowButton>
+                <GlowButton href="/contact-us">{about.cta}</GlowButton>
                 <a href="#mission" className="button is-text">
                   <div className="button-text-wr">
-                    <div>READ MORE</div>
+                    <div>{about.readMore}</div>
                     <div className="btn-icon-embed is-arrow-right">
                       <ArrowIcon />
                     </div>
@@ -205,7 +198,7 @@ export default function AboutPage() {
       </section>
 
       <div className="home_sticky-box">
-        <StickyNav links={ABOUT_LINKS} noBottomPadding />
+        <StickyNav links={aboutLinks} noBottomPadding />
         <div className="home_sections-wr">
           <section id="mission" className="section overflow-hidden about-mission-section">
             <div className="section-padding top-5 bottom-5">
@@ -213,27 +206,18 @@ export default function AboutPage() {
                 <div className="left-padding">
                   <div className="max-width-1060">
                     <div className="align-left">
-                      <h2 className="heading-style-48">Who We Are and What We Offer</h2>
+                      <h2 className="heading-style-48">{about.mission.title}</h2>
                       <div className="spacer-medium-30" />
                       <div className="txt-2col-grid">
                         <div className="text-color-light-grey">
-                          <p className="text-size-small-14">
-                            HawkBytes is a product and research company. Quantum
-                            computing research is our primary focus. We also build
-                            AI products and software platforms that turn research
-                            into real-world value.
-                          </p>
+                          <p className="text-size-small-14">{about.mission.col1}</p>
                         </div>
                         <div className="text-color-light-grey">
-                          <p className="text-size-small-14">
-                            Alongside that core, we deliver websites, mobile apps,
-                            and QA — so ambitious teams can invent, prototype, and
-                            ship with one partner.
-                          </p>
+                          <p className="text-size-small-14">{about.mission.col2}</p>
                         </div>
                       </div>
                       <div className="spacer-xlarge-60" />
-                      <div className="home_logos-running-wr" aria-label="HawkBytes focus areas">
+                      <div className="home_logos-running-wr" aria-label={about.mission.logosAria}>
                         <div className="marquee is-logos">
                           <LogoTrack trackKey="a" />
                           <LogoTrack trackKey="b" />
@@ -274,14 +258,10 @@ export default function AboutPage() {
                   </div>
                   <div className="left-padding">
                     <div className="about_map-content">
-                      <h2 className="heading-style-48">We Serve Globally</h2>
+                      <h2 className="heading-style-48">{about.location.title}</h2>
                       <div className="spacer-medium-30" />
                       <div className="text-color-light-grey">
-                        <p className="text-size-small-14-rm">
-                          HawkBytes collaborates with partners globally —
-                          across research, product builds, and digital delivery
-                          — from our engineering hubs and remote teams worldwide.
-                        </p>
+                        <p className="text-size-small-14-rm">{about.location.body}</p>
                       </div>
                     </div>
                   </div>
@@ -297,21 +277,14 @@ export default function AboutPage() {
                   <div className="max-width-1060">
                     <div className="align-left">
                       <div className="about_features-title-wr">
-                        <h2 className="heading-style-48">
-                          The HawkBytes Way for Partnership Success
-                        </h2>
+                        <h2 className="heading-style-48">{about.offer.title}</h2>
                         <div className="text-color-grey">
-                          <p className="text-size-small-14">
-                            We&apos;re committed to making our partnership a
-                            success with our research-led approach, hands-on
-                            delivery and a highly qualified team. Here&apos;s
-                            what makes us stand out:
-                          </p>
+                          <p className="text-size-small-14">{about.offer.intro}</p>
                         </div>
                       </div>
                       <div className="spacer-medium-32" />
                       <div className="about_features-grid">
-                        {FEATURES.map((feature) => (
+                        {features.map((feature) => (
                           <div key={feature.title} className="about_features-item">
                             <div className="about_features-top">
                               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -345,17 +318,14 @@ export default function AboutPage() {
                   <div className="align-left">
                     <div className="about_team-block">
                       <div className="about_team-title-wr">
-                        <h2 className="heading-style-48">Meet our Executive Team</h2>
+                        <h2 className="heading-style-48">{about.team.title}</h2>
                         <div className="spacer-medium-20" />
                         <div className="text-color-light-grey">
-                          <p className="text-size-small-14">
-                            Meet HawkBytes&apos;s leadership team committed to
-                            delivering excellence to our global clients.
-                          </p>
+                          <p className="text-size-small-14">{about.team.intro}</p>
                         </div>
                       </div>
                       <div className="about_team-wr">
-                        {TEAM.map((member) => (
+                        {team.map((member) => (
                           <a
                             key={member.name}
                             href={member.linkedin}

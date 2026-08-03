@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { BLOG_POSTS } from "@/lib/blog-posts";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Blog.css";
 
 const ASSETS = {
@@ -12,6 +15,8 @@ const ASSETS = {
 const POSTS = BLOG_POSTS.slice(0, 3);
 
 export default function Blog() {
+  const t = useTranslations();
+
   return (
     <section className="section bg-color-secondary blog-section">
       <div className="section-bg" aria-hidden="true">
@@ -39,12 +44,12 @@ export default function Blog() {
         <div className="container anim-appear-on-scroll">
           <div className="heading-wr-with-btn">
             <div className="align-left">
-              <p className="tagline-text-blue-gradient is-on-white">BLOG</p>
-              <h2 className="heading-style-48">Latest stories</h2>
+              <p className="tagline-text-blue-gradient is-on-white">{t.blog.tagline}</p>
+              <h2 className="heading-style-48">{t.blog.title}</h2>
             </div>
             <Link href="/blog" className="button w-variant-09568581-b747-f3e0-5ddb-1d10003baaf6">
               <div className="button-text-wr">
-                <div>READ THE BLOG</div>
+                <div>{t.blog.cta}</div>
               </div>
             </Link>
           </div>
@@ -53,7 +58,14 @@ export default function Blog() {
 
           <div className="home_blog-cl-wr">
             <div className="home_blog-cl" role="list">
-              {POSTS.map((post) => (
+              {POSTS.map((post) => {
+                const copy = t.blog.page.posts[post.slug];
+                const categoryKey = post.category as keyof typeof t.blog.page.categories;
+                const categoryLabel =
+                  t.blog.page.categories[categoryKey] ?? post.category;
+                const title = copy?.title ?? post.title;
+                const date = copy?.date ?? post.date;
+                return (
                 <div key={post.slug} className="home_blog-cl-item" role="listitem">
                   <a href={post.href} className="home_blog-cl-card">
                     <div className="home_blog-cl-card-img-wr">
@@ -66,19 +78,20 @@ export default function Blog() {
                       />
                     </div>
                     <div className="home_blog-cl-card-info-wr">
-                      <p className="text-color-primary">{post.category}</p>
+                      <p className="text-color-primary">{categoryLabel}</p>
                       <p>/</p>
-                      <p>{post.date}</p>
+                      <p>{date}</p>
                     </div>
                     <div className="home_blog-cl-card-title-wr">
-                      <p className="home_blog-cl-card-title">{post.title}</p>
+                      <p className="home_blog-cl-card-title">{title}</p>
                       <p className="home_blog-cl-card-title-gradient">
-                        {post.title}
+                        {title}
                       </p>
                     </div>
                   </a>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

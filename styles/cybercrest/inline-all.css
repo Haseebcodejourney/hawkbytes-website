@@ -78,26 +78,48 @@
 
   /* Remove blue box from links and dropdown on tap on mobile */
   html {
-    \-webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   /* Make text look crisper and more legible in all browsers */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  /* Fluid responsive */
-  html{font-size:calc(16*(100vw / 1600))}
+  /*
+   * Fluid rem — use svw so Mac/Safari (overlay scrollbars) matches Chrome.
+   * Cap with clamp so type never blows up on wide Mac displays.
+   */
+  html {
+    font-size: clamp(12px, calc(16 * (100svw / 1600)), 16px);
+  }
 
   @media (max-width: 479px) {
-    html{font-size:calc(16*(100vw / 360))}
+    html {
+      font-size: clamp(12px, calc(16 * (100svw / 360)), 16px);
+    }
   }
 
   @media (min-width: 1728px) {
-    html{font-size:16px}
+    html {
+      font-size: 16px;
+    }
+  }
+
+  @supports not (width: 1svw) {
+    html {
+      font-size: clamp(12px, calc(16 * (100vw / 1600)), 16px);
+    }
+
+    @media (max-width: 479px) {
+      html {
+        font-size: clamp(12px, calc(16 * (100vw / 360)), 16px);
+      }
+    }
   }
 
 
@@ -199,6 +221,7 @@
     border-radius: inherit;
     overflow: hidden;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
     transform: scaleY(1.02) scaleX(1.005) rotate(-.35deg);
   }
 
@@ -224,6 +247,7 @@
     background-color: var(--button-background);
     overflow: hidden;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
   }
 
   .button-glow-text-wr::before {

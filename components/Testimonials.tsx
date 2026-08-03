@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import { Autoplay } from "swiper/modules";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Testimonials.css";
 
 const ASSETS = {
@@ -16,35 +17,11 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ebfdefd079daf6ba5c78c2_bottom-effects-2.avif",
 };
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "I have worked with HawkBytes across quantum research collaboration and AI product development. Without exception, they consistently exceeded expectations through deep technical talent and a practical approach to turning research into working software. They roll up their sleeves and help teams understand hard problems — not just deliver slides.",
-    name: "Paul Lucidi",
-    role: "Founder and President, CyberAge Consulting LLC",
-    image:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb32/67d2f159313a2645eaaf7955_Testimonial-1.png",
-  },
-  {
-    quote:
-      "“I have used the HawkBytes team for critical AI product and software platform work. All of our engagements have exceeded expectations!”",
-    name: "Craig Guinasso",
-    role: "Senior Director, Technology & Product, Alector",
-    image:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb32/67d2f1771e8b58d3dd539d57_Testimonial-2.png",
-  },
-  {
-    quote:
-      '"We have worked with HawkBytes on product engineering and applied research assessments. The team consistently produces high quality deliverables at fair prices. We give their client prospects our strongest recommendation."',
-    name: "David Wise",
-    role: "Managing Partner, Aberdeen Advisors",
-    image:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb32/67d2f66f8447cb65cf548d91_Testimonial-3.png",
-  },
+const TESTIMONIAL_IMAGES = [
+  "https://cdn.prod.website-files.com/67c995cf629758b15942fb32/67d2f159313a2645eaaf7955_Testimonial-1.png",
+  "https://cdn.prod.website-files.com/67c995cf629758b15942fb32/67d2f1771e8b58d3dd539d57_Testimonial-2.png",
+  "https://cdn.prod.website-files.com/67c995cf629758b15942fb32/67d2f66f8447cb65cf548d91_Testimonial-3.png",
 ];
-
-/* Duplicate for a fuller carousel track (matches live site density) */
-const SLIDES = [...TESTIMONIALS, ...TESTIMONIALS];
 
 const ARROW = (
   <svg
@@ -65,11 +42,19 @@ const ARROW = (
 const AUTOPLAY_MS = 5000;
 
 export default function Testimonials() {
+  const t = useTranslations();
   const swiperRef = useRef<SwiperType | null>(null);
   const progressBars = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+
+  const testimonials = t.testimonials.items.map((item, index) => ({
+    ...item,
+    image: TESTIMONIAL_IMAGES[index] ?? TESTIMONIAL_IMAGES[0],
+  }));
+  /* Duplicate for a fuller carousel track (matches live site density) */
+  const slides = [...testimonials, ...testimonials];
 
   const syncNav = (swiper: SwiperType) => {
     setActiveIndex(swiper.activeIndex);
@@ -88,8 +73,8 @@ export default function Testimonials() {
             <div className="home_testimonials">
               <div className="home_testimonials-heading">
                 <div className="align-left">
-                  <p className="tagline-text-blue-gradient">TESTIMONIALS</p>
-                  <h2 className="heading-style-48">Hear from Our Clients</h2>
+                  <p className="tagline-text-blue-gradient">{t.testimonials.tagline}</p>
+                  <h2 className="heading-style-48">{t.testimonials.title}</h2>
                 </div>
 
                 <div className="slider-controls is-testimonials">
@@ -99,7 +84,7 @@ export default function Testimonials() {
                     </div>
                     <div>/</div>
                     <div className="swiper-number-total">
-                      {String(SLIDES.length).padStart(2, "0")}
+                      {String(slides.length).padStart(2, "0")}
                     </div>
                   </div>
 
@@ -107,7 +92,7 @@ export default function Testimonials() {
                     <button
                       type="button"
                       className={`square-button${isBeginning ? " swiper-button-disabled" : ""}`}
-                      aria-label="Previous slide"
+                      aria-label={t.testimonials.prev}
                       disabled={isBeginning}
                       onClick={() => swiperRef.current?.slidePrev()}
                     >
@@ -116,7 +101,7 @@ export default function Testimonials() {
                     <button
                       type="button"
                       className={`square-button is-next${isEnd ? " swiper-button-disabled" : ""}`}
-                      aria-label="Next slide"
+                      aria-label={t.testimonials.next}
                       disabled={isEnd}
                       onClick={() => swiperRef.current?.slideNext()}
                     >
@@ -153,7 +138,7 @@ export default function Testimonials() {
                     });
                   }}
                 >
-                  {SLIDES.map((item, index) => (
+                  {slides.map((item, index) => (
                     <SwiperSlide
                       key={`${item.name}-${index}`}
                       className="swiper-t-slide"

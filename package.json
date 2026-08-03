@@ -8,6 +8,13 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 iOS versions",
+    "not dead"
+  ],
   "dependencies": {
     "chroma-js": "^2.1.2",
     "gsap": "^3.12.5",

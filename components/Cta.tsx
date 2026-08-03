@@ -1,4 +1,7 @@
+"use client";
+
 import GlowButton from "@/components/GlowButton";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Cta.css";
 
 const ASSETS = {
@@ -17,6 +20,8 @@ const ASSETS = {
 };
 
 export default function Cta() {
+  const t = useTranslations();
+
   return (
     <section className="section cta-section">
       <div className="section-padding top-5 bottom-5">
@@ -41,28 +46,20 @@ export default function Cta() {
                   />
 
                   <div className="max-width-940">
-                    <h2 className="heading-style-48">
-                      Get expert product &amp; research support
-                    </h2>
+                    <h2 className="heading-style-48">{t.cta.title}</h2>
                   </div>
 
                   <div className="spacer-medium-30 is-mob-30" />
 
                   <div className="max-width-700">
                     <div className="text-font-rm text-color-light-grey">
-                      <p className="text-size-regular-16">
-                        Advance with confidence. Get expert advice on quantum
-                        research, AI products, or software delivery from the
-                        HawkBytes team.
-                      </p>
+                      <p className="text-size-regular-16">{t.cta.body}</p>
                     </div>
                   </div>
 
                   <div className="spacer-medium-36 is-mob-52" />
 
-                  <GlowButton href="/contact-us">
-                    Talk to an expert
-                  </GlowButton>
+                  <GlowButton href="/contact-us">{t.cta.button}</GlowButton>
                 </div>
 
                 <div className="cta-back-bg" aria-hidden="true">

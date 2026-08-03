@@ -36,12 +36,30 @@ html {
   scroll-padding-top: var(--site-header-offset);
   overflow-x: clip;
   max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Lenis owns smooth scroll when active; avoid double-smoothing */
+html.lenis,
+html.lenis body {
+  scroll-behavior: auto;
+}
+
+html.native-scroll {
+  scroll-behavior: smooth;
+}
+
+html.nav-menu-open,
+html.nav-menu-open body {
+  overflow: hidden !important;
+  overscroll-behavior: none;
 }
 
 body {
   background-color: var(--black);
   color: var(--white);
-  font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  font-family: var(--font-poppins), var(--font-noto-sans), Poppins, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;

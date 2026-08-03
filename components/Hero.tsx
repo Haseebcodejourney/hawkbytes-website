@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import GlowButton from "@/components/GlowButton";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Hero.css";
 
 const ASSETS = {
@@ -25,37 +26,30 @@ const TRUST_LOGOS = [
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced9338d6b38012a349c4d_Logo%D0%A11.avif",
     width: 80,
-    alt: "AI Research",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933fdbc46ec87b75318_Logo%D0%A12.avif",
     width: 80,
-    alt: "Quantum Computing",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd7e11ba5f91e7e8f7a1b0_Logo%20CMMC.avif",
     width: 80,
-    alt: "Software Products",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933f62e30bc7a280290_Logo%D0%A14.avif",
     width: 80,
-    alt: "Web Development",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933257e59d2dad41c9f_Logo%D0%A15.avif",
     width: 80,
-    alt: "Mobile Apps",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced93378e4bbab072b6640_Logo%D0%A16.avif",
     width: 80,
-    alt: "QA Testing",
   },
   {
     src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933432cd53fdbf6ec9d_Logo%D0%A17.avif",
     width: 90,
-    alt: "Cloud Solutions",
   },
 ];
 
@@ -92,20 +86,20 @@ function HeroVideo() {
   );
 }
 
-function LogoTrack({ trackKey }: { trackKey: string }) {
+function LogoTrack({ trackKey, alts }: { trackKey: string; alts: string[] }) {
   return (
     <div
       className="marquee-content-logos logo-scroll-left"
       aria-hidden={trackKey !== "a"}
     >
-      {TRUST_LOGOS.map((logo) => (
+      {TRUST_LOGOS.map((logo, index) => (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          key={`${trackKey}-${logo.alt}`}
+          key={`${trackKey}-${logo.src}`}
           width={logo.width}
           height={80}
           loading="lazy"
-          alt={trackKey === "a" ? logo.alt : ""}
+          alt={trackKey === "a" ? alts[index] ?? "" : ""}
           src={logo.src}
           className="marquee-logo-img-row"
         />
@@ -115,6 +109,8 @@ function LogoTrack({ trackKey }: { trackKey: string }) {
 }
 
 export default function Hero() {
+  const t = useTranslations();
+
   return (
     <section className="section home-hero-section">
       <div className="nav-placeholder" />
@@ -125,46 +121,36 @@ export default function Hero() {
             <div className="home_hero-content">
               <div className="home_hero-tagline-wr">
                 <div className="home_hero-tagline-line" />
-                <div>PRODUCTS · RESEARCH · QUANTUM COMPUTING</div>
+                <div>{t.hero.tagline}</div>
                 <div className="home_hero-tagline-line is-2" />
               </div>
 
               <div className="spacer-small-16 is-mob-20" />
 
-              <h1 className="heading-style-60">
-                Researching Quantum. Building AI Products.
-              </h1>
+              <h1 className="heading-style-60">{t.hero.title}</h1>
 
               <div className="spacer-small-16 is-mob-20" />
 
               <div className="max-width-580">
                 <div className="text-color-light-grey">
-                  <p className="text-size-regular-16">
-                    HawkBytes is a product and research company. Our core focus
-                    is quantum computing research and building AI-powered
-                    software products — while also delivering websites, apps,
-                    and engineering services when you need a trusted build
-                    partner.
-                  </p>
+                  <p className="text-size-regular-16">{t.hero.body}</p>
                 </div>
               </div>
 
               <div className="spacer-large-40" />
 
-              <GlowButton href="/contact-us">
-                Talk to an expert
-              </GlowButton>
+              <GlowButton href="/contact-us">{t.hero.cta}</GlowButton>
 
               <div className="spacer-large-40" />
 
               <div
                 className="home_logos-running-wr"
-                aria-label="HawkBytes focus areas"
+                aria-label={t.hero.logosAria}
               >
                 <div className="marquee is-logos">
-                  <LogoTrack trackKey="a" />
-                  <LogoTrack trackKey="b" />
-                  <LogoTrack trackKey="c" />
+                  <LogoTrack trackKey="a" alts={t.hero.logoAlts} />
+                  <LogoTrack trackKey="b" alts={t.hero.logoAlts} />
+                  <LogoTrack trackKey="c" alts={t.hero.logoAlts} />
                 </div>
               </div>
             </div>

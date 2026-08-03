@@ -2,6 +2,8 @@
 
 import { useState, type ReactNode } from "react";
 import GlowButton from "@/components/GlowButton";
+import LanguageSwitcher from "@/components/i18n/LanguageSwitcher";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./Footer.css";
 
 const ASSETS = {
@@ -26,37 +28,30 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd36832de83a38938ebaad_Foursets%20Logo.svg",
 };
 
-const COMPLIANCE_COL1 = [
-  { label: "Quantum Computing Research", href: "/services/research" },
-  { label: "Quantum Algorithms", href: "/services/research#services" },
-  { label: "AI Products", href: "/#services" },
-  { label: "Machine Learning", href: "/#services" },
-  { label: "Generative AI", href: "/#services" },
-  { label: "AI Research", href: "/services/research#about" },
+const COMPLIANCE_HREFS_COL1 = [
+  "/services/research",
+  "/services/research#services",
+  "/#services",
+  "/#services",
+  "/#services",
+  "/services/research#about",
 ];
 
-const COMPLIANCE_COL2 = [
-  { label: "Software Products", href: "/#services" },
-  { label: "SaaS Platforms", href: "/#services" },
-  { label: "Applied Research", href: "/services/research#methodology" },
-  { label: "Prototyping", href: "/services/research#services" },
-  { label: "Product Engineering", href: "/#services" },
+const COMPLIANCE_HREFS_COL2 = [
+  "/#services",
+  "/#services",
+  "/services/research#methodology",
+  "/services/research#services",
+  "/#services",
 ];
 
-const TECHNICAL = [
-  { label: "Website Development", href: "/#solutions" },
-  { label: "Mobile Apps", href: "/#solutions" },
-  { label: "QA & Testing", href: "/#solutions" },
-  { label: "UI/UX Design", href: "/#solutions" },
-  { label: "DevOps & Cloud", href: "/#solutions" },
-];
+const TECHNICAL_HREFS = ["/#solutions", "/#solutions", "/#solutions", "/#solutions", "/#solutions"];
 
-const COMPANY = [
-  { label: "ABOUT US", href: "/about-us" },
-  { label: "CONTACT", href: "/contact-us" },
-  { label: "BLOG", href: "/blog" },
-  { label: "CAREERS", href: "/careers" },
-];
+const COMPANY_HREFS = ["/about-us", "/contact-us", "/blog", "/careers"];
+
+function zip(labels: string[], hrefs: string[]) {
+  return labels.map((label, i) => ({ label, href: hrefs[i] ?? hrefs[hrefs.length - 1] }));
+}
 
 type FooterKey = "compliance" | "technical" | "company" | "contact";
 
@@ -106,8 +101,14 @@ function FooterItem({
 }
 
 export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
+  const t = useTranslations();
   const [openItem, setOpenItem] = useState<FooterKey | null>(null);
   const year = new Date().getFullYear();
+
+  const complianceCol1 = zip(t.footer.productsCol1, COMPLIANCE_HREFS_COL1);
+  const complianceCol2 = zip(t.footer.productsCol2, COMPLIANCE_HREFS_COL2);
+  const technical = zip(t.footer.servicesItems, TECHNICAL_HREFS);
+  const company = zip(t.footer.companyItems, COMPANY_HREFS);
 
   const onToggle = (id: FooterKey) => {
     setOpenItem((prev) => (prev === id ? null : id));
@@ -137,19 +138,15 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                         alt=""
                         className="cta-content-bg is-mob"
                       />
-                      <h2 className="heading-style-48">Move forward with confidence</h2>
+                      <h2 className="heading-style-48">{t.footer.ctaTitle}</h2>
                       <div className="spacer-medium-30 is-mob-30" />
                       <div className="max-width-700">
                         <div className="text-font-rm text-color-light-grey">
-                          <p className="text-size-regular-16">
-                            Don&apos;t let slow delivery or shallow research hold
-                            you back. Get in touch to talk it over with a
-                            HawkBytes expert.
-                          </p>
+                          <p className="text-size-regular-16">{t.footer.ctaBody}</p>
                         </div>
                       </div>
                       <div className="spacer-medium-36 is-mob-52" />
-                      <GlowButton href="/contact-us">Talk to an expert</GlowButton>
+                      <GlowButton href="/contact-us">{t.footer.ctaButton}</GlowButton>
                     </div>
 
                     <div className="cta-back-bg" aria-hidden="true">
@@ -208,20 +205,20 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
             <div className="footer-content-wr">
               <FooterItem
                 id="compliance"
-                title="Products & Research"
+                title={t.footer.productsSection}
                 open={openItem === "compliance"}
                 onToggle={onToggle}
               >
                 <div className="footer-item-content-wr is-2-col">
                   <div className="footer-links-wr with-gap">
-                    {COMPLIANCE_COL1.map((link) => (
+                    {complianceCol1.map((link) => (
                       <a key={link.label} href={link.href} className="footer-link">
                         {link.label}
                       </a>
                     ))}
                   </div>
                   <div className="footer-links-wr with-gap">
-                    {COMPLIANCE_COL2.map((link) => (
+                    {complianceCol2.map((link) => (
                       <a key={link.label} href={link.href} className="footer-link">
                         {link.label}
                       </a>
@@ -232,14 +229,14 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
 
               <FooterItem
                 id="technical"
-                title="Services"
+                title={t.footer.servicesSection}
                 open={openItem === "technical"}
                 onToggle={onToggle}
                 className="is-2"
               >
                 <div className="footer-item-content-wr">
                   <div className="footer-links-wr with-gap">
-                    {TECHNICAL.map((link) => (
+                    {technical.map((link) => (
                       <a key={link.label} href={link.href} className="footer-link">
                         {link.label}
                       </a>
@@ -250,14 +247,14 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
 
               <FooterItem
                 id="company"
-                title="Company"
+                title={t.footer.companySection}
                 open={openItem === "company"}
                 onToggle={onToggle}
                 className="is-3"
               >
                 <div className="footer-item-content-wr">
                   <div className="footer-links-wr with-gap">
-                    {COMPANY.map((link) => (
+                    {company.map((link) => (
                       <a key={link.label} href={link.href} className="footer-link">
                         {link.label}
                       </a>
@@ -268,7 +265,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
 
               <FooterItem
                 id="contact"
-                title="Contact"
+                title={t.footer.contactSection}
                 open={openItem === "contact"}
                 onToggle={onToggle}
               >
@@ -280,17 +277,17 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                       rel="noopener noreferrer nofollow"
                       className="footer-link"
                     >
-                      Lahore, Pakistan
+                      {t.footer.location}
                     </a>
                     <a href="mailto:hello@hawkbytes.io" className="footer-link">
-                      hello@hawkbytes.io
+                      {t.footer.email}
                     </a>
                     <a
                       href="tel:+18005871250"
                       className="footer-link"
                       rel="noopener noreferrer nofollow"
                     >
-                      +92 300 000 0000
+                      {t.footer.phone}
                     </a>
                     <div className="spacer-medium-10" />
                     <a
@@ -298,7 +295,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                       target="_blank"
                       rel="noopener noreferrer nofollow"
                       className="div-link"
-                      aria-label="HawkBytes on LinkedIn"
+                      aria-label={t.footer.linkedinAria}
                     >
                       <div className="social-button">
                         <div className="social-button-icon">
@@ -324,7 +321,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                 </div>
                 <div className="text-color-light-grey">
                   <p className="text-size-small-14-rm">
-                    © <span className="year">{year}</span> HawkBytes Technologies. All rights reserved
+                    {t.footer.copyright.replace("{year}", String(year))}
                   </p>
                 </div>
               </div>
@@ -334,13 +331,14 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                   href="/privacy-policy"
                   className="footer-link"
                 >
-                  Privacy Policy
+                  {t.footer.privacy}
                 </a>
+                <LanguageSwitcher />
               </div>
 
               <div className="footer-bottom-foursets-wr">
                 <div className="text-color-light-grey">
-                  <p className="text-size-small-14-rm">HawkBytes Technologies</p>
+                  <p className="text-size-small-14-rm">{t.footer.brandLine}</p>
                 </div>
                 <a
                   href="https://www.foursets.com/"

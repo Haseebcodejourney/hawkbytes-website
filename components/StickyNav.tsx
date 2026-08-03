@@ -1,20 +1,21 @@
 "use client";
 
-import { useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useMemo, useState, type MouseEvent } from "react";
+import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "./StickyNav.css";
 
 export type StickyNavLink = { href: string; num: string; label: string };
 
-const HOME_LINKS: StickyNavLink[] = [
-  { href: "#mission", num: "01", label: "MISSION" },
-  { href: "#services", num: "02", label: "OUR SERVICES" },
-  { href: "#testimonials", num: "03", label: "TESTIMONIALS" },
-  { href: "#attestations", num: "04", label: "ATTESTATIONS" },
-  { href: "#methodology", num: "05", label: "METHODOLOGY" },
-  { href: "#solutions", num: "06", label: "TECH SOLUTIONS" },
-  { href: "#why-us", num: "07", label: "WHY US" },
-  { href: "#facts", num: "08", label: "KEY FACTS" },
-  { href: "#accreditations", num: "09", label: "ACCREDITATIONS" },
+const HOME_LINK_HREFS = [
+  "#mission",
+  "#services",
+  "#testimonials",
+  "#attestations",
+  "#methodology",
+  "#solutions",
+  "#why-us",
+  "#facts",
+  "#accreditations",
 ];
 
 const VIDEO = {
@@ -58,12 +59,26 @@ function ContactIcon() {
 }
 
 export default function StickyNav({
-  links = HOME_LINKS,
+  links: linksProp,
   noBottomPadding = false,
 }: {
   links?: StickyNavLink[];
   noBottomPadding?: boolean;
 }) {
+  const t = useTranslations();
+
+  const homeLinks = useMemo<StickyNavLink[]>(
+    () =>
+      t.stickyNav.links.map((link, index) => ({
+        href: HOME_LINK_HREFS[index] ?? "#mission",
+        num: link.num,
+        label: link.label,
+      })),
+    [t],
+  );
+
+  const links = linksProp ?? homeLinks;
+
   const [active, setActive] = useState(links[0]?.href ?? "#mission");
 
   useEffect(() => {
@@ -106,7 +121,7 @@ export default function StickyNav({
   return (
     <div
       className={`home_sticky-absolute${noBottomPadding ? " no-bottom-padding" : ""}`}
-      aria-label="Section navigation"
+      aria-label={t.stickyNav.aria}
     >
       <div className="home_sticky-inner">
         <div className="home_sticky-content-links-wr">
@@ -145,7 +160,7 @@ export default function StickyNav({
               <div className="btn-icon-embed">
                 <ContactIcon />
               </div>
-              <div>TALK TO AN EXPERT</div>
+              <div>{t.stickyNav.cta}</div>
             </div>
           </div>
         </a>
