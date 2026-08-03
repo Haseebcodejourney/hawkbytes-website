@@ -712,12 +712,52 @@
 
   .about_hero {
     padding-top: 0.35rem;
+    padding-bottom: 1.25rem;
+    min-height: 0;
+  }
+
+  .about-page .about-hero-section .section-padding.bottom-5,
+  .about-hero-section .section-padding.bottom-5 {
+    padding-bottom: 1.75rem !important;
+  }
+
+  .about-hero-section .spacer-large-40 {
+    padding-top: 1.5rem;
   }
 
   .about-hero-section .about_hero-video {
     width: 26rem;
     height: 20rem;
     top: 2rem;
+  }
+
+  .about-page section:not(.about-hero-section) .section-padding.top-5 {
+    padding-top: 2rem !important;
+  }
+
+  .about-page section:not(.about-hero-section) .section-padding.bottom-5 {
+    padding-bottom: 2rem !important;
+  }
+
+  .about-location-section .section-padding.top-5 {
+    padding-top: 1rem !important;
+  }
+
+  .about-location-section .section-padding.bottom-5 {
+    padding-bottom: 1rem !important;
+  }
+
+  .about-mission-section .spacer-xlarge-60 {
+    padding-top: 2rem;
+  }
+
+  .about_map-block,
+  .about_map-content {
+    min-height: 28rem;
+  }
+
+  .about_map-content {
+    padding-bottom: 3.5rem;
   }
 }
 
@@ -753,6 +793,52 @@
     top: 2rem;
   }
 
+  .about_hero {
+    padding-bottom: 0.75rem;
+  }
+
+  .about-page .about-hero-section .section-padding.bottom-5,
+  .about-hero-section .section-padding.bottom-5 {
+    padding-bottom: 1.25rem !important;
+  }
+
+  .about-hero-section .spacer-large-40 {
+    padding-top: 1.25rem;
+  }
+
+  .about-hero-section .spacer-small-16,
+  .about-mission-section .spacer-small-16 {
+    padding-top: 0.75rem;
+  }
+
+  .about-page section:not(.about-hero-section) .section-padding.top-5 {
+    padding-top: 1.75rem !important;
+  }
+
+  .about-page section:not(.about-hero-section) .section-padding.bottom-5 {
+    padding-bottom: 1.75rem !important;
+  }
+
+  .about-mission-section .spacer-medium-30,
+  .about-location-section .spacer-medium-30,
+  .about-team-section .spacer-medium-20,
+  .about-offer-section .spacer-medium-32 {
+    padding-top: 1.25rem;
+  }
+
+  .about-mission-section .spacer-xlarge-60 {
+    padding-top: 1.5rem;
+  }
+
+  .about_map-block,
+  .about_map-content {
+    min-height: 22rem;
+  }
+
+  .about_map-content {
+    padding-bottom: 2.5rem;
+  }
+
   .about-mission-section .heading-style-48,
   .about-location-section .heading-style-48,
   .about-offer-section .heading-style-48,
@@ -768,6 +854,17 @@
 
   .about_hero {
     padding-top: 0.25rem;
+    padding-bottom: 0.5rem;
+    min-height: 0;
+  }
+
+  .about-page .about-hero-section .section-padding.bottom-5,
+  .about-hero-section .section-padding.bottom-5 {
+    padding-bottom: 1rem !important;
+  }
+
+  .about-hero-section .spacer-large-40 {
+    padding-top: 1rem;
   }
 
   .about-hero-section .heading-style-60.is-mob-32 {
@@ -804,15 +901,25 @@
     font-size: 2rem;
   }
 
+  .about-page section:not(.about-hero-section) .section-padding.top-5,
   .about-page main .section-padding.top-5,
   .about-mission-section .section-padding.top-5,
   .about-offer-section .section-padding.top-5,
   .about-team-section .section-padding.top-5 {
-    padding-top: 1.25rem;
+    padding-top: 1.25rem !important;
   }
 
+  .about-page section:not(.about-hero-section) .section-padding.bottom-5,
   .about-offer-section .section-padding.bottom-5 {
-    padding-bottom: 1.25rem;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .about-location-section .section-padding.top-5 {
+    padding-top: 0.75rem !important;
+  }
+
+  .about-location-section .section-padding.bottom-5 {
+    padding-bottom: 0.75rem !important;
   }
 
   .about_features-title-wr {
@@ -825,9 +932,13 @@
     flex-flow: column;
   }
 
+  .about_map-block,
   .about_map-content {
-    min-height: 28rem;
-    padding-bottom: 3rem;
+    min-height: 20rem;
+  }
+
+  .about_map-content {
+    padding-bottom: 2rem;
   }
 
   .about_map-img {

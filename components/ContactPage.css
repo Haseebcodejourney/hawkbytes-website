@@ -56,7 +56,7 @@
 }
 
 .contact-page-section .section-bg {
-  z-index: 1;
+  z-index: 0;
   position: absolute;
   inset: 0%;
   pointer-events: none;
@@ -64,13 +64,16 @@
 }
 
 .contact-page-section .home_hero-media-wr {
-  z-index: 1;
+  z-index: 0;
   position: absolute;
   inset: 0%;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .contact-page-section .home_hero-bg-img {
-  z-index: 2;
+  z-index: 1;
   mix-blend-mode: lighten;
   width: 100%;
   max-width: none;
@@ -82,6 +85,18 @@
 
 .contact-page-section .home_hero-bg-img-mob {
   display: none;
+  z-index: 1;
+  mix-blend-mode: lighten;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
 }
 
 .contact-page-section .home_hero-tagline-wr {
@@ -752,19 +767,38 @@
 }
 
 @media screen and (max-width: 991px) {
+  .contact-page-section {
+    padding-bottom: 0.75rem;
+  }
+
   .contact_hero {
     flex-flow: column;
-    gap: 2.5rem;
+    gap: 1.75rem;
   }
 
   .contact-page-section .contact-section-padding {
     padding-top: var(--hero-after-header) !important;
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 0 !important;
   }
 
   .contact_hero-content,
   .contact_hero-form {
     max-width: none;
     width: 100%;
+  }
+
+  .contact_hero-content {
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .contact_hero-content > .contact_hero-contacts-item:last-of-type {
+    margin-bottom: 1.25rem;
+  }
+
+  .contact_hero-form {
+    margin-top: 2.5rem;
   }
 
   .contact-page-section .heading-style-48 {
@@ -778,45 +812,135 @@
 
   .contact_hero-quote {
     max-width: 100%;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .contact_form-wr {
+    padding: 3.5rem 1.5rem 1.25rem;
+  }
+
+  .contact_hero-form .cta-logo-img {
+    margin-top: -2.5rem;
+  }
+
+  .contact-page-section .home_hero-bg-img {
+    display: none;
+  }
+
+  .contact-page-section .home_hero-bg-img-mob {
+    display: block;
+    opacity: 0.95;
+  }
+
+  .contact-page-section .hide-on-mobile {
+    display: none;
+  }
+
+  .contact-page-section .hide-on-desktop {
+    display: block;
+    width: 100%;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .contact_mob-quote-wr {
+    display: block;
+    min-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  .contact_hero-quote.is-mobile-bottom {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    position: static;
+  }
+
+  .contact-page-section .spacer-medium-20 {
+    padding-top: 0.85rem;
   }
 }
 
 @media screen and (max-width: 767px) {
   .form-input-2col {
     flex-flow: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .form-check-btn-wr {
     flex-flow: column;
     align-items: stretch;
-    gap: 1.88rem;
+    gap: 1.25rem;
   }
 
   .contact-page-section .button.is-form-submit {
     width: 100%;
   }
 
+  .contact_hero {
+    gap: 1.5rem;
+  }
+
+  .contact_hero-content > .contact_hero-contacts-item:last-of-type {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact_hero-form {
+    margin-top: 2.75rem;
+  }
+
+  .contact-page-section {
+    padding-bottom: 0.5rem;
+  }
+
+  .contact-page-section .contact-section-padding {
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0 !important;
+  }
+
   .contact_form-wr {
-    padding: 4.38rem 1.25rem 1.25rem;
+    padding: 3.25rem 1.25rem 1.25rem;
+  }
+
+  .form-inputs-wr {
+    gap: 1.25rem;
   }
 }
 
 @media screen and (max-width: 479px) {
+  .contact-page-section {
+    padding-bottom: 0.25rem;
+  }
+
   .contact-page-section .nav-placeholder {
     height: var(--site-header-offset);
   }
 
   .contact-page-section .contact-section-padding {
     padding-top: var(--hero-after-header) !important;
-    padding-bottom: 1rem !important;
-    margin-bottom: 40px !important;
+    padding-bottom: 0.25rem !important;
+    margin-bottom: 0 !important;
   }
 
   .contact_hero {
-    gap: 5rem;
+    gap: 1.25rem;
     flex-flow: column;
+  }
+
+  .contact_hero-content {
+    gap: 0.65rem;
+    z-index: 2;
+  }
+
+  .contact_hero-content > .contact_hero-contacts-item:last-of-type {
+    margin-bottom: 1.75rem;
+  }
+
+  .contact_hero-form {
+    margin-top: 3rem;
+    z-index: 2;
   }
 
   .contact_hero-link {
@@ -824,11 +948,17 @@
   }
 
   .contact_hero-quote {
+    position: static;
+    inset: auto;
+    margin: 0;
     max-width: none;
-    margin-left: 0.63rem;
-    margin-right: 0.63rem;
-    position: absolute;
-    inset: auto 0% 0%;
+  }
+
+  .contact_hero-quote.is-mobile-bottom {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    position: static;
   }
 
   .contact_quote-author-wr {
@@ -838,11 +968,15 @@
   }
 
   .contact_form-wr {
-    padding: 4.38rem 1.25rem 1.25rem;
+    padding: 3.25rem 1.25rem 1.1rem;
+  }
+
+  .contact_hero-form .cta-logo-img {
+    margin-top: -2.4rem;
   }
 
   .form-check-btn-wr {
-    gap: 1.88rem;
+    gap: 1.25rem;
     flex-flow: column;
     justify-content: flex-start;
     align-items: stretch;
@@ -859,12 +993,18 @@
 
   .hide-on-desktop {
     display: block;
+    margin-top: 1rem;
+    margin-bottom: 0;
   }
 
   .contact_mob-quote-wr {
     display: block;
-    min-height: 10.88rem;
-    margin-top: 4rem;
+    min-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    position: relative;
+    z-index: 2;
   }
 
   .contact-page-section .heading-style-48 {
@@ -882,9 +1022,26 @@
 
   .contact-page-section .home_hero-bg-img-mob {
     display: block;
-    width: 100%;
+    width: min(100%, 28rem);
     max-width: none;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     mix-blend-mode: lighten;
+    opacity: 1;
+  }
+
+  .contact-page-section .home_hero-media-wr {
+    z-index: 0;
+    display: block;
+  }
+
+  .contact-page-section .spacer-medium-10 {
+    padding-top: 0.45rem;
+  }
+
+  .contact-page-section .spacer-medium-20 {
+    padding-top: 0.75rem;
   }
 
   .hide-on-mobile {
