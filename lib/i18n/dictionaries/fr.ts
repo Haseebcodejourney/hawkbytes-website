@@ -93,7 +93,12 @@ const fr: Dictionary = {
     location: "Lahore, Pakistan",
     email: "hello@hawkbytes.io",
     phone: "+92 300 000 0000",
-    linkedinAria: "HawkBytes sur LinkedIn",
+    socialAria: {
+      linkedin: "HawkBytes sur LinkedIn",
+      facebook: "HawkBytes sur Facebook",
+      twitter: "HawkBytes sur X",
+      github: "HawkBytes sur GitHub",
+    },
     copyright: "© {year} HawkBytes Technologies. Tous droits réservés",
     privacy: "Politique de confidentialité",
     brandLine: "HawkBytes Technologies",

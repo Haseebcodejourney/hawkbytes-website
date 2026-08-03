@@ -150,7 +150,12 @@ export type Dictionary = {
     location: string;
     email: string;
     phone: string;
-    linkedinAria: string;
+    socialAria: {
+      linkedin: string;
+      facebook: string;
+      twitter: string;
+      github: string;
+    };
     copyright: string;
     privacy: string;
     brandLine: string;

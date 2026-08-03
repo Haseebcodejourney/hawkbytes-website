@@ -44,20 +44,39 @@
   grid-row: span 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  align-self: start;
+  gap: 0;
+  max-width: 42rem;
+  padding-right: 1rem;
 }
 
 .attestations-section .tagline-text-blue-gradient {
   margin: 0 0 0.63rem;
+  text-align: left;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #52b7ff, #c1e5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, monospace;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.33;
+  color: #52b7ff;
 }
 
 .attestations-section .heading-style-32 {
   margin: 0;
+  text-align: left;
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.2;
   color: var(--white, #fff);
   font-family: var(--font-poppins), Poppins, Arial, sans-serif;
+  max-width: 40rem;
 }
 
 .attestations-section .home_cert-card {
@@ -236,6 +255,8 @@
 
   .attestations-section .home_cert-title-wr {
     grid-column: span 3;
+    max-width: none;
+    padding-right: 0;
   }
 }
 
@@ -251,10 +272,17 @@
 
   .attestations-section .home_cert-title-wr {
     grid-column: span 1;
+    max-width: none;
+    padding-right: 0;
+  }
+
+  .attestations-section .tagline-text-blue-gradient {
+    font-size: 0.75rem;
   }
 
   .attestations-section .heading-style-32 {
     font-size: 1.5rem;
+    max-width: none;
   }
 
   .attestations-section .home_cert-card {

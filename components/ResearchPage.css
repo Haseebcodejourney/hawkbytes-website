@@ -94,9 +94,14 @@
 }
 
 .research_hero-badge {
-  width: 4.5rem;
-  height: 4.5rem;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  flex: none;
+  /* width: 8.5rem; */
+  /* height: 8.5rem; */
+  display: block;
+  /* box-shadow: 0 0 0 1px #ffffff14; */
 }
 
 .research_hero-title-wr {
@@ -600,7 +605,9 @@
 
 @media screen and (max-width: 767px) {
   .research_hero-badge {
-    display: none;
+    display: block;
+    /* width: 6.5rem; */
+    /* height: 6.5rem; */
   }
 
   .research_hero {

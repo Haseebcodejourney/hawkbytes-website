@@ -68,6 +68,64 @@ function LinkedInIcon() {
   );
 }
 
+function FacebookIcon() {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M14.5 22V13.5H17.25L17.75 10H14.5V8C14.5 7.05 14.75 6.4 16.15 6.4H17.9V3.25C17.6 3.2 16.55 3.1 15.35 3.1C12.85 3.1 11.1 4.65 11.1 7.7V10H8.25V13.5H11.1V22H14.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function TwitterIcon() {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M17.1761 3H20.0864L13.6912 10.3226L21.2 20.25H15.3316L10.7222 14.2452L5.46634 20.25H2.55449L9.39485 12.4206L2.2 3H8.21652L12.3774 8.49194L17.1761 3ZM16.1544 18.4657H17.7671L7.32153 4.68065H5.59134L16.1544 18.4657Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2C6.477 2 2 6.584 2 12.227c0 4.52 2.865 8.35 6.839 9.701.5.094.683-.222.683-.492 0-.243-.01-.996-.014-1.806-2.782.617-3.369-1.37-3.369-1.37-.455-1.18-1.11-1.494-1.11-1.494-.908-.635.069-.622.069-.622 1.004.072 1.532 1.054 1.532 1.054.892 1.56 2.341 1.11 2.91.85.091-.66.35-1.11.636-1.365-2.22-.258-4.555-1.136-4.555-5.057 0-1.117.39-2.03 1.03-2.746-.103-.259-.447-1.3.098-2.71 0 0 .84-.274 2.75 1.048A9.36 9.36 0 0 1 12 6.844a9.36 9.36 0 0 1 2.504.344c1.909-1.322 2.747-1.048 2.747-1.048.547 1.41.203 2.451.1 2.71.64.716 1.028 1.629 1.028 2.746 0 3.932-2.34 4.796-4.566 5.05.359.316.679.94.679 1.895 0 1.368-.012 2.47-.012 2.806 0 .273.18.59.688.49C19.138 20.573 22 16.744 22 12.227 22 6.584 17.523 2 12 2Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+const SOCIAL_LINKS = [
+  {
+    key: "linkedin" as const,
+    href: "https://www.linkedin.com/company/hawkbytes/",
+    Icon: LinkedInIcon,
+  },
+  {
+    key: "facebook" as const,
+    href: "https://www.facebook.com/hawkbytes",
+    Icon: FacebookIcon,
+  },
+  {
+    key: "twitter" as const,
+    href: "https://x.com/hawkbytes",
+    Icon: TwitterIcon,
+  },
+  {
+    key: "github" as const,
+    href: "https://github.com/hawkbytes",
+    Icon: GitHubIcon,
+  },
+];
+
 function FooterItem({
   id,
   title,
@@ -290,19 +348,24 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                       {t.footer.phone}
                     </a>
                     <div className="spacer-medium-10" />
-                    <a
-                      href="https://www.linkedin.com/company/hawkbytes/"
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      className="div-link"
-                      aria-label={t.footer.linkedinAria}
-                    >
-                      <div className="social-button">
-                        <div className="social-button-icon">
-                          <LinkedInIcon />
-                        </div>
-                      </div>
-                    </a>
+                    <div className="footer-social-wr">
+                      {SOCIAL_LINKS.map(({ key, href, Icon }) => (
+                        <a
+                          key={key}
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="div-link"
+                          aria-label={t.footer.socialAria[key]}
+                        >
+                          <div className="social-button">
+                            <div className="social-button-icon">
+                              <Icon />
+                            </div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </FooterItem>

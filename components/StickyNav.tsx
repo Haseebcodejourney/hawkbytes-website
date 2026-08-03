@@ -78,32 +78,78 @@ export default function StickyNav({
   );
 
   const links = linksProp ?? homeLinks;
+  const hrefsKey = links.map((l) => l.href).join("|");
 
   const [active, setActive] = useState(links[0]?.href ?? "#mission");
 
   useEffect(() => {
-    const ids = links.map((l) => l.href.slice(1));
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    const ids = hrefsKey
+      ? hrefsKey.split("|").map((href) => href.slice(1)).filter(Boolean)
+      : [];
+    if (!ids.length) return;
 
-    if (!elements.length) return;
+    let frame = 0;
+    let boundLenis: { off: (e: string, cb: () => void) => void } | null = null;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]?.target?.id) {
-          setActive(`#${visible[0].target.id}`);
+    const updateActive = () => {
+      const offset = getHeaderOffset() + 32;
+      let current = `#${ids[0]}`;
+
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        // Active once section top crosses under the fixed header line
+        if (el.getBoundingClientRect().top - offset <= 0) {
+          current = `#${id}`;
         }
-      },
-      { rootMargin: "-18% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] },
-    );
+      }
 
-    elements.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [links]);
+      setActive((prev) => (prev === current ? prev : current));
+    };
+
+    const onScrollOrResize = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(updateActive);
+    };
+
+    updateActive();
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+    document.addEventListener("scroll", onScrollOrResize, {
+      passive: true,
+      capture: true,
+    });
+
+    // Lenis drives smooth scroll — keep spy in sync with its scroll ticks
+    const bindLenis = () => {
+      const lenis = window.__hawkLenis;
+      if (!lenis) return;
+      if (boundLenis === lenis) return;
+      if (boundLenis) {
+        boundLenis.off("scroll", onScrollOrResize);
+      }
+      lenis.on("scroll", onScrollOrResize);
+      boundLenis = lenis;
+    };
+    bindLenis();
+    const lenisTimer = window.setInterval(bindLenis, 250);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      clearInterval(lenisTimer);
+      boundLenis?.off("scroll", onScrollOrResize);
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+      document.removeEventListener("scroll", onScrollOrResize, true);
+    };
+  }, [hrefsKey]);
+
+  // Keep highlight in sync if nav href list changes (e.g. locale)
+  useEffect(() => {
+    const hrefs = hrefsKey ? hrefsKey.split("|") : [];
+    if (!hrefs[0]) return;
+    setActive((prev) => (hrefs.includes(prev) ? prev : hrefs[0]));
+  }, [hrefsKey]);
 
   const onNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (!href.startsWith("#")) return;
@@ -111,11 +157,17 @@ export default function StickyNav({
     if (!el) return;
 
     e.preventDefault();
-    const top =
-      window.scrollY + el.getBoundingClientRect().top - getHeaderOffset();
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-    history.pushState(null, "", href);
     setActive(href);
+
+    const offset = getHeaderOffset();
+    const lenis = window.__hawkLenis;
+    if (lenis) {
+      lenis.scrollTo(el, { offset: -offset });
+    } else {
+      const top = window.scrollY + el.getBoundingClientRect().top - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }
+    history.pushState(null, "", href);
   };
 
   return (

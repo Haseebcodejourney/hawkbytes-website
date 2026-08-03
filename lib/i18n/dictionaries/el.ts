@@ -93,7 +93,12 @@ const el: Dictionary = {
     location: "Λαχώρη, Πακιστάν",
     email: "hello@hawkbytes.io",
     phone: "+92 300 000 0000",
-    linkedinAria: "Η HawkBytes στο LinkedIn",
+    socialAria: {
+      linkedin: "Η HawkBytes στο LinkedIn",
+      facebook: "Η HawkBytes στο Facebook",
+      twitter: "Η HawkBytes στο X",
+      github: "Η HawkBytes στο GitHub",
+    },
     copyright: "© {year} HawkBytes Technologies. Με επιφύλαξη παντός δικαιώματος",
     privacy: "Πολιτική Απορρήτου",
     brandLine: "HawkBytes Technologies",

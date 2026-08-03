@@ -93,7 +93,12 @@ const ru: Dictionary = {
     location: "Лахор, Пакистан",
     email: "hello@hawkbytes.io",
     phone: "+92 300 000 0000",
-    linkedinAria: "HawkBytes в LinkedIn",
+    socialAria: {
+      linkedin: "HawkBytes в LinkedIn",
+      facebook: "HawkBytes в Facebook",
+      twitter: "HawkBytes в X",
+      github: "HawkBytes на GitHub",
+    },
     copyright: "© {year} HawkBytes Technologies. Все права защищены",
     privacy: "Политика конфиденциальности",
     brandLine: "HawkBytes Technologies",

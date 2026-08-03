@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import GlowButton from "@/components/GlowButton";
 import StickyNav, { type StickyNavLink } from "@/components/StickyNav";
 import KeyFacts from "@/components/KeyFacts";
@@ -99,7 +100,8 @@ function LogoTrack({ trackKey }: { trackKey: string }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={`${trackKey}-${src}`}
-          width={80}
+          width={140}
+          height={80}
           loading="lazy"
           alt=""
           src={src}
@@ -114,11 +116,15 @@ export default function AboutPage() {
   const t = useTranslations();
   const about = t.about;
 
-  const aboutLinks: StickyNavLink[] = about.nav.map((link, index) => ({
-    href: ABOUT_LINK_HREFS[index] ?? "#mission",
-    num: link.num,
-    label: link.label,
-  }));
+  const aboutLinks = useMemo<StickyNavLink[]>(
+    () =>
+      about.nav.map((link, index) => ({
+        href: ABOUT_LINK_HREFS[index] ?? "#mission",
+        num: link.num,
+        label: link.label,
+      })),
+    [about.nav],
+  );
 
   const features = about.offer.features.map((feature, index) => ({
     ...feature,
@@ -216,14 +222,14 @@ export default function AboutPage() {
                           <p className="text-size-small-14">{about.mission.col2}</p>
                         </div>
                       </div>
-                      <div className="spacer-xlarge-60" />
-                      <div className="home_logos-running-wr" aria-label={about.mission.logosAria}>
-                        <div className="marquee is-logos">
-                          <LogoTrack trackKey="a" />
-                          <LogoTrack trackKey="b" />
-                          <LogoTrack trackKey="c" />
-                        </div>
-                      </div>
+                    </div>
+                  </div>
+                  <div className="spacer-xlarge-60" />
+                  <div className="home_logos-running-wr" aria-label={about.mission.logosAria}>
+                    <div className="marquee is-logos">
+                      <LogoTrack trackKey="a" />
+                      <LogoTrack trackKey="b" />
+                      <LogoTrack trackKey="c" />
                     </div>
                   </div>
                 </div>

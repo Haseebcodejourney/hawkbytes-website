@@ -93,7 +93,12 @@ const tr: Dictionary = {
     location: "Lahor, Pakistan",
     email: "hello@hawkbytes.io",
     phone: "+92 300 000 0000",
-    linkedinAria: "LinkedIn'de HawkBytes",
+    socialAria: {
+      linkedin: "LinkedIn'de HawkBytes",
+      facebook: "Facebook'ta HawkBytes",
+      twitter: "X'te HawkBytes",
+      github: "GitHub'da HawkBytes",
+    },
     copyright: "© {year} HawkBytes Technologies. Tüm hakları saklıdır",
     privacy: "Gizlilik Politikası",
     brandLine: "HawkBytes Technologies",

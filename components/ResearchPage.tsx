@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo } from "react";
 import GlowButton from "@/components/GlowButton";
 import StickyNav, { type StickyNavLink } from "@/components/StickyNav";
 import Methodology from "@/components/Methodology";
 import Testimonials from "@/components/Testimonials";
 import Cta from "@/components/Cta";
+import { FaqSection } from "@/components/Faq";
 import { useTranslations } from "@/components/i18n/LanguageProvider";
-import "@/components/Faq.css";
 import "./ResearchPage.css";
 
 const NAV_LINK_HREFS = [
@@ -22,8 +22,7 @@ const NAV_LINK_HREFS = [
 ];
 
 const ASSETS = {
-  badge:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67f635806136378181058a6e_dev.svg",
+  badge: "/images/gdpr-circle-img.avif",
   heroBg:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e55077f030ad874c0384cc_blog-post-bg-Group.avif",
   heroBgMob:
@@ -36,10 +35,6 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d047789b98be40b43d8cca_effects-1.avif",
   effects2:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d0484cb7b7d01086714bdc_effects-2.avif",
-  faqToggle:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d32ef5f2c13b180466b3c8_FAQ%20Toggle%20Container.svg",
-  faqBg:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd6e680b8ce16c28c99348_FAQ%20Image.svg",
   arrow:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d0103df322d59181373f53_arrow-c.svg",
 };
@@ -95,13 +90,16 @@ function ArrowIcon() {
 export default function ResearchPage() {
   const t = useTranslations();
   const research = t.research;
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const navLinks: StickyNavLink[] = research.nav.map((link, index) => ({
-    href: NAV_LINK_HREFS[index] ?? "#methodology",
-    num: link.num,
-    label: link.label,
-  }));
+  const navLinks = useMemo<StickyNavLink[]>(
+    () =>
+      research.nav.map((link, index) => ({
+        href: NAV_LINK_HREFS[index] ?? "#methodology",
+        num: link.num,
+        label: link.label,
+      })),
+    [research.nav],
+  );
 
   const serviceCards = research.services.cards.map((card, index) => ({
     ...card,
@@ -126,7 +124,13 @@ export default function ResearchPage() {
           <div className="container">
             <div className="research_hero">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={ASSETS.badge} alt="" className="research_hero-badge" width={72} height={72} />
+              <img
+                src={ASSETS.badge}
+                alt="GDPR Ready"
+                className="research_hero-badge"
+                width={211}
+                height={211}
+              />
               <div className="spacer-small-16" />
               <div className="research_hero-title-wr">
                 <h1 className="heading-style-60">{research.hero.title}</h1>
@@ -382,66 +386,13 @@ export default function ResearchPage() {
             </div>
           </section>
 
-          <section id="faq" className="section bg-color-secondary faq-section research-faq-section">
-            <div className="section-padding top-5 bottom-5">
-              <div className="container anim-appear-on-scroll is-visible">
-                <div className="left-padding">
-                  <div className="home_faq-block">
-                    <div className="home_faq-title-wr">
-                      <h2 className="heading-style-48">{research.faq.title}</h2>
-                    </div>
-                    <div className="faq-wr">
-                      {research.faq.items.map((faq, index) => {
-                        const isOpen = openFaq === index;
-                        return (
-                          <div
-                            key={faq.question}
-                            className={`faq_item-wrapper${isOpen ? " is-open" : ""}`}
-                          >
-                            <button
-                              type="button"
-                              className="faq_question"
-                              aria-expanded={isOpen}
-                              onClick={() => setOpenFaq(isOpen ? null : index)}
-                            >
-                              <span
-                                className="text-size-large-21 gradient-text-on-hover"
-                                data-text={faq.question}
-                              >
-                                {faq.question}
-                              </span>
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
-                                src={ASSETS.faqToggle}
-                                loading="lazy"
-                                alt=""
-                                className="faq_icon-img"
-                              />
-                            </button>
-                            <div className="faq_answer">
-                              <div className="faq_answer-inner">
-                                <div className="faq_answer-wrapper">
-                                  <div className="text-size-small-14">
-                                    <p>{faq.answer}</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="faq_line-wr" aria-hidden="true">
-                              <div className="faq_line-white" />
-                              <div className="faq_line-blue" />
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={ASSETS.faqBg} loading="lazy" alt="" className="faq-bg-img" />
-          </section>
+          <FaqSection
+            id="faq"
+            className="research-faq-section"
+            title={research.faq.title}
+            items={research.faq.items}
+            appearVisible
+          />
 
           <Cta />
         </div>

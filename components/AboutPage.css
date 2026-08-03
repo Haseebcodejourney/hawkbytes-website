@@ -132,21 +132,6 @@
   overflow: hidden;
 }
 
-/* Darken hero banner so white title/body stay readable */
-.about-hero-section .section-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(4, 4, 16, 0.78) 0%,
-    rgba(4, 4, 16, 0.65) 42%,
-    rgba(4, 4, 16, 0.82) 100%
-  );
-}
-
 .about-hero-section .home_hero-tagline-wr {
   gap: 0.63rem;
   text-transform: uppercase;
@@ -186,9 +171,10 @@
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 0.75rem;
+  /* Room for centered shield video behind the tagline (CyberCrest) */
+  padding-top: 14.3rem;
   padding-bottom: 3.75rem;
-  min-height: 22rem;
+  min-height: 0;
   display: flex;
   position: relative;
   z-index: 2;
@@ -335,48 +321,44 @@
   z-index: 1;
   mix-blend-mode: lighten;
   width: 100%;
-  height: 100%;
   max-width: none;
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
-  object-position: center top;
-  opacity: 0.45;
+  position: relative;
+  display: block;
+  height: auto;
+  opacity: 1;
 }
 
 .about-hero-section .about_hero-bg-img-mob {
   z-index: 2;
   mix-blend-mode: lighten;
   width: 100%;
-  height: 100%;
   max-width: none;
   display: none;
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
-  object-position: center top;
-  opacity: 0.45;
+  position: relative;
+  height: auto;
+  opacity: 1;
 }
 
 .about-hero-section .about_hero-video {
   z-index: 2;
   mix-blend-mode: lighten;
-  width: 28rem;
-  height: 22rem;
+  width: 36rem;
+  height: 28rem;
   position: absolute;
-  top: 2rem;
+  top: 4rem;
   left: 50%;
   transform: translateX(-50%);
   overflow: hidden;
-  opacity: 0.38;
+  opacity: 1;
 }
 
 .about-hero-section .about_hero-video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   display: block;
+  background: transparent;
 }
 
 .about_hero-bg-img {
@@ -398,10 +380,10 @@
 .about_hero-video {
   z-index: 2;
   mix-blend-mode: lighten;
-  width: 28rem;
-  height: 22rem;
+  width: 36rem;
+  height: 28rem;
   position: absolute;
-  top: 2rem;
+  top: 4rem;
   overflow: hidden;
 }
 
@@ -442,7 +424,7 @@
 }
 
 .about-mission-section .txt-2col-grid {
-  gap: 1.25rem;
+  gap: 2.5rem;
   grid-template-columns: 1fr 1fr;
   width: 100%;
   display: grid;
@@ -450,26 +432,50 @@
 
 .about-mission-section .home_logos-running-wr {
   width: 100%;
+  max-width: none;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, #0000 0%, #fff 10% 90%, #0000 100%);
+  mask-image: linear-gradient(90deg, #0000 0%, #fff 10% 90%, #0000 100%);
+}
+
+.about-mission-section .section-padding.bottom-5 {
+  padding-bottom: 2rem !important;
 }
 
 .about-mission-section .marquee.is-logos {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   width: max-content;
 }
 
-.about-mission-section .marquee-content-logos {
+.about-mission-section .marquee-content-logos,
+.about-mission-section .marquee-content-logos.logo-scroll-left {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .about-mission-section .marquee-logo-img-row {
-  height: 2.5rem;
+  height: 5rem;
   width: auto;
+  max-width: 9rem;
   object-fit: contain;
-  opacity: 0.85;
+  opacity: 0.9;
+  flex: none;
+}
+
+/* Slightly faster than home hero (60s), but not too quick */
+.about-mission-section .logo-scroll-left {
+  animation: about-mission-logo-scroll 45s linear infinite;
+}
+
+@keyframes about-mission-logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 3rem));
+  }
 }
 
 .about_map-img-wr {
@@ -711,7 +717,7 @@
   }
 
   .about_hero {
-    padding-top: 0.35rem;
+    padding-top: 11rem;
     padding-bottom: 1.25rem;
     min-height: 0;
   }
@@ -726,9 +732,9 @@
   }
 
   .about-hero-section .about_hero-video {
-    width: 26rem;
-    height: 20rem;
-    top: 2rem;
+    width: 28rem;
+    height: 22rem;
+    top: 2.5rem;
   }
 
   .about-page section:not(.about-hero-section) .section-padding.top-5 {
@@ -766,6 +772,19 @@
     grid-template-columns: 1fr;
   }
 
+  .about-mission-section .marquee-logo-img-row {
+    height: 3.5rem;
+    max-width: 7rem;
+  }
+
+  .about-mission-section .logo-scroll-left {
+    animation-duration: 40s;
+  }
+
+  .about-mission-section .section-padding.bottom-5 {
+    padding-bottom: 1.25rem !important;
+  }
+
   .about_features-title-wr {
     grid-template-columns: 1fr;
   }
@@ -788,12 +807,13 @@
   }
 
   .about-hero-section .about_hero-video {
-    width: 18rem;
-    height: 14rem;
+    width: 20rem;
+    height: 16rem;
     top: 2rem;
   }
 
   .about_hero {
+    padding-top: 9rem;
     padding-bottom: 0.75rem;
   }
 
@@ -853,7 +873,7 @@
   }
 
   .about_hero {
-    padding-top: 0.25rem;
+    padding-top: 8rem;
     padding-bottom: 0.5rem;
     min-height: 0;
   }
@@ -885,9 +905,9 @@
   }
 
   .about-hero-section .about_hero-video {
-    width: 15rem;
-    height: 13rem;
-    top: 1.5rem;
+    width: 16rem;
+    height: 14rem;
+    top: 1.75rem;
   }
 
   .about-mission-section .txt-2col-grid {
