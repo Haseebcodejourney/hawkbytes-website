@@ -1,4 +1,4 @@
-import type { Dictionary } from "../types";
+﻿import type { Dictionary } from "../types";
 
 const es: Dictionary = {
   common: {
@@ -91,7 +91,7 @@ const es: Dictionary = {
     ],
     companyItems: ["NOSOTROS", "CONTACTO", "BLOG", "EMPLEO"],
     location: "Lahore, Pakistán",
-    email: "hello@hawkbytes.io",
+    email: "info@hawkbytes.cloud",
     phone: "+92 300 000 0000",
     socialAria: {
       linkedin: "HawkBytes en LinkedIn",
@@ -994,10 +994,10 @@ const es: Dictionary = {
       {
         heading: "Sus derechos de privacidad",
         paragraphs: [
-          "Si desea obtener más información sobre la información personal que tenemos sobre usted, o si desea actualizar, cambiar o eliminar esa información, comuníquese con nosotros por correo electrónico a info@hawkbytes.io.",
-          "Puede optar por no recibir correos electrónicos de marketing de nuestra parte siguiendo las instrucciones incluidas en esos correos o enviándonos un correo electrónico a info@hawkbytes.io.",
+          "Si desea obtener más información sobre la información personal que tenemos sobre usted, o si desea actualizar, cambiar o eliminar esa información, comuníquese con nosotros por correo electrónico a info@hawkbytes.cloud.",
+          "Puede optar por no recibir correos electrónicos de marketing de nuestra parte siguiendo las instrucciones incluidas en esos correos o enviándonos un correo electrónico a info@hawkbytes.cloud.",
           "Si es residente de una jurisdicción con una ley de privacidad de datos aplicable, es posible que tenga ciertos derechos disponibles en relación con su información personal. Estos derechos pueden incluir:",
-          "Para ejercer cualquiera de los derechos enumerados anteriormente, comuníquese con nosotros por correo electrónico a info@hawkbytes.io. Responderemos a su solicitud tan pronto como sea razonablemente posible y dentro del plazo requerido por la ley aplicable. Antes de atender su solicitud, primero verificaremos su identidad comparando la información que proporcione con la información que tenemos registrada sobre usted.",
+          "Para ejercer cualquiera de los derechos enumerados anteriormente, comuníquese con nosotros por correo electrónico a info@hawkbytes.cloud. Responderemos a su solicitud tan pronto como sea razonablemente posible y dentro del plazo requerido por la ley aplicable. Antes de atender su solicitud, primero verificaremos su identidad comparando la información que proporcione con la información que tenemos registrada sobre usted.",
           "Además, puede autorizar a un agente para que realice una solicitud en su nombre. Para designar a un agente, proporcione un documento escrito y firmado tanto por usted como por el agente que autorice a este último a actuar en su nombre. También puede usar un poder notarial. Aun así, le exigiremos que proporcione información que nos permita verificar razonablemente que usted es la persona sobre la que recopilamos información personal.",
         ],
         bullets: [
@@ -1051,7 +1051,7 @@ const es: Dictionary = {
       {
         heading: "Cómo contactarnos",
         paragraphs: [
-          "Si tiene alguna pregunta o inquietud sobre esta Política, puede contactarnos en info@hawkbytes.io.",
+          "Si tiene alguna pregunta o inquietud sobre esta Política, puede contactarnos en info@hawkbytes.cloud.",
         ],
       },
     ],

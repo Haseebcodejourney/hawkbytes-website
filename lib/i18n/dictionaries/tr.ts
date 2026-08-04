@@ -1,4 +1,4 @@
-import type { Dictionary } from "../types";
+﻿import type { Dictionary } from "../types";
 
 const tr: Dictionary = {
   common: {
@@ -91,7 +91,7 @@ const tr: Dictionary = {
     ],
     companyItems: ["HAKKIMIZDA", "İLETİŞİM", "BLOG", "KARİYER"],
     location: "Lahor, Pakistan",
-    email: "hello@hawkbytes.io",
+    email: "info@hawkbytes.cloud",
     phone: "+92 300 000 0000",
     socialAria: {
       linkedin: "LinkedIn'de HawkBytes",
@@ -993,10 +993,10 @@ const tr: Dictionary = {
       {
         heading: "Gizlilik Haklarınız",
         paragraphs: [
-          "Hakkınızda sahip olduğumuz kişisel bilgiler hakkında daha fazla bilgi edinmek istiyorsanız veya bu bilgileri güncellemek, değiştirmek ya da silmek istiyorsanız, lütfen info@hawkbytes.io adresinden bizimle iletişime geçin.",
-          "Bizden pazarlama e-postaları almaktan, bu e-postalardaki talimatları izleyerek veya info@hawkbytes.io adresine e-posta göndererek vazgeçebilirsiniz.",
+          "Hakkınızda sahip olduğumuz kişisel bilgiler hakkında daha fazla bilgi edinmek istiyorsanız veya bu bilgileri güncellemek, değiştirmek ya da silmek istiyorsanız, lütfen info@hawkbytes.cloud adresinden bizimle iletişime geçin.",
+          "Bizden pazarlama e-postaları almaktan, bu e-postalardaki talimatları izleyerek veya info@hawkbytes.cloud adresine e-posta göndererek vazgeçebilirsiniz.",
           "Geçerli bir veri gizliliği yasasına sahip bir yargı bölgesinde ikamet ediyorsanız, kişisel bilgilerinizle ilgili olarak belirli haklara sahip olabilirsiniz. Bu haklar şunları içerebilir:",
-          "Yukarıda listelenen haklardan herhangi birini kullanmak için lütfen info@hawkbytes.io adresinden bizimle e-posta yoluyla iletişime geçin. Talebinize makul ölçüde mümkün olan en kısa sürede ve geçerli yasa kapsamında gereken süre içinde yanıt vereceğiz. Talebinize uymadan önce, öncelikle sağladığınız bilgileri sizin hakkınızda dosyalarımızda bulunan bilgilerle karşılaştırarak kimliğinizi doğrulayacağız.",
+          "Yukarıda listelenen haklardan herhangi birini kullanmak için lütfen info@hawkbytes.cloud adresinden bizimle e-posta yoluyla iletişime geçin. Talebinize makul ölçüde mümkün olan en kısa sürede ve geçerli yasa kapsamında gereken süre içinde yanıt vereceğiz. Talebinize uymadan önce, öncelikle sağladığınız bilgileri sizin hakkınızda dosyalarımızda bulunan bilgilerle karşılaştırarak kimliğinizi doğrulayacağız.",
           "Ayrıca, sizin adınıza talepte bulunması için bir temsilci yetkilendirebilirsiniz. Bir temsilci belirlemek için, lütfen hem sizin hem de temsilcinin imzaladığı, temsilcinin sizin adınıza hareket etmesine izin veren yazılı bir belge sunun. Bir vekaletname de kullanabilirsiniz. Hakkınızda kişisel bilgi topladığımız kişi olduğunuzu makul bir şekilde doğrulamamıza olanak tanımak için yine de bilgi sağlamanızı isteyeceğiz.",
         ],
         bullets: [
@@ -1050,7 +1050,7 @@ const tr: Dictionary = {
       {
         heading: "Bizimle Nasıl İletişime Geçebilirsiniz",
         paragraphs: [
-          "Bu Politika hakkında herhangi bir sorunuz veya endişeniz varsa, bizimle info@hawkbytes.io adresinden iletişime geçebilirsiniz.",
+          "Bu Politika hakkında herhangi bir sorunuz veya endişeniz varsa, bizimle info@hawkbytes.cloud adresinden iletişime geçebilirsiniz.",
         ],
       },
     ],

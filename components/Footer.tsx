@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, type ReactNode } from "react";
 import GlowButton from "@/components/GlowButton";
@@ -337,7 +337,7 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                     >
                       {t.footer.location}
                     </a>
-                    <a href="mailto:hello@hawkbytes.io" className="footer-link">
+                    <a href="mailto:info@hawkbytes.cloud" className="footer-link">
                       {t.footer.email}
                     </a>
                     <a

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useTranslations } from "@/components/i18n/LanguageProvider";
@@ -135,10 +135,10 @@ export default function ContactPage() {
                     <p className="text-size-small-14-rm">{contact.emailLabel}</p>
                   </div>
                   <a
-                    href="mailto:hello@hawkbytes.io"
+                    href="mailto:info@hawkbytes.cloud"
                     className="contact_hero-link"
                   >
-                    hello@hawkbytes.io
+                    info@hawkbytes.cloud
                   </a>
                 </div>
 

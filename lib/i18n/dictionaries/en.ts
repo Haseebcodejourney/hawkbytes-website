@@ -1,4 +1,4 @@
-import type { Dictionary } from "../types";
+﻿import type { Dictionary } from "../types";
 
 const en: Dictionary = {
   common: {
@@ -91,7 +91,7 @@ const en: Dictionary = {
     ],
     companyItems: ["ABOUT US", "CONTACT", "BLOG", "CAREERS"],
     location: "Lahore, Pakistan",
-    email: "hello@hawkbytes.io",
+    email: "info@hawkbytes.cloud",
     phone: "+92 300 000 0000",
     socialAria: {
       linkedin: "HawkBytes on LinkedIn",
@@ -992,10 +992,10 @@ const en: Dictionary = {
       {
         heading: "Your Privacy Rights",
         paragraphs: [
-          "If you want to learn more about the personal information that we have about you, or you would like to update, change, or delete that information, please contact us by email at info@hawkbytes.io.",
-          "You may opt out of receiving marketing emails from us by following the instructions in those emails or by emailing us at info@hawkbytes.io.",
+          "If you want to learn more about the personal information that we have about you, or you would like to update, change, or delete that information, please contact us by email at info@hawkbytes.cloud.",
+          "You may opt out of receiving marketing emails from us by following the instructions in those emails or by emailing us at info@hawkbytes.cloud.",
           "If you are a resident of a jurisdiction with an applicable data privacy law, you may have certain rights available to you in relation to your personal information. These rights may include:",
-          "To exercise any of the rights listed above, please contact us via email at info@hawkbytes.io. We will respond to your request as soon as reasonably possible and within the timeframe required under applicable law. Prior to complying with your request, we will first verify your identity by comparing the information you provide with the information we have on file for you.",
+          "To exercise any of the rights listed above, please contact us via email at info@hawkbytes.cloud. We will respond to your request as soon as reasonably possible and within the timeframe required under applicable law. Prior to complying with your request, we will first verify your identity by comparing the information you provide with the information we have on file for you.",
           "Additionally, you may authorize an agent to make a request on your behalf. To designate an agent, please provide a written and signed document by both you and the agent that authorizes the agent to act on your behalf. You may also use a power of attorney. We will still require you to provide information to allow us to reasonably verify that you are the person about whom we collected personal information.",
         ],
         bullets: [
@@ -1049,7 +1049,7 @@ const en: Dictionary = {
       {
         heading: "How to Contact Us",
         paragraphs: [
-          "Should you have any questions or concerns about this Policy, you can contact us at info@hawkbytes.io.",
+          "Should you have any questions or concerns about this Policy, you can contact us at info@hawkbytes.cloud.",
         ],
       },
     ],
