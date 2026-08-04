@@ -389,10 +389,21 @@
   outline: none;
 }
 
+.form_input.is-invalid,
+.dropdown_toggle.is-invalid {
+  border-color: #ff6b6b;
+}
+
 .form_input:hover,
 .form_input:active,
 .form_input:focus {
   border-color: var(--grey-blue, #a3a3bb);
+}
+
+.form_input.is-invalid:hover,
+.form_input.is-invalid:active,
+.form_input.is-invalid:focus {
+  border-color: #ff6b6b;
 }
 
 .form_input::placeholder {
@@ -404,6 +415,18 @@
   max-height: none;
   resize: vertical;
   line-height: 1.4;
+}
+
+.form-field-error {
+  margin-top: 0.35rem;
+  color: #ff6b6b;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, monospace;
+}
+
+.form_checkbox.is-invalid .form_checkbox-icon {
+  border-color: #ff6b6b;
 }
 
 .dropdown_component {
@@ -495,63 +518,53 @@
   color: var(--white, #fff);
 }
 
-.recaptcha-wr {
-  filter: hue-rotate(180deg) invert();
+.captcha-field-wr {
+  width: 100%;
 }
 
-.contact-recaptcha {
-  width: 100%;
-  max-width: 19rem;
-  min-height: 4.75rem;
+.captcha-row {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 0.85rem;
-  border: 1px solid #d3d3d3;
-  border-radius: 0.2rem;
-  background: #f9f9f9;
-  color: #000;
-  cursor: pointer;
-  text-align: left;
-  filter: none;
+  flex-wrap: wrap;
 }
 
-.contact-recaptcha-box {
-  width: 1.75rem;
-  height: 1.75rem;
-  border: 2px solid #c1c1c1;
-  border-radius: 0.15rem;
-  background: #fff;
+.captcha-question {
+  min-width: 5.5rem;
+  min-height: 2.75rem;
   display: grid;
   place-items: center;
-  flex: none;
+  padding: 0 0.85rem;
+  border: 1px solid #1d283f;
+  border-radius: 0.25rem;
+  background: #0b1020;
+  color: var(--white, #fff);
+  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, monospace;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
 }
 
-.contact-recaptcha.is-checked .contact-recaptcha-box {
-  border-color: #1a73e8;
-  background: #1a73e8;
+.captcha-input {
+  flex: 1 1 8rem;
+  max-width: 12rem;
 }
 
-.contact-recaptcha-label {
-  flex: 1;
-  font-size: 0.88rem;
-  color: #000;
-  font-family: Arial, Helvetica, sans-serif;
+.captcha-refresh {
+  border: 1px solid #1d283f;
+  background: transparent;
+  color: var(--grey-blue, #a3a3bb);
+  border-radius: 0.25rem;
+  min-height: 2.75rem;
+  padding: 0 0.9rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, monospace;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.contact-recaptcha-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.1rem;
-  font-size: 0.55rem;
-  color: #555;
-  line-height: 1.2;
-}
-
-.contact-recaptcha-logo {
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.captcha-refresh:hover {
+  color: var(--white, #fff);
+  border-color: var(--grey-blue, #a3a3bb);
 }
 
 .form-check-btn-wr {
@@ -559,6 +572,14 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+}
+
+.form-consent-wr {
+  flex: 1 1 14rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .form_checkbox {

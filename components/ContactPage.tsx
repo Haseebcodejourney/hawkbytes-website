@@ -1,7 +1,12 @@
 ﻿"use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "@/components/i18n/LanguageProvider";
+import {
+  hasContactErrors,
+  type ContactFieldErrors,
+  validateContactForm,
+} from "@/lib/contact-validation";
 import "./ContactPage.css";
 
 const ASSETS = {
@@ -21,8 +26,15 @@ const ASSETS = {
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cedbf13a28462cd45fdff0_C-Frame.svg",
   bgFrameMob:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dc28c077abf78bbedfd5a8_Frame-mob-2.svg",
-  check:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e1699a7740550bb5d8e75d_fa-solid_check.svg",
+};
+
+const EMPTY_VALUES = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  company: "",
+  message: "",
 };
 
 function ChevronIcon() {
@@ -45,18 +57,49 @@ function ChevronIcon() {
   );
 }
 
+function FieldError({ message }: { message?: string }) {
+  if (!message) return null;
+  return (
+    <p className="form-field-error" role="alert">
+      {message}
+    </p>
+  );
+}
+
 export default function ContactPage() {
   const t = useTranslations();
   const contact = t.contact;
   const form = contact.form;
+  const [values, setValues] = useState(EMPTY_VALUES);
   const [hearAbout, setHearAbout] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [agreed, setAgreed] = useState(true);
-  const [captchaChecked, setCaptchaChecked] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+  const [captchaQuestion, setCaptchaQuestion] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
   const [error, setError] = useState(false);
   const [successOpen, setSuccessOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const loadCaptcha = useCallback(async () => {
+    try {
+      const res = await fetch("/api/captcha", { cache: "no-store" });
+      if (!res.ok) return;
+      const data = (await res.json()) as { question?: string; token?: string };
+      setCaptchaQuestion(data.question ?? "");
+      setCaptchaToken(data.token ?? "");
+      setCaptchaAnswer("");
+    } catch {
+      setCaptchaQuestion("");
+      setCaptchaToken("");
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadCaptcha();
+  }, [loadCaptcha]);
 
   useEffect(() => {
     const onPointer = (e: MouseEvent) => {
@@ -77,26 +120,79 @@ export default function ContactPage() {
     };
   }, [successOpen]);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const updateField = (name: keyof typeof EMPTY_VALUES, value: string) => {
+    setValues((prev) => ({ ...prev, [name]: value }));
+    setFieldErrors((prev) => {
+      if (!prev[name]) return prev;
+      const next = { ...prev };
+      delete next[name];
+      return next;
+    });
+    setError(false);
+  };
+
+  const resetForm = () => {
+    setValues(EMPTY_VALUES);
+    setHearAbout("");
+    setAgreed(false);
+    setCaptchaAnswer("");
+    setFieldErrors({});
+    void loadCaptcha();
+  };
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(false);
 
-    const form = e.currentTarget;
-    if (!form.checkValidity() || !agreed || !captchaChecked) {
-      setError(true);
-      form.reportValidity();
+    const errors = validateContactForm(
+      {
+        ...values,
+        hearAbout,
+        captchaToken,
+        captchaAnswer,
+        agreed,
+      },
+      form.validation,
+    );
+
+    setFieldErrors(errors);
+    if (hasContactErrors(errors)) {
       return;
     }
 
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          phone: values.phone,
+          company: values.company,
+          message: values.message,
+          hearAbout,
+          captchaToken,
+          captchaAnswer,
+          agreed,
+        }),
+      });
+
+      if (!res.ok) {
+        setError(true);
+        void loadCaptcha();
+        return;
+      }
+
       setSuccessOpen(true);
-      form.reset();
-      setHearAbout("");
-      setAgreed(true);
-      setCaptchaChecked(false);
-    }, 600);
+      resetForm();
+    } catch {
+      setError(true);
+      void loadCaptcha();
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -198,69 +294,129 @@ export default function ContactPage() {
                         <div className="form-inputs-wr">
                           <div className="form-input-2col">
                             <div className="form-field-wr">
-                              <p className="form-label">{form.firstName}</p>
+                              <label className="form-label" htmlFor="First-Name">
+                                {form.firstName}
+                              </label>
                               <input
-                                className="form_input"
+                                id="First-Name"
+                                className={`form_input${fieldErrors.firstName ? " is-invalid" : ""}`}
                                 name="First-Name"
                                 placeholder={form.placeholders.firstName}
                                 type="text"
+                                autoComplete="given-name"
+                                value={values.firstName}
+                                onChange={(e) =>
+                                  updateField("firstName", e.target.value)
+                                }
+                                aria-invalid={Boolean(fieldErrors.firstName)}
                                 required
                               />
+                              <FieldError message={fieldErrors.firstName} />
                             </div>
                             <div className="form-field-wr">
-                              <p className="form-label">{form.lastName}</p>
+                              <label className="form-label" htmlFor="Last-Name">
+                                {form.lastName}
+                              </label>
                               <input
-                                className="form_input"
+                                id="Last-Name"
+                                className={`form_input${fieldErrors.lastName ? " is-invalid" : ""}`}
                                 name="Last-Name"
                                 placeholder={form.placeholders.lastName}
                                 type="text"
+                                autoComplete="family-name"
+                                value={values.lastName}
+                                onChange={(e) =>
+                                  updateField("lastName", e.target.value)
+                                }
+                                aria-invalid={Boolean(fieldErrors.lastName)}
                                 required
                               />
+                              <FieldError message={fieldErrors.lastName} />
                             </div>
                           </div>
 
                           <div className="form-input-2col">
                             <div className="form-field-wr">
-                              <p className="form-label">{form.email}</p>
+                              <label className="form-label" htmlFor="Email">
+                                {form.email}
+                              </label>
                               <input
-                                className="form_input"
+                                id="Email"
+                                className={`form_input${fieldErrors.email ? " is-invalid" : ""}`}
                                 name="Email"
                                 placeholder={form.placeholders.email}
                                 type="email"
+                                autoComplete="email"
+                                value={values.email}
+                                onChange={(e) =>
+                                  updateField("email", e.target.value)
+                                }
+                                aria-invalid={Boolean(fieldErrors.email)}
                                 required
                               />
+                              <FieldError message={fieldErrors.email} />
                             </div>
                             <div className="form-field-wr">
-                              <p className="form-label">{form.phone}</p>
+                              <label className="form-label" htmlFor="Phone-number">
+                                {form.phone}
+                              </label>
                               <input
-                                className="form_input"
+                                id="Phone-number"
+                                className={`form_input${fieldErrors.phone ? " is-invalid" : ""}`}
                                 name="Phone-number"
                                 placeholder={form.placeholders.phone}
                                 type="tel"
+                                autoComplete="tel"
+                                value={values.phone}
+                                onChange={(e) =>
+                                  updateField("phone", e.target.value)
+                                }
+                                aria-invalid={Boolean(fieldErrors.phone)}
                                 required
                               />
+                              <FieldError message={fieldErrors.phone} />
                             </div>
                           </div>
 
                           <div className="form-field-wr">
-                            <p className="form-label">{form.company}</p>
+                            <label className="form-label" htmlFor="Company">
+                              {form.company}
+                            </label>
                             <input
-                              className="form_input"
+                              id="Company"
+                              className={`form_input${fieldErrors.company ? " is-invalid" : ""}`}
                               name="Company"
                               placeholder={form.placeholders.company}
                               type="text"
+                              autoComplete="organization"
+                              value={values.company}
+                              onChange={(e) =>
+                                updateField("company", e.target.value)
+                              }
+                              aria-invalid={Boolean(fieldErrors.company)}
                               required
                             />
+                            <FieldError message={fieldErrors.company} />
                           </div>
 
                           <div className="form-field-wr">
-                            <p className="form-label">{form.message}</p>
+                            <label className="form-label" htmlFor="Message">
+                              {form.message}
+                            </label>
                             <textarea
-                              className="form_input is-text-area"
+                              id="Message"
+                              className={`form_input is-text-area${fieldErrors.message ? " is-invalid" : ""}`}
                               name="Message"
                               placeholder={form.placeholders.message}
                               rows={4}
+                              maxLength={2000}
+                              value={values.message}
+                              onChange={(e) =>
+                                updateField("message", e.target.value)
+                              }
+                              aria-invalid={Boolean(fieldErrors.message)}
                             />
+                            <FieldError message={fieldErrors.message} />
                           </div>
 
                           <div className="form-field-wr" ref={dropdownRef}>
@@ -268,13 +424,16 @@ export default function ContactPage() {
                               {form.hearAbout}
                             </label>
                             <div
-                              className={`dropdown_component${dropdownOpen ? " is-open" : ""}`}
+                              className={`dropdown_component${dropdownOpen ? " is-open" : ""}${
+                                fieldErrors.hearAbout ? " is-invalid" : ""
+                              }`}
                             >
                               <button
                                 type="button"
                                 id="HowYouHearAboutUs"
-                                className="dropdown_toggle"
+                                className={`dropdown_toggle${fieldErrors.hearAbout ? " is-invalid" : ""}`}
                                 aria-expanded={dropdownOpen}
+                                aria-invalid={Boolean(fieldErrors.hearAbout)}
                                 onClick={() => setDropdownOpen((v) => !v)}
                               >
                                 <div>{hearAbout || form.placeholders.hearSelect}</div>
@@ -298,6 +457,13 @@ export default function ContactPage() {
                                     onClick={() => {
                                       setHearAbout(opt);
                                       setDropdownOpen(false);
+                                      setFieldErrors((prev) => {
+                                        if (!prev.hearAbout) return prev;
+                                        const next = { ...prev };
+                                        delete next.hearAbout;
+                                        return next;
+                                      });
+                                      setError(false);
                                     }}
                                   >
                                     {opt}
@@ -306,62 +472,91 @@ export default function ContactPage() {
                               </div>
                             </div>
                             <input type="hidden" name="HowYouHearAboutUs" value={hearAbout} />
+                            <FieldError message={fieldErrors.hearAbout} />
                           </div>
 
-                          <div className="recaptcha-wr">
-                            <button
-                              type="button"
-                              className={`contact-recaptcha${
-                                captchaChecked ? " is-checked" : ""
-                              }`}
-                              onClick={() => setCaptchaChecked((v) => !v)}
-                              aria-pressed={captchaChecked}
-                            >
-                              <span className="contact-recaptcha-box" aria-hidden="true">
-                                {captchaChecked ? (
-                                  // eslint-disable-next-line @next/next/no-img-element
-                                  <img src={ASSETS.check} alt="" width={14} height={14} />
-                                ) : null}
-                              </span>
-                              <span className="contact-recaptcha-label">
-                                {form.recaptcha}
-                              </span>
-                              <span className="contact-recaptcha-brand" aria-hidden="true">
-                                <span className="contact-recaptcha-logo">reCAPTCHA</span>
-                                <span className="contact-recaptcha-links">
-                                  Privacy - Terms
-                                </span>
-                              </span>
-                            </button>
+                          <div className="form-field-wr captcha-field-wr">
+                            <label className="form-label" htmlFor="Captcha-Answer">
+                              {form.captchaLabel}
+                            </label>
+                            <div className="captcha-row">
+                              <div className="captcha-question" aria-hidden="true">
+                                {captchaQuestion || "…"}
+                              </div>
+                              <input
+                                id="Captcha-Answer"
+                                className={`form_input captcha-input${fieldErrors.captcha ? " is-invalid" : ""}`}
+                                name="Captcha-Answer"
+                                placeholder={form.captchaPlaceholder}
+                                type="text"
+                                inputMode="numeric"
+                                autoComplete="off"
+                                value={captchaAnswer}
+                                onChange={(e) => {
+                                  setCaptchaAnswer(e.target.value);
+                                  setFieldErrors((prev) => {
+                                    if (!prev.captcha) return prev;
+                                    const next = { ...prev };
+                                    delete next.captcha;
+                                    return next;
+                                  });
+                                  setError(false);
+                                }}
+                                aria-invalid={Boolean(fieldErrors.captcha)}
+                                required
+                              />
+                              <button
+                                type="button"
+                                className="captcha-refresh"
+                                onClick={() => void loadCaptcha()}
+                              >
+                                {form.captchaRefresh}
+                              </button>
+                            </div>
+                            <FieldError message={fieldErrors.captcha} />
                           </div>
 
                           <div className="form-check-btn-wr">
-                            <label className="form_checkbox">
-                              <span
-                                className={`form_checkbox-icon${
-                                  agreed ? " is-checked" : ""
-                                }`}
-                                aria-hidden="true"
-                              />
-                              <input
-                                type="checkbox"
-                                name="Checkbox"
-                                checked={agreed}
-                                onChange={(e) => setAgreed(e.target.checked)}
-                                required
-                              />
-                              <span className="form_checkbox-label">
-                                {form.consentBefore}
-                                <a
-                                  href="/privacy-policy"
-                                  className="span-link-orange"
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  {form.privacyLink}
-                                </a>
-                                {form.consentAfter}
-                              </span>
-                            </label>
+                            <div className="form-consent-wr">
+                              <label
+                                className={`form_checkbox${fieldErrors.consent ? " is-invalid" : ""}`}
+                              >
+                                <span
+                                  className={`form_checkbox-icon${
+                                    agreed ? " is-checked" : ""
+                                  }`}
+                                  aria-hidden="true"
+                                />
+                                <input
+                                  type="checkbox"
+                                  name="Checkbox"
+                                  checked={agreed}
+                                  onChange={(e) => {
+                                    setAgreed(e.target.checked);
+                                    setFieldErrors((prev) => {
+                                      if (!prev.consent) return prev;
+                                      const next = { ...prev };
+                                      delete next.consent;
+                                      return next;
+                                    });
+                                    setError(false);
+                                  }}
+                                  required
+                                />
+                                <span className="form_checkbox-label">
+                                  {form.consentBefore}
+                                  <a
+                                    href="/privacy-policy"
+                                    className="span-link-orange"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    {form.privacyLink}
+                                  </a>
+                                  {form.consentAfter}
+                                </span>
+                              </label>
+                              <FieldError message={fieldErrors.consent} />
+                            </div>
 
                             <button
                               type="submit"

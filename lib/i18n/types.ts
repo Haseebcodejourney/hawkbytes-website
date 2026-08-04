@@ -94,12 +94,30 @@ export type ContactFormCopy = {
   };
   hearOptions: string[];
   recaptcha: string;
+  captchaLabel: string;
+  captchaPlaceholder: string;
+  captchaRefresh: string;
   consentBefore: string;
   privacyLink: string;
   consentAfter: string;
   submit: string;
   submitting: string;
   error: string;
+  validation: {
+    firstNameRequired: string;
+    firstNameInvalid: string;
+    lastNameRequired: string;
+    lastNameInvalid: string;
+    emailRequired: string;
+    emailInvalid: string;
+    phoneRequired: string;
+    phoneInvalid: string;
+    companyRequired: string;
+    messageTooLong: string;
+    hearAboutRequired: string;
+    captchaRequired: string;
+    consentRequired: string;
+  };
 };
 
 export type Dictionary = {

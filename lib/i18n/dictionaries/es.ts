@@ -691,6 +691,9 @@ const es: Dictionary = {
         "Otro",
       ],
       recaptcha: "No soy un robot",
+      captchaLabel: "Verificación de seguridad*",
+      captchaPlaceholder: "Introduzca la respuesta",
+      captchaRefresh: "Nueva pregunta",
       consentBefore: "Al enviar este formulario, acepta nuestra ",
       privacyLink: "Política de privacidad",
       consentAfter:
@@ -699,6 +702,21 @@ const es: Dictionary = {
       submitting: "Espere por favor...",
       error:
         "¡Ups! Ocurrió un error al enviar el formulario. Inténtelo de nuevo",
+      validation: {
+        firstNameRequired: "El nombre es obligatorio.",
+        firstNameInvalid: "Introduzca un nombre válido (al menos 2 letras).",
+        lastNameRequired: "El apellido es obligatorio.",
+        lastNameInvalid: "Introduzca un apellido válido (al menos 2 letras).",
+        emailRequired: "El correo electrónico es obligatorio.",
+        emailInvalid: "Introduzca un correo electrónico válido.",
+        phoneRequired: "El número de teléfono es obligatorio.",
+        phoneInvalid: "Introduzca un número de teléfono válido.",
+        companyRequired: "El nombre de la empresa es obligatorio.",
+        messageTooLong: "El mensaje debe tener 2000 caracteres o menos.",
+        hearAboutRequired: "Seleccione cómo nos conoció.",
+        captchaRequired: "Complete el captcha.",
+        consentRequired: "Acepte la Política de privacidad.",
+      },
     },
     success: {
       title: "Su mensaje ha sido enviado.",
