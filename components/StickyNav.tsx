@@ -89,7 +89,10 @@ export default function StickyNav({
     if (!ids.length) return;
 
     let frame = 0;
-    let boundLenis: { off: (e: string, cb: () => void) => void } | null = null;
+    let boundLenis: {
+      on: (event: "scroll", callback: () => void) => void;
+      off: (event: "scroll", callback: () => void) => void;
+    } | null = null;
 
     const updateActive = () => {
       const offset = getHeaderOffset() + 32;
