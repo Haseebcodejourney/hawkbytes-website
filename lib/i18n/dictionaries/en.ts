@@ -689,6 +689,9 @@ const en: Dictionary = {
         "Other",
       ],
       recaptcha: "I'm not a robot",
+      captchaLabel: "Security check*",
+      captchaPlaceholder: "Enter the answer",
+      captchaRefresh: "New question",
       consentBefore: "By submitting this form, you agree to our ",
       privacyLink: "Privacy Policy",
       consentAfter:
@@ -697,6 +700,21 @@ const en: Dictionary = {
       submitting: "Please wait...",
       error:
         "Oops! Something went wrong while submitting the form. Try again",
+      validation: {
+        firstNameRequired: "First name is required.",
+        firstNameInvalid: "Enter a valid first name (at least 2 letters).",
+        lastNameRequired: "Last name is required.",
+        lastNameInvalid: "Enter a valid last name (at least 2 letters).",
+        emailRequired: "Email is required.",
+        emailInvalid: "Enter a valid email address.",
+        phoneRequired: "Phone number is required.",
+        phoneInvalid: "Enter a valid phone number.",
+        companyRequired: "Company name is required.",
+        messageTooLong: "Message must be 2000 characters or less.",
+        hearAboutRequired: "Please select how you heard about us.",
+        captchaRequired: "Please complete the captcha.",
+        consentRequired: "Please agree to the Privacy Policy.",
+      },
     },
     success: {
       title: "Your message was sent.",

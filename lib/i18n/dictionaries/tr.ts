@@ -690,6 +690,9 @@ const tr: Dictionary = {
         "Diğer",
       ],
       recaptcha: "Robot değilim",
+      captchaLabel: "Güvenlik kontrolü*",
+      captchaPlaceholder: "Cevabı girin",
+      captchaRefresh: "Yeni soru",
       consentBefore: "Bu formu göndererek, ",
       privacyLink: "Gizlilik Politikamızı",
       consentAfter:
@@ -698,6 +701,21 @@ const tr: Dictionary = {
       submitting: "Lütfen bekleyin...",
       error:
         "Ups! Form gönderilirken bir sorun oluştu. Tekrar deneyin",
+      validation: {
+        firstNameRequired: "Ad zorunludur.",
+        firstNameInvalid: "Geçerli bir ad girin (en az 2 harf).",
+        lastNameRequired: "Soyad zorunludur.",
+        lastNameInvalid: "Geçerli bir soyad girin (en az 2 harf).",
+        emailRequired: "E-posta zorunludur.",
+        emailInvalid: "Geçerli bir e-posta adresi girin.",
+        phoneRequired: "Telefon numarası zorunludur.",
+        phoneInvalid: "Geçerli bir telefon numarası girin.",
+        companyRequired: "Şirket adı zorunludur.",
+        messageTooLong: "Mesaj en fazla 2000 karakter olabilir.",
+        hearAboutRequired: "Bizi nasıl duyduğunuzu seçin.",
+        captchaRequired: "Lütfen captcha'yı tamamlayın.",
+        consentRequired: "Lütfen Gizlilik Politikasını kabul edin.",
+      },
     },
     success: {
       title: "Mesajınız gönderildi.",

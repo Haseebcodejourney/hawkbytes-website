@@ -690,6 +690,9 @@ const ru: Dictionary = {
         "Другое",
       ],
       recaptcha: "Я не робот",
+      captchaLabel: "Проверка безопасности*",
+      captchaPlaceholder: "Введите ответ",
+      captchaRefresh: "Новый вопрос",
       consentBefore: "Отправляя эту форму, вы соглашаетесь с нашей ",
       privacyLink: "Политикой конфиденциальности",
       consentAfter:
@@ -698,6 +701,21 @@ const ru: Dictionary = {
       submitting: "Пожалуйста, подождите...",
       error:
         "Упс! Что-то пошло не так при отправке формы. Попробуйте снова",
+      validation: {
+        firstNameRequired: "Имя обязательно.",
+        firstNameInvalid: "Введите корректное имя (минимум 2 буквы).",
+        lastNameRequired: "Фамилия обязательна.",
+        lastNameInvalid: "Введите корректную фамилию (минимум 2 буквы).",
+        emailRequired: "Email обязателен.",
+        emailInvalid: "Введите корректный email.",
+        phoneRequired: "Номер телефона обязателен.",
+        phoneInvalid: "Введите корректный номер телефона.",
+        companyRequired: "Название компании обязательно.",
+        messageTooLong: "Сообщение должно быть не длиннее 2000 символов.",
+        hearAboutRequired: "Укажите, как вы о нас узнали.",
+        captchaRequired: "Пройдите проверку captcha.",
+        consentRequired: "Примите Политику конфиденциальности.",
+      },
     },
     success: {
       title: "Ваше сообщение отправлено.",

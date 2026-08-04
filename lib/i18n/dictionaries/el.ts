@@ -691,6 +691,9 @@ const el: Dictionary = {
         "Άλλο",
       ],
       recaptcha: "Δεν είμαι ρομπότ",
+      captchaLabel: "Έλεγχος ασφαλείας*",
+      captchaPlaceholder: "Εισαγάγετε την απάντηση",
+      captchaRefresh: "Νέα ερώτηση",
       consentBefore: "Υποβάλλοντας αυτή τη φόρμα, συμφωνείτε με την ",
       privacyLink: "Πολιτική Απορρήτου",
       consentAfter:
@@ -699,6 +702,21 @@ const el: Dictionary = {
       submitting: "Παρακαλώ περιμένετε...",
       error:
         "Ουπς! Κάτι πήγε στραβά κατά την υποβολή της φόρμας. Δοκιμάστε ξανά",
+      validation: {
+        firstNameRequired: "Το όνομα είναι υποχρεωτικό.",
+        firstNameInvalid: "Εισαγάγετε έγκυρο όνομα (τουλάχιστον 2 γράμματα).",
+        lastNameRequired: "Το επώνυμο είναι υποχρεωτικό.",
+        lastNameInvalid: "Εισαγάγετε έγκυρο επώνυμο (τουλάχιστον 2 γράμματα).",
+        emailRequired: "Το email είναι υποχρεωτικό.",
+        emailInvalid: "Εισαγάγετε έγκυρη διεύθυνση email.",
+        phoneRequired: "Ο αριθμός τηλεφώνου είναι υποχρεωτικός.",
+        phoneInvalid: "Εισαγάγετε έγκυρο αριθμό τηλεφώνου.",
+        companyRequired: "Το όνομα εταιρείας είναι υποχρεωτικό.",
+        messageTooLong: "Το μήνυμα πρέπει να έχει έως 2000 χαρακτήρες.",
+        hearAboutRequired: "Επιλέξτε πώς μάθατε για εμάς.",
+        captchaRequired: "Ολοκληρώστε το captcha.",
+        consentRequired: "Αποδεχτείτε την Πολιτική Απορρήτου.",
+      },
     },
     success: {
       title: "Το μήνυμά σας εστάλη.",
