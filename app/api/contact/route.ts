@@ -145,6 +145,64 @@ export async function POST(request: Request) {
       );
     }
 
+    // Visitor confirmation — Hostinger auto-reply won't fire because form mail
+    // is delivered as info@ → info@ (same mailbox / loop protection).
+    const { error: autoReplyError } = await resend.emails.send({
+      from: fromEmail,
+      to: [email],
+      replyTo: toEmail,
+      subject: "HawkBytes | Talebiniz alındı / We've received your message",
+      text: [
+        `Hello ${firstName},`,
+        "",
+        "Thank you for contacting HawkBytes.",
+        "We've received your message and our team will get back to you within 24 hours.",
+        "",
+        "If your request is urgent, simply reply to this email.",
+        "",
+        "Best regards,",
+        "HawkBytes Team",
+        toEmail,
+        "https://hawkbytes.cloud",
+        "",
+        "——————————————",
+        "",
+        `Merhaba ${firstName},`,
+        "",
+        "HawkBytes’a ulaştığınız için teşekkür ederiz.",
+        "Mesajınızı aldık; ekibimiz en geç 24 saat içinde size dönüş yapacaktır.",
+        "",
+        "Acil bir durum varsa, bu e-postaya yanıt vermeniz yeterlidir.",
+        "",
+        "Saygılarımızla,",
+        "HawkBytes Ekibi",
+        toEmail,
+        "https://hawkbytes.cloud",
+      ].join("\n"),
+      html: `
+        <p>Hello ${escapeHtml(firstName)},</p>
+        <p>Thank you for contacting <strong>HawkBytes</strong>.<br />
+        We've received your message and our team will get back to you within 24 hours.</p>
+        <p>If your request is urgent, simply reply to this email.</p>
+        <p>Best regards,<br />HawkBytes Team<br />
+        <a href="mailto:${escapeHtml(toEmail)}">${escapeHtml(toEmail)}</a><br />
+        <a href="https://hawkbytes.cloud">https://hawkbytes.cloud</a></p>
+        <hr />
+        <p>Merhaba ${escapeHtml(firstName)},</p>
+        <p>HawkBytes’a ulaştığınız için teşekkür ederiz.<br />
+        Mesajınızı aldık; ekibimiz en geç 24 saat içinde size dönüş yapacaktır.</p>
+        <p>Acil bir durum varsa, bu e-postaya yanıt vermeniz yeterlidir.</p>
+        <p>Saygılarımızla,<br />HawkBytes Ekibi<br />
+        <a href="mailto:${escapeHtml(toEmail)}">${escapeHtml(toEmail)}</a><br />
+        <a href="https://hawkbytes.cloud">https://hawkbytes.cloud</a></p>
+      `,
+    });
+
+    if (autoReplyError) {
+      console.error("Resend auto-reply error:", autoReplyError);
+      // Submission already delivered — don't fail the form for confirmation mail.
+    }
+
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Contact API error:", error);
