@@ -3,3 +3,6 @@ node_modules
 .git
 scripts
 *.md
+.env
+.env.*
+!.env.example
