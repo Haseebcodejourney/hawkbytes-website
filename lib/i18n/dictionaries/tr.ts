@@ -1,4 +1,4 @@
-﻿import type { Dictionary } from "../types";
+import type { Dictionary } from "../types";
 
 const tr: Dictionary = {
   common: {
@@ -101,7 +101,6 @@ const tr: Dictionary = {
     },
     copyright: "© {year} HawkBytes Technologies. Tüm hakları saklıdır",
     privacy: "Gizlilik Politikası",
-    brandLine: "HawkBytes Technologies",
   },
 
   hero: {
@@ -111,15 +110,6 @@ const tr: Dictionary = {
       "HawkBytes bir ürün ve araştırma şirketidir. Temel odağımız kuantum bilgisayar araştırması ve yapay zeka destekli yazılım ürünleri geliştirmektir — ayrıca güvenilir bir geliştirme ortağına ihtiyaç duyduğunuzda web siteleri, uygulamalar ve mühendislik hizmetleri de sunuyoruz.",
     cta: "Bir uzmanla konuşun",
     logosAria: "HawkBytes odak alanları",
-    logoAlts: [
-      "Yapay Zeka Araştırması",
-      "Kuantum Bilgisayar",
-      "Yazılım Ürünleri",
-      "Web Geliştirme",
-      "Mobil Uygulamalar",
-      "Kalite Testi",
-      "Bulut Çözümleri",
-    ],
   },
 
   mission: {
@@ -159,32 +149,24 @@ const tr: Dictionary = {
         text:
           "Makine öğrenmesi modellerinden ve doğal dil işleme sistemlerinden üretken yapay zeka platformlarına kadar üretime hazır yapay zeka ürünleri tasarlıyor ve geliştiriyoruz. Araştırmaya dayalı, ölçeklenebilir ve gerçek iş değeri için üretilmiş.",
         bgAlt: "Koyu arka plan üzerinde yapay zeka ürünü görselleştirmesi.",
-        bgMobAlt: "Koyu mavi arka plan üzerinde parlayan nöral ağ düğümleri.",
-        decorAlt: "Açık mavi ızgara desenli katman.",
       },
       {
         title: "Kuantum Bilgisayar Araştırması",
         text:
           "Ana odağımız. HawkBytes; kuantum algoritmalarını, hibrit klasik-kuantum sistemlerini ve uygulamalı kuantum prototiplerini araştırarak öncü araştırmayı kullanılabilir teknolojiye dönüştürür.",
         bgAlt: "Koyu arka plan üzerinde kuantum araştırma görselleştirmesi.",
-        bgMobAlt: "Soyut koyu metalik araştırma görselleştirmesi.",
-        decorAlt: "",
       },
       {
         title: "Yazılım Ürünleri & Platformları",
         text:
           "SaaS platformlarından kurumsal araçlara kadar, modern teknoloji yığınlarını kullanarak ölçeklenebilirlik, sürdürülebilirlik ve olağanüstü kullanıcı deneyimi için tasarlanmış yüksek performanslı yazılım ürünleri üretiyoruz.",
         bgAlt: "Koyu mavi arka plan üzerinde yazılım ürünü görselleştirmesi.",
-        bgMobAlt: "Izgara desenli koyu mavi degradeli arka plan.",
-        decorAlt: "",
       },
       {
         title: "Web, Mobil & Kalite Güvence Hizmetleri",
         text:
           "Web siteleri, çok platformlu mobil uygulamalar ve kapsamlı kalite güvencesi sunuyoruz. UI/UX ve Next.js geliştirmelerinden otomatik testlere ve CI/CD'ye kadar — ürün misyonumuzu destekleyen hizmetler.",
         bgAlt: "Web ve mobil geliştirme görselleştirmesi.",
-        bgMobAlt: "Degradeli koyu arka plan üzerinde mobil uygulama ekranları.",
-        decorAlt: "Izgara katmanlı soyut turuncu ve kırmızı dokulu desen.",
       },
     ],
   },
@@ -645,8 +627,8 @@ const tr: Dictionary = {
       intro:
         "Küresel müşterilerimize mükemmellik sunmaya kararlı HawkBytes liderlik ekibiyle tanışın.",
       members: [
-        { name: "Haseeb Ahmed", role: "Kurucu & CEO" },
-        { name: "Araştırma Lideri", role: "Kuantum & Yapay Zeka Araştırması" },
+        { name: "Hamza Sha Haseeb", role: "Kurucu & CEO" },
+        { name: "Takunda Kapesa", role: "Kuantum & Yapay Zeka Araştırması" },
         { name: "Mühendislik Lideri", role: "Ürünler & Platformlar" },
       ],
     },

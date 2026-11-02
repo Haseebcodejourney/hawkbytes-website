@@ -129,26 +129,9 @@
 }
 
 .nav-dropdown-toggle {
-  grid-column-gap: 0.63rem;
-  grid-row-gap: 0.63rem;
-  gap: 0.63rem;
-  text-transform: uppercase;
-  border-radius: 0.63rem;
   justify-content: center;
-  align-items: center;
-  padding: 0.75rem 0.88rem 0.75rem 1.5rem;
-  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, sans-serif;
-  font-size: 0.88rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--cc-white);
-  transition: background-color 0.3s ease-out;
-  display: flex;
-  cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
-  background: transparent;
-  border: none;
 }
 
 .nav-dropdown-toggle span {
@@ -158,20 +141,20 @@
   text-transform: inherit;
 }
 
-.nav-dropdown-toggle:hover,
 .nav-dropdown.is-open > .nav-dropdown-toggle {
-  background-color: #04041080;
+  background-color: var(--nav-pill-hover-bg);
 }
 
 .nav-dropdown-icon {
-  width: 0.88rem;
-  height: 0.88rem;
+  width: 0.55rem;
+  height: 0.55rem;
   margin: 0;
   position: static;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: var(--nav-pill-accent);
   transition: transform 0.3s ease-out;
 }
 
@@ -240,21 +223,7 @@
 }
 
 .nav-dropdown-link {
-  color: var(--cc-light-grey);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  transition: color 0.3s;
-  text-decoration: none;
-  white-space: nowrap;
-  display: block;
   width: 100%;
-}
-
-.nav-dropdown-link:hover {
-  color: var(--cc-white);
 }
 
 .text-weight-medium {
@@ -288,25 +257,6 @@
   flex-shrink: 0;
 }
 
-.nav-link {
-  text-transform: uppercase;
-  border-radius: 0.63rem;
-  padding: 0.75rem 1.5rem;
-  font-family: var(--font-roboto-mono), "Roboto Mono", Arial, sans-serif;
-  font-size: 0.88rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--cc-white);
-  transition: background-color 0.3s;
-  text-decoration: none;
-  white-space: nowrap;
-  display: block;
-}
-
-.nav-link:hover {
-  background-color: #04041080;
-}
-
 .nav-menu-btn-wr {
   justify-content: center;
   align-items: center;
@@ -316,6 +266,10 @@
 
 .nav-mob-btn-wr {
   display: none;
+}
+
+.nav-theme-toggle {
+  margin-right: 0.75rem;
 }
 
 .nav-burger-link {
@@ -494,22 +448,24 @@
     width: 100%;
   }
 
-  .nav-dropdown-toggle {
-    text-transform: none;
+  .nav-menu .nav-dropdown-toggle {
     justify-content: space-between;
     padding: 0.85rem 0;
-    font-family: var(--font-poppins), Poppins, Arial, sans-serif;
     font-size: 1.13rem;
     font-weight: 500;
     line-height: 1.1;
     width: 100%;
     border-radius: 0;
-    color: var(--cc-white);
   }
 
-  .nav-dropdown-toggle:hover,
-  .nav-dropdown.is-open > .nav-dropdown-toggle {
+  .nav-menu .nav-dropdown-toggle:hover,
+  .nav-menu .nav-dropdown.is-open > .nav-dropdown-toggle {
     background-color: transparent;
+  }
+
+  .nav-dropdown-icon {
+    width: 0.88rem;
+    height: 0.88rem;
   }
 
   .nav-dropdown-list {
@@ -549,29 +505,31 @@
     gap: 0;
   }
 
-  .nav-dropdown-link {
+  .nav-menu .nav-dropdown-link {
     white-space: normal;
-    padding-top: 0.55rem;
-    padding-bottom: 0.55rem;
+    padding: 0.55rem 0;
+    font-size: 0.95rem;
     color: var(--cc-light-grey);
+  }
+
+  .nav-menu .nav-dropdown-link:hover {
+    background-color: transparent;
+    color: var(--nav-pill-text);
   }
 
   .nav-divider {
     display: none;
   }
 
-  .nav-link {
-    text-align: left;
-    text-transform: none;
+  .nav-menu .nav-link {
     padding: 0.85rem 0;
-    font-family: var(--font-poppins), Poppins, Arial, sans-serif;
     font-size: 1.13rem;
     font-weight: 500;
+    line-height: 1.1;
     border-radius: 0;
-    color: var(--cc-white);
   }
 
-  .nav-link:hover {
+  .nav-menu .nav-link:hover {
     background-color: transparent;
   }
 
@@ -588,6 +546,14 @@
 
   .nav-burger-link {
     display: flex !important;
+    z-index: 1001;
+    position: relative;
+  }
+
+  .nav-theme-toggle {
+    margin-right: 0;
+    width: 2.75rem;
+    height: 2.75rem;
     z-index: 1001;
     position: relative;
   }

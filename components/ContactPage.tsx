@@ -10,10 +10,6 @@ import {
 import "./ContactPage.css";
 
 const ASSETS = {
-  quoteIcon:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d30286ee799620b5c1f98f_quote-icon-2.avif",
-  author:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd22ca92544c02c6b8f41b_Testimonial-1.avif",
   formBg:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd2e291d68da2f669eb042_form-bg.avif",
   back1:
@@ -236,45 +232,6 @@ export default function ContactPage() {
                   >
                     info@hawkbytes.cloud
                   </a>
-                </div>
-
-                <div className="contact_hero-quote hide-on-mobile">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={ASSETS.quoteIcon}
-                    loading="lazy"
-                    width={40}
-                    alt=""
-                    className="contact_testimonials-icon"
-                  />
-                  <div className="spacer-medium-10" />
-                  <div className="text-color-light-grey">
-                    <p className="text-size-small-14">{contact.quote.text}</p>
-                  </div>
-                  <div className="spacer-medium-20" />
-                  <div className="contact_quote-author-wr">
-                    <div className="home_quote-author-img-wr">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={ASSETS.author}
-                        loading="lazy"
-                        width={40}
-                        alt=""
-                        className="home_quote-author-img"
-                      />
-                    </div>
-                    <div className="home_quote-author-info">
-                      <div className="text-weight-medium">
-                        <p className="text-size-small-14">{contact.quote.name}</p>
-                      </div>
-                      <div className="hide-on-mobile">
-                        <p className="text-color-light-grey">—</p>
-                      </div>
-                      <div className="text-font-rm text-color-light-grey">
-                        <p className="text-size-small-14">{contact.quote.role}</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -606,49 +563,6 @@ export default function ContactPage() {
                     alt=""
                     className="cta-logo-img"
                   />
-                </div>
-              </div>
-
-              <div className="hide-on-desktop">
-                <div className="contact_mob-quote-wr">
-                  <div className="contact_hero-quote is-mobile-bottom">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={ASSETS.quoteIcon}
-                      loading="lazy"
-                      width={40}
-                      alt=""
-                      className="contact_testimonials-icon"
-                    />
-                    <div className="spacer-medium-10" />
-                    <div className="text-color-light-grey">
-                      <p className="text-size-small-14">{contact.quote.text}</p>
-                    </div>
-                    <div className="spacer-medium-20" />
-                    <div className="contact_quote-author-wr">
-                      <div className="home_quote-author-img-wr">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={ASSETS.author}
-                          loading="lazy"
-                          width={40}
-                          alt=""
-                          className="home_quote-author-img"
-                        />
-                      </div>
-                      <div className="home_quote-author-info">
-                        <div className="text-weight-medium">
-                          <p className="text-size-small-14">{contact.quote.name}</p>
-                        </div>
-                        <div className="text-color-light-grey">
-                          <p className="text-size-small-14">—</p>
-                        </div>
-                        <div className="text-font-rm text-color-light-grey">
-                          <p className="text-size-small-14">{contact.quote.role}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

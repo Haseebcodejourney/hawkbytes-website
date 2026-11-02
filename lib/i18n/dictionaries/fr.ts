@@ -1,4 +1,4 @@
-﻿import type { Dictionary } from "../types";
+import type { Dictionary } from "../types";
 
 const fr: Dictionary = {
   common: {
@@ -101,7 +101,6 @@ const fr: Dictionary = {
     },
     copyright: "© {year} HawkBytes Technologies. Tous droits réservés",
     privacy: "Politique de confidentialité",
-    brandLine: "HawkBytes Technologies",
   },
 
   hero: {
@@ -111,15 +110,6 @@ const fr: Dictionary = {
       "HawkBytes est une entreprise de produits et de recherche. Notre priorité est la recherche en informatique quantique et la création de produits logiciels propulsés par l'IA — tout en livrant sites web, applications et services d'ingénierie lorsque vous avez besoin d'un partenaire de confiance.",
     cta: "Parler à un expert",
     logosAria: "Domaines d'expertise de HawkBytes",
-    logoAlts: [
-      "Recherche en IA",
-      "Informatique quantique",
-      "Produits logiciels",
-      "Développement web",
-      "Applications mobiles",
-      "Tests QA",
-      "Solutions cloud",
-    ],
   },
 
   mission: {
@@ -159,32 +149,24 @@ const fr: Dictionary = {
         text:
           "Nous concevons et développons des produits IA prêts pour la production — des modèles d'apprentissage automatique et systèmes de NLP aux plateformes d'IA générative. Fondés sur la recherche, évolutifs, et conçus pour une réelle valeur commerciale.",
         bgAlt: "Visualisation d'un produit IA sur fond sombre.",
-        bgMobAlt: "Nœuds de réseau neuronal lumineux sur fond bleu foncé.",
-        decorAlt: "Superposition de motif de grille bleu clair.",
       },
       {
         title: "Recherche en informatique quantique",
         text:
           "Notre priorité principale. HawkBytes étudie les algorithmes quantiques, les systèmes hybrides classiques-quantiques et les prototypes quantiques appliqués — en rapprochant la recherche de pointe d'une technologie utilisable.",
         bgAlt: "Visualisation de recherche quantique sur fond sombre.",
-        bgMobAlt: "Visualisation de recherche métallique abstraite et sombre.",
-        decorAlt: "",
       },
       {
         title: "Produits logiciels & Plateformes",
         text:
           "Des plateformes SaaS aux outils d'entreprise, nous concevons des produits logiciels performants avec des technologies modernes — architecturés pour l'évolutivité, la maintenabilité et une expérience utilisateur exceptionnelle.",
         bgAlt: "Visualisation de produit logiciel sur fond bleu foncé.",
-        bgMobAlt: "Fond en dégradé bleu foncé avec motif de grille.",
-        decorAlt: "",
       },
       {
         title: "Services Web, Mobile & QA",
         text:
           "Nous livrons des sites web, des applications mobiles multiplateformes et une assurance qualité complète. De l'UI/UX et des développements Next.js aux tests automatisés et au CI/CD — des services qui soutiennent notre mission produit.",
         bgAlt: "Visualisation du développement web et mobile.",
-        bgMobAlt: "Écrans d'application mobile sur fond sombre avec dégradé.",
-        decorAlt: "Motif texturé abstrait orange et rouge avec superposition de grille.",
       },
     ],
   },
@@ -646,8 +628,8 @@ const fr: Dictionary = {
       intro:
         "Découvrez l'équipe dirigeante de HawkBytes, engagée à offrir l'excellence à nos clients du monde entier.",
       members: [
-        { name: "Haseeb Ahmed", role: "Fondateur & PDG" },
-        { name: "Responsable Recherche", role: "Recherche Quantique & IA" },
+        { name: "Hamza Sha Haseeb", role: "Fondateur & PDG" },
+        { name: "Takunda Kapesa", role: "Recherche Quantique & IA" },
         { name: "Responsable Ingénierie", role: "Produits & Plateformes" },
       ],
     },

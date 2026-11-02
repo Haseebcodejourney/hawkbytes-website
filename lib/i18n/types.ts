@@ -12,8 +12,6 @@ export type ServiceItem = {
   title: string;
   text: string;
   bgAlt: string;
-  bgMobAlt: string;
-  decorAlt?: string;
 };
 
 export type TestimonialItem = {
@@ -176,7 +174,6 @@ export type Dictionary = {
     };
     copyright: string;
     privacy: string;
-    brandLine: string;
   };
 
   hero: {
@@ -185,7 +182,6 @@ export type Dictionary = {
     body: string;
     cta: string;
     logosAria: string;
-    logoAlts: string[];
   };
 
   mission: {

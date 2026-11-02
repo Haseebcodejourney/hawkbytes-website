@@ -1,0 +1,56 @@
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 0.63rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--white, #fff);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-out,
+    border-color 0.3s ease-out,
+    color 0.3s ease-out;
+}
+
+.theme-toggle:hover {
+  border-color: rgba(34, 155, 241, 0.55);
+  background: rgba(34, 155, 241, 0.1);
+  color: var(--primary, #229bf1);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid rgba(34, 155, 241, 0.7);
+  outline-offset: 2px;
+}
+
+.theme-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
+.theme-toggle-icon.is-moon,
+html[data-theme="light"] .theme-toggle-icon.is-sun {
+  display: none;
+}
+
+html[data-theme="light"] .theme-toggle-icon.is-moon {
+  display: block;
+}
+
+html[data-theme="light"] .theme-toggle {
+  border-color: var(--border-subtle);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .theme-toggle:hover {
+  border-color: var(--focus-ring);
+  background: var(--teal-soft);
+  color: var(--primary);
+}

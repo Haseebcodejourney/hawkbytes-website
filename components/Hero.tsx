@@ -23,34 +23,11 @@ const ASSETS = {
 };
 
 const TRUST_LOGOS = [
-  {
-    src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced9338d6b38012a349c4d_Logo%D0%A11.avif",
-    width: 80,
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933fdbc46ec87b75318_Logo%D0%A12.avif",
-    width: 80,
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd7e11ba5f91e7e8f7a1b0_Logo%20CMMC.avif",
-    width: 80,
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933f62e30bc7a280290_Logo%D0%A14.avif",
-    width: 80,
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933257e59d2dad41c9f_Logo%D0%A15.avif",
-    width: 80,
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced93378e4bbab072b6640_Logo%D0%A16.avif",
-    width: 80,
-  },
-  {
-    src: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67ced933432cd53fdbf6ec9d_Logo%D0%A17.avif",
-    width: 90,
-  },
+  { src: "/logos/evefrine.svg", name: "Evefrine" },
+  { src: "/logos/hawklens.svg", name: "HawkLens" },
+  { src: "/logos/atondafleet.svg", name: "AtondaFleet" },
+  { src: "/logos/leadhunter.svg", name: "LeadHunter" },
+  { src: "/logos/pixenect.svg", name: "Pixenect" },
 ];
 
 function HeroVideo() {
@@ -86,20 +63,20 @@ function HeroVideo() {
   );
 }
 
-function LogoTrack({ trackKey, alts }: { trackKey: string; alts: string[] }) {
+function LogoTrack({ trackKey }: { trackKey: string }) {
   return (
     <div
       className="marquee-content-logos logo-scroll-left"
       aria-hidden={trackKey !== "a"}
     >
-      {TRUST_LOGOS.map((logo, index) => (
+      {TRUST_LOGOS.map((logo) => (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={`${trackKey}-${logo.src}`}
-          width={logo.width}
+          width={80}
           height={80}
           loading="lazy"
-          alt={trackKey === "a" ? alts[index] ?? "" : ""}
+          alt={trackKey === "a" ? logo.name : ""}
           src={logo.src}
           className="marquee-logo-img-row"
         />
@@ -148,9 +125,10 @@ export default function Hero() {
                 aria-label={t.hero.logosAria}
               >
                 <div className="marquee is-logos">
-                  <LogoTrack trackKey="a" alts={t.hero.logoAlts} />
-                  <LogoTrack trackKey="b" alts={t.hero.logoAlts} />
-                  <LogoTrack trackKey="c" alts={t.hero.logoAlts} />
+                  <LogoTrack trackKey="a" />
+                  <LogoTrack trackKey="b" />
+                  <LogoTrack trackKey="c" />
+                  <LogoTrack trackKey="d" />
                 </div>
               </div>
             </div>

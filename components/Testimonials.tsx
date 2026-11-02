@@ -49,10 +49,7 @@ export default function Testimonials() {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const testimonials = t.testimonials.items.map((item, index) => ({
-    ...item,
-    image: TESTIMONIAL_IMAGES[index] ?? TESTIMONIAL_IMAGES[0],
-  }));
+  const testimonials = t.testimonials.items;
   /* Duplicate for a fuller carousel track (matches live site density) */
   const slides = [...testimonials, ...testimonials];
 
@@ -158,16 +155,6 @@ export default function Testimonials() {
                         </div>
                         <div className="spacer-large-40" />
                         <div className="home_quote-author-wr is-testimonials">
-                          <div className="home_quote-author-img-wr">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                              src={item.image}
-                              loading="lazy"
-                              width={40}
-                              alt=""
-                              className="home_quote-author-img"
-                            />
-                          </div>
                           <div className="home_quote-author-info">
                             <div className="home_quote-author-name">
                               <p className="text-size-small-14">{item.name}</p>

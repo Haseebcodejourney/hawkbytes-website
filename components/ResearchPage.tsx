@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import GlowButton from "@/components/GlowButton";
 import StickyNav, { type StickyNavLink } from "@/components/StickyNav";
 import Methodology from "@/components/Methodology";
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials";
 import Cta from "@/components/Cta";
 import { FaqSection } from "@/components/Faq";
 import { useTranslations } from "@/components/i18n/LanguageProvider";
@@ -313,7 +313,7 @@ export default function ResearchPage() {
             </div>
           </section>
 
-          <Testimonials />
+          {/* <Testimonials /> */}
 
           <section id="about" className="section research-about-section">
             <div className="section-padding top-5 bottom-5">

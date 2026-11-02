@@ -1,9 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins, Roboto_Mono, Noto_Sans } from "next/font/google";
 import Providers from "@/components/Providers";
+import VideoBlackKeyFilter from "@/components/VideoBlackKeyFilter";
+import HawkBytesChat from "@/components/HawkBytesChat";
 import { LOCALE_STORAGE_KEY } from "@/lib/i18n/locales";
+import { themeBootScript } from "@/lib/theme";
 import "./globals.css";
 import "@/styles/cybercrest/index.css";
+import "@/styles/theme-light.css";
 
 const localeBootScript = `try{var l=localStorage.getItem(${JSON.stringify(LOCALE_STORAGE_KEY)});if(l){document.documentElement.lang=l;document.documentElement.setAttribute("data-locale",l);}}catch(e){}`;
 
@@ -56,8 +60,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <script dangerouslySetInnerHTML={{ __html: localeBootScript }} />
-        <Providers>{children}</Providers>
+        <VideoBlackKeyFilter />
+        <Providers>
+          {children}
+          <HawkBytesChat />
+        </Providers>
       </body>
     </html>
   );

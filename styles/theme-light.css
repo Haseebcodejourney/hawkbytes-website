@@ -1,0 +1,775 @@
+/* Light theme — active when <html data-theme="light"> */
+
+html[data-theme="light"] {
+  color-scheme: light;
+
+  /* Brand (teal) */
+  --teal-500: #2bb89a;
+  --indigo-500: #2bb89a;
+  --indigo-650: #16a085;
+  --teal-soft: #2bb89a1f;
+  --button-gradient: linear-gradient(180deg, var(--teal-500), var(--indigo-650));
+  --button-shadow-green: #16a085e6;
+
+  /* Frost backgrounds */
+  --frost-000: #fbfdff;
+  --frost-050: #f5f8fc;
+  --frost-100: #edf3f8;
+
+  /* Ink */
+  --ink-950: #0d1420;
+  --ink-800: #1d2a3b;
+  --ink-650: #435066;
+  --ink-500: #667288;
+
+  /* Status */
+  --success: #16815f;
+  --danger: #b91c3b;
+  --warning: #d88a1d;
+  --traffic-green: #28c840;
+
+  /* Effects */
+  --focus-ring: #2bb89ab3;
+  --selection-glow: #2bb89a5c;
+  --accent-glow: #2bb89a47;
+
+  --primary: var(--indigo-650);
+  --cc-primary: var(--indigo-650);
+  --link-color: var(--indigo-650);
+  accent-color: var(--teal-500);
+
+  --bg-main: var(--frost-100);
+  --surface-1: #ffffff9e;
+  --surface-2: #ffffff85;
+  --surface-3: #ffffff6b;
+  --fg-primary: #0d1420f0;
+  --fg-secondary: #1d2a3bad;
+  --fg-tertiary: #4350668f;
+  --border-subtle: #3d4d6321;
+  --shadow-card:
+    0 1px 0 0 rgba(255, 255, 255, 0.85) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset,
+    0 1.5rem 3rem -1.5rem rgba(52, 69, 92, 0.46);
+
+  /* Remap the dark-theme tokens every component reads */
+  --black: var(--bg-main);
+  --white: var(--fg-primary);
+  --light-grey: var(--fg-secondary);
+  --grey: var(--fg-tertiary);
+  --grey-blue: var(--fg-tertiary);
+  --black-gray: var(--fg-secondary);
+  --white-bg: var(--bg-main);
+  --background: var(--bg-main);
+  --foreground: var(--fg-primary);
+
+  --cc-black: var(--bg-main);
+  --cc-white: var(--fg-primary);
+  --cc-grey: var(--fg-tertiary);
+  --cc-light-grey: var(--fg-secondary);
+}
+
+html[data-theme="light"] body {
+  background-color: var(--bg-main);
+  color: var(--fg-primary);
+}
+
+html[data-theme="light"] ::selection {
+  background-color: var(--selection-glow);
+  color: var(--ink-950);
+}
+
+html[data-theme="light"] :focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ---------- Shared surfaces ---------- */
+
+html[data-theme="light"] .lt-card {
+  background-color: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Brand SVG artwork in light mode → soft green to stay gentle on the eyes */
+html[data-theme="light"] .logo-img,
+html[data-theme="light"] .footer-logo-img,
+html[data-theme="light"] .nav-burger-icon {
+  filter: brightness(0) saturate(100%) invert(56%) sepia(31%) saturate(664%) hue-rotate(128deg) brightness(0.98) contrast(1.05);
+}
+
+/* Dark atmospheric photography → pale, tinted wash */
+html[data-theme="light"] .section-bg img,
+html[data-theme="light"] .section-bg-bottom-img {
+  filter: invert(1) hue-rotate(180deg) saturate(0.6);
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+html[data-theme="light"] .about_hero-video {
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, #000 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at center, #000 60%, transparent 100%);
+}
+
+/* Brightness becomes opacity, so the black backdrop and unlit faces fade into the page. */
+html[data-theme="light"] .about_hero-video video {
+  filter: url(#luma-teal-on-light);
+}
+
+/* White line-art / trust logos */
+html[data-theme="light"] .marquee-logo-img-row {
+  filter: brightness(0.9) saturate(1.4) hue-rotate(130deg) contrast(1.15);
+  opacity: 0.82;
+}
+
+html[data-theme="light"] .home_hero-circle {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.9;
+}
+
+/* Hero logo video sits in a dark lens: the source's shadowed faces are as dark
+   as its black backdrop, so keying the black out tears holes in the logo. */
+html[data-theme="light"] .home_hero-video-wr::before {
+  content: "";
+  position: absolute;
+  inset: -28%;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(43, 184, 154, 0.28) 0%,
+    rgba(43, 184, 154, 0.1) 38%,
+    transparent 68%
+  );
+}
+
+html[data-theme="light"] .home_hero-video {
+  isolation: isolate;
+  background: radial-gradient(circle at 50% 32%, #1c2b3d 0%, #0b121c 55%, #05080d 100%);
+  box-shadow:
+    0 0 0 1px rgba(43, 184, 154, 0.35),
+    0 0 0 7px rgba(255, 255, 255, 0.7),
+    0 0 0 8px rgba(61, 77, 99, 0.12),
+    0 2.5rem 4rem -1.5rem rgba(13, 20, 32, 0.55),
+    0 1rem 1.5rem -1rem rgba(13, 20, 32, 0.35);
+}
+
+html[data-theme="light"] .home_hero-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14), transparent 45%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1.5rem 3rem -1rem rgba(43, 184, 154, 0.22);
+}
+
+html[data-theme="light"] .home_hero-video > video {
+  inset: 8%;
+  width: 84%;
+  height: 84%;
+  filter: url(#video-teal-grade);
+  mix-blend-mode: screen;
+  background-image: none !important;
+}
+
+html[data-theme="light"] .methodology-section .home_approach-logo-img {
+  filter: url(#video-teal-grade);
+  background-image: none !important;
+}
+
+html[data-theme="light"] .methodology-section .home_approach-video {
+  isolation: isolate;
+  background-color: var(--bg-main);
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 55%, transparent 100%);
+  mask-image: radial-gradient(circle closest-side, #000 55%, transparent 100%);
+}
+
+html[data-theme="light"] .methodology-section .home_approach-video video {
+  filter: url(#video-ink-green-multiply);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+  background-image: none !important;
+}
+
+html[data-theme="light"] .methodology-section .home_approach-logo-wr {
+  filter:
+    drop-shadow(0 1.25rem 1.5rem rgba(13, 20, 32, 0.35))
+    drop-shadow(0 0 1.5rem rgba(43, 184, 154, 0.25));
+}
+
+/* The orb artwork carries a baked-in black halo; clip right at its rim. */
+html[data-theme="light"] .methodology-section .home_approach-logo-img {
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 50%, transparent 51.5%);
+  mask-image: radial-gradient(circle closest-side, #000 50%, transparent 51.5%);
+}
+
+/* Glow CTA */
+html[data-theme="light"] .button-glow {
+  --button-background: var(--indigo-650);
+  --button-shadow: var(--button-shadow-green);
+  --button-shine-left: rgba(255, 255, 255, 0.55);
+  --button-shine-right: rgba(43, 184, 154, 0.7);
+  --button-glow: rgba(255, 255, 255, 0.5);
+  background-color: var(--indigo-650);
+  color: #ffffff;
+  box-shadow: 0 0.5rem 1.25rem -0.5rem var(--button-shadow);
+  transition: color 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+html[data-theme="light"] .button-glow-text-wr {
+  background-image: var(--button-gradient);
+}
+
+html[data-theme="light"] .button-glow:hover {
+  color: #ffffff;
+  box-shadow:
+    0 0 0 4px var(--accent-glow),
+    0 0.5rem 1.25rem -0.5rem var(--button-shadow);
+}
+
+html[data-theme="light"] .home_hero-tagline-line {
+  background: linear-gradient(41deg, transparent 0%, var(--fg-tertiary) 50%, transparent 100%);
+}
+
+/* Restores dark tokens on image-backed panels that stay dark in light mode */
+html[data-theme="light"] .about_map-block {
+  --black: #040410;
+  --white: #ffffff;
+  --light-grey: #bababa;
+  --grey: #636363;
+}
+
+html[data-theme="light"] .services-section .home_services-card {
+  --black: #f4f6fb;
+  --white: var(--fg-primary);
+  --light-grey: #2f3a4b;
+  --grey: var(--fg-tertiary);
+}
+
+html[data-theme="light"] .services-section .home_services-card-bg-img.is-dark {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  html[data-theme="light"] .services-section .home_services-card-bg-img.is-light {
+    display: block;
+  }
+}
+
+/* Accent gradients → brand teal */
+html[data-theme="light"] .tagline-text-blue-gradient,
+html[data-theme="light"] .services-section .tagline-text-blue-gradient.is-on-white,
+html[data-theme="light"] .blog-page-section .home_blog-cl-card-title-gradient,
+html[data-theme="light"] .blog-page-section .blog_filters-total-txt {
+  background-image: linear-gradient(90deg, var(--teal-500), var(--indigo-650));
+}
+
+@media screen and (min-width: 991px) {
+  html[data-theme="light"] .faq-section .gradient-text-on-hover::before {
+    background: linear-gradient(90deg, var(--teal-500), var(--indigo-650));
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+html[data-theme="light"] .contact-page-section .home_quote-author-img-wr {
+  background: linear-gradient(135deg, var(--teal-500), var(--indigo-650));
+}
+
+/* Gradient-clipped text that ends in white → ends in primary ink */
+html[data-theme="light"] .methodology-section .home_approach-item-title,
+html[data-theme="light"] .key-facts-section .grey-text-gradient {
+  background-image: linear-gradient(18deg, #5a6a80, #0d1420 45%);
+}
+
+html[data-theme="light"] .methodology-section .home_approach-number,
+html[data-theme="light"] .methodology-section .home_approach-number.is-2,
+html[data-theme="light"] .methodology-section .home_approach-number.is-3,
+html[data-theme="light"] .methodology-section .home_approach-number.is-4 {
+  background-image: linear-gradient(110deg, var(--teal-500), var(--indigo-650));
+}
+
+html[data-theme="light"] .solutions-section .button-text {
+  color: var(--teal-500);
+}
+
+html[data-theme="light"] .solutions-section .home_solutions-card:hover .button-text {
+  color: var(--white, #fff);
+}
+
+html[data-theme="light"] .solutions-section .home_solutions-vertical-gradient {
+  background-image: linear-gradient(transparent, var(--teal-500) 50%, transparent 103%);
+}
+
+html[data-theme="light"] .key-facts-section .home_about-item-gradient {
+  background-image: linear-gradient(-15deg, var(--ink-950) 8%, var(--teal-500) 57%, var(--indigo-650) 82%);
+}
+
+html[data-theme="light"] .research_hero-badge {
+  filter: invert(1) brightness(0.9) contrast(1.15);
+}
+
+html[data-theme="light"] .research_related-logo,
+html[data-theme="light"] .research_related-arrow {
+  filter: invert(1) hue-rotate(180deg) contrast(1.1);
+  opacity: 0.8;
+}
+
+html[data-theme="light"] .research_hero-title-wr,
+html[data-theme="light"] .about_hero-title-wr {
+  background-image: radial-gradient(circle at 50% 0, #0d1420 24%, #4b5a70);
+}
+
+@media screen and (max-width: 479px) {
+  html[data-theme="light"] .quote-section .home_quote-txt {
+    background-image: linear-gradient(90deg, #5a6a80, #0d1420 50%, #5a6a80);
+  }
+}
+
+/* ---------- Why us ---------- */
+
+html[data-theme="light"] .why-us-section .home_features-card-img {
+  filter: url(#icon-teal-on-light);
+  border-radius: 10px;
+  box-shadow:
+    inset 0 0 0 1px rgba(61, 77, 99, 0.12),
+    0 0.6rem 1.1rem -0.5rem rgba(52, 69, 92, 0.35);
+}
+
+/* ---------- Sticky section nav ---------- */
+
+html[data-theme="light"] .home_sticky-content-link {
+  color: var(--fg-tertiary);
+}
+
+html[data-theme="light"] .home_sticky-content-link:hover,
+html[data-theme="light"] .home_sticky-content-link.is-active {
+  color: var(--fg-primary);
+  background-color: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .home_sticky-content-bottom-wr {
+  background-color: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .home_sticky-content-bottom-wr .button,
+html[data-theme="light"] .home_sticky-content-bottom-wr .button-text-wr.is-home-popup-video {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: var(--fg-primary);
+}
+
+/* ---------- Sections that are already light in dark mode ---------- */
+
+html[data-theme="light"] .bg-color-secondary,
+html[data-theme="light"] .services-section,
+html[data-theme="light"] .faq-section,
+html[data-theme="light"] .blog-section {
+  --black: var(--fg-primary);
+  --grey: var(--fg-tertiary);
+  background-color: var(--bg-main);
+}
+
+html[data-theme="light"] .blog-section {
+  --white: var(--bg-main);
+}
+
+html[data-theme="light"] .about_map-block {
+  color: #ffffff;
+}
+
+/* ---------- About: what we offer ---------- */
+
+html[data-theme="light"] .about-offer-section .about_features-icon {
+  filter: url(#icon-teal-on-light);
+}
+
+/* ---------- About: team ---------- */
+
+html[data-theme="light"] .about_team-stroke-wr {
+  background-color: var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .services-section .home_services-card {
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Testimonials ---------- */
+
+html[data-theme="light"] .testimonials-section .home_testimonials-card {
+  background: var(--surface-3);
+  border-color: var(--border-subtle);
+}
+
+html[data-theme="light"] .testimonials-section .swiper-slide-active .home_testimonials-card {
+  background: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .testimonials-section .home_testimonials-icon {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html[data-theme="light"] .testimonials-section .home_testimonials-slider-bg {
+  background-image: linear-gradient(90deg, rgba(237, 243, 248, 0), rgba(237, 243, 248, 0.92) 89%);
+}
+
+html[data-theme="light"] .testimonials-section .home_testimonials-line-img {
+  filter: invert(1);
+  opacity: 0.25;
+}
+
+html[data-theme="light"] .testimonials-section .square-button {
+  border-color: var(--border-subtle);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .testimonials-section .square-button:hover:not(:disabled) {
+  background-color: #ffffff;
+}
+
+html[data-theme="light"] .testimonials-section .square-button.swiper-button-disabled,
+html[data-theme="light"] .testimonials-section .square-button:disabled {
+  color: var(--fg-tertiary);
+  border-color: var(--border-subtle);
+  box-shadow: none;
+}
+
+/* ---------- Attestations ---------- */
+
+html[data-theme="light"] .attestations-section .home_cert-card {
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .research_service-card,
+html[data-theme="light"] .research_related-card {
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .attestations-section .home_cert-card-stroke,
+html[data-theme="light"] .research_service-card-stroke,
+html[data-theme="light"] .research_related-card-stroke {
+  background-color: var(--border-subtle);
+}
+
+html[data-theme="light"] .attestations-section .home_cert-card-content,
+html[data-theme="light"] .research_service-card-inner,
+html[data-theme="light"] .research_related-card-inner {
+  background-color: var(--surface-1);
+}
+
+html[data-theme="light"] .attestations-section .home_cert-card-content-bg {
+  background-image: linear-gradient(152deg, #ffffff, rgba(255, 255, 255, 0.4) 85%);
+}
+
+html[data-theme="light"] .attestations-section .home_cert-card-content-logo-img {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.55;
+}
+
+html[data-theme="light"] .attestations-section .home_cert-card:hover .home_cert-card-content-logo-img {
+  opacity: 0.3;
+}
+/* ---------- CTA banner ---------- */
+
+html[data-theme="light"] .cta-stroke {
+  padding: 1px;
+  background-image: none;
+  background-color: var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .cta-back-bg-img-1,
+html[data-theme="light"] .cta-back-bg-img-2 {
+  display: none;
+}
+
+html[data-theme="light"] .cta-content {
+  background-color: #f7fafc;
+}
+
+html[data-theme="light"] .cta-content-bg {
+  filter: invert(1) hue-rotate(180deg) saturate(0.6);
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+html[data-theme="light"] .research-mid-cta-stroke {
+  background: #f7fafc;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .research-mid-cta-bg {
+  filter: invert(1) hue-rotate(180deg) saturate(0.6);
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+/* ---------- Blog index ---------- */
+
+html[data-theme="light"] .blog-page-section .blog_filters-block,
+html[data-theme="light"] .blog-page-section .blog_filters-inner-wr {
+  background-color: var(--surface-1);
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .blog-page-section .tag-filter:hover,
+html[data-theme="light"] .blog-page-section .tag-filter.fs-cmsfilter_active {
+  background-color: var(--teal-soft);
+  color: var(--indigo-650);
+}
+
+html[data-theme="light"] .blog-page-section .tag-filter.is-filters-dropdown:hover,
+html[data-theme="light"] .blog-page-section .tag-filter.is-filters-dropdown.fs-cmsfilter_active {
+  background: transparent;
+}
+
+html[data-theme="light"] .blog-page-section .form_input {
+  background-color: #ffffff;
+  border-color: var(--border-subtle);
+}
+
+html[data-theme="light"] .blog-page-section .blog_hero-big-card-img-wr,
+html[data-theme="light"] .blog-page-section .blog_main-list-img-wr {
+  border-color: var(--border-subtle);
+}
+
+/* ---------- Contact form ---------- */
+
+html[data-theme="light"] .contact_form-stroke {
+  background-image: linear-gradient(115deg, var(--teal-500), #8fd6c4 27%, #c9d4e2 67%, #c9d4e2);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .contact_form-wr {
+  background-color: #f7fafc;
+}
+
+html[data-theme="light"] .contact_form-bg {
+  filter: invert(1) hue-rotate(180deg) saturate(0.6);
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+html[data-theme="light"] .form_input,
+html[data-theme="light"] .dropdown_toggle,
+html[data-theme="light"] .dropdown_dropdown-list,
+html[data-theme="light"] .captcha-question {
+  background: #ffffff;
+  border-color: var(--border-subtle);
+}
+
+html[data-theme="light"] .form_input:hover,
+html[data-theme="light"] .dropdown_toggle:hover {
+  border-color: var(--focus-ring);
+}
+
+html[data-theme="light"] .form_input:focus {
+  border-color: var(--teal-500);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+html[data-theme="light"] .form-field-error,
+html[data-theme="light"] .form_message-error {
+  color: var(--danger);
+}
+
+html[data-theme="light"] .form_checkbox.is-invalid .form_checkbox-icon {
+  border-color: var(--danger);
+}
+
+html[data-theme="light"] .form_input::placeholder {
+  color: var(--fg-tertiary);
+}
+
+html[data-theme="light"] .captcha-refresh {
+  border-color: var(--border-subtle);
+  background: var(--surface-1);
+}
+
+html[data-theme="light"] .form_checkbox-icon {
+  background-color: #ffffff;
+  border-color: var(--fg-tertiary);
+}
+
+html[data-theme="light"] .form_checkbox-icon.is-checked {
+  border-color: var(--teal-500);
+  background-color: var(--teal-soft);
+}
+
+html[data-theme="light"] .contact_success-popup {
+  background-color: rgba(237, 243, 248, 0.8);
+}
+
+html[data-theme="light"] .contact_popup-stroke {
+  background-image: linear-gradient(160deg, var(--teal-500), #c9d4e2 50%);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .contact_popup-inner-wr {
+  background-image: linear-gradient(157deg, #ffffff, #f2f6fa 85%);
+}
+
+/* ---------- Careers ---------- */
+
+html[data-theme="light"] .careers-item {
+  background: var(--surface-1);
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .careers-item:hover {
+  background: #ffffff;
+  border-color: var(--accent-glow);
+}
+
+/* ---------- Footer ---------- */
+
+html[data-theme="light"] .footer-bottom {
+  background-color: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .footer_icon-img {
+  filter: brightness(0) saturate(100%) invert(6%) sepia(18%) saturate(1400%) hue-rotate(185deg);
+}
+
+@media screen and (max-width: 479px) {
+  html[data-theme="light"] .section.is-footer .footer_item-wr {
+    border-bottom-color: var(--border-subtle);
+  }
+}
+
+/* ---------- Language switcher ---------- */
+
+html[data-theme="light"] .lang-switcher-trigger,
+html[data-theme="light"] .lang-switcher-menu {
+  border-color: var(--border-subtle);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .lang-switcher-menu {
+  background: #ffffffeb;
+}
+
+html[data-theme="light"] .lang-switcher-trigger:hover,
+html[data-theme="light"] .lang-switcher.is-open .lang-switcher-trigger {
+  border-color: var(--focus-ring);
+  background: #ffffff;
+}
+
+html[data-theme="light"] .lang-switcher-option:hover,
+html[data-theme="light"] .lang-switcher-option.is-selected {
+  background: var(--teal-soft);
+}
+
+/* ---------- Accreditations ---------- */
+
+html[data-theme="light"] .accreditations-section .home_expertise-item-logo-img {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.55;
+}
+
+html[data-theme="light"] .accreditations-section .home_expertise-grid-item:hover {
+  background-color: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .accreditations-section .home_expertise-grid-item:hover .home_expertise-item-logo-img {
+  opacity: 0.9;
+}
+
+html[data-theme="light"] .accreditations-section .home_expertise-line-img,
+html[data-theme="light"] .accreditations-section .home_expertise-border-img,
+html[data-theme="light"] .accreditations-section .home_expertise-border-mob-img {
+  filter: invert(1);
+  opacity: 0.3;
+}
+
+html[data-theme="light"] .accreditations-section .home_expertise-bg-img {
+  opacity: 0.5;
+}
+
+/* ---------- FAQ ---------- */
+
+html[data-theme="light"] .faq-section .home_faq-title-wr {
+  background-image: linear-gradient(
+    rgba(237, 243, 248, 0),
+    rgba(237, 243, 248, 0.8) 22%,
+    rgba(237, 243, 248, 0.8) 78%,
+    rgba(237, 243, 248, 0)
+  );
+}
+
+html[data-theme="light"] .faq-section .faq_line-white {
+  background-image: linear-gradient(90deg, #3d4d6333, #3d4d6321 50%, transparent);
+}
+
+/* ---------- Header ---------- */
+
+html[data-theme="light"] .navbar.is-scrolled {
+  background: var(--surface-1);
+  box-shadow: 0 1px 0 var(--border-subtle);
+}
+
+html[data-theme="light"] .nav-dropdown-inner-wr {
+  background-color: #ffffffeb;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-theme="light"] .nav-burger-link {
+  background-color: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+}
+
+html[data-theme="light"] .button {
+  background-color: var(--indigo-650);
+  background-image: var(--button-gradient);
+  color: #ffffff;
+  box-shadow: 0 0.5rem 1.25rem -0.5rem var(--button-shadow-green);
+}
+
+html[data-theme="light"] .button:hover {
+  color: #ffffff;
+  box-shadow:
+    0 0 0 4px var(--accent-glow),
+    0 0.5rem 1.25rem -0.5rem var(--button-shadow-green);
+}
+
+html[data-theme="light"] .button.is-text,
+html[data-theme="light"] .button.is-text:hover {
+  background: none;
+  box-shadow: none;
+  color: var(--indigo-650);
+}
+
+@media screen and (max-width: 991px) {
+  html[data-theme="light"] .nav-menu,
+  html[data-theme="light"] .navbar.is-menu-open {
+    background: var(--bg-main);
+  }
+
+  html[data-theme="light"] .nav-dropdown-inner-wr {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+}

@@ -24,8 +24,6 @@ const ASSETS = {
   toggle:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67d3f3b16f6c5be986785d95_Footer%20Toggle%20Container.svg",
   footerLogo: "/logos/hawkbytes-logo.svg",
-  foursets:
-    "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dd36832de83a38938ebaad_Foursets%20Logo.svg",
 };
 
 const COMPLIANCE_HREFS_COL1 = [
@@ -397,36 +395,6 @@ export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
                   {t.footer.privacy}
                 </a>
                 <LanguageSwitcher />
-              </div>
-
-              <div className="footer-bottom-foursets-wr">
-                <div className="text-color-light-grey">
-                  <p className="text-size-small-14-rm">{t.footer.brandLine}</p>
-                </div>
-                <a
-                  href="https://www.foursets.com/"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className="footer-foursets-icon-wr"
-                  aria-label="Foursets"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={ASSETS.foursets}
-                    loading="lazy"
-                    alt=""
-                    className="footer-foursets-icon"
-                  />
-                  <div className="footer-foursets-blur-wr" aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={ASSETS.foursets}
-                      loading="lazy"
-                      alt=""
-                      className="footer-foursets-icon is-blur"
-                    />
-                  </div>
-                </a>
               </div>
             </div>
           </div>

@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "@/components/i18n/LanguageProvider";
+import ThemeToggle from "@/components/ThemeToggle";
+import NavLink from "@/components/NavLink";
 import "./Header.css";
 
 const COMPLIANCE_HREFS = [
@@ -247,7 +249,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="nav-dropdown-toggle"
+                    className="nav-dropdown-toggle nav-pill-link"
                     aria-haspopup="menu"
                     aria-expanded={openDropdown === "compliance"}
                     onClick={() => onDropdownClick("compliance")}
@@ -266,7 +268,7 @@ export default function Header() {
                       <div className="nav-dropdown-2col">
                         <div className="nav-dropdown-links-wr">
                           {complianceLinks.map((link) => (
-                            <a
+                            <NavLink
                               key={link.label}
                               href={link.href}
                               className="nav-dropdown-link"
@@ -274,12 +276,12 @@ export default function Header() {
                               onClick={closeMenu}
                             >
                               {link.label}
-                            </a>
+                            </NavLink>
                           ))}
                         </div>
                         <div className="nav-dropdown-links-wr">
                           {complianceLinksCol2.map((link) => (
-                            <a
+                            <NavLink
                               key={link.label}
                               href={link.href}
                               className="nav-dropdown-link"
@@ -287,7 +289,7 @@ export default function Header() {
                               onClick={closeMenu}
                             >
                               {link.label}
-                            </a>
+                            </NavLink>
                           ))}
                         </div>
                       </div>
@@ -305,7 +307,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="nav-dropdown-toggle"
+                    className="nav-dropdown-toggle nav-pill-link"
                     aria-haspopup="menu"
                     aria-expanded={openDropdown === "privacy"}
                     onClick={() => onDropdownClick("privacy")}
@@ -323,7 +325,7 @@ export default function Header() {
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-links-wr">
                         {dataPrivacyLinks.map((link) => (
-                          <a
+                          <NavLink
                             key={link.label}
                             href={link.href}
                             className="nav-dropdown-link"
@@ -331,7 +333,7 @@ export default function Header() {
                             onClick={closeMenu}
                           >
                             {link.label}
-                          </a>
+                          </NavLink>
                         ))}
                       </div>
                     </div>
@@ -348,7 +350,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="nav-dropdown-toggle"
+                    className="nav-dropdown-toggle nav-pill-link"
                     aria-haspopup="menu"
                     aria-expanded={openDropdown === "technical"}
                     onClick={() => onDropdownClick("technical")}
@@ -366,7 +368,7 @@ export default function Header() {
                       <div className="spacer-medium-10 hide-on-mobile" />
                       <div className="nav-dropdown-links-wr">
                         {technicalLinks.map((link) => (
-                          <a
+                          <NavLink
                             key={link.label}
                             href={link.href}
                             className="nav-dropdown-link"
@@ -374,7 +376,7 @@ export default function Header() {
                             onClick={closeMenu}
                           >
                             {link.label}
-                          </a>
+                          </NavLink>
                         ))}
                       </div>
                     </div>
@@ -383,15 +385,15 @@ export default function Header() {
 
                 <div className="nav-divider" />
 
-                <Link href="/about-us" className="nav-link" onClick={closeMenu}>
+                <NavLink href="/about-us" className="nav-link" onClick={closeMenu}>
                   {t.header.aboutUs}
-                </Link>
+                </NavLink>
 
                 <div className="nav-divider" />
 
-                <Link href="/blog" className="nav-link" onClick={closeMenu}>
+                <NavLink href="/blog" className="nav-link" onClick={closeMenu}>
                   {t.header.blog}
-                </Link>
+                </NavLink>
               </div>
 
               <div className="nav-mob-btn-wr">
@@ -399,6 +401,8 @@ export default function Header() {
               </div>
             </div>
           </nav>
+
+          <ThemeToggle className="nav-theme-toggle" />
 
           <div className="nav-menu-btn-wr">
             <ContactButton label={t.common.contactUs} />

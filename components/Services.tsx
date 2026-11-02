@@ -5,38 +5,28 @@ import "./Services.css";
 
 const SERVICE_ASSETS = [
   {
-    bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b93d6cc8917c806c220_Service%20Image1.avif",
-    bgMob:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8543cc9dfe57cef9a_Service%20Image%20mob-1.avif",
-    decor:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf30f2bf050a9959f823fe_Service%20Icon%20Container.avif",
-    decorClass: "home_services-card-bg-img-1",
+    bg: "/services/ai.jpg",
+    bgLight: "/services/ai-light.jpg",
     big: false,
     contentMax: false,
   },
   {
-    bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b938ec65013603446c3_Service%20Image2.avif",
-    bgMob:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8af8b749c0c95acc0_Service%20Image%20mob-2.avif",
+    bg: "/services/quantum.jpg",
+    bgLight: "/services/quantum-light.jpg",
     big: true,
     contentMax: false,
     textWrap: true,
   },
   {
-    bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b93213f103ef3c806e8_Service%20Image3.avif",
-    bgMob:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda8c24388599247f086_Service%20Image%20mob-3.avif",
+    bg: "/services/software.jpg",
+    bgLight: "/services/software-light.jpg",
     big: true,
     contentMax: true,
     textWrap: true,
   },
   {
-    bg: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf1b938ec65013603446bf_Service%20Image4.avif",
-    bgMob:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67dadda83e08862df5209870_Service%20Image%20mob-4.avif",
-    decor:
-      "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67cf31cea1cc5910875af931_effects.avif",
-    decorClass: "home_services-card-bg-img-2",
+    bg: "/services/web-mobile-qa.jpg",
+    bgLight: "/services/web-mobile-qa-light.jpg",
     big: false,
     contentMax: false,
   },
@@ -81,14 +71,14 @@ export default function Services() {
                         src={service.bg}
                         loading="lazy"
                         alt={service.bgAlt}
-                        className="home_services-card-bg-img"
+                        className="home_services-card-bg-img is-dark"
                       />
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={service.bgMob}
+                        src={service.bgLight}
                         loading="lazy"
-                        alt={service.bgMobAlt}
-                        className="home_services-card-bg-img is-mob"
+                        alt={service.bgAlt}
+                        className="home_services-card-bg-img is-light"
                       />
                     </div>
 
@@ -110,16 +100,6 @@ export default function Services() {
                         </div>
                       )}
                     </div>
-
-                    {service.decor ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={service.decor}
-                        loading="lazy"
-                        alt={service.decorAlt}
-                        className={service.decorClass}
-                      />
-                    ) : null}
                   </div>
                 ))}
               </div>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <circle cx="40" cy="40" r="36" stroke="#8B8A9B" stroke-width="4"/>
+  <circle cx="40" cy="40" r="29" stroke="#8B8A9B" stroke-width="1"/>
+  <path d="M40 15c7 6 9 13 0 21c-9-8-7-15 0-21z" fill="#8B8A9B"/>
+  <path d="M40 36v6" stroke="#8B8A9B" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="24" y1="45" x2="56" y2="45" stroke="#8B8A9B" stroke-width="1"/>
+  <text x="40" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8.5" font-weight="700" fill="#8B8A9B" textLength="36" lengthAdjust="spacingAndGlyphs">EVEFRINE</text>
+  <circle cx="34" cy="61" r="1" fill="#8B8A9B"/>
+  <circle cx="40" cy="61" r="1.4" fill="#8B8A9B"/>
+  <circle cx="46" cy="61" r="1" fill="#8B8A9B"/>
+</svg>

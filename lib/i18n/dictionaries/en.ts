@@ -1,4 +1,4 @@
-﻿import type { Dictionary } from "../types";
+import type { Dictionary } from "../types";
 
 const en: Dictionary = {
   common: {
@@ -101,7 +101,6 @@ const en: Dictionary = {
     },
     copyright: "© {year} HawkBytes Technologies. All rights reserved",
     privacy: "Privacy Policy",
-    brandLine: "HawkBytes Technologies",
   },
 
   hero: {
@@ -111,15 +110,6 @@ const en: Dictionary = {
       "HawkBytes is a product and research company. Our core focus is quantum computing research and building AI-powered software products — while also delivering websites, apps, and engineering services when you need a trusted build partner.",
     cta: "Talk to an expert",
     logosAria: "HawkBytes focus areas",
-    logoAlts: [
-      "AI Research",
-      "Quantum Computing",
-      "Software Products",
-      "Web Development",
-      "Mobile Apps",
-      "QA Testing",
-      "Cloud Solutions",
-    ],
   },
 
   mission: {
@@ -159,32 +149,24 @@ const en: Dictionary = {
         text:
           "We design and build production-ready AI products — from machine learning models and NLP systems to generative AI platforms. Research-backed, scalable, and built for real business value.",
         bgAlt: "AI product visualization on a dark background.",
-        bgMobAlt: "Glowing neural network nodes on a dark blue background.",
-        decorAlt: "Light blue grid pattern overlay.",
       },
       {
         title: "Quantum Computing Research",
         text:
           "Our primary focus. HawkBytes researches quantum algorithms, hybrid classical-quantum systems, and applied quantum prototypes — moving frontier research toward usable technology.",
         bgAlt: "Quantum research visualization on a dark background.",
-        bgMobAlt: "Abstract dark metallic research visualization.",
-        decorAlt: "",
       },
       {
         title: "Software Products & Platforms",
         text:
           "From SaaS platforms to enterprise tools, we craft high-performance software products using modern stacks — architected for scale, maintainability, and exceptional user experience.",
         bgAlt: "Software product visualization on a dark blue background.",
-        bgMobAlt: "Dark blue gradient background with grid pattern.",
-        decorAlt: "",
       },
       {
         title: "Web, Mobile & QA Services",
         text:
           "We deliver websites, cross-platform mobile apps, and comprehensive QA. From UI/UX and Next.js builds to automated testing and CI/CD — services that support our product mission.",
         bgAlt: "Web and mobile development visualization.",
-        bgMobAlt: "Mobile app screens on dark background with gradient.",
-        decorAlt: "Abstract orange and red textured pattern with grid overlay.",
       },
     ],
   },
@@ -644,8 +626,8 @@ const en: Dictionary = {
       intro:
         "Meet HawkBytes's leadership team committed to delivering excellence to our global clients.",
       members: [
-        { name: "Haseeb Ahmed", role: "Founder & CEO" },
-        { name: "Research Lead", role: "Quantum & AI Research" },
+        { name: "Hamza Sha Haseeb", role: "Founder & CEO" },
+        { name: "Takunda Kapesa", role: "Quantum & AI Research" },
         { name: "Engineering Lead", role: "Products & Platforms" },
       ],
     },

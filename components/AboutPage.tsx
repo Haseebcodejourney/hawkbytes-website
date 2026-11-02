@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import GlowButton from "@/components/GlowButton";
 import StickyNav, { type StickyNavLink } from "@/components/StickyNav";
 import KeyFacts from "@/components/KeyFacts";
-import Accreditations from "@/components/Accreditations";
+// import Accreditations from "@/components/Accreditations";
 import { useTranslations } from "@/components/i18n/LanguageProvider";
 import "@/components/Hero.css";
 import "./AboutPage.css";
@@ -56,12 +56,13 @@ const FEATURE_ICONS = [
 
 const TEAM_ASSETS = [
   {
-    img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e27180d730b69a96c6d391_Author%20Image%201.avif",
-    linkedin: "https://www.linkedin.com/company/hawkbytes/",
+    img: "/team/hamza-sha-haseeb.jpg",
+    objectPosition: "50% 10%",
+    linkedin: "https://www.linkedin.com/in/hamza-haseeb-5aab38175/",
   },
   {
-    img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e274f38fddd0df18ea64c4_Author%20Image%202.avif",
-    linkedin: "https://www.linkedin.com/company/hawkbytes/",
+    img: "/team/takunda-kapesa.jpg",
+    linkedin: "https://www.linkedin.com/in/takunda-kapesa-a63591336/",
   },
   {
     img: "https://cdn.prod.website-files.com/67c995cf629758b15942fb10/67e274fccd6db1c24e6df93f_Author%20Image%203.avif",
@@ -349,6 +350,7 @@ export default function AboutPage() {
                                   width={251}
                                   alt=""
                                   className="about_team-img"
+                                  style={{ objectPosition: member.objectPosition }}
                                 />
                                 <div className="about_team-linkedin-img-wr">
                                   <div className="social-button">
@@ -387,7 +389,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          <Accreditations paddingClass="top-5 bottom-5" visibleOnLoad />
+          {/* <Accreditations paddingClass="top-5 bottom-5" visibleOnLoad /> */}
         </div>
       </div>
     </>

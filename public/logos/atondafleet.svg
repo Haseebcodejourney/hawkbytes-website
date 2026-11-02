@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <path d="M40 4l30 8v26c0 18-13 31-30 38C23 69 10 56 10 38V12z" stroke="#8B8A9B" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M40 10l25 6.5V38c0 15-10.5 26-25 32C25.5 64 15 53 15 38V16.5z" stroke="#8B8A9B" stroke-width="1"/>
+  <text x="40" y="30" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="900" fill="#8B8A9B" textLength="40" lengthAdjust="spacingAndGlyphs">ATONDA</text>
+  <text x="40" y="39" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="6" font-weight="700" fill="#8B8A9B" letter-spacing="1.6">FLEET</text>
+  <g stroke="#8B8A9B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 47l10 6 10-6"/>
+    <path d="M30 54l10 6 10-6"/>
+  </g>
+</svg>

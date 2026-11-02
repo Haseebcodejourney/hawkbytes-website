@@ -18,6 +18,11 @@ const HOME_LINK_HREFS = [
   "#accreditations",
 ];
 
+// Remove an entry when its section is uncommented again:
+// "#attestations" → app/page.tsx; "#accreditations" → app/page.tsx and components/AboutPage.tsx;
+// "#testimonials" → app/page.tsx and components/ResearchPage.tsx
+const HIDDEN_LINK_HREFS = ["#attestations", "#accreditations", "#testimonials"];
+
 const VIDEO = {
   poster:
     "https://cdn.prod.website-files.com/67c995cf629758b15942fb10%2F67d19301b1f1e997d883b9c7_popup-poster-00001.jpg",
@@ -77,7 +82,16 @@ export default function StickyNav({
     [t],
   );
 
-  const links = linksProp ?? homeLinks;
+  const links = useMemo(
+    () =>
+      (linksProp ?? homeLinks)
+        .filter((link) => !HIDDEN_LINK_HREFS.includes(link.href))
+        .map((link, index) => ({
+          ...link,
+          num: String(index + 1).padStart(2, "0"),
+        })),
+    [linksProp, homeLinks],
+  );
   const hrefsKey = links.map((l) => l.href).join("|");
 
   const [active, setActive] = useState(links[0]?.href ?? "#mission");

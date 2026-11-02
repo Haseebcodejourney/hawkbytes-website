@@ -90,14 +90,6 @@
   color: var(--primary, #229bf1);
 }
 
-.footer-foursets-icon-wr:hover .footer-foursets-blur-wr {
-  opacity: 1;
-}
-
-.footer-foursets-icon.is-blur {
-  filter: blur(6px);
-}
-
 .section.is-footer .heading-style-48 {
   margin: 0;
   font-weight: 500;
@@ -263,11 +255,5 @@
   .section.is-footer .footer-bottom-legacy-wr {
     justify-content: center;
     align-items: center;
-  }
-
-  .section.is-footer .footer-bottom-foursets-wr {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.63rem;
   }
 }
