@@ -315,7 +315,7 @@ const en: Dictionary = {
   quote: {
     text:
       "HawkBytes exists to push quantum computing research forward and turn that research into real products. AI software, platforms, and digital services matter — but our deepest work is building what comes next.",
-    authorName: "Haseeb Ahmed",
+    authorName: "Hamza Sha Haseeb",
     authorRole: "Founder & CEO, HawkBytes",
     iconAlt: "Blue stylized quotation mark symbol with a shiny gradient effect.",
     authorImgAlt: "HawkBytes founder and CEO.",

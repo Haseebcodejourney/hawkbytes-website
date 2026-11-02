@@ -239,7 +239,8 @@
 .hawk-chat-contact-link {
   display: inline-block;
   margin-top: 1.15rem;
-  color: var(--chat-muted);
+  color: #2bb89a;
+  font-weight: 600;
   font-size: 0.83rem;
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -503,6 +504,10 @@ html[data-theme="light"] .hawk-chat-widget {
   --chat-user-bubble: var(--indigo-650, #16a085);
   --chat-accent: var(--indigo-650, #16a085);
   --chat-accent-hover: var(--teal-500, #2bb89a);
+}
+
+html[data-theme="light"] .hawk-chat-contact-link {
+  color: var(--chat-accent);
 }
 
 html[data-theme="light"] .hawk-chat-launcher,

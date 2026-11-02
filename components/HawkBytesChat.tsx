@@ -33,25 +33,6 @@ const FAILED_REPLY: ChatReply = {
   link: { href: "/contact-us", label: "Contact our team" },
 };
 
-function SparkleIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M12 2.75 14.1 9.9l7.15 2.1-7.15 2.1L12 21.25 9.9 14.1l-7.15-2.1L9.9 9.9 12 2.75Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-      <path
-        d="m19 2 .65 2.35L22 5l-2.35.65L19 8l-.65-2.35L16 5l2.35-.65L19 2Z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function CloseIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -248,7 +229,7 @@ export default function HawkBytesChat() {
                       onClick={() => sendMessage(suggestion)}
                     >
                       <span className="hawk-chat-sparkle">
-                        <SparkleIcon />
+                        <HawkBytesMark />
                       </span>
                       <span>{suggestion}</span>
                       <span className="hawk-chat-suggestion-arrow">

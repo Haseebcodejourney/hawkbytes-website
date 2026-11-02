@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "@/components/i18n/LanguageProvider";

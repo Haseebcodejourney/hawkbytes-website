@@ -39,6 +39,22 @@ export default function VideoBlackKeyFilter() {
           <feFuncB type="table" tableValues="1 0.66 0.47 0.39" />
         </feComponentTransfer>
       </filter>
+      <filter id="badge-teal-on-light" colorInterpolationFilters="sRGB">
+        <feColorMatrix type="saturate" values="0" />
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="0.07 0.1 0.55 1 1" />
+          <feFuncG type="table" tableValues="0.56 0.66 0.85 1 1" />
+          <feFuncB type="table" tableValues="0.46 0.55 0.8 1 1" />
+        </feComponentTransfer>
+      </filter>
+      <filter id="quote-teal-on-light" colorInterpolationFilters="sRGB">
+        <feColorMatrix type="saturate" values="0" />
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="0.06 0.09 0.35" />
+          <feFuncG type="table" tableValues="0.5 0.63 0.82" />
+          <feFuncB type="table" tableValues="0.42 0.52 0.74" />
+        </feComponentTransfer>
+      </filter>
       <filter id="video-ink-green-multiply" colorInterpolationFilters="sRGB">
         <feColorMatrix type="saturate" values="0" />
         <feComponentTransfer>
